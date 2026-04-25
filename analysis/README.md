@@ -94,7 +94,101 @@ gold 规则说明：
   - `ood_social`：按 `b/c` 匹配距离桶（close/mid/far）均衡；  
   - `ood_career`：按 `alpha_2i` 桶、目标 firm、gold letter 联合均衡。
 
-## 1.2) 评测任务的意义
+## 1.2) Eval-A 27-cell 参数含义与分层分析
+
+Eval-A 的 27 cells 来自三维参数网格：`alpha × dispersion × skew`，每个维度三档（low/mid/high）。
+
+参数含义：
+
+- `alpha`：社会比较强度，即个体对社会参照 `R_i` 的敏感程度。  
+  越高表示越容易被同伴参照拉动。
+- `dispersion`：同伴权重 `g_ij` 的离散程度。  
+  low 更接近均匀权重，high 更接近单一同伴主导。
+- `skew`：同伴行动值 `x_j` 的偏态或拉开程度。  
+  low 表示同伴行动接近、对比度弱；high 表示同伴差异明显、对比度强。
+
+本次 27-cell 统计（见 notebook 新增 `Eval-A 27-Cell Analysis` 与导出 CSV）显示：
+
+- **共同难点集中在 low-skew 相关 cell**，说明当同伴行动差异不明显时，模型更容易把加权聚合规则退化为捷径规则。  
+- 在 `alpha` 中高且 `skew` 低的一些 cell 上，跨模型平均准确率更低，体现了高社会敏感场景下规则错配的放大效应。  
+- 存在若干 **高 spread cell**（不同模型差异大），说明这些 cell 更能区分结构能力，而不是随机波动。
+
+### 1.2.1 分模型参数统计（不用总体平均）
+
+#### A) `alpha` 分桶准确率（%）
+
+| Model | low | mid | high | best bucket |
+|---|---:|---:|---:|---|
+| gpt4 | 🏆 **63.89** | 49.40 | 41.47 | low |
+| ollama-qwen2-7b | 🏆 **53.97** | 43.65 | 42.26 | low |
+| ollama-llama3-1-latest | 🏆 **45.44** | 40.67 | 39.09 | low |
+| ollama-llama3-8b | 🏆 **45.83** | 37.30 | 37.90 | low |
+| Qwen | 🏆 **40.67** | 32.94 | 27.98 | low |
+| DeepSeek-R1-671B | 🏆 **27.58** | 23.41 | 19.25 | low |
+
+#### B) `dispersion` 分桶准确率（%）
+
+| Model | low | mid | high | best bucket |
+|---|---:|---:|---:|---|
+| gpt4 | 🏆 **52.38** | 50.40 | 51.98 | low |
+| ollama-qwen2-7b | 46.63 | 44.84 | 🏆 **48.41** | high |
+| ollama-llama3-1-latest | 40.87 | 42.06 | 🏆 **42.26** | high |
+| ollama-llama3-8b | 38.49 | 41.07 | 🏆 **41.47** | high |
+| Qwen | 33.73 | 🏆 **37.90** | 29.96 | mid |
+| DeepSeek-R1-671B | 23.61 | 🏆 **24.21** | 22.42 | mid |
+
+#### C) `skew` 分桶准确率（%）
+
+| Model | low | mid | high | best bucket |
+|---|---:|---:|---:|---|
+| gpt4 | 44.25 | 53.97 | 🏆 **56.55** | high |
+| ollama-qwen2-7b | 41.07 | 46.83 | 🏆 **51.98** | high |
+| ollama-llama3-1-latest | 36.90 | 42.26 | 🏆 **46.03** | high |
+| ollama-llama3-8b | 30.16 | 42.26 | 🏆 **48.61** | high |
+| Qwen | 🏆 **37.50** | 32.14 | 31.94 | low |
+| DeepSeek-R1-671B | 🏆 **27.98** | 23.02 | 19.25 | low |
+
+### 1.2.2 27-cell 细分与共性问题标记
+
+共性标记方法：
+
+- 对每个模型，取其 27 cells 中准确率落在该模型底部 25%（Q1）的 cells 记为 hard。  
+- 对每个 cell 统计 hard 投票数（0 到 6）。  
+- 当投票数 `>= 4/6` 时，记为共性问题 cell（✅）。
+
+| cell_id | hard votes (out of 6) | common issue | mean_acc (%) | spread (pt) |
+|---|---:|---|---:|---:|
+| `alpha_high__disp_low__skew_low` | 🔴 **6** | ✅ | 25.30 | 17.86 |
+| `alpha_high__disp_high__skew_mid` | 🔴 **5** | ✅ | 31.55 | 30.36 |
+| `alpha_mid__disp_mid__skew_low` | 🔴 **5** | ✅ | 30.95 | 26.79 |
+| `alpha_high__disp_high__skew_low` | 4 | ✅ | 32.44 | 21.43 |
+| `alpha_mid__disp_high__skew_low` | 4 | ✅ | 28.87 | 10.71 |
+| `alpha_mid__disp_low__skew_low` | 4 | ✅ | 31.25 | 17.86 |
+
+按模型最难 cell（每模型 Top-1）：
+
+| Model | hardest cell | acc (%) |
+|---|---|---:|
+| gpt4 | `alpha_high__disp_low__skew_low` | 26.79 |
+| ollama-qwen2-7b | `alpha_high__disp_low__skew_low` | 30.36 |
+| ollama-llama3-1-latest | `alpha_mid__disp_low__skew_low` | 25.00 |
+| ollama-llama3-8b | `alpha_high__disp_low__skew_low` | 19.64 |
+| Qwen | `alpha_low__disp_low__skew_high` | 17.86 |
+| DeepSeek-R1-671B | `alpha_high__disp_low__skew_mid` | 10.71 |
+
+可见：
+
+- 大多数模型的最难点落在 high/mid `alpha` 且 `skew_low` 一带。  
+- `alpha_high__disp_low__skew_low` 是最稳定的共性难点（6/6 投票）。
+
+
+对后续微调的直接启发：
+
+- 先用跨模型共同困难的 low-skew cells 构造 shared hard set。  
+- 再用每模型 `delta_vs_cell_mean` 最弱的 cells 做 model-specific hard mining。  
+- 训练目标优先抑制 `A_peer_weighted` 被 `top/closest`、`uniform avg`、`private baseline` 替代的现象。
+
+## 1.3) 评测任务的意义
 
 将结构能力拆成互补子能力，回答一个核心问题：  **模型是否真的学会了社会比较机制，而不是用表面启发式蒙对。**
 

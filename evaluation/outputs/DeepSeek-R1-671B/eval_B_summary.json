@@ -1,0 +1,127 @@
+{
+  "overall": {
+    "total": 280,
+    "correct": 167,
+    "accuracy": 0.5964
+  },
+  "by_split": {
+    "eval_B": {
+      "total": 280,
+      "correct": 167,
+      "accuracy": 0.5964
+    }
+  },
+  "slices": {
+    "perturbation": {
+      "ref_sum_up": {
+        "total": 56,
+        "correct": 42,
+        "accuracy": 0.75
+      },
+      "alpha_i_up": {
+        "total": 56,
+        "correct": 29,
+        "accuracy": 0.5179
+      },
+      "F_up": {
+        "total": 56,
+        "correct": 29,
+        "accuracy": 0.5179
+      },
+      "peer_action_up": {
+        "total": 56,
+        "correct": 41,
+        "accuracy": 0.7321
+      },
+      "top_weight_up": {
+        "total": 56,
+        "correct": 26,
+        "accuracy": 0.4643
+      }
+    },
+    "domain_key": {
+      "domain1_positional_consumption": {
+        "total": 160,
+        "correct": 96,
+        "accuracy": 0.6
+      },
+      "domain3_effort_and_human_capital": {
+        "total": 120,
+        "correct": 71,
+        "accuracy": 0.5917
+      }
+    },
+    "scene_id": {
+      "d1_wheels_03": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_travel_02": {
+        "total": 20,
+        "correct": 14,
+        "accuracy": 0.7
+      },
+      "d3_lang_02": {
+        "total": 20,
+        "correct": 14,
+        "accuracy": 0.7
+      },
+      "d3_recruit_02": {
+        "total": 20,
+        "correct": 14,
+        "accuracy": 0.7
+      },
+      "d3_leet_02": {
+        "total": 20,
+        "correct": 11,
+        "accuracy": 0.55
+      },
+      "d3_testprep_03": {
+        "total": 20,
+        "correct": 9,
+        "accuracy": 0.45
+      },
+      "d3_phd_03": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_gift_03": {
+        "total": 20,
+        "correct": 8,
+        "accuracy": 0.4
+      },
+      "d1_wearable_03": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_home_02": {
+        "total": 20,
+        "correct": 11,
+        "accuracy": 0.55
+      },
+      "d1_kids_02": {
+        "total": 20,
+        "correct": 11,
+        "accuracy": 0.55
+      },
+      "d1_dining_03": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d3_fellow_02": {
+        "total": 20,
+        "correct": 10,
+        "accuracy": 0.5
+      },
+      "d1_cele_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      }
+    }
+  }
+}

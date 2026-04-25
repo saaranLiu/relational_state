@@ -1,0 +1,108 @@
+{
+  "smoke_test_version": "w1_day1",
+  "seed": 42,
+  "scene": {
+    "scene_id": "d1_home_01",
+    "domain_key": "domain1_positional_consumption",
+    "family": "home_staging",
+    "title": "Housewarming main room refresh",
+    "summary": "A housewarming where the main room will be photographed by guests and posted.",
+    "action_label": "refresh budget",
+    "action_unit": "USD",
+    "value_format": "currency",
+    "F_range": [
+      400.0,
+      3000.0
+    ],
+    "peer_noun_plural": "friends"
+  },
+  "latent_langtry": {
+    "alpha_i": 0.091254,
+    "F": 465.028,
+    "N_peers": 3,
+    "x_j": [
+      551.8027,
+      484.1242,
+      431.69
+    ],
+    "g_ij": [
+      0.470931,
+      0.136971,
+      0.392098
+    ],
+    "ref_sum": 495.4367,
+    "x_i_star": 510.2387,
+    "alpha_bucket": "low",
+    "dispersion_bucket": "mid",
+    "skew_bucket": "low",
+    "cell_id": "alpha_low__disp_mid__skew_low",
+    "is_held_out_cell": false,
+    "peer_rank_by_g": [
+      0,
+      2,
+      1
+    ],
+    "peer_rank_by_x": [
+      0,
+      1,
+      2
+    ]
+  },
+  "rule_x_values": {
+    "A_peer_weighted": 510.2387,
+    "B_top_anchor": 515.3824,
+    "C_uniform_avg": 509.6701,
+    "D_pure_private": 465.028,
+    "E_closest_mimicry": 551.8027,
+    "F_median_anchor": 509.2064,
+    "G_counter_conformist": 419.8172,
+    "H_equal_mix": 480.2323
+  },
+  "gold_rule_id": "A_peer_weighted",
+  "distractor_pool_after_filter": [
+    "D_pure_private",
+    "E_closest_mimicry",
+    "G_counter_conformist",
+    "H_equal_mix"
+  ],
+  "mcq_options": [
+    {
+      "letter": "A",
+      "rule_id": "H_equal_mix",
+      "rule_short": "equal_mix",
+      "text": "Blend half the private floor with half of what the weighted friends are doing, regardless of peer-sensitivity — arrives near $480.",
+      "x_value": 480.2323,
+      "x_display": "$480"
+    },
+    {
+      "letter": "B",
+      "rule_id": "E_closest_mimicry",
+      "rule_short": "closest_mimicry",
+      "text": "Mirror the closest friend's level straight up, with no separate private-baseline term — near $552.",
+      "x_value": 551.8027,
+      "x_display": "$552"
+    },
+    {
+      "letter": "C",
+      "rule_id": "G_counter_conformist",
+      "rule_short": "counter_conformist",
+      "text": "Cut the refresh budget in the opposite direction of the visible friends trend, treating peer pull as a reason to pull back — near $420.",
+      "x_value": 419.8172,
+      "x_display": "$420"
+    },
+    {
+      "letter": "D",
+      "rule_id": "A_peer_weighted",
+      "rule_short": "peer_weighted",
+      "text": "Let each of the friends tug the refresh budget in proportion to how much weight that relationship carries, layered above the baseline need — near $510.",
+      "x_value": 510.2387,
+      "x_display": "$510"
+    }
+  ],
+  "gold_choice_letter": "D",
+  "cot_text": "Reasoning: This reads as a positional-consumption scene for the protagonist: the observable cues in the setting match that category. If it were positional-human-capital, then there is no study-hour or skill-signal race at stake, only a spend whose size is read socially, which is not what the scene actually shows. If it were non-positional, then the commitment is read off a shared social standard — peers' amounts are treated as a bar to meet, not just as other people's private situations, which likewise does not match the scene. Within this category, the commitment is lifted above the private baseline by a closeness-weighted reference drawn from the friends. The close-in-life relationships carry most of the weight; the more peripheral ones barely register. The comparison-sensitivity of the protagonist scales that aggregate pull before it stacks on top of the baseline floor. Gold rule: anchor on the baseline and lift by the closeness-weighted reference, giving a target refresh budget near $510.",
+  "audit": {
+    "mcq_rule_vocab_leaks_in_cot": [],
+    "forbidden_research_terms_in_cot": []
+  }
+}

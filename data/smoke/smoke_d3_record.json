@@ -1,0 +1,115 @@
+{
+  "smoke_test_version": "w1_day1",
+  "seed": 11,
+  "scene": {
+    "scene_id": "d3_recruit_01",
+    "domain_key": "domain3_effort_and_human_capital",
+    "family": "recruiting",
+    "title": "Referrals/week before the fall recruiting cycle",
+    "summary": "A consulting-recruiting club where weekly coffee-chats and referral DMs are logged.",
+    "action_label": "weekly coffee chats",
+    "action_unit": "chats",
+    "value_format": "index",
+    "F_range": [
+      4.0,
+      22.0
+    ],
+    "peer_noun_plural": "classmates"
+  },
+  "latent_langtry": {
+    "alpha_i": 0.917183,
+    "F": 19.4235,
+    "N_peers": 4,
+    "x_j": [
+      32.8168,
+      43.2271,
+      50.3924,
+      32.8886
+    ],
+    "g_ij": [
+      0.113362,
+      0.526176,
+      0.167937,
+      0.192525
+    ],
+    "ref_sum": 41.2599,
+    "x_i_star": 57.2664,
+    "alpha_bucket": "high",
+    "dispersion_bucket": "mid",
+    "skew_bucket": "mid",
+    "cell_id": "alpha_high__disp_mid__skew_mid",
+    "is_held_out_cell": false,
+    "peer_rank_by_g": [
+      1,
+      3,
+      2,
+      0
+    ],
+    "peer_rank_by_x": [
+      2,
+      1,
+      3,
+      0
+    ]
+  },
+  "rule_x_values": {
+    "A_peer_weighted": 57.2664,
+    "B_top_anchor": 59.0707,
+    "C_uniform_avg": 55.9561,
+    "D_pure_private": 19.4235,
+    "E_closest_mimicry": 43.2271,
+    "F_median_anchor": 54.3295,
+    "G_counter_conformist": 0.0,
+    "H_equal_mix": 30.3417
+  },
+  "gold_rule_id": "A_peer_weighted",
+  "distractor_pool_after_filter": [
+    "B_top_anchor",
+    "C_uniform_avg",
+    "D_pure_private",
+    "E_closest_mimicry",
+    "F_median_anchor",
+    "G_counter_conformist",
+    "H_equal_mix"
+  ],
+  "mcq_options": [
+    {
+      "letter": "A",
+      "rule_id": "H_equal_mix",
+      "rule_short": "equal_mix",
+      "text": "Take the midpoint of the baseline commitment and the group's weighted average, ignoring how sensitive this person is to peers — near 30.3 chats.",
+      "x_value": 30.3417,
+      "x_display": "30.3 chats"
+    },
+    {
+      "letter": "B",
+      "rule_id": "F_median_anchor",
+      "rule_short": "median_anchor",
+      "text": "Anchor on the middle classmate of the group and scale up the private floor by that median pull — arrives near 54.3 chats.",
+      "x_value": 54.3295,
+      "x_display": "54.3 chats"
+    },
+    {
+      "letter": "C",
+      "rule_id": "B_top_anchor",
+      "rule_short": "top_anchor",
+      "text": "Use the most tight-knit classmate's move as the only relevant pull above the baseline need — the weekly coffee chats ends up around 59.1 chats.",
+      "x_value": 59.0707,
+      "x_display": "59.1 chats"
+    },
+    {
+      "letter": "D",
+      "rule_id": "A_peer_weighted",
+      "rule_short": "peer_weighted",
+      "text": "Combine the baseline commitment with a closeness-weighted blend of what the classmates do, so familiar voices count more than distant ones — ends up near 57.3 chats.",
+      "x_value": 57.2664,
+      "x_display": "57.3 chats"
+    }
+  ],
+  "gold_choice_letter": "D",
+  "cot_text": "Reasoning: Before tagging, rule out the alternatives: this scene is not non-positional — study hours or practice counts are pinned in a shared channel the cohort reads. It is also not positional-consumption — the visible signal is hours-of-work or skill marks, not a consumption bill. What remains and fits the observable cues around the protagonist is positional-human-capital, so the scene-type flag is positional-human-capital. Within this category, the commitment is lifted above the private baseline by a closeness-weighted reference drawn from the classmates. The close-in-life relationships carry most of the weight; the more peripheral ones barely register. The comparison-sensitivity of the protagonist scales that aggregate pull before it stacks on top of the baseline floor. The implied commitment is the private floor plus the closeness-weighted peer reference, landing near 57.3 chats.",
+  "audit": {
+    "mcq_rule_vocab_leaks_in_cot": [],
+    "forbidden_research_terms_in_cot": []
+  }
+}

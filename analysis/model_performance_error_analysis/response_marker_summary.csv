@@ -1,0 +1,233 @@
+model_dir,dataset_split,mentions weighted language,total,correct,marker,accuracy_pct,mentions average language,mentions private baseline language,mentions closest-peer language
+DeepSeek-R1-671B,eval_A,False,2,0,mentions weighted language,0.0,,,
+DeepSeek-R1-671B,eval_A,True,1510,354,mentions weighted language,23.443708609271525,,,
+DeepSeek-R1-671B,eval_B,False,42,25,mentions weighted language,59.523809523809526,,,
+DeepSeek-R1-671B,eval_B,True,238,142,mentions weighted language,59.66386554621849,,,
+DeepSeek-R1-671B,placebo_test,False,72,63,mentions weighted language,87.5,,,
+DeepSeek-R1-671B,placebo_test,True,432,88,mentions weighted language,20.37037037037037,,,
+DeepSeek-R1-671B,ood_social,False,178,120,mentions weighted language,67.41573033707866,,,
+DeepSeek-R1-671B,ood_social,True,398,208,mentions weighted language,52.26130653266332,,,
+DeepSeek-R1-671B,ood_career,False,548,253,mentions weighted language,46.167883211678834,,,
+DeepSeek-R1-671B,ood_career,True,28,11,mentions weighted language,39.285714285714285,,,
+Qwen,eval_A,False,106,20,mentions weighted language,18.867924528301888,,,
+Qwen,eval_A,True,1406,492,mentions weighted language,34.99288762446657,,,
+Qwen,eval_B,False,100,83,mentions weighted language,83.0,,,
+Qwen,eval_B,True,180,113,mentions weighted language,62.77777777777778,,,
+Qwen,placebo_test,False,279,249,mentions weighted language,89.24731182795699,,,
+Qwen,placebo_test,True,225,52,mentions weighted language,23.11111111111111,,,
+Qwen,ood_social,False,335,254,mentions weighted language,75.82089552238806,,,
+Qwen,ood_social,True,241,126,mentions weighted language,52.28215767634855,,,
+Qwen,ood_career,False,567,281,mentions weighted language,49.55908289241623,,,
+Qwen,ood_career,True,9,4,mentions weighted language,44.44444444444444,,,
+gpt4,eval_A,False,332,63,mentions weighted language,18.97590361445783,,,
+gpt4,eval_A,True,1180,717,mentions weighted language,60.76271186440678,,,
+gpt4,eval_B,False,116,62,mentions weighted language,53.44827586206897,,,
+gpt4,eval_B,True,164,113,mentions weighted language,68.90243902439025,,,
+gpt4,placebo_test,False,478,475,mentions weighted language,99.3723849372385,,,
+gpt4,placebo_test,True,26,9,mentions weighted language,34.61538461538461,,,
+gpt4,ood_social,False,213,151,mentions weighted language,70.89201877934272,,,
+gpt4,ood_social,True,363,249,mentions weighted language,68.59504132231405,,,
+gpt4,ood_career,False,572,287,mentions weighted language,50.17482517482517,,,
+gpt4,ood_career,True,4,1,mentions weighted language,25.0,,,
+ollama-llama3-1-latest,eval_A,False,917,306,mentions weighted language,33.36968375136314,,,
+ollama-llama3-1-latest,eval_A,True,595,325,mentions weighted language,54.621848739495796,,,
+ollama-llama3-1-latest,eval_B,False,206,132,mentions weighted language,64.07766990291262,,,
+ollama-llama3-1-latest,eval_B,True,74,41,mentions weighted language,55.4054054054054,,,
+ollama-llama3-1-latest,placebo_test,False,451,367,mentions weighted language,81.37472283813747,,,
+ollama-llama3-1-latest,placebo_test,True,53,12,mentions weighted language,22.641509433962263,,,
+ollama-llama3-1-latest,ood_social,False,334,226,mentions weighted language,67.66467065868264,,,
+ollama-llama3-1-latest,ood_social,True,242,131,mentions weighted language,54.13223140495868,,,
+ollama-llama3-1-latest,ood_career,False,565,282,mentions weighted language,49.91150442477876,,,
+ollama-llama3-1-latest,ood_career,True,11,8,mentions weighted language,72.72727272727273,,,
+ollama-llama3-8b,eval_A,False,1142,418,mentions weighted language,36.60245183887916,,,
+ollama-llama3-8b,eval_A,True,370,192,mentions weighted language,51.891891891891895,,,
+ollama-llama3-8b,eval_B,False,221,134,mentions weighted language,60.633484162895925,,,
+ollama-llama3-8b,eval_B,True,59,29,mentions weighted language,49.152542372881356,,,
+ollama-llama3-8b,placebo_test,False,485,392,mentions weighted language,80.82474226804123,,,
+ollama-llama3-8b,placebo_test,True,19,8,mentions weighted language,42.10526315789474,,,
+ollama-llama3-8b,ood_social,False,529,311,mentions weighted language,58.790170132325144,,,
+ollama-llama3-8b,ood_social,True,47,33,mentions weighted language,70.2127659574468,,,
+ollama-llama3-8b,ood_career,False,571,296,mentions weighted language,51.838879159369526,,,
+ollama-llama3-8b,ood_career,True,5,2,mentions weighted language,40.0,,,
+ollama-qwen2-7b,eval_A,False,845,338,mentions weighted language,40.0,,,
+ollama-qwen2-7b,eval_A,True,667,367,mentions weighted language,55.02248875562219,,,
+ollama-qwen2-7b,eval_B,False,209,120,mentions weighted language,57.41626794258373,,,
+ollama-qwen2-7b,eval_B,True,71,38,mentions weighted language,53.521126760563384,,,
+ollama-qwen2-7b,placebo_test,False,463,430,mentions weighted language,92.87257019438445,,,
+ollama-qwen2-7b,placebo_test,True,41,32,mentions weighted language,78.04878048780488,,,
+ollama-qwen2-7b,ood_social,False,406,229,mentions weighted language,56.40394088669951,,,
+ollama-qwen2-7b,ood_social,True,170,112,mentions weighted language,65.88235294117646,,,
+ollama-qwen2-7b,ood_career,False,550,260,mentions weighted language,47.27272727272727,,,
+ollama-qwen2-7b,ood_career,True,26,14,mentions weighted language,53.84615384615385,,,
+DeepSeek-R1-671B,eval_A,,17,6,mentions average language,35.294117647058826,False,,
+DeepSeek-R1-671B,eval_A,,1495,348,mentions average language,23.277591973244146,True,,
+DeepSeek-R1-671B,eval_B,,138,88,mentions average language,63.768115942028984,False,,
+DeepSeek-R1-671B,eval_B,,142,79,mentions average language,55.63380281690141,True,,
+DeepSeek-R1-671B,placebo_test,,73,64,mentions average language,87.67123287671232,False,,
+DeepSeek-R1-671B,placebo_test,,431,87,mentions average language,20.185614849187935,True,,
+DeepSeek-R1-671B,ood_social,,282,205,mentions average language,72.69503546099291,False,,
+DeepSeek-R1-671B,ood_social,,294,123,mentions average language,41.83673469387755,True,,
+DeepSeek-R1-671B,ood_career,,64,24,mentions average language,37.5,False,,
+DeepSeek-R1-671B,ood_career,,512,240,mentions average language,46.875,True,,
+Qwen,eval_A,,414,268,mentions average language,64.73429951690821,False,,
+Qwen,eval_A,,1098,244,mentions average language,22.22222222222222,True,,
+Qwen,eval_B,,216,150,mentions average language,69.44444444444444,False,,
+Qwen,eval_B,,64,46,mentions average language,71.875,True,,
+Qwen,placebo_test,,272,249,mentions average language,91.54411764705883,False,,
+Qwen,placebo_test,,232,52,mentions average language,22.413793103448278,True,,
+Qwen,ood_social,,409,291,mentions average language,71.14914425427872,False,,
+Qwen,ood_social,,167,89,mentions average language,53.293413173652695,True,,
+Qwen,ood_career,,272,136,mentions average language,50.0,False,,
+Qwen,ood_career,,304,149,mentions average language,49.01315789473684,True,,
+gpt4,eval_A,,1343,704,mentions average language,52.41995532390171,False,,
+gpt4,eval_A,,169,76,mentions average language,44.97041420118343,True,,
+gpt4,eval_B,,272,169,mentions average language,62.13235294117647,False,,
+gpt4,eval_B,,8,6,mentions average language,75.0,True,,
+gpt4,placebo_test,,486,469,mentions average language,96.50205761316873,False,,
+gpt4,placebo_test,,18,15,mentions average language,83.33333333333333,True,,
+gpt4,ood_social,,514,355,mentions average language,69.06614785992218,False,,
+gpt4,ood_social,,62,45,mentions average language,72.58064516129032,True,,
+gpt4,ood_career,,351,183,mentions average language,52.136752136752136,False,,
+gpt4,ood_career,,225,105,mentions average language,46.666666666666664,True,,
+ollama-llama3-1-latest,eval_A,,1457,611,mentions average language,41.935483870967744,False,,
+ollama-llama3-1-latest,eval_A,,55,20,mentions average language,36.36363636363637,True,,
+ollama-llama3-1-latest,eval_B,,271,168,mentions average language,61.99261992619926,False,,
+ollama-llama3-1-latest,eval_B,,9,5,mentions average language,55.55555555555556,True,,
+ollama-llama3-1-latest,placebo_test,,484,367,mentions average language,75.82644628099173,False,,
+ollama-llama3-1-latest,placebo_test,,20,12,mentions average language,60.0,True,,
+ollama-llama3-1-latest,ood_social,,501,307,mentions average language,61.27744510978044,False,,
+ollama-llama3-1-latest,ood_social,,75,50,mentions average language,66.66666666666667,True,,
+ollama-llama3-1-latest,ood_career,,426,220,mentions average language,51.64319248826291,False,,
+ollama-llama3-1-latest,ood_career,,150,70,mentions average language,46.666666666666664,True,,
+ollama-llama3-8b,eval_A,,1479,595,mentions average language,40.229885057471265,False,,
+ollama-llama3-8b,eval_A,,33,15,mentions average language,45.45454545454545,True,,
+ollama-llama3-8b,eval_B,,272,158,mentions average language,58.088235294117645,False,,
+ollama-llama3-8b,eval_B,,8,5,mentions average language,62.5,True,,
+ollama-llama3-8b,placebo_test,,492,391,mentions average language,79.47154471544715,False,,
+ollama-llama3-8b,placebo_test,,12,9,mentions average language,75.0,True,,
+ollama-llama3-8b,ood_social,,513,314,mentions average language,61.20857699805068,False,,
+ollama-llama3-8b,ood_social,,63,30,mentions average language,47.61904761904762,True,,
+ollama-llama3-8b,ood_career,,495,255,mentions average language,51.515151515151516,False,,
+ollama-llama3-8b,ood_career,,81,43,mentions average language,53.08641975308642,True,,
+ollama-qwen2-7b,eval_A,,1417,670,mentions average language,47.28299223712068,False,,
+ollama-qwen2-7b,eval_A,,95,35,mentions average language,36.8421052631579,True,,
+ollama-qwen2-7b,eval_B,,277,156,mentions average language,56.31768953068592,False,,
+ollama-qwen2-7b,eval_B,,3,2,mentions average language,66.66666666666667,True,,
+ollama-qwen2-7b,placebo_test,,483,444,mentions average language,91.92546583850931,False,,
+ollama-qwen2-7b,placebo_test,,21,18,mentions average language,85.71428571428571,True,,
+ollama-qwen2-7b,ood_social,,478,283,mentions average language,59.20502092050209,False,,
+ollama-qwen2-7b,ood_social,,98,58,mentions average language,59.183673469387756,True,,
+ollama-qwen2-7b,ood_career,,307,154,mentions average language,50.1628664495114,False,,
+ollama-qwen2-7b,ood_career,,269,120,mentions average language,44.60966542750929,True,,
+DeepSeek-R1-671B,eval_A,,6,3,mentions private baseline language,50.0,,False,
+DeepSeek-R1-671B,eval_A,,1506,351,mentions private baseline language,23.306772908366533,,True,
+DeepSeek-R1-671B,eval_B,,45,33,mentions private baseline language,73.33333333333333,,False,
+DeepSeek-R1-671B,eval_B,,235,134,mentions private baseline language,57.02127659574468,,True,
+DeepSeek-R1-671B,placebo_test,,8,5,mentions private baseline language,62.5,,False,
+DeepSeek-R1-671B,placebo_test,,496,146,mentions private baseline language,29.43548387096774,,True,
+DeepSeek-R1-671B,ood_social,,562,323,mentions private baseline language,57.47330960854092,,False,
+DeepSeek-R1-671B,ood_social,,14,5,mentions private baseline language,35.714285714285715,,True,
+DeepSeek-R1-671B,ood_career,,560,257,mentions private baseline language,45.892857142857146,,False,
+DeepSeek-R1-671B,ood_career,,16,7,mentions private baseline language,43.75,,True,
+Qwen,eval_A,,98,58,mentions private baseline language,59.183673469387756,,False,
+Qwen,eval_A,,1414,454,mentions private baseline language,32.10749646393211,,True,
+Qwen,eval_B,,123,98,mentions private baseline language,79.67479674796748,,False,
+Qwen,eval_B,,157,98,mentions private baseline language,62.4203821656051,,True,
+Qwen,placebo_test,,41,36,mentions private baseline language,87.8048780487805,,False,
+Qwen,placebo_test,,463,265,mentions private baseline language,57.23542116630669,,True,
+Qwen,ood_social,,566,376,mentions private baseline language,66.43109540636043,,False,
+Qwen,ood_social,,10,4,mentions private baseline language,40.0,,True,
+Qwen,ood_career,,552,267,mentions private baseline language,48.369565217391305,,False,
+Qwen,ood_career,,24,18,mentions private baseline language,75.0,,True,
+gpt4,eval_A,,392,177,mentions private baseline language,45.1530612244898,,False,
+gpt4,eval_A,,1120,603,mentions private baseline language,53.839285714285715,,True,
+gpt4,eval_B,,164,96,mentions private baseline language,58.53658536585366,,False,
+gpt4,eval_B,,116,79,mentions private baseline language,68.10344827586206,,True,
+gpt4,placebo_test,,143,136,mentions private baseline language,95.1048951048951,,False,
+gpt4,placebo_test,,361,348,mentions private baseline language,96.39889196675901,,True,
+gpt4,ood_social,,571,398,mentions private baseline language,69.70227670753064,,False,
+gpt4,ood_social,,5,2,mentions private baseline language,40.0,,True,
+gpt4,ood_career,,560,277,mentions private baseline language,49.464285714285715,,False,
+gpt4,ood_career,,16,11,mentions private baseline language,68.75,,True,
+ollama-llama3-1-latest,eval_A,,628,277,mentions private baseline language,44.10828025477707,,False,
+ollama-llama3-1-latest,eval_A,,884,354,mentions private baseline language,40.04524886877828,,True,
+ollama-llama3-1-latest,eval_B,,183,113,mentions private baseline language,61.74863387978142,,False,
+ollama-llama3-1-latest,eval_B,,97,60,mentions private baseline language,61.855670103092784,,True,
+ollama-llama3-1-latest,placebo_test,,244,186,mentions private baseline language,76.22950819672131,,False,
+ollama-llama3-1-latest,placebo_test,,260,193,mentions private baseline language,74.23076923076923,,True,
+ollama-llama3-1-latest,ood_social,,560,348,mentions private baseline language,62.142857142857146,,False,
+ollama-llama3-1-latest,ood_social,,16,9,mentions private baseline language,56.25,,True,
+ollama-llama3-1-latest,ood_career,,574,290,mentions private baseline language,50.52264808362369,,False,
+ollama-llama3-1-latest,ood_career,,2,0,mentions private baseline language,0.0,,True,
+ollama-llama3-8b,eval_A,,907,378,mentions private baseline language,41.67585446527012,,False,
+ollama-llama3-8b,eval_A,,605,232,mentions private baseline language,38.34710743801653,,True,
+ollama-llama3-8b,eval_B,,219,132,mentions private baseline language,60.273972602739725,,False,
+ollama-llama3-8b,eval_B,,61,31,mentions private baseline language,50.81967213114754,,True,
+ollama-llama3-8b,placebo_test,,300,231,mentions private baseline language,77.0,,False,
+ollama-llama3-8b,placebo_test,,204,169,mentions private baseline language,82.84313725490196,,True,
+ollama-llama3-8b,ood_social,,565,337,mentions private baseline language,59.64601769911504,,False,
+ollama-llama3-8b,ood_social,,11,7,mentions private baseline language,63.63636363636363,,True,
+ollama-llama3-8b,ood_career,,576,298,mentions private baseline language,51.736111111111114,,False,
+ollama-qwen2-7b,eval_A,,587,285,mentions private baseline language,48.55195911413969,,False,
+ollama-qwen2-7b,eval_A,,925,420,mentions private baseline language,45.4054054054054,,True,
+ollama-qwen2-7b,eval_B,,147,83,mentions private baseline language,56.46258503401361,,False,
+ollama-qwen2-7b,eval_B,,133,75,mentions private baseline language,56.390977443609025,,True,
+ollama-qwen2-7b,placebo_test,,182,161,mentions private baseline language,88.46153846153847,,False,
+ollama-qwen2-7b,placebo_test,,322,301,mentions private baseline language,93.47826086956522,,True,
+ollama-qwen2-7b,ood_social,,524,314,mentions private baseline language,59.9236641221374,,False,
+ollama-qwen2-7b,ood_social,,52,27,mentions private baseline language,51.92307692307692,,True,
+ollama-qwen2-7b,ood_career,,540,257,mentions private baseline language,47.592592592592595,,False,
+ollama-qwen2-7b,ood_career,,36,17,mentions private baseline language,47.22222222222222,,True,
+DeepSeek-R1-671B,eval_A,,450,108,mentions closest-peer language,24.0,,,False
+DeepSeek-R1-671B,eval_A,,1062,246,mentions closest-peer language,23.163841807909606,,,True
+DeepSeek-R1-671B,eval_B,,180,114,mentions closest-peer language,63.333333333333336,,,False
+DeepSeek-R1-671B,eval_B,,100,53,mentions closest-peer language,53.0,,,True
+DeepSeek-R1-671B,placebo_test,,208,90,mentions closest-peer language,43.26923076923077,,,False
+DeepSeek-R1-671B,placebo_test,,296,61,mentions closest-peer language,20.60810810810811,,,True
+DeepSeek-R1-671B,ood_social,,530,317,mentions closest-peer language,59.81132075471698,,,False
+DeepSeek-R1-671B,ood_social,,46,11,mentions closest-peer language,23.91304347826087,,,True
+DeepSeek-R1-671B,ood_career,,576,264,mentions closest-peer language,45.833333333333336,,,False
+Qwen,eval_A,,695,321,mentions closest-peer language,46.18705035971223,,,False
+Qwen,eval_A,,817,191,mentions closest-peer language,23.378212974296204,,,True
+Qwen,eval_B,,214,150,mentions closest-peer language,70.09345794392523,,,False
+Qwen,eval_B,,66,46,mentions closest-peer language,69.6969696969697,,,True
+Qwen,placebo_test,,349,264,mentions closest-peer language,75.64469914040114,,,False
+Qwen,placebo_test,,155,37,mentions closest-peer language,23.870967741935484,,,True
+Qwen,ood_social,,508,348,mentions closest-peer language,68.50393700787401,,,False
+Qwen,ood_social,,68,32,mentions closest-peer language,47.05882352941177,,,True
+Qwen,ood_career,,576,285,mentions closest-peer language,49.479166666666664,,,False
+gpt4,eval_A,,1085,598,mentions closest-peer language,55.115207373271886,,,False
+gpt4,eval_A,,427,182,mentions closest-peer language,42.622950819672134,,,True
+gpt4,eval_B,,232,141,mentions closest-peer language,60.775862068965516,,,False
+gpt4,eval_B,,48,34,mentions closest-peer language,70.83333333333333,,,True
+gpt4,placebo_test,,493,483,mentions closest-peer language,97.97160243407708,,,False
+gpt4,placebo_test,,11,1,mentions closest-peer language,9.090909090909092,,,True
+gpt4,ood_social,,576,400,mentions closest-peer language,69.44444444444444,,,False
+gpt4,ood_career,,576,288,mentions closest-peer language,50.0,,,False
+ollama-llama3-1-latest,eval_A,,1374,569,mentions closest-peer language,41.41193595342067,,,False
+ollama-llama3-1-latest,eval_A,,138,62,mentions closest-peer language,44.927536231884055,,,True
+ollama-llama3-1-latest,eval_B,,268,167,mentions closest-peer language,62.3134328358209,,,False
+ollama-llama3-1-latest,eval_B,,12,6,mentions closest-peer language,50.0,,,True
+ollama-llama3-1-latest,placebo_test,,494,376,mentions closest-peer language,76.11336032388664,,,False
+ollama-llama3-1-latest,placebo_test,,10,3,mentions closest-peer language,30.0,,,True
+ollama-llama3-1-latest,ood_social,,574,355,mentions closest-peer language,61.846689895470384,,,False
+ollama-llama3-1-latest,ood_social,,2,2,mentions closest-peer language,100.0,,,True
+ollama-llama3-1-latest,ood_career,,575,290,mentions closest-peer language,50.43478260869565,,,False
+ollama-llama3-1-latest,ood_career,,1,0,mentions closest-peer language,0.0,,,True
+ollama-llama3-8b,eval_A,,1433,576,mentions closest-peer language,40.19539427773901,,,False
+ollama-llama3-8b,eval_A,,79,34,mentions closest-peer language,43.037974683544306,,,True
+ollama-llama3-8b,eval_B,,267,157,mentions closest-peer language,58.80149812734082,,,False
+ollama-llama3-8b,eval_B,,13,6,mentions closest-peer language,46.15384615384615,,,True
+ollama-llama3-8b,placebo_test,,498,397,mentions closest-peer language,79.71887550200803,,,False
+ollama-llama3-8b,placebo_test,,6,3,mentions closest-peer language,50.0,,,True
+ollama-llama3-8b,ood_social,,574,342,mentions closest-peer language,59.58188153310105,,,False
+ollama-llama3-8b,ood_social,,2,2,mentions closest-peer language,100.0,,,True
+ollama-llama3-8b,ood_career,,576,298,mentions closest-peer language,51.736111111111114,,,False
+ollama-qwen2-7b,eval_A,,1405,668,mentions closest-peer language,47.544483985765126,,,False
+ollama-qwen2-7b,eval_A,,107,37,mentions closest-peer language,34.57943925233645,,,True
+ollama-qwen2-7b,eval_B,,277,156,mentions closest-peer language,56.31768953068592,,,False
+ollama-qwen2-7b,eval_B,,3,2,mentions closest-peer language,66.66666666666667,,,True
+ollama-qwen2-7b,placebo_test,,501,460,mentions closest-peer language,91.81636726546907,,,False
+ollama-qwen2-7b,placebo_test,,3,2,mentions closest-peer language,66.66666666666667,,,True
+ollama-qwen2-7b,ood_social,,576,341,mentions closest-peer language,59.201388888888886,,,False
+ollama-qwen2-7b,ood_career,,576,274,mentions closest-peer language,47.56944444444444,,,False

@@ -1,0 +1,128 @@
+dataset_split,model_dir,error_cause,n,task_errors,share_of_model_task_errors
+eval_A,DeepSeek-R1-671B,copies closest peer directly,125,1158,0.1079447322970639
+eval_A,DeepSeek-R1-671B,format / parse failure,2,1158,0.0017271157167530224
+eval_A,DeepSeek-R1-671B,ignores social reference in positional task,95,1158,0.08203799654576857
+eval_A,DeepSeek-R1-671B,other rule confusion: A_peer_weighted -> G_counter_conformist,96,1158,0.08290155440414508
+eval_A,DeepSeek-R1-671B,other rule confusion: A_peer_weighted -> H_equal_mix,198,1158,0.17098445595854922
+eval_A,DeepSeek-R1-671B,over-anchors on closest/highest peer,184,1158,0.15889464594127806
+eval_A,DeepSeek-R1-671B,uses flat average instead of closeness weights,245,1158,0.21157167530224524
+eval_A,DeepSeek-R1-671B,uses median/central peer shortcut,213,1158,0.18393782383419688
+eval_A,Qwen,copies closest peer directly,146,1000,0.146
+eval_A,Qwen,format / parse failure,7,1000,0.007
+eval_A,Qwen,ignores social reference in positional task,103,1000,0.103
+eval_A,Qwen,other rule confusion: A_peer_weighted -> G_counter_conformist,34,1000,0.034
+eval_A,Qwen,other rule confusion: A_peer_weighted -> H_equal_mix,155,1000,0.155
+eval_A,Qwen,over-anchors on closest/highest peer,176,1000,0.176
+eval_A,Qwen,uses flat average instead of closeness weights,205,1000,0.205
+eval_A,Qwen,uses median/central peer shortcut,174,1000,0.174
+eval_A,gpt4,copies closest peer directly,153,732,0.20901639344262296
+eval_A,gpt4,ignores social reference in positional task,135,732,0.18442622950819673
+eval_A,gpt4,other rule confusion: A_peer_weighted -> G_counter_conformist,4,732,0.00546448087431694
+eval_A,gpt4,other rule confusion: A_peer_weighted -> H_equal_mix,163,732,0.2226775956284153
+eval_A,gpt4,over-anchors on closest/highest peer,202,732,0.27595628415300544
+eval_A,gpt4,uses flat average instead of closeness weights,26,732,0.03551912568306011
+eval_A,gpt4,uses median/central peer shortcut,49,732,0.06693989071038252
+eval_A,ollama-llama3-1-latest,copies closest peer directly,141,881,0.16004540295119182
+eval_A,ollama-llama3-1-latest,ignores social reference in positional task,239,881,0.27128263337116915
+eval_A,ollama-llama3-1-latest,other rule confusion: A_peer_weighted -> G_counter_conformist,69,881,0.07832009080590238
+eval_A,ollama-llama3-1-latest,other rule confusion: A_peer_weighted -> H_equal_mix,113,881,0.1282633371169126
+eval_A,ollama-llama3-1-latest,over-anchors on closest/highest peer,153,881,0.17366628830874006
+eval_A,ollama-llama3-1-latest,uses flat average instead of closeness weights,67,881,0.07604994324631101
+eval_A,ollama-llama3-1-latest,uses median/central peer shortcut,99,881,0.11237230419977298
+eval_A,ollama-llama3-8b,copies closest peer directly,157,902,0.17405764966740578
+eval_A,ollama-llama3-8b,ignores social reference in positional task,252,902,0.2793791574279379
+eval_A,ollama-llama3-8b,other rule confusion: A_peer_weighted -> G_counter_conformist,55,902,0.06097560975609756
+eval_A,ollama-llama3-8b,other rule confusion: A_peer_weighted -> H_equal_mix,126,902,0.13968957871396895
+eval_A,ollama-llama3-8b,over-anchors on closest/highest peer,136,902,0.15077605321507762
+eval_A,ollama-llama3-8b,uses flat average instead of closeness weights,58,902,0.06430155210643015
+eval_A,ollama-llama3-8b,uses median/central peer shortcut,118,902,0.13082039911308205
+eval_A,ollama-qwen2-7b,copies closest peer directly,143,807,0.1771995043370508
+eval_A,ollama-qwen2-7b,ignores social reference in positional task,207,807,0.25650557620817843
+eval_A,ollama-qwen2-7b,other rule confusion: A_peer_weighted -> G_counter_conformist,13,807,0.0161090458488228
+eval_A,ollama-qwen2-7b,other rule confusion: A_peer_weighted -> H_equal_mix,113,807,0.14002478314745972
+eval_A,ollama-qwen2-7b,over-anchors on closest/highest peer,131,807,0.1623296158612144
+eval_A,ollama-qwen2-7b,uses flat average instead of closeness weights,77,807,0.09541511771995044
+eval_A,ollama-qwen2-7b,uses median/central peer shortcut,123,807,0.1524163568773234
+eval_B,DeepSeek-R1-671B,format / parse failure,2,113,0.017699115044247787
+eval_B,DeepSeek-R1-671B,misreads closeness-weight redistribution,29,113,0.25663716814159293
+eval_B,DeepSeek-R1-671B,misses peer-action level change,14,113,0.12389380530973451
+eval_B,DeepSeek-R1-671B,misses private-baseline F change,27,113,0.23893805309734514
+eval_B,DeepSeek-R1-671B,misses social-sensitivity alpha change,27,113,0.23893805309734514
+eval_B,DeepSeek-R1-671B,misses weighted reference aggregate change,14,113,0.12389380530973451
+eval_B,Qwen,misreads closeness-weight redistribution,25,84,0.2976190476190476
+eval_B,Qwen,misses peer-action level change,5,84,0.05952380952380952
+eval_B,Qwen,misses private-baseline F change,26,84,0.30952380952380953
+eval_B,Qwen,misses social-sensitivity alpha change,24,84,0.2857142857142857
+eval_B,Qwen,misses weighted reference aggregate change,4,84,0.047619047619047616
+eval_B,gpt4,format / parse failure,32,105,0.3047619047619048
+eval_B,gpt4,misreads closeness-weight redistribution,24,105,0.22857142857142856
+eval_B,gpt4,misses peer-action level change,6,105,0.05714285714285714
+eval_B,gpt4,misses private-baseline F change,21,105,0.2
+eval_B,gpt4,misses social-sensitivity alpha change,21,105,0.2
+eval_B,gpt4,misses weighted reference aggregate change,1,105,0.009523809523809525
+eval_B,ollama-llama3-1-latest,misreads closeness-weight redistribution,27,107,0.2523364485981308
+eval_B,ollama-llama3-1-latest,misses peer-action level change,15,107,0.14018691588785046
+eval_B,ollama-llama3-1-latest,misses private-baseline F change,20,107,0.18691588785046728
+eval_B,ollama-llama3-1-latest,misses social-sensitivity alpha change,32,107,0.29906542056074764
+eval_B,ollama-llama3-1-latest,misses weighted reference aggregate change,13,107,0.12149532710280374
+eval_B,ollama-llama3-8b,misreads closeness-weight redistribution,29,117,0.24786324786324787
+eval_B,ollama-llama3-8b,misses peer-action level change,18,117,0.15384615384615385
+eval_B,ollama-llama3-8b,misses private-baseline F change,26,117,0.2222222222222222
+eval_B,ollama-llama3-8b,misses social-sensitivity alpha change,25,117,0.21367521367521367
+eval_B,ollama-llama3-8b,misses weighted reference aggregate change,19,117,0.1623931623931624
+eval_B,ollama-qwen2-7b,misreads closeness-weight redistribution,30,122,0.2459016393442623
+eval_B,ollama-qwen2-7b,misses peer-action level change,19,122,0.1557377049180328
+eval_B,ollama-qwen2-7b,misses private-baseline F change,31,122,0.2540983606557377
+eval_B,ollama-qwen2-7b,misses social-sensitivity alpha change,20,122,0.16393442622950818
+eval_B,ollama-qwen2-7b,misses weighted reference aggregate change,22,122,0.18032786885245902
+placebo_test,DeepSeek-R1-671B,format / parse failure,8,353,0.0226628895184136
+placebo_test,DeepSeek-R1-671B,hallucinates peer-weighted pull in placebo,42,353,0.11898016997167139
+placebo_test,DeepSeek-R1-671B,other placebo confusion: D_pure_private -> G_counter_conformist,28,353,0.07932011331444759
+placebo_test,DeepSeek-R1-671B,other placebo confusion: D_pure_private -> H_equal_mix,62,353,0.17563739376770537
+placebo_test,DeepSeek-R1-671B,uses social shortcut although gold is private baseline,213,353,0.603399433427762
+placebo_test,Qwen,format / parse failure,3,203,0.014778325123152709
+placebo_test,Qwen,hallucinates peer-weighted pull in placebo,27,203,0.1330049261083744
+placebo_test,Qwen,other placebo confusion: D_pure_private -> G_counter_conformist,9,203,0.04433497536945813
+placebo_test,Qwen,other placebo confusion: D_pure_private -> H_equal_mix,26,203,0.12807881773399016
+placebo_test,Qwen,uses social shortcut although gold is private baseline,138,203,0.6798029556650246
+placebo_test,gpt4,hallucinates peer-weighted pull in placebo,10,20,0.5
+placebo_test,gpt4,other placebo confusion: D_pure_private -> H_equal_mix,2,20,0.1
+placebo_test,gpt4,uses social shortcut although gold is private baseline,8,20,0.4
+placebo_test,ollama-llama3-1-latest,hallucinates peer-weighted pull in placebo,36,125,0.288
+placebo_test,ollama-llama3-1-latest,other placebo confusion: D_pure_private -> G_counter_conformist,8,125,0.064
+placebo_test,ollama-llama3-1-latest,other placebo confusion: D_pure_private -> H_equal_mix,21,125,0.168
+placebo_test,ollama-llama3-1-latest,uses social shortcut although gold is private baseline,60,125,0.48
+placebo_test,ollama-llama3-8b,hallucinates peer-weighted pull in placebo,25,104,0.2403846153846154
+placebo_test,ollama-llama3-8b,other placebo confusion: D_pure_private -> G_counter_conformist,10,104,0.09615384615384616
+placebo_test,ollama-llama3-8b,other placebo confusion: D_pure_private -> H_equal_mix,13,104,0.125
+placebo_test,ollama-llama3-8b,uses social shortcut although gold is private baseline,56,104,0.5384615384615384
+placebo_test,ollama-qwen2-7b,hallucinates peer-weighted pull in placebo,14,42,0.3333333333333333
+placebo_test,ollama-qwen2-7b,other placebo confusion: D_pure_private -> G_counter_conformist,1,42,0.023809523809523808
+placebo_test,ollama-qwen2-7b,other placebo confusion: D_pure_private -> H_equal_mix,6,42,0.14285714285714285
+placebo_test,ollama-qwen2-7b,uses social shortcut although gold is private baseline,21,42,0.5
+ood_social,DeepSeek-R1-671B,format / parse failure,1,248,0.004032258064516129
+ood_social,DeepSeek-R1-671B,misses b/c matching stability criterion,247,248,0.9959677419354839
+ood_social,Qwen,format / parse failure,1,196,0.00510204081632653
+ood_social,Qwen,misses b/c matching stability criterion,195,196,0.9948979591836735
+ood_social,gpt4,misses b/c matching stability criterion,176,176,1.0
+ood_social,ollama-llama3-1-latest,misses b/c matching stability criterion,219,219,1.0
+ood_social,ollama-llama3-8b,misses b/c matching stability criterion,232,232,1.0
+ood_social,ollama-qwen2-7b,misses b/c matching stability criterion,235,235,1.0
+ood_career,DeepSeek-R1-671B,format / parse failure,17,312,0.05448717948717949
+ood_career,DeepSeek-R1-671B,overweights absolute salary / prestige,227,312,0.7275641025641025
+ood_career,DeepSeek-R1-671B,overweights relative status versus Langtry threshold,68,312,0.21794871794871795
+ood_career,Qwen,format / parse failure,2,291,0.006872852233676976
+ood_career,Qwen,overweights absolute salary / prestige,258,291,0.8865979381443299
+ood_career,Qwen,overweights relative status versus Langtry threshold,31,291,0.10652920962199312
+ood_career,gpt4,career threshold tradeoff error,1,288,0.003472222222222222
+ood_career,gpt4,overweights absolute salary / prestige,173,288,0.6006944444444444
+ood_career,gpt4,overweights relative status versus Langtry threshold,114,288,0.3958333333333333
+ood_career,ollama-llama3-1-latest,career threshold tradeoff error,31,286,0.10839160839160839
+ood_career,ollama-llama3-1-latest,overweights absolute salary / prestige,89,286,0.3111888111888112
+ood_career,ollama-llama3-1-latest,overweights relative status versus Langtry threshold,166,286,0.5804195804195804
+ood_career,ollama-llama3-8b,career threshold tradeoff error,19,278,0.0683453237410072
+ood_career,ollama-llama3-8b,overweights absolute salary / prestige,28,278,0.10071942446043165
+ood_career,ollama-llama3-8b,overweights relative status versus Langtry threshold,231,278,0.8309352517985612
+ood_career,ollama-qwen2-7b,career threshold tradeoff error,7,302,0.023178807947019868
+ood_career,ollama-qwen2-7b,overweights absolute salary / prestige,65,302,0.2152317880794702
+ood_career,ollama-qwen2-7b,overweights relative status versus Langtry threshold,230,302,0.7615894039735099

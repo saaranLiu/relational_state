@@ -1,0 +1,119 @@
+{
+  "smoke_test_version": "w1_day1",
+  "seed": 7,
+  "scene": {
+    "scene_id": "d2_home_01",
+    "domain_key": "domain2_non_positional_investment",
+    "family": "maintenance",
+    "title": "Boiler service timing",
+    "summary": "A boiler-service timing decision; nobody visits the utility cupboard and the outcome is purely private comfort.",
+    "action_label": "maintenance cost",
+    "action_unit": "USD",
+    "value_format": "currency",
+    "F_range": [
+      120.0,
+      680.0
+    ],
+    "peer_noun_plural": ""
+  },
+  "latent_langtry": {
+    "alpha_i": 0.002414,
+    "F": 341.1012,
+    "N_peers": 5,
+    "x_j": [
+      1879.9495,
+      872.9827,
+      902.2356,
+      841.3339,
+      880.8534
+    ],
+    "g_ij": [
+      0.46412,
+      0.08154,
+      0.125631,
+      0.169106,
+      0.159603
+    ],
+    "ref_sum": 1339.9149,
+    "x_i_star": 344.3361,
+    "alpha_bucket": "low",
+    "dispersion_bucket": "mid",
+    "skew_bucket": "high",
+    "cell_id": "alpha_low__disp_mid__skew_high",
+    "is_held_out_cell": false,
+    "peer_rank_by_g": [
+      0,
+      3,
+      4,
+      2,
+      1
+    ],
+    "peer_rank_by_x": [
+      0,
+      2,
+      4,
+      1,
+      3
+    ]
+  },
+  "rule_x_values": {
+    "A_peer_weighted": 344.3361,
+    "B_top_anchor": 345.64,
+    "C_uniform_avg": 343.6977,
+    "D_pure_private": 341.1012,
+    "E_closest_mimicry": 1879.9495,
+    "F_median_anchor": 343.2278,
+    "G_counter_conformist": 337.8662,
+    "H_equal_mix": 840.508
+  },
+  "gold_rule_id": "D_pure_private",
+  "distractor_pool_after_filter": [
+    "A_peer_weighted",
+    "B_top_anchor",
+    "C_uniform_avg",
+    "E_closest_mimicry",
+    "F_median_anchor",
+    "G_counter_conformist",
+    "H_equal_mix"
+  ],
+  "mcq_options": [
+    {
+      "letter": "A",
+      "rule_id": "B_top_anchor",
+      "rule_short": "top_anchor",
+      "text": "Let the single closest peer set the tone on top of the private floor; the rest of the circle fades into background — around $346.",
+      "x_value": 345.64,
+      "x_display": "$346"
+    },
+    {
+      "letter": "B",
+      "rule_id": "D_pure_private",
+      "rule_short": "pure_private",
+      "text": "Ignore the peers altogether and commit to exactly the level that the private cost-and-need calculation would justify — about $341.",
+      "x_value": 341.1012,
+      "x_display": "$341"
+    },
+    {
+      "letter": "C",
+      "rule_id": "A_peer_weighted",
+      "rule_short": "peer_weighted",
+      "text": "Combine the baseline commitment with a closeness-weighted blend of what the peers do, so familiar voices count more than distant ones — ends up near $344.",
+      "x_value": 344.3361,
+      "x_display": "$344"
+    },
+    {
+      "letter": "D",
+      "rule_id": "F_median_anchor",
+      "rule_short": "median_anchor",
+      "text": "Anchor on the middle peer of the group and scale up the private floor by that median pull — arrives near $343.",
+      "x_value": 343.2278,
+      "x_display": "$343"
+    }
+  ],
+  "gold_choice_letter": "B",
+  "cot_text": "Reasoning: Scene-type flag: non-positional. The observable cues around the protagonist place this inside the non-positional category. Counterfactual check: this is not positional-consumption because no audience will see this commitment; there are no feeds or group chats that surface the choice; it is also not positional-human-capital because there is no cohort channel or leaderboard comparing the hours or the output. Without a visible audience there is no peer pull to layer on anything. The private baseline on this margin -- what the protagonist would commit to with nobody watching -- already captures the full reasonable level. Gold rule: hold the private floor; the target maintenance cost equals the baseline, near $344.",
+  "audit": {
+    "mcq_rule_vocab_leaks_in_cot": [],
+    "forbidden_research_terms_in_cot": []
+  }
+}

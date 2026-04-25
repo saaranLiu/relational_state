@@ -1,0 +1,82 @@
+model_dir,dataset_split,gold_rule_id,parsed_rule_id,n,task_errors,share_of_task_errors,parsed_rule_meaning
+DeepSeek-R1-671B,eval_A,A_peer_weighted,B_top_anchor,184,1156,0.15916955017301038,Shortcut: closest/top peer stacked on baseline
+DeepSeek-R1-671B,eval_A,A_peer_weighted,C_uniform_avg,245,1156,0.21193771626297578,Shortcut: flat peer average instead of g_ij weights
+DeepSeek-R1-671B,eval_A,A_peer_weighted,D_pure_private,95,1156,0.08217993079584775,Private baseline only; should dominate placebo
+DeepSeek-R1-671B,eval_A,A_peer_weighted,E_closest_mimicry,125,1156,0.10813148788927336,Shortcut: clone closest peer directly
+DeepSeek-R1-671B,eval_A,A_peer_weighted,F_median_anchor,213,1156,0.1842560553633218,Shortcut: median peer anchor
+DeepSeek-R1-671B,eval_A,A_peer_weighted,G_counter_conformist,96,1156,0.08304498269896193,Counter-conformist distractor
+DeepSeek-R1-671B,eval_A,A_peer_weighted,H_equal_mix,198,1156,0.17128027681660898,Equal mix of private baseline and social aggregate
+DeepSeek-R1-671B,placebo_test,D_pure_private,A_peer_weighted,42,345,0.12173913043478261,Langtry gold: baseline + alpha * closeness-weighted peer reference
+DeepSeek-R1-671B,placebo_test,D_pure_private,B_top_anchor,50,345,0.14492753623188406,Shortcut: closest/top peer stacked on baseline
+DeepSeek-R1-671B,placebo_test,D_pure_private,C_uniform_avg,78,345,0.22608695652173913,Shortcut: flat peer average instead of g_ij weights
+DeepSeek-R1-671B,placebo_test,D_pure_private,E_closest_mimicry,32,345,0.0927536231884058,Shortcut: clone closest peer directly
+DeepSeek-R1-671B,placebo_test,D_pure_private,F_median_anchor,53,345,0.1536231884057971,Shortcut: median peer anchor
+DeepSeek-R1-671B,placebo_test,D_pure_private,G_counter_conformist,28,345,0.08115942028985507,Counter-conformist distractor
+DeepSeek-R1-671B,placebo_test,D_pure_private,H_equal_mix,62,345,0.17971014492753623,Equal mix of private baseline and social aggregate
+Qwen,eval_A,A_peer_weighted,B_top_anchor,176,993,0.1772406847935549,Shortcut: closest/top peer stacked on baseline
+Qwen,eval_A,A_peer_weighted,C_uniform_avg,205,993,0.20644511581067473,Shortcut: flat peer average instead of g_ij weights
+Qwen,eval_A,A_peer_weighted,D_pure_private,103,993,0.10372608257804633,Private baseline only; should dominate placebo
+Qwen,eval_A,A_peer_weighted,E_closest_mimicry,146,993,0.1470292044310171,Shortcut: clone closest peer directly
+Qwen,eval_A,A_peer_weighted,F_median_anchor,174,993,0.17522658610271905,Shortcut: median peer anchor
+Qwen,eval_A,A_peer_weighted,G_counter_conformist,34,993,0.03423967774420947,Counter-conformist distractor
+Qwen,eval_A,A_peer_weighted,H_equal_mix,155,993,0.15609264853977844,Equal mix of private baseline and social aggregate
+Qwen,placebo_test,D_pure_private,A_peer_weighted,27,200,0.135,Langtry gold: baseline + alpha * closeness-weighted peer reference
+Qwen,placebo_test,D_pure_private,B_top_anchor,39,200,0.195,Shortcut: closest/top peer stacked on baseline
+Qwen,placebo_test,D_pure_private,C_uniform_avg,32,200,0.16,Shortcut: flat peer average instead of g_ij weights
+Qwen,placebo_test,D_pure_private,E_closest_mimicry,14,200,0.07,Shortcut: clone closest peer directly
+Qwen,placebo_test,D_pure_private,F_median_anchor,53,200,0.265,Shortcut: median peer anchor
+Qwen,placebo_test,D_pure_private,G_counter_conformist,9,200,0.045,Counter-conformist distractor
+Qwen,placebo_test,D_pure_private,H_equal_mix,26,200,0.13,Equal mix of private baseline and social aggregate
+gpt4,eval_A,A_peer_weighted,B_top_anchor,202,732,0.27595628415300544,Shortcut: closest/top peer stacked on baseline
+gpt4,eval_A,A_peer_weighted,C_uniform_avg,26,732,0.03551912568306011,Shortcut: flat peer average instead of g_ij weights
+gpt4,eval_A,A_peer_weighted,D_pure_private,135,732,0.18442622950819673,Private baseline only; should dominate placebo
+gpt4,eval_A,A_peer_weighted,E_closest_mimicry,153,732,0.20901639344262296,Shortcut: clone closest peer directly
+gpt4,eval_A,A_peer_weighted,F_median_anchor,49,732,0.06693989071038252,Shortcut: median peer anchor
+gpt4,eval_A,A_peer_weighted,G_counter_conformist,4,732,0.00546448087431694,Counter-conformist distractor
+gpt4,eval_A,A_peer_weighted,H_equal_mix,163,732,0.2226775956284153,Equal mix of private baseline and social aggregate
+gpt4,placebo_test,D_pure_private,A_peer_weighted,10,20,0.5,Langtry gold: baseline + alpha * closeness-weighted peer reference
+gpt4,placebo_test,D_pure_private,B_top_anchor,7,20,0.35,Shortcut: closest/top peer stacked on baseline
+gpt4,placebo_test,D_pure_private,F_median_anchor,1,20,0.05,Shortcut: median peer anchor
+gpt4,placebo_test,D_pure_private,H_equal_mix,2,20,0.1,Equal mix of private baseline and social aggregate
+ollama-llama3-1-latest,eval_A,A_peer_weighted,B_top_anchor,153,881,0.17366628830874006,Shortcut: closest/top peer stacked on baseline
+ollama-llama3-1-latest,eval_A,A_peer_weighted,C_uniform_avg,67,881,0.07604994324631101,Shortcut: flat peer average instead of g_ij weights
+ollama-llama3-1-latest,eval_A,A_peer_weighted,D_pure_private,239,881,0.27128263337116915,Private baseline only; should dominate placebo
+ollama-llama3-1-latest,eval_A,A_peer_weighted,E_closest_mimicry,141,881,0.16004540295119182,Shortcut: clone closest peer directly
+ollama-llama3-1-latest,eval_A,A_peer_weighted,F_median_anchor,99,881,0.11237230419977298,Shortcut: median peer anchor
+ollama-llama3-1-latest,eval_A,A_peer_weighted,G_counter_conformist,69,881,0.07832009080590238,Counter-conformist distractor
+ollama-llama3-1-latest,eval_A,A_peer_weighted,H_equal_mix,113,881,0.1282633371169126,Equal mix of private baseline and social aggregate
+ollama-llama3-1-latest,placebo_test,D_pure_private,A_peer_weighted,36,125,0.288,Langtry gold: baseline + alpha * closeness-weighted peer reference
+ollama-llama3-1-latest,placebo_test,D_pure_private,B_top_anchor,21,125,0.168,Shortcut: closest/top peer stacked on baseline
+ollama-llama3-1-latest,placebo_test,D_pure_private,C_uniform_avg,6,125,0.048,Shortcut: flat peer average instead of g_ij weights
+ollama-llama3-1-latest,placebo_test,D_pure_private,E_closest_mimicry,12,125,0.096,Shortcut: clone closest peer directly
+ollama-llama3-1-latest,placebo_test,D_pure_private,F_median_anchor,21,125,0.168,Shortcut: median peer anchor
+ollama-llama3-1-latest,placebo_test,D_pure_private,G_counter_conformist,8,125,0.064,Counter-conformist distractor
+ollama-llama3-1-latest,placebo_test,D_pure_private,H_equal_mix,21,125,0.168,Equal mix of private baseline and social aggregate
+ollama-llama3-8b,eval_A,A_peer_weighted,B_top_anchor,136,902,0.15077605321507762,Shortcut: closest/top peer stacked on baseline
+ollama-llama3-8b,eval_A,A_peer_weighted,C_uniform_avg,58,902,0.06430155210643015,Shortcut: flat peer average instead of g_ij weights
+ollama-llama3-8b,eval_A,A_peer_weighted,D_pure_private,252,902,0.2793791574279379,Private baseline only; should dominate placebo
+ollama-llama3-8b,eval_A,A_peer_weighted,E_closest_mimicry,157,902,0.17405764966740578,Shortcut: clone closest peer directly
+ollama-llama3-8b,eval_A,A_peer_weighted,F_median_anchor,118,902,0.13082039911308205,Shortcut: median peer anchor
+ollama-llama3-8b,eval_A,A_peer_weighted,G_counter_conformist,55,902,0.06097560975609756,Counter-conformist distractor
+ollama-llama3-8b,eval_A,A_peer_weighted,H_equal_mix,126,902,0.13968957871396895,Equal mix of private baseline and social aggregate
+ollama-llama3-8b,placebo_test,D_pure_private,A_peer_weighted,25,104,0.2403846153846154,Langtry gold: baseline + alpha * closeness-weighted peer reference
+ollama-llama3-8b,placebo_test,D_pure_private,B_top_anchor,15,104,0.14423076923076922,Shortcut: closest/top peer stacked on baseline
+ollama-llama3-8b,placebo_test,D_pure_private,C_uniform_avg,11,104,0.10576923076923077,Shortcut: flat peer average instead of g_ij weights
+ollama-llama3-8b,placebo_test,D_pure_private,E_closest_mimicry,16,104,0.15384615384615385,Shortcut: clone closest peer directly
+ollama-llama3-8b,placebo_test,D_pure_private,F_median_anchor,14,104,0.1346153846153846,Shortcut: median peer anchor
+ollama-llama3-8b,placebo_test,D_pure_private,G_counter_conformist,10,104,0.09615384615384616,Counter-conformist distractor
+ollama-llama3-8b,placebo_test,D_pure_private,H_equal_mix,13,104,0.125,Equal mix of private baseline and social aggregate
+ollama-qwen2-7b,eval_A,A_peer_weighted,B_top_anchor,131,807,0.1623296158612144,Shortcut: closest/top peer stacked on baseline
+ollama-qwen2-7b,eval_A,A_peer_weighted,C_uniform_avg,77,807,0.09541511771995044,Shortcut: flat peer average instead of g_ij weights
+ollama-qwen2-7b,eval_A,A_peer_weighted,D_pure_private,207,807,0.25650557620817843,Private baseline only; should dominate placebo
+ollama-qwen2-7b,eval_A,A_peer_weighted,E_closest_mimicry,143,807,0.1771995043370508,Shortcut: clone closest peer directly
+ollama-qwen2-7b,eval_A,A_peer_weighted,F_median_anchor,123,807,0.1524163568773234,Shortcut: median peer anchor
+ollama-qwen2-7b,eval_A,A_peer_weighted,G_counter_conformist,13,807,0.0161090458488228,Counter-conformist distractor
+ollama-qwen2-7b,eval_A,A_peer_weighted,H_equal_mix,113,807,0.14002478314745972,Equal mix of private baseline and social aggregate
+ollama-qwen2-7b,placebo_test,D_pure_private,A_peer_weighted,14,42,0.3333333333333333,Langtry gold: baseline + alpha * closeness-weighted peer reference
+ollama-qwen2-7b,placebo_test,D_pure_private,B_top_anchor,5,42,0.11904761904761904,Shortcut: closest/top peer stacked on baseline
+ollama-qwen2-7b,placebo_test,D_pure_private,C_uniform_avg,4,42,0.09523809523809523,Shortcut: flat peer average instead of g_ij weights
+ollama-qwen2-7b,placebo_test,D_pure_private,E_closest_mimicry,2,42,0.047619047619047616,Shortcut: clone closest peer directly
+ollama-qwen2-7b,placebo_test,D_pure_private,F_median_anchor,10,42,0.23809523809523808,Shortcut: median peer anchor
+ollama-qwen2-7b,placebo_test,D_pure_private,G_counter_conformist,1,42,0.023809523809523808,Counter-conformist distractor
+ollama-qwen2-7b,placebo_test,D_pure_private,H_equal_mix,6,42,0.14285714285714285,Equal mix of private baseline and social aggregate

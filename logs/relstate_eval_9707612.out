@@ -1,0 +1,4169 @@
+=== Relational-state eval ===
+Start: Fri 24 Apr 2026 10:42:49 PM CST
+Host: cpu3-4
+PWD: /hpc2hdd/home/jliu043/relational_state
+MODEL=Qwen
+API_BASE=https://gpt-api.hkust-gz.edu.cn/v1
+STRUCTURED_DIR=data/structured
+OUTPUT_ROOT=evaluation/outputs/Qwen
+SPLITS=eval_A eval_B placebo_test ood_social ood_career
+MAX_WORKERS=16 MAX_RETRIES=5 REQUEST_TIMEOUT=300 TEMPERATURE=0.8 MAX_TOKENS=1024
+
+---- split=eval_A ----
+input=data/structured/eval_A.json
+output=evaluation/outputs/Qwen/eval_A_predictions.jsonl
+{"input_file": "data/structured/eval_A.json", "output_file": "evaluation/outputs/Qwen/eval_A_predictions.jsonl", "total_tasks": 1512, "already_done": 0, "pending": 1512, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16}
+progress 1/1512 (0.1%) elapsed=19.0s eta=28760s
+progress 2/1512 (0.1%) elapsed=22.2s eta=16776s
+progress 3/1512 (0.2%) elapsed=22.7s eta=11397s
+progress 4/1512 (0.3%) elapsed=30.4s eta=11472s
+progress 5/1512 (0.3%) elapsed=41.5s eta=12522s
+progress 6/1512 (0.4%) elapsed=41.5s eta=10429s
+progress 7/1512 (0.5%) elapsed=41.7s eta=8959s
+progress 8/1512 (0.5%) elapsed=41.7s eta=7835s
+progress 9/1512 (0.6%) elapsed=41.7s eta=6960s
+progress 10/1512 (0.7%) elapsed=42.5s eta=6390s
+progress 11/1512 (0.7%) elapsed=42.7s eta=5822s
+progress 12/1512 (0.8%) elapsed=42.7s eta=5334s
+progress 13/1512 (0.9%) elapsed=42.7s eta=4921s
+progress 14/1512 (0.9%) elapsed=42.8s eta=4579s
+progress 15/1512 (1.0%) elapsed=42.8s eta=4271s
+progress 16/1512 (1.1%) elapsed=42.9s eta=4012s
+progress 17/1512 (1.1%) elapsed=44.0s eta=3867s
+progress 18/1512 (1.2%) elapsed=46.9s eta=3889s
+progress 19/1512 (1.3%) elapsed=54.3s eta=4266s
+progress 20/1512 (1.3%) elapsed=56.2s eta=4194s
+progress 21/1512 (1.4%) elapsed=61.7s eta=4382s
+progress 22/1512 (1.5%) elapsed=63.9s eta=4329s
+progress 23/1512 (1.5%) elapsed=69.0s eta=4468s
+progress 24/1512 (1.6%) elapsed=77.5s eta=4808s
+progress 25/1512 (1.7%) elapsed=79.9s eta=4754s
+progress 26/1512 (1.7%) elapsed=80.3s eta=4592s
+progress 27/1512 (1.8%) elapsed=81.0s eta=4456s
+progress 28/1512 (1.9%) elapsed=81.1s eta=4296s
+progress 29/1512 (1.9%) elapsed=81.3s eta=4160s
+progress 30/1512 (2.0%) elapsed=81.7s eta=4037s
+progress 31/1512 (2.1%) elapsed=81.9s eta=3913s
+progress 32/1512 (2.1%) elapsed=82.0s eta=3790s
+progress 33/1512 (2.2%) elapsed=82.0s eta=3675s
+progress 34/1512 (2.2%) elapsed=82.0s eta=3566s
+progress 35/1512 (2.3%) elapsed=82.0s eta=3462s
+progress 36/1512 (2.4%) elapsed=85.0s eta=3487s
+progress 37/1512 (2.4%) elapsed=85.2s eta=3396s
+progress 38/1512 (2.5%) elapsed=92.6s eta=3592s
+progress 39/1512 (2.6%) elapsed=94.8s eta=3582s
+progress 40/1512 (2.6%) elapsed=95.6s eta=3516s
+progress 41/1512 (2.7%) elapsed=96.8s eta=3472s
+progress 42/1512 (2.8%) elapsed=98.9s eta=3460s
+progress 43/1512 (2.8%) elapsed=108.5s eta=3706s
+progress 44/1512 (2.9%) elapsed=114.8s eta=3829s
+progress 45/1512 (3.0%) elapsed=117.1s eta=3817s
+progress 46/1512 (3.0%) elapsed=117.5s eta=3746s
+progress 47/1512 (3.1%) elapsed=117.9s eta=3674s
+progress 48/1512 (3.2%) elapsed=118.1s eta=3603s
+progress 49/1512 (3.2%) elapsed=118.4s eta=3535s
+progress 50/1512 (3.3%) elapsed=118.6s eta=3468s
+progress 51/1512 (3.4%) elapsed=119.2s eta=3414s
+progress 52/1512 (3.4%) elapsed=119.2s eta=3346s
+progress 53/1512 (3.5%) elapsed=120.0s eta=3304s
+progress 54/1512 (3.6%) elapsed=120.1s eta=3244s
+progress 55/1512 (3.6%) elapsed=121.8s eta=3227s
+progress 56/1512 (3.7%) elapsed=131.5s eta=3418s
+progress 57/1512 (3.8%) elapsed=132.0s eta=3369s
+progress 58/1512 (3.8%) elapsed=133.0s eta=3335s
+progress 59/1512 (3.9%) elapsed=135.5s eta=3336s
+progress 60/1512 (4.0%) elapsed=141.6s eta=3427s
+progress 61/1512 (4.0%) elapsed=144.0s eta=3424s
+progress 62/1512 (4.1%) elapsed=145.9s eta=3412s
+progress 63/1512 (4.2%) elapsed=146.0s eta=3359s
+progress 64/1512 (4.2%) elapsed=149.9s eta=3392s
+progress 65/1512 (4.3%) elapsed=153.8s eta=3424s
+progress 66/1512 (4.4%) elapsed=154.6s eta=3388s
+progress 67/1512 (4.4%) elapsed=155.6s eta=3356s
+progress 68/1512 (4.5%) elapsed=155.9s eta=3311s
+progress 69/1512 (4.6%) elapsed=156.1s eta=3264s
+progress 70/1512 (4.6%) elapsed=156.8s eta=3229s
+progress 71/1512 (4.7%) elapsed=156.8s eta=3182s
+progress 72/1512 (4.8%) elapsed=157.3s eta=3145s
+progress 73/1512 (4.8%) elapsed=157.8s eta=3110s
+progress 74/1512 (4.9%) elapsed=170.4s eta=3311s
+progress 75/1512 (5.0%) elapsed=170.9s eta=3275s
+progress 76/1512 (5.0%) elapsed=173.2s eta=3273s
+progress 77/1512 (5.1%) elapsed=174.8s eta=3257s
+progress 78/1512 (5.2%) elapsed=175.5s eta=3227s
+progress 79/1512 (5.2%) elapsed=180.1s eta=3266s
+progress 80/1512 (5.3%) elapsed=182.4s eta=3266s
+progress 81/1512 (5.4%) elapsed=182.6s eta=3227s
+progress 82/1512 (5.4%) elapsed=184.3s eta=3213s
+progress 83/1512 (5.5%) elapsed=184.4s eta=3174s
+progress 84/1512 (5.6%) elapsed=185.6s eta=3154s
+progress 85/1512 (5.6%) elapsed=188.5s eta=3165s
+progress 86/1512 (5.7%) elapsed=193.5s eta=3208s
+progress 87/1512 (5.8%) elapsed=193.8s eta=3174s
+progress 88/1512 (5.8%) elapsed=194.7s eta=3151s
+progress 89/1512 (5.9%) elapsed=196.0s eta=3134s
+progress 90/1512 (6.0%) elapsed=206.7s eta=3265s
+progress 91/1512 (6.0%) elapsed=210.2s eta=3282s
+progress 92/1512 (6.1%) elapsed=211.5s eta=3264s
+progress 93/1512 (6.2%) elapsed=211.7s eta=3231s
+progress 94/1512 (6.2%) elapsed=214.5s eta=3235s
+progress 95/1512 (6.3%) elapsed=215.0s eta=3207s
+progress 96/1512 (6.3%) elapsed=216.1s eta=3188s
+progress 97/1512 (6.4%) elapsed=216.8s eta=3163s
+progress 98/1512 (6.5%) elapsed=222.7s eta=3213s
+progress 99/1512 (6.5%) elapsed=224.5s eta=3204s
+progress 100/1512 (6.6%) elapsed=227.2s eta=3208s
+progress 101/1512 (6.7%) elapsed=227.6s eta=3180s
+progress 102/1512 (6.7%) elapsed=227.9s eta=3150s
+progress 103/1512 (6.8%) elapsed=231.4s eta=3166s
+progress 104/1512 (6.9%) elapsed=237.1s eta=3209s
+progress 105/1512 (6.9%) elapsed=237.3s eta=3179s
+progress 106/1512 (7.0%) elapsed=238.4s eta=3162s
+progress 107/1512 (7.1%) elapsed=244.4s eta=3209s
+progress 108/1512 (7.1%) elapsed=249.5s eta=3243s
+progress 109/1512 (7.2%) elapsed=253.8s eta=3266s
+progress 110/1512 (7.3%) elapsed=255.1s eta=3252s
+progress 111/1512 (7.3%) elapsed=256.8s eta=3242s
+progress 112/1512 (7.4%) elapsed=257.5s eta=3218s
+progress 113/1512 (7.5%) elapsed=258.3s eta=3198s
+progress 114/1512 (7.5%) elapsed=258.9s eta=3175s
+progress 115/1512 (7.6%) elapsed=265.1s eta=3221s
+progress 116/1512 (7.7%) elapsed=266.8s eta=3210s
+progress 117/1512 (7.7%) elapsed=269.1s eta=3208s
+progress 118/1512 (7.8%) elapsed=269.8s eta=3187s
+progress 119/1512 (7.9%) elapsed=270.2s eta=3163s
+progress 120/1512 (7.9%) elapsed=273.8s eta=3176s
+progress 121/1512 (8.0%) elapsed=279.6s eta=3214s
+progress 122/1512 (8.1%) elapsed=279.8s eta=3188s
+progress 123/1512 (8.1%) elapsed=281.0s eta=3174s
+progress 124/1512 (8.2%) elapsed=284.2s eta=3181s
+progress 125/1512 (8.3%) elapsed=285.2s eta=3164s
+progress 126/1512 (8.3%) elapsed=285.6s eta=3141s
+progress 127/1512 (8.4%) elapsed=289.8s eta=3160s
+progress 128/1512 (8.5%) elapsed=289.8s eta=3134s
+progress 129/1512 (8.5%) elapsed=290.8s eta=3118s
+progress 130/1512 (8.6%) elapsed=293.6s eta=3121s
+progress 131/1512 (8.7%) elapsed=296.6s eta=3127s
+progress 132/1512 (8.7%) elapsed=296.6s eta=3101s
+progress 133/1512 (8.8%) elapsed=308.5s eta=3199s
+progress 134/1512 (8.9%) elapsed=308.8s eta=3175s
+progress 135/1512 (8.9%) elapsed=309.8s eta=3160s
+progress 136/1512 (9.0%) elapsed=312.3s eta=3159s
+progress 137/1512 (9.1%) elapsed=317.9s eta=3191s
+progress 138/1512 (9.1%) elapsed=318.0s eta=3166s
+progress 139/1512 (9.2%) elapsed=319.7s eta=3158s
+progress 140/1512 (9.3%) elapsed=324.1s eta=3176s
+progress 141/1512 (9.3%) elapsed=324.1s eta=3151s
+progress 142/1512 (9.4%) elapsed=324.6s eta=3132s
+progress 143/1512 (9.5%) elapsed=330.5s eta=3164s
+progress 144/1512 (9.5%) elapsed=331.5s eta=3149s
+progress 145/1512 (9.6%) elapsed=333.0s eta=3140s
+progress 146/1512 (9.7%) elapsed=335.1s eta=3135s
+progress 147/1512 (9.7%) elapsed=338.3s eta=3141s
+progress 148/1512 (9.8%) elapsed=338.4s eta=3119s
+progress 149/1512 (9.9%) elapsed=338.5s eta=3096s
+progress 150/1512 (9.9%) elapsed=349.1s eta=3170s
+progress 151/1512 (10.0%) elapsed=351.2s eta=3166s
+progress 152/1512 (10.1%) elapsed=351.6s eta=3145s
+progress 153/1512 (10.1%) elapsed=351.9s eta=3126s
+progress 154/1512 (10.2%) elapsed=356.6s eta=3144s
+progress 155/1512 (10.3%) elapsed=362.5s eta=3173s
+progress 156/1512 (10.3%) elapsed=363.4s eta=3159s
+progress 157/1512 (10.4%) elapsed=364.1s eta=3142s
+progress 158/1512 (10.4%) elapsed=367.3s eta=3148s
+progress 159/1512 (10.5%) elapsed=367.4s eta=3126s
+progress 160/1512 (10.6%) elapsed=369.2s eta=3120s
+progress 161/1512 (10.6%) elapsed=376.2s eta=3157s
+progress 162/1512 (10.7%) elapsed=376.7s eta=3140s
+progress 163/1512 (10.8%) elapsed=377.7s eta=3126s
+progress 164/1512 (10.8%) elapsed=379.0s eta=3115s
+progress 165/1512 (10.9%) elapsed=379.9s eta=3101s
+progress 166/1512 (11.0%) elapsed=381.8s eta=3096s
+progress 167/1512 (11.0%) elapsed=381.8s eta=3075s
+progress 168/1512 (11.1%) elapsed=394.6s eta=3157s
+progress 169/1512 (11.2%) elapsed=395.1s eta=3140s
+progress 170/1512 (11.2%) elapsed=398.8s eta=3148s
+progress 171/1512 (11.3%) elapsed=399.3s eta=3131s
+progress 172/1512 (11.4%) elapsed=405.2s eta=3157s
+progress 173/1512 (11.4%) elapsed=407.3s eta=3153s
+progress 174/1512 (11.5%) elapsed=407.8s eta=3136s
+progress 175/1512 (11.6%) elapsed=410.0s eta=3133s
+progress 176/1512 (11.6%) elapsed=411.7s eta=3125s
+progress 177/1512 (11.7%) elapsed=416.0s eta=3138s
+progress 178/1512 (11.8%) elapsed=418.6s eta=3137s
+progress 179/1512 (11.8%) elapsed=419.3s eta=3123s
+progress 180/1512 (11.9%) elapsed=420.1s eta=3109s
+progress 181/1512 (12.0%) elapsed=421.4s eta=3099s
+progress 182/1512 (12.0%) elapsed=422.3s eta=3086s
+progress 183/1512 (12.1%) elapsed=423.9s eta=3079s
+progress 184/1512 (12.2%) elapsed=423.9s eta=3060s
+progress 185/1512 (12.2%) elapsed=434.8s eta=3119s
+progress 186/1512 (12.3%) elapsed=435.4s eta=3104s
+progress 187/1512 (12.4%) elapsed=439.4s eta=3114s
+progress 188/1512 (12.4%) elapsed=445.2s eta=3135s
+progress 189/1512 (12.5%) elapsed=446.3s eta=3124s
+progress 190/1512 (12.6%) elapsed=446.9s eta=3109s
+progress 191/1512 (12.6%) elapsed=447.5s eta=3095s
+progress 192/1512 (12.7%) elapsed=448.9s eta=3086s
+progress 193/1512 (12.8%) elapsed=450.6s eta=3080s
+progress 194/1512 (12.8%) elapsed=453.8s eta=3083s
+progress 195/1512 (12.9%) elapsed=457.0s eta=3087s
+progress 196/1512 (13.0%) elapsed=457.5s eta=3072s
+progress 197/1512 (13.0%) elapsed=458.9s eta=3063s
+progress 198/1512 (13.1%) elapsed=460.2s eta=3054s
+progress 199/1512 (13.2%) elapsed=460.9s eta=3041s
+progress 200/1512 (13.2%) elapsed=461.5s eta=3028s
+progress 201/1512 (13.3%) elapsed=471.3s eta=3074s
+progress 202/1512 (13.4%) elapsed=473.8s eta=3073s
+progress 203/1512 (13.4%) elapsed=475.0s eta=3063s
+progress 204/1512 (13.5%) elapsed=477.4s eta=3061s
+progress 205/1512 (13.6%) elapsed=484.4s eta=3088s
+progress 206/1512 (13.6%) elapsed=485.9s eta=3080s
+progress 207/1512 (13.7%) elapsed=486.1s eta=3064s
+progress 208/1512 (13.8%) elapsed=486.5s eta=3050s
+progress 209/1512 (13.8%) elapsed=487.7s eta=3041s
+progress 210/1512 (13.9%) elapsed=489.5s eta=3035s
+progress 211/1512 (14.0%) elapsed=493.0s eta=3040s
+progress 212/1512 (14.0%) elapsed=496.7s eta=3046s
+progress 213/1512 (14.1%) elapsed=497.6s eta=3035s
+progress 214/1512 (14.2%) elapsed=498.4s eta=3023s
+progress 215/1512 (14.2%) elapsed=499.0s eta=3010s
+progress 216/1512 (14.3%) elapsed=501.2s eta=3007s
+progress 217/1512 (14.4%) elapsed=501.5s eta=2993s
+progress 218/1512 (14.4%) elapsed=502.0s eta=2980s
+progress 219/1512 (14.5%) elapsed=510.4s eta=3013s
+progress 220/1512 (14.6%) elapsed=514.6s eta=3022s
+progress 221/1512 (14.6%) elapsed=515.9s eta=3014s
+progress 222/1512 (14.7%) elapsed=518.2s eta=3011s
+progress 223/1512 (14.7%) elapsed=518.6s eta=2998s
+progress 224/1512 (14.8%) elapsed=521.8s eta=3000s
+progress 225/1512 (14.9%) elapsed=526.7s eta=3013s
+progress 226/1512 (14.9%) elapsed=529.2s eta=3011s
+progress 227/1512 (15.0%) elapsed=532.3s eta=3013s
+progress 228/1512 (15.1%) elapsed=535.4s eta=3015s
+progress 229/1512 (15.1%) elapsed=537.8s eta=3013s
+progress 230/1512 (15.2%) elapsed=539.0s eta=3005s
+progress 231/1512 (15.3%) elapsed=540.8s eta=2999s
+progress 232/1512 (15.3%) elapsed=540.8s eta=2984s
+progress 233/1512 (15.4%) elapsed=541.1s eta=2970s
+progress 234/1512 (15.5%) elapsed=544.0s eta=2971s
+progress 235/1512 (15.5%) elapsed=544.2s eta=2957s
+progress 236/1512 (15.6%) elapsed=544.6s eta=2945s
+progress 237/1512 (15.7%) elapsed=554.8s eta=2985s
+progress 238/1512 (15.7%) elapsed=558.8s eta=2991s
+progress 239/1512 (15.8%) elapsed=559.1s eta=2978s
+progress 240/1512 (15.9%) elapsed=562.9s eta=2984s
+progress 241/1512 (15.9%) elapsed=566.4s eta=2987s
+progress 242/1512 (16.0%) elapsed=570.1s eta=2992s
+progress 243/1512 (16.1%) elapsed=570.3s eta=2978s
+progress 244/1512 (16.1%) elapsed=574.4s eta=2985s
+progress 245/1512 (16.2%) elapsed=590.3s eta=3053s
+progress 246/1512 (16.3%) elapsed=590.9s eta=3041s
+progress 247/1512 (16.3%) elapsed=591.8s eta=3031s
+progress 248/1512 (16.4%) elapsed=591.8s eta=3016s
+progress 249/1512 (16.5%) elapsed=594.5s eta=3016s
+progress 250/1512 (16.5%) elapsed=595.4s eta=3006s
+progress 251/1512 (16.6%) elapsed=595.4s eta=2991s
+progress 252/1512 (16.7%) elapsed=596.3s eta=2981s
+progress 253/1512 (16.7%) elapsed=600.9s eta=2990s
+progress 254/1512 (16.8%) elapsed=608.7s eta=3015s
+progress 255/1512 (16.9%) elapsed=610.1s eta=3007s
+progress 256/1512 (16.9%) elapsed=612.0s eta=3002s
+progress 257/1512 (17.0%) elapsed=613.0s eta=2993s
+progress 258/1512 (17.1%) elapsed=617.6s eta=3002s
+progress 259/1512 (17.1%) elapsed=621.8s eta=3008s
+progress 260/1512 (17.2%) elapsed=628.3s eta=3025s
+progress 261/1512 (17.3%) elapsed=630.1s eta=3020s
+progress 262/1512 (17.3%) elapsed=630.5s eta=3008s
+progress 263/1512 (17.4%) elapsed=631.4s eta=2998s
+progress 264/1512 (17.5%) elapsed=640.4s eta=3027s
+progress 265/1512 (17.5%) elapsed=641.6s eta=3019s
+progress 266/1512 (17.6%) elapsed=642.6s eta=3010s
+progress 267/1512 (17.7%) elapsed=642.9s eta=2998s
+progress 268/1512 (17.7%) elapsed=642.9s eta=2984s
+progress 269/1512 (17.8%) elapsed=643.0s eta=2971s
+progress 270/1512 (17.9%) elapsed=650.2s eta=2991s
+progress 271/1512 (17.9%) elapsed=654.4s eta=2997s
+progress 272/1512 (18.0%) elapsed=656.8s eta=2994s
+progress 273/1512 (18.1%) elapsed=659.1s eta=2991s
+progress 274/1512 (18.1%) elapsed=665.3s eta=3006s
+progress 275/1512 (18.2%) elapsed=665.5s eta=2994s
+progress 276/1512 (18.3%) elapsed=667.3s eta=2988s
+progress 277/1512 (18.3%) elapsed=667.6s eta=2976s
+progress 278/1512 (18.4%) elapsed=673.1s eta=2988s
+progress 279/1512 (18.5%) elapsed=673.3s eta=2976s
+progress 280/1512 (18.5%) elapsed=674.0s eta=2966s
+progress 281/1512 (18.6%) elapsed=680.4s eta=2981s
+progress 282/1512 (18.7%) elapsed=684.1s eta=2984s
+progress 283/1512 (18.7%) elapsed=684.5s eta=2973s
+progress 284/1512 (18.8%) elapsed=686.4s eta=2968s
+progress 285/1512 (18.8%) elapsed=686.4s eta=2955s
+progress 286/1512 (18.9%) elapsed=687.4s eta=2947s
+progress 287/1512 (19.0%) elapsed=690.0s eta=2945s
+progress 288/1512 (19.0%) elapsed=694.3s eta=2951s
+progress 289/1512 (19.1%) elapsed=696.5s eta=2947s
+progress 290/1512 (19.2%) elapsed=698.3s eta=2942s
+progress 291/1512 (19.2%) elapsed=705.1s eta=2959s
+progress 292/1512 (19.3%) elapsed=705.9s eta=2949s
+progress 293/1512 (19.4%) elapsed=707.0s eta=2942s
+progress 294/1512 (19.4%) elapsed=711.5s eta=2948s
+progress 295/1512 (19.5%) elapsed=713.3s eta=2943s
+progress 296/1512 (19.6%) elapsed=715.0s eta=2937s
+progress 297/1512 (19.6%) elapsed=720.5s eta=2947s
+progress 298/1512 (19.7%) elapsed=724.8s eta=2953s
+progress 299/1512 (19.8%) elapsed=725.4s eta=2943s
+progress 300/1512 (19.8%) elapsed=726.7s eta=2936s
+progress 301/1512 (19.9%) elapsed=727.6s eta=2927s
+progress 302/1512 (20.0%) elapsed=727.7s eta=2915s
+progress 303/1512 (20.0%) elapsed=730.1s eta=2913s
+progress 304/1512 (20.1%) elapsed=734.0s eta=2917s
+progress 305/1512 (20.2%) elapsed=737.4s eta=2918s
+progress 306/1512 (20.2%) elapsed=738.3s eta=2910s
+progress 307/1512 (20.3%) elapsed=741.7s eta=2911s
+progress 308/1512 (20.4%) elapsed=745.8s eta=2916s
+progress 309/1512 (20.4%) elapsed=747.6s eta=2910s
+progress 310/1512 (20.5%) elapsed=747.6s eta=2899s
+progress 311/1512 (20.6%) elapsed=753.4s eta=2909s
+progress 312/1512 (20.6%) elapsed=754.9s eta=2903s
+progress 313/1512 (20.7%) elapsed=755.5s eta=2894s
+progress 314/1512 (20.8%) elapsed=760.4s eta=2901s
+progress 315/1512 (20.8%) elapsed=761.4s eta=2893s
+progress 316/1512 (20.9%) elapsed=761.6s eta=2883s
+progress 317/1512 (21.0%) elapsed=764.2s eta=2881s
+progress 318/1512 (21.0%) elapsed=766.6s eta=2878s
+progress 319/1512 (21.1%) elapsed=770.6s eta=2882s
+progress 320/1512 (21.2%) elapsed=774.6s eta=2885s
+progress 321/1512 (21.2%) elapsed=777.9s eta=2886s
+progress 322/1512 (21.3%) elapsed=778.7s eta=2878s
+progress 323/1512 (21.4%) elapsed=781.9s eta=2878s
+progress 324/1512 (21.4%) elapsed=784.9s eta=2878s
+progress 325/1512 (21.5%) elapsed=786.7s eta=2873s
+progress 326/1512 (21.6%) elapsed=787.7s eta=2866s
+progress 327/1512 (21.6%) elapsed=791.9s eta=2870s
+progress 328/1512 (21.7%) elapsed=792.0s eta=2859s
+progress 329/1512 (21.8%) elapsed=794.1s eta=2855s
+progress 330/1512 (21.8%) elapsed=794.4s eta=2845s
+progress 331/1512 (21.9%) elapsed=797.1s eta=2844s
+progress 332/1512 (22.0%) elapsed=799.0s eta=2840s
+progress 333/1512 (22.0%) elapsed=800.0s eta=2833s
+progress 334/1512 (22.1%) elapsed=800.5s eta=2823s
+progress 335/1512 (22.2%) elapsed=801.7s eta=2817s
+progress 336/1512 (22.2%) elapsed=803.2s eta=2811s
+progress 337/1512 (22.3%) elapsed=804.4s eta=2805s
+progress 338/1512 (22.4%) elapsed=809.7s eta=2813s
+progress 339/1512 (22.4%) elapsed=810.4s eta=2804s
+progress 340/1512 (22.5%) elapsed=811.4s eta=2797s
+progress 341/1512 (22.6%) elapsed=811.6s eta=2787s
+progress 342/1512 (22.6%) elapsed=816.3s eta=2793s
+progress 343/1512 (22.7%) elapsed=817.2s eta=2785s
+progress 344/1512 (22.8%) elapsed=820.7s eta=2787s
+progress 345/1512 (22.8%) elapsed=821.0s eta=2777s
+progress 346/1512 (22.9%) elapsed=824.2s eta=2777s
+progress 347/1512 (22.9%) elapsed=826.7s eta=2775s
+progress 348/1512 (23.0%) elapsed=829.1s eta=2773s
+progress 349/1512 (23.1%) elapsed=831.7s eta=2771s
+progress 350/1512 (23.1%) elapsed=831.9s eta=2762s
+progress 351/1512 (23.2%) elapsed=833.6s eta=2757s
+progress 352/1512 (23.3%) elapsed=836.0s eta=2755s
+progress 353/1512 (23.3%) elapsed=837.4s eta=2749s
+progress 354/1512 (23.4%) elapsed=842.0s eta=2754s
+progress 355/1512 (23.5%) elapsed=844.1s eta=2751s
+progress 356/1512 (23.5%) elapsed=852.9s eta=2770s
+progress 357/1512 (23.6%) elapsed=853.7s eta=2762s
+progress 358/1512 (23.7%) elapsed=855.0s eta=2756s
+progress 359/1512 (23.7%) elapsed=856.3s eta=2750s
+progress 360/1512 (23.8%) elapsed=859.1s eta=2749s
+progress 361/1512 (23.9%) elapsed=863.9s eta=2754s
+progress 362/1512 (23.9%) elapsed=868.3s eta=2758s
+progress 363/1512 (24.0%) elapsed=868.3s eta=2749s
+progress 364/1512 (24.1%) elapsed=870.8s eta=2746s
+progress 365/1512 (24.1%) elapsed=874.2s eta=2747s
+progress 366/1512 (24.2%) elapsed=878.2s eta=2750s
+progress 367/1512 (24.3%) elapsed=879.1s eta=2743s
+progress 368/1512 (24.3%) elapsed=879.4s eta=2734s
+progress 369/1512 (24.4%) elapsed=883.1s eta=2736s
+progress 370/1512 (24.5%) elapsed=884.3s eta=2729s
+progress 371/1512 (24.5%) elapsed=888.2s eta=2732s
+progress 372/1512 (24.6%) elapsed=888.4s eta=2723s
+progress 373/1512 (24.7%) elapsed=895.1s eta=2733s
+progress 374/1512 (24.7%) elapsed=895.8s eta=2726s
+progress 375/1512 (24.8%) elapsed=896.5s eta=2718s
+progress 376/1512 (24.9%) elapsed=898.2s eta=2714s
+progress 377/1512 (24.9%) elapsed=900.3s eta=2710s
+progress 378/1512 (25.0%) elapsed=907.8s eta=2724s
+progress 379/1512 (25.1%) elapsed=910.7s eta=2723s
+progress 380/1512 (25.1%) elapsed=910.7s eta=2713s
+progress 381/1512 (25.2%) elapsed=916.3s eta=2720s
+progress 382/1512 (25.3%) elapsed=919.0s eta=2719s
+progress 383/1512 (25.3%) elapsed=923.6s eta=2722s
+progress 384/1512 (25.4%) elapsed=924.5s eta=2716s
+progress 385/1512 (25.5%) elapsed=932.7s eta=2730s
+progress 386/1512 (25.5%) elapsed=936.6s eta=2732s
+progress 387/1512 (25.6%) elapsed=941.0s eta=2735s
+progress 388/1512 (25.7%) elapsed=941.4s eta=2727s
+progress 389/1512 (25.7%) elapsed=941.8s eta=2719s
+progress 390/1512 (25.8%) elapsed=941.8s eta=2710s
+progress 391/1512 (25.9%) elapsed=943.8s eta=2706s
+progress 392/1512 (25.9%) elapsed=945.1s eta=2700s
+progress 393/1512 (26.0%) elapsed=947.9s eta=2699s
+progress 394/1512 (26.1%) elapsed=949.3s eta=2694s
+progress 395/1512 (26.1%) elapsed=950.3s eta=2687s
+progress 396/1512 (26.2%) elapsed=961.2s eta=2709s
+progress 397/1512 (26.3%) elapsed=968.1s eta=2719s
+progress 398/1512 (26.3%) elapsed=969.9s eta=2715s
+progress 399/1512 (26.4%) elapsed=972.3s eta=2712s
+progress 400/1512 (26.5%) elapsed=972.4s eta=2703s
+progress 401/1512 (26.5%) elapsed=974.2s eta=2699s
+progress 402/1512 (26.6%) elapsed=975.1s eta=2693s
+progress 403/1512 (26.7%) elapsed=976.4s eta=2687s
+progress 404/1512 (26.7%) elapsed=980.3s eta=2689s
+progress 405/1512 (26.8%) elapsed=980.9s eta=2681s
+progress 406/1512 (26.9%) elapsed=981.0s eta=2672s
+progress 407/1512 (26.9%) elapsed=981.5s eta=2665s
+progress 408/1512 (27.0%) elapsed=983.8s eta=2662s
+progress 409/1512 (27.1%) elapsed=987.4s eta=2663s
+progress 410/1512 (27.1%) elapsed=988.5s eta=2657s
+progress 411/1512 (27.2%) elapsed=988.5s eta=2648s
+progress 412/1512 (27.2%) elapsed=991.7s eta=2648s
+progress 413/1512 (27.3%) elapsed=998.4s eta=2657s
+progress 414/1512 (27.4%) elapsed=999.8s eta=2652s
+progress 415/1512 (27.4%) elapsed=1005.7s eta=2658s
+progress 416/1512 (27.5%) elapsed=1006.1s eta=2651s
+progress 417/1512 (27.6%) elapsed=1009.1s eta=2650s
+progress 418/1512 (27.6%) elapsed=1009.8s eta=2643s
+progress 419/1512 (27.7%) elapsed=1010.1s eta=2635s
+progress 420/1512 (27.8%) elapsed=1011.4s eta=2630s
+progress 421/1512 (27.8%) elapsed=1011.8s eta=2622s
+progress 422/1512 (27.9%) elapsed=1015.6s eta=2623s
+progress 423/1512 (28.0%) elapsed=1015.7s eta=2615s
+progress 424/1512 (28.0%) elapsed=1016.8s eta=2609s
+progress 425/1512 (28.1%) elapsed=1018.3s eta=2605s
+progress 426/1512 (28.2%) elapsed=1019.6s eta=2599s
+progress 427/1512 (28.2%) elapsed=1023.9s eta=2602s
+progress 428/1512 (28.3%) elapsed=1023.9s eta=2593s
+progress 429/1512 (28.4%) elapsed=1024.2s eta=2585s
+progress 430/1512 (28.4%) elapsed=1027.0s eta=2584s
+progress 431/1512 (28.5%) elapsed=1029.2s eta=2581s
+progress 432/1512 (28.6%) elapsed=1033.6s eta=2584s
+progress 433/1512 (28.6%) elapsed=1035.1s eta=2579s
+progress 434/1512 (28.7%) elapsed=1035.9s eta=2573s
+progress 435/1512 (28.8%) elapsed=1040.9s eta=2577s
+progress 436/1512 (28.8%) elapsed=1042.0s eta=2572s
+progress 437/1512 (28.9%) elapsed=1044.7s eta=2570s
+progress 438/1512 (29.0%) elapsed=1045.4s eta=2563s
+progress 439/1512 (29.0%) elapsed=1045.7s eta=2556s
+progress 440/1512 (29.1%) elapsed=1047.1s eta=2551s
+progress 441/1512 (29.2%) elapsed=1048.6s eta=2547s
+progress 442/1512 (29.2%) elapsed=1051.9s eta=2546s
+progress 443/1512 (29.3%) elapsed=1052.0s eta=2539s
+progress 444/1512 (29.4%) elapsed=1060.1s eta=2550s
+progress 445/1512 (29.4%) elapsed=1061.1s eta=2544s
+progress 446/1512 (29.5%) elapsed=1063.1s eta=2541s
+progress 447/1512 (29.6%) elapsed=1065.6s eta=2539s
+progress 448/1512 (29.6%) elapsed=1072.2s eta=2546s
+progress 449/1512 (29.7%) elapsed=1074.1s eta=2543s
+progress 450/1512 (29.8%) elapsed=1076.4s eta=2540s
+progress 451/1512 (29.8%) elapsed=1078.8s eta=2538s
+progress 452/1512 (29.9%) elapsed=1080.8s eta=2535s
+progress 453/1512 (30.0%) elapsed=1081.4s eta=2528s
+progress 454/1512 (30.0%) elapsed=1081.9s eta=2521s
+progress 455/1512 (30.1%) elapsed=1085.6s eta=2522s
+progress 456/1512 (30.2%) elapsed=1085.9s eta=2515s
+progress 457/1512 (30.2%) elapsed=1086.1s eta=2507s
+progress 458/1512 (30.3%) elapsed=1087.4s eta=2502s
+progress 459/1512 (30.4%) elapsed=1091.9s eta=2505s
+progress 460/1512 (30.4%) elapsed=1093.0s eta=2500s
+progress 461/1512 (30.5%) elapsed=1094.0s eta=2494s
+progress 462/1512 (30.6%) elapsed=1102.9s eta=2507s
+progress 463/1512 (30.6%) elapsed=1103.7s eta=2501s
+progress 464/1512 (30.7%) elapsed=1104.9s eta=2496s
+progress 465/1512 (30.8%) elapsed=1107.0s eta=2492s
+progress 466/1512 (30.8%) elapsed=1107.3s eta=2486s
+progress 467/1512 (30.9%) elapsed=1118.2s eta=2502s
+progress 468/1512 (31.0%) elapsed=1119.1s eta=2496s
+progress 469/1512 (31.0%) elapsed=1121.0s eta=2493s
+progress 470/1512 (31.1%) elapsed=1121.1s eta=2485s
+progress 471/1512 (31.2%) elapsed=1122.3s eta=2480s
+progress 472/1512 (31.2%) elapsed=1124.0s eta=2477s
+progress 473/1512 (31.3%) elapsed=1125.2s eta=2472s
+progress 474/1512 (31.3%) elapsed=1125.2s eta=2464s
+progress 475/1512 (31.4%) elapsed=1125.3s eta=2457s
+progress 476/1512 (31.5%) elapsed=1126.0s eta=2451s
+progress 477/1512 (31.5%) elapsed=1126.5s eta=2444s
+progress 478/1512 (31.6%) elapsed=1128.7s eta=2441s
+progress 479/1512 (31.7%) elapsed=1129.8s eta=2436s
+progress 480/1512 (31.7%) elapsed=1131.4s eta=2433s
+progress 481/1512 (31.8%) elapsed=1139.0s eta=2441s
+progress 482/1512 (31.9%) elapsed=1139.6s eta=2435s
+progress 483/1512 (31.9%) elapsed=1141.6s eta=2432s
+progress 484/1512 (32.0%) elapsed=1142.9s eta=2427s
+progress 485/1512 (32.1%) elapsed=1148.4s eta=2432s
+progress 486/1512 (32.1%) elapsed=1150.0s eta=2428s
+progress 487/1512 (32.2%) elapsed=1151.8s eta=2424s
+progress 488/1512 (32.3%) elapsed=1153.7s eta=2421s
+progress 489/1512 (32.3%) elapsed=1156.8s eta=2420s
+progress 490/1512 (32.4%) elapsed=1158.0s eta=2415s
+progress 491/1512 (32.5%) elapsed=1160.4s eta=2413s
+progress 492/1512 (32.5%) elapsed=1163.4s eta=2412s
+progress 493/1512 (32.6%) elapsed=1164.7s eta=2407s
+progress 494/1512 (32.7%) elapsed=1165.6s eta=2402s
+progress 495/1512 (32.7%) elapsed=1165.6s eta=2395s
+progress 496/1512 (32.8%) elapsed=1165.7s eta=2388s
+progress 497/1512 (32.9%) elapsed=1168.9s eta=2387s
+progress 498/1512 (32.9%) elapsed=1180.0s eta=2403s
+progress 499/1512 (33.0%) elapsed=1180.9s eta=2397s
+progress 500/1512 (33.1%) elapsed=1183.8s eta=2396s
+progress 501/1512 (33.1%) elapsed=1184.1s eta=2389s
+progress 502/1512 (33.2%) elapsed=1189.5s eta=2393s
+progress 503/1512 (33.3%) elapsed=1192.0s eta=2391s
+progress 504/1512 (33.3%) elapsed=1193.1s eta=2386s
+progress 505/1512 (33.4%) elapsed=1194.5s eta=2382s
+progress 506/1512 (33.5%) elapsed=1195.4s eta=2377s
+progress 507/1512 (33.5%) elapsed=1200.8s eta=2380s
+progress 508/1512 (33.6%) elapsed=1201.8s eta=2375s
+progress 509/1512 (33.7%) elapsed=1205.2s eta=2375s
+progress 510/1512 (33.7%) elapsed=1207.0s eta=2371s
+progress 511/1512 (33.8%) elapsed=1207.7s eta=2366s
+progress 512/1512 (33.9%) elapsed=1207.8s eta=2359s
+progress 513/1512 (33.9%) elapsed=1207.8s eta=2352s
+progress 514/1512 (34.0%) elapsed=1211.0s eta=2351s
+progress 515/1512 (34.1%) elapsed=1214.5s eta=2351s
+progress 516/1512 (34.1%) elapsed=1221.1s eta=2357s
+progress 517/1512 (34.2%) elapsed=1223.2s eta=2354s
+progress 518/1512 (34.3%) elapsed=1223.3s eta=2347s
+progress 519/1512 (34.3%) elapsed=1226.2s eta=2346s
+progress 520/1512 (34.4%) elapsed=1232.7s eta=2352s
+progress 521/1512 (34.5%) elapsed=1235.1s eta=2349s
+progress 522/1512 (34.5%) elapsed=1236.4s eta=2345s
+progress 523/1512 (34.6%) elapsed=1238.0s eta=2341s
+progress 524/1512 (34.7%) elapsed=1241.1s eta=2340s
+progress 525/1512 (34.7%) elapsed=1243.6s eta=2338s
+progress 526/1512 (34.8%) elapsed=1243.8s eta=2331s
+progress 527/1512 (34.9%) elapsed=1245.3s eta=2328s
+progress 528/1512 (34.9%) elapsed=1246.8s eta=2323s
+progress 529/1512 (35.0%) elapsed=1248.6s eta=2320s
+progress 530/1512 (35.1%) elapsed=1249.8s eta=2316s
+progress 531/1512 (35.1%) elapsed=1250.0s eta=2309s
+progress 532/1512 (35.2%) elapsed=1253.0s eta=2308s
+progress 533/1512 (35.3%) elapsed=1254.5s eta=2304s
+progress 534/1512 (35.3%) elapsed=1256.7s eta=2302s
+progress 535/1512 (35.4%) elapsed=1262.1s eta=2305s
+progress 536/1512 (35.4%) elapsed=1266.1s eta=2306s
+progress 537/1512 (35.5%) elapsed=1266.4s eta=2299s
+progress 538/1512 (35.6%) elapsed=1276.3s eta=2311s
+progress 539/1512 (35.6%) elapsed=1277.8s eta=2307s
+progress 540/1512 (35.7%) elapsed=1279.4s eta=2303s
+progress 541/1512 (35.8%) elapsed=1284.7s eta=2306s
+progress 542/1512 (35.8%) elapsed=1286.3s eta=2302s
+progress 543/1512 (35.9%) elapsed=1287.4s eta=2297s
+progress 544/1512 (36.0%) elapsed=1288.8s eta=2293s
+progress 545/1512 (36.0%) elapsed=1289.2s eta=2287s
+progress 546/1512 (36.1%) elapsed=1291.1s eta=2284s
+progress 547/1512 (36.2%) elapsed=1292.0s eta=2279s
+progress 548/1512 (36.2%) elapsed=1294.7s eta=2278s
+progress 549/1512 (36.3%) elapsed=1297.0s eta=2275s
+progress 550/1512 (36.4%) elapsed=1298.6s eta=2271s
+progress 551/1512 (36.4%) elapsed=1301.0s eta=2269s
+progress 552/1512 (36.5%) elapsed=1303.6s eta=2267s
+progress 553/1512 (36.6%) elapsed=1304.3s eta=2262s
+progress 554/1512 (36.6%) elapsed=1306.9s eta=2260s
+progress 555/1512 (36.7%) elapsed=1307.8s eta=2255s
+progress 556/1512 (36.8%) elapsed=1309.5s eta=2252s
+progress 557/1512 (36.8%) elapsed=1317.8s eta=2259s
+progress 558/1512 (36.9%) elapsed=1318.0s eta=2253s
+progress 559/1512 (37.0%) elapsed=1319.5s eta=2250s
+progress 560/1512 (37.0%) elapsed=1324.9s eta=2252s
+progress 561/1512 (37.1%) elapsed=1327.7s eta=2251s
+progress 562/1512 (37.2%) elapsed=1328.3s eta=2245s
+progress 563/1512 (37.2%) elapsed=1330.7s eta=2243s
+progress 564/1512 (37.3%) elapsed=1333.8s eta=2242s
+progress 565/1512 (37.4%) elapsed=1337.2s eta=2241s
+progress 566/1512 (37.4%) elapsed=1337.8s eta=2236s
+progress 567/1512 (37.5%) elapsed=1338.3s eta=2231s
+progress 568/1512 (37.6%) elapsed=1341.5s eta=2230s
+progress 569/1512 (37.6%) elapsed=1343.1s eta=2226s
+progress 570/1512 (37.7%) elapsed=1343.7s eta=2221s
+progress 571/1512 (37.8%) elapsed=1346.5s eta=2219s
+progress 572/1512 (37.8%) elapsed=1348.9s eta=2217s
+progress 573/1512 (37.9%) elapsed=1350.0s eta=2212s
+progress 574/1512 (38.0%) elapsed=1351.5s eta=2209s
+progress 575/1512 (38.0%) elapsed=1357.0s eta=2211s
+progress 576/1512 (38.1%) elapsed=1357.5s eta=2206s
+progress 577/1512 (38.2%) elapsed=1362.7s eta=2208s
+progress 578/1512 (38.2%) elapsed=1365.1s eta=2206s
+progress 579/1512 (38.3%) elapsed=1366.6s eta=2202s
+progress 580/1512 (38.4%) elapsed=1366.7s eta=2196s
+progress 581/1512 (38.4%) elapsed=1367.5s eta=2191s
+progress 582/1512 (38.5%) elapsed=1373.4s eta=2195s
+progress 583/1512 (38.6%) elapsed=1375.2s eta=2191s
+progress 584/1512 (38.6%) elapsed=1379.4s eta=2192s
+progress 585/1512 (38.7%) elapsed=1380.5s eta=2188s
+progress 586/1512 (38.8%) elapsed=1380.9s eta=2182s
+progress 587/1512 (38.8%) elapsed=1383.3s eta=2180s
+progress 588/1512 (38.9%) elapsed=1387.1s eta=2180s
+progress 589/1512 (39.0%) elapsed=1388.1s eta=2175s
+progress 590/1512 (39.0%) elapsed=1389.8s eta=2172s
+progress 591/1512 (39.1%) elapsed=1395.4s eta=2175s
+progress 592/1512 (39.2%) elapsed=1395.9s eta=2169s
+progress 593/1512 (39.2%) elapsed=1401.4s eta=2172s
+progress 594/1512 (39.3%) elapsed=1401.7s eta=2166s
+progress 595/1512 (39.4%) elapsed=1406.1s eta=2167s
+progress 596/1512 (39.4%) elapsed=1406.9s eta=2162s
+progress 597/1512 (39.5%) elapsed=1407.2s eta=2157s
+progress 598/1512 (39.6%) elapsed=1414.2s eta=2162s
+progress 599/1512 (39.6%) elapsed=1414.5s eta=2156s
+progress 600/1512 (39.7%) elapsed=1418.8s eta=2157s
+progress 601/1512 (39.7%) elapsed=1419.0s eta=2151s
+progress 602/1512 (39.8%) elapsed=1420.1s eta=2147s
+progress 603/1512 (39.9%) elapsed=1420.5s eta=2141s
+progress 604/1512 (39.9%) elapsed=1421.0s eta=2136s
+progress 605/1512 (40.0%) elapsed=1423.1s eta=2133s
+progress 606/1512 (40.1%) elapsed=1426.1s eta=2132s
+progress 607/1512 (40.1%) elapsed=1428.9s eta=2130s
+progress 608/1512 (40.2%) elapsed=1430.5s eta=2127s
+progress 609/1512 (40.3%) elapsed=1435.8s eta=2129s
+progress 610/1512 (40.3%) elapsed=1435.9s eta=2123s
+progress 611/1512 (40.4%) elapsed=1442.4s eta=2127s
+progress 612/1512 (40.5%) elapsed=1443.0s eta=2122s
+progress 613/1512 (40.5%) elapsed=1445.8s eta=2120s
+progress 614/1512 (40.6%) elapsed=1446.1s eta=2115s
+progress 615/1512 (40.7%) elapsed=1448.2s eta=2112s
+progress 616/1512 (40.7%) elapsed=1450.5s eta=2110s
+progress 617/1512 (40.8%) elapsed=1457.4s eta=2114s
+progress 618/1512 (40.9%) elapsed=1462.2s eta=2115s
+progress 619/1512 (40.9%) elapsed=1462.8s eta=2110s
+progress 620/1512 (41.0%) elapsed=1463.6s eta=2106s
+progress 621/1512 (41.1%) elapsed=1464.5s eta=2101s
+progress 622/1512 (41.1%) elapsed=1465.2s eta=2097s
+progress 623/1512 (41.2%) elapsed=1465.5s eta=2091s
+progress 624/1512 (41.3%) elapsed=1467.2s eta=2088s
+progress 625/1512 (41.3%) elapsed=1469.5s eta=2086s
+progress 626/1512 (41.4%) elapsed=1480.8s eta=2096s
+progress 627/1512 (41.5%) elapsed=1486.4s eta=2098s
+progress 628/1512 (41.5%) elapsed=1486.8s eta=2093s
+progress 629/1512 (41.6%) elapsed=1490.2s eta=2092s
+progress 630/1512 (41.7%) elapsed=1491.5s eta=2088s
+progress 631/1512 (41.7%) elapsed=1491.9s eta=2083s
+progress 632/1512 (41.8%) elapsed=1492.1s eta=2078s
+progress 633/1512 (41.9%) elapsed=1492.4s eta=2072s
+progress 634/1512 (41.9%) elapsed=1493.2s eta=2068s
+progress 635/1512 (42.0%) elapsed=1498.3s eta=2069s
+progress 636/1512 (42.1%) elapsed=1503.0s eta=2070s
+progress 637/1512 (42.1%) elapsed=1503.9s eta=2066s
+progress 638/1512 (42.2%) elapsed=1504.5s eta=2061s
+progress 639/1512 (42.3%) elapsed=1505.1s eta=2056s
+progress 640/1512 (42.3%) elapsed=1507.0s eta=2053s
+progress 641/1512 (42.4%) elapsed=1508.0s eta=2049s
+progress 642/1512 (42.5%) elapsed=1511.0s eta=2048s
+progress 643/1512 (42.5%) elapsed=1519.6s eta=2054s
+progress 644/1512 (42.6%) elapsed=1523.2s eta=2053s
+progress 645/1512 (42.7%) elapsed=1526.5s eta=2052s
+progress 646/1512 (42.7%) elapsed=1527.0s eta=2047s
+progress 647/1512 (42.8%) elapsed=1531.1s eta=2047s
+progress 648/1512 (42.9%) elapsed=1531.5s eta=2042s
+progress 649/1512 (42.9%) elapsed=1531.7s eta=2037s
+progress 650/1512 (43.0%) elapsed=1532.0s eta=2032s
+progress 651/1512 (43.1%) elapsed=1533.0s eta=2028s
+progress 652/1512 (43.1%) elapsed=1536.8s eta=2027s
+progress 653/1512 (43.2%) elapsed=1538.3s eta=2024s
+progress 654/1512 (43.3%) elapsed=1543.4s eta=2025s
+progress 655/1512 (43.3%) elapsed=1544.5s eta=2021s
+progress 656/1512 (43.4%) elapsed=1546.2s eta=2018s
+progress 657/1512 (43.5%) elapsed=1546.9s eta=2013s
+progress 658/1512 (43.5%) elapsed=1547.8s eta=2009s
+progress 659/1512 (43.6%) elapsed=1550.3s eta=2007s
+progress 660/1512 (43.7%) elapsed=1551.6s eta=2003s
+progress 661/1512 (43.7%) elapsed=1563.0s eta=2012s
+progress 662/1512 (43.8%) elapsed=1563.1s eta=2007s
+progress 663/1512 (43.8%) elapsed=1568.2s eta=2008s
+progress 664/1512 (43.9%) elapsed=1569.6s eta=2005s
+progress 665/1512 (44.0%) elapsed=1569.8s eta=1999s
+progress 666/1512 (44.0%) elapsed=1570.2s eta=1995s
+progress 667/1512 (44.1%) elapsed=1572.3s eta=1992s
+progress 668/1512 (44.2%) elapsed=1576.3s eta=1992s
+progress 669/1512 (44.2%) elapsed=1577.2s eta=1987s
+progress 670/1512 (44.3%) elapsed=1577.2s eta=1982s
+progress 671/1512 (44.4%) elapsed=1579.7s eta=1980s
+progress 672/1512 (44.4%) elapsed=1581.1s eta=1976s
+progress 673/1512 (44.5%) elapsed=1581.8s eta=1972s
+progress 674/1512 (44.6%) elapsed=1588.4s eta=1975s
+progress 675/1512 (44.6%) elapsed=1588.5s eta=1970s
+progress 676/1512 (44.7%) elapsed=1592.6s eta=1970s
+progress 677/1512 (44.8%) elapsed=1595.4s eta=1968s
+progress 678/1512 (44.8%) elapsed=1596.1s eta=1963s
+progress 679/1512 (44.9%) elapsed=1597.7s eta=1960s
+progress 680/1512 (45.0%) elapsed=1601.4s eta=1959s
+progress 681/1512 (45.0%) elapsed=1617.2s eta=1973s
+progress 682/1512 (45.1%) elapsed=1618.0s eta=1969s
+progress 683/1512 (45.2%) elapsed=1619.5s eta=1966s
+progress 684/1512 (45.2%) elapsed=1622.4s eta=1964s
+progress 685/1512 (45.3%) elapsed=1626.7s eta=1964s
+progress 686/1512 (45.4%) elapsed=1627.2s eta=1959s
+progress 687/1512 (45.4%) elapsed=1627.3s eta=1954s
+progress 688/1512 (45.5%) elapsed=1627.8s eta=1950s
+progress 689/1512 (45.6%) elapsed=1630.5s eta=1948s
+progress 690/1512 (45.6%) elapsed=1630.5s eta=1942s
+progress 691/1512 (45.7%) elapsed=1638.7s eta=1947s
+progress 692/1512 (45.8%) elapsed=1638.7s eta=1942s
+progress 693/1512 (45.8%) elapsed=1639.5s eta=1938s
+progress 694/1512 (45.9%) elapsed=1644.0s eta=1938s
+progress 695/1512 (46.0%) elapsed=1645.0s eta=1934s
+progress 696/1512 (46.0%) elapsed=1645.7s eta=1929s
+progress 697/1512 (46.1%) elapsed=1647.8s eta=1927s
+progress 698/1512 (46.2%) elapsed=1662.8s eta=1939s
+progress 699/1512 (46.2%) elapsed=1665.9s eta=1938s
+progress 700/1512 (46.3%) elapsed=1666.1s eta=1933s
+progress 701/1512 (46.4%) elapsed=1666.4s eta=1928s
+progress 702/1512 (46.4%) elapsed=1668.2s eta=1925s
+progress 703/1512 (46.5%) elapsed=1668.2s eta=1920s
+progress 704/1512 (46.6%) elapsed=1669.4s eta=1916s
+progress 705/1512 (46.6%) elapsed=1670.2s eta=1912s
+progress 706/1512 (46.7%) elapsed=1670.8s eta=1907s
+progress 707/1512 (46.8%) elapsed=1671.2s eta=1903s
+progress 708/1512 (46.8%) elapsed=1678.4s eta=1906s
+progress 709/1512 (46.9%) elapsed=1678.7s eta=1901s
+progress 710/1512 (47.0%) elapsed=1679.9s eta=1898s
+progress 711/1512 (47.0%) elapsed=1680.8s eta=1894s
+progress 712/1512 (47.1%) elapsed=1681.9s eta=1890s
+progress 713/1512 (47.2%) elapsed=1684.3s eta=1888s
+progress 714/1512 (47.2%) elapsed=1685.3s eta=1884s
+progress 715/1512 (47.3%) elapsed=1685.9s eta=1879s
+progress 716/1512 (47.4%) elapsed=1696.3s eta=1886s
+progress 717/1512 (47.4%) elapsed=1699.8s eta=1885s
+progress 718/1512 (47.5%) elapsed=1702.7s eta=1883s
+progress 719/1512 (47.6%) elapsed=1702.8s eta=1878s
+progress 720/1512 (47.6%) elapsed=1703.9s eta=1874s
+progress 721/1512 (47.7%) elapsed=1704.4s eta=1870s
+progress 722/1512 (47.8%) elapsed=1706.8s eta=1868s
+progress 723/1512 (47.8%) elapsed=1707.8s eta=1864s
+progress 724/1512 (47.9%) elapsed=1710.3s eta=1861s
+progress 725/1512 (47.9%) elapsed=1713.2s eta=1860s
+progress 726/1512 (48.0%) elapsed=1713.4s eta=1855s
+progress 727/1512 (48.1%) elapsed=1713.5s eta=1850s
+progress 728/1512 (48.1%) elapsed=1713.8s eta=1846s
+progress 729/1512 (48.2%) elapsed=1722.4s eta=1850s
+progress 730/1512 (48.3%) elapsed=1722.7s eta=1845s
+progress 731/1512 (48.3%) elapsed=1727.1s eta=1845s
+progress 732/1512 (48.4%) elapsed=1729.1s eta=1842s
+progress 733/1512 (48.5%) elapsed=1738.4s eta=1847s
+progress 734/1512 (48.5%) elapsed=1739.6s eta=1844s
+progress 735/1512 (48.6%) elapsed=1739.9s eta=1839s
+progress 736/1512 (48.7%) elapsed=1741.0s eta=1836s
+progress 737/1512 (48.7%) elapsed=1742.2s eta=1832s
+progress 738/1512 (48.8%) elapsed=1748.1s eta=1833s
+progress 739/1512 (48.9%) elapsed=1749.7s eta=1830s
+progress 740/1512 (48.9%) elapsed=1751.0s eta=1827s
+progress 741/1512 (49.0%) elapsed=1752.4s eta=1823s
+progress 742/1512 (49.1%) elapsed=1753.5s eta=1820s
+progress 743/1512 (49.1%) elapsed=1756.8s eta=1818s
+progress 744/1512 (49.2%) elapsed=1758.4s eta=1815s
+progress 745/1512 (49.3%) elapsed=1759.4s eta=1811s
+progress 746/1512 (49.3%) elapsed=1762.5s eta=1810s
+progress 747/1512 (49.4%) elapsed=1762.5s eta=1805s
+progress 748/1512 (49.5%) elapsed=1766.3s eta=1804s
+progress 749/1512 (49.5%) elapsed=1770.4s eta=1804s
+progress 750/1512 (49.6%) elapsed=1775.4s eta=1804s
+progress 751/1512 (49.7%) elapsed=1779.4s eta=1803s
+progress 752/1512 (49.7%) elapsed=1780.2s eta=1799s
+progress 753/1512 (49.8%) elapsed=1780.9s eta=1795s
+progress 754/1512 (49.9%) elapsed=1781.0s eta=1790s
+progress 755/1512 (49.9%) elapsed=1781.2s eta=1786s
+progress 756/1512 (50.0%) elapsed=1782.7s eta=1783s
+progress 757/1512 (50.1%) elapsed=1788.3s eta=1784s
+progress 758/1512 (50.1%) elapsed=1790.0s eta=1781s
+progress 759/1512 (50.2%) elapsed=1791.2s eta=1777s
+progress 760/1512 (50.3%) elapsed=1792.2s eta=1773s
+progress 761/1512 (50.3%) elapsed=1795.6s eta=1772s
+progress 762/1512 (50.4%) elapsed=1797.3s eta=1769s
+progress 763/1512 (50.5%) elapsed=1799.4s eta=1766s
+progress 764/1512 (50.5%) elapsed=1805.3s eta=1767s
+progress 765/1512 (50.6%) elapsed=1809.4s eta=1767s
+progress 766/1512 (50.7%) elapsed=1812.0s eta=1765s
+progress 767/1512 (50.7%) elapsed=1814.6s eta=1763s
+progress 768/1512 (50.8%) elapsed=1818.2s eta=1761s
+progress 769/1512 (50.9%) elapsed=1818.9s eta=1757s
+progress 770/1512 (50.9%) elapsed=1819.8s eta=1754s
+progress 771/1512 (51.0%) elapsed=1819.8s eta=1749s
+progress 772/1512 (51.1%) elapsed=1820.2s eta=1745s
+progress 773/1512 (51.1%) elapsed=1820.8s eta=1741s
+progress 774/1512 (51.2%) elapsed=1821.6s eta=1737s
+progress 775/1512 (51.3%) elapsed=1827.4s eta=1738s
+progress 776/1512 (51.3%) elapsed=1828.1s eta=1734s
+progress 777/1512 (51.4%) elapsed=1829.7s eta=1731s
+progress 778/1512 (51.5%) elapsed=1829.9s eta=1726s
+progress 779/1512 (51.5%) elapsed=1831.0s eta=1723s
+progress 780/1512 (51.6%) elapsed=1833.8s eta=1721s
+progress 781/1512 (51.7%) elapsed=1835.6s eta=1718s
+progress 782/1512 (51.7%) elapsed=1845.4s eta=1723s
+progress 783/1512 (51.8%) elapsed=1848.5s eta=1721s
+progress 784/1512 (51.9%) elapsed=1848.8s eta=1717s
+progress 785/1512 (51.9%) elapsed=1849.2s eta=1713s
+progress 786/1512 (52.0%) elapsed=1850.7s eta=1709s
+progress 787/1512 (52.1%) elapsed=1857.6s eta=1711s
+progress 788/1512 (52.1%) elapsed=1858.5s eta=1708s
+progress 789/1512 (52.2%) elapsed=1858.5s eta=1703s
+progress 790/1512 (52.2%) elapsed=1858.9s eta=1699s
+progress 791/1512 (52.3%) elapsed=1859.7s eta=1695s
+progress 792/1512 (52.4%) elapsed=1860.5s eta=1691s
+progress 793/1512 (52.4%) elapsed=1867.6s eta=1693s
+progress 794/1512 (52.5%) elapsed=1868.3s eta=1689s
+progress 795/1512 (52.6%) elapsed=1871.3s eta=1688s
+progress 796/1512 (52.6%) elapsed=1871.6s eta=1684s
+progress 797/1512 (52.7%) elapsed=1876.9s eta=1684s
+progress 798/1512 (52.8%) elapsed=1882.2s eta=1684s
+progress 799/1512 (52.8%) elapsed=1887.6s eta=1684s
+progress 800/1512 (52.9%) elapsed=1888.1s eta=1680s
+progress 801/1512 (53.0%) elapsed=1891.5s eta=1679s
+progress 802/1512 (53.0%) elapsed=1892.1s eta=1675s
+progress 803/1512 (53.1%) elapsed=1892.1s eta=1671s
+progress 804/1512 (53.2%) elapsed=1892.5s eta=1667s
+progress 805/1512 (53.2%) elapsed=1892.8s eta=1662s
+progress 806/1512 (53.3%) elapsed=1893.1s eta=1658s
+progress 807/1512 (53.4%) elapsed=1893.8s eta=1654s
+progress 808/1512 (53.4%) elapsed=1895.5s eta=1652s
+progress 809/1512 (53.5%) elapsed=1896.6s eta=1648s
+progress 810/1512 (53.6%) elapsed=1900.0s eta=1647s
+progress 811/1512 (53.6%) elapsed=1900.8s eta=1643s
+progress 812/1512 (53.7%) elapsed=1902.0s eta=1640s
+progress 813/1512 (53.8%) elapsed=1902.4s eta=1636s
+progress 814/1512 (53.8%) elapsed=1903.2s eta=1632s
+progress 815/1512 (53.9%) elapsed=1904.1s eta=1628s
+progress 816/1512 (54.0%) elapsed=1909.9s eta=1629s
+progress 817/1512 (54.0%) elapsed=1911.0s eta=1626s
+progress 818/1512 (54.1%) elapsed=1916.7s eta=1626s
+progress 819/1512 (54.2%) elapsed=1917.5s eta=1623s
+progress 820/1512 (54.2%) elapsed=1919.5s eta=1620s
+progress 821/1512 (54.3%) elapsed=1919.8s eta=1616s
+progress 822/1512 (54.4%) elapsed=1923.9s eta=1615s
+progress 823/1512 (54.4%) elapsed=1934.5s eta=1619s
+progress 824/1512 (54.5%) elapsed=1935.6s eta=1616s
+progress 825/1512 (54.6%) elapsed=1936.9s eta=1613s
+progress 826/1512 (54.6%) elapsed=1937.0s eta=1609s
+progress 827/1512 (54.7%) elapsed=1937.4s eta=1605s
+progress 828/1512 (54.8%) elapsed=1937.8s eta=1601s
+progress 829/1512 (54.8%) elapsed=1938.4s eta=1597s
+progress 830/1512 (54.9%) elapsed=1940.6s eta=1595s
+progress 831/1512 (55.0%) elapsed=1945.3s eta=1594s
+progress 832/1512 (55.0%) elapsed=1947.0s eta=1591s
+progress 833/1512 (55.1%) elapsed=1947.6s eta=1588s
+progress 834/1512 (55.2%) elapsed=1949.3s eta=1585s
+progress 835/1512 (55.2%) elapsed=1951.9s eta=1583s
+progress 836/1512 (55.3%) elapsed=1951.9s eta=1578s
+progress 837/1512 (55.4%) elapsed=1957.8s eta=1579s
+progress 838/1512 (55.4%) elapsed=1957.9s eta=1575s
+progress 839/1512 (55.5%) elapsed=1959.9s eta=1572s
+progress 840/1512 (55.6%) elapsed=1965.2s eta=1572s
+progress 841/1512 (55.6%) elapsed=1966.3s eta=1569s
+progress 842/1512 (55.7%) elapsed=1971.7s eta=1569s
+progress 843/1512 (55.8%) elapsed=1975.7s eta=1568s
+progress 844/1512 (55.8%) elapsed=1979.5s eta=1567s
+progress 845/1512 (55.9%) elapsed=1980.7s eta=1563s
+progress 846/1512 (56.0%) elapsed=1981.7s eta=1560s
+progress 847/1512 (56.0%) elapsed=1981.9s eta=1556s
+progress 848/1512 (56.1%) elapsed=1983.4s eta=1553s
+progress 849/1512 (56.2%) elapsed=1983.5s eta=1549s
+progress 850/1512 (56.2%) elapsed=1987.5s eta=1548s
+progress 851/1512 (56.3%) elapsed=1990.1s eta=1546s
+progress 852/1512 (56.3%) elapsed=1990.7s eta=1542s
+progress 853/1512 (56.4%) elapsed=1994.8s eta=1541s
+progress 854/1512 (56.5%) elapsed=1998.3s eta=1540s
+progress 855/1512 (56.5%) elapsed=2000.4s eta=1537s
+progress 856/1512 (56.6%) elapsed=2002.1s eta=1534s
+progress 857/1512 (56.7%) elapsed=2002.1s eta=1530s
+progress 858/1512 (56.7%) elapsed=2006.5s eta=1529s
+progress 859/1512 (56.8%) elapsed=2007.0s eta=1526s
+progress 860/1512 (56.9%) elapsed=2007.9s eta=1522s
+progress 861/1512 (56.9%) elapsed=2017.9s eta=1526s
+progress 862/1512 (57.0%) elapsed=2021.3s eta=1524s
+progress 863/1512 (57.1%) elapsed=2022.3s eta=1521s
+progress 864/1512 (57.1%) elapsed=2022.9s eta=1517s
+progress 865/1512 (57.2%) elapsed=2023.2s eta=1513s
+progress 866/1512 (57.3%) elapsed=2024.5s eta=1510s
+progress 867/1512 (57.3%) elapsed=2026.0s eta=1507s
+progress 868/1512 (57.4%) elapsed=2026.3s eta=1503s
+progress 869/1512 (57.5%) elapsed=2028.8s eta=1501s
+progress 870/1512 (57.5%) elapsed=2030.5s eta=1498s
+progress 871/1512 (57.6%) elapsed=2031.7s eta=1495s
+progress 872/1512 (57.7%) elapsed=2036.3s eta=1495s
+progress 873/1512 (57.7%) elapsed=2038.3s eta=1492s
+progress 874/1512 (57.8%) elapsed=2040.2s eta=1489s
+progress 875/1512 (57.9%) elapsed=2047.4s eta=1491s
+progress 876/1512 (57.9%) elapsed=2047.9s eta=1487s
+progress 877/1512 (58.0%) elapsed=2049.7s eta=1484s
+progress 878/1512 (58.1%) elapsed=2060.5s eta=1488s
+progress 879/1512 (58.1%) elapsed=2060.5s eta=1484s
+progress 880/1512 (58.2%) elapsed=2062.3s eta=1481s
+progress 881/1512 (58.3%) elapsed=2062.7s eta=1477s
+progress 882/1512 (58.3%) elapsed=2062.7s eta=1473s
+progress 883/1512 (58.4%) elapsed=2065.7s eta=1471s
+progress 884/1512 (58.5%) elapsed=2065.9s eta=1468s
+progress 885/1512 (58.5%) elapsed=2067.6s eta=1465s
+progress 886/1512 (58.6%) elapsed=2068.8s eta=1462s
+progress 887/1512 (58.7%) elapsed=2071.0s eta=1459s
+progress 888/1512 (58.7%) elapsed=2073.9s eta=1457s
+progress 889/1512 (58.8%) elapsed=2075.9s eta=1455s
+progress 890/1512 (58.9%) elapsed=2079.0s eta=1453s
+progress 891/1512 (58.9%) elapsed=2084.2s eta=1453s
+progress 892/1512 (59.0%) elapsed=2084.2s eta=1449s
+progress 893/1512 (59.1%) elapsed=2084.7s eta=1445s
+progress 894/1512 (59.1%) elapsed=2085.2s eta=1441s
+progress 895/1512 (59.2%) elapsed=2086.8s eta=1439s
+progress 896/1512 (59.3%) elapsed=2087.2s eta=1435s
+progress 897/1512 (59.3%) elapsed=2100.1s eta=1440s
+progress 898/1512 (59.4%) elapsed=2100.5s eta=1436s
+progress 899/1512 (59.5%) elapsed=2100.6s eta=1432s
+progress 900/1512 (59.5%) elapsed=2102.0s eta=1429s
+progress 901/1512 (59.6%) elapsed=2103.9s eta=1427s
+progress 902/1512 (59.7%) elapsed=2103.9s eta=1423s
+progress 903/1512 (59.7%) elapsed=2105.4s eta=1420s
+progress 904/1512 (59.8%) elapsed=2106.3s eta=1417s
+progress 905/1512 (59.9%) elapsed=2111.8s eta=1416s
+progress 906/1512 (59.9%) elapsed=2114.7s eta=1414s
+progress 907/1512 (60.0%) elapsed=2116.9s eta=1412s
+progress 908/1512 (60.1%) elapsed=2117.7s eta=1409s
+progress 909/1512 (60.1%) elapsed=2122.2s eta=1408s
+progress 910/1512 (60.2%) elapsed=2122.2s eta=1404s
+progress 911/1512 (60.3%) elapsed=2123.0s eta=1401s
+progress 912/1512 (60.3%) elapsed=2123.1s eta=1397s
+progress 913/1512 (60.4%) elapsed=2123.8s eta=1393s
+progress 914/1512 (60.4%) elapsed=2125.0s eta=1390s
+progress 915/1512 (60.5%) elapsed=2125.3s eta=1387s
+progress 916/1512 (60.6%) elapsed=2133.2s eta=1388s
+progress 917/1512 (60.6%) elapsed=2135.8s eta=1386s
+progress 918/1512 (60.7%) elapsed=2138.5s eta=1384s
+progress 919/1512 (60.8%) elapsed=2139.1s eta=1380s
+progress 920/1512 (60.8%) elapsed=2141.4s eta=1378s
+progress 921/1512 (60.9%) elapsed=2143.1s eta=1375s
+progress 922/1512 (61.0%) elapsed=2143.7s eta=1372s
+progress 923/1512 (61.0%) elapsed=2152.4s eta=1374s
+progress 924/1512 (61.1%) elapsed=2156.8s eta=1373s
+progress 925/1512 (61.2%) elapsed=2157.4s eta=1369s
+progress 926/1512 (61.2%) elapsed=2157.6s eta=1365s
+progress 927/1512 (61.3%) elapsed=2158.9s eta=1362s
+progress 928/1512 (61.4%) elapsed=2163.2s eta=1361s
+progress 929/1512 (61.4%) elapsed=2163.2s eta=1358s
+progress 930/1512 (61.5%) elapsed=2163.9s eta=1354s
+progress 931/1512 (61.6%) elapsed=2164.3s eta=1351s
+progress 932/1512 (61.6%) elapsed=2165.2s eta=1347s
+progress 933/1512 (61.7%) elapsed=2165.4s eta=1344s
+progress 934/1512 (61.8%) elapsed=2174.7s eta=1346s
+progress 935/1512 (61.8%) elapsed=2177.3s eta=1344s
+progress 936/1512 (61.9%) elapsed=2179.6s eta=1341s
+progress 937/1512 (62.0%) elapsed=2180.6s eta=1338s
+progress 938/1512 (62.0%) elapsed=2181.0s eta=1335s
+progress 939/1512 (62.1%) elapsed=2183.3s eta=1332s
+progress 940/1512 (62.2%) elapsed=2196.1s eta=1336s
+progress 941/1512 (62.2%) elapsed=2198.6s eta=1334s
+progress 942/1512 (62.3%) elapsed=2199.2s eta=1331s
+progress 943/1512 (62.4%) elapsed=2199.6s eta=1327s
+progress 944/1512 (62.4%) elapsed=2200.5s eta=1324s
+progress 945/1512 (62.5%) elapsed=2205.5s eta=1323s
+progress 946/1512 (62.6%) elapsed=2205.9s eta=1320s
+progress 947/1512 (62.6%) elapsed=2206.3s eta=1316s
+progress 948/1512 (62.7%) elapsed=2207.5s eta=1313s
+progress 949/1512 (62.8%) elapsed=2207.5s eta=1310s
+progress 950/1512 (62.8%) elapsed=2208.3s eta=1306s
+progress 951/1512 (62.9%) elapsed=2208.5s eta=1303s
+progress 952/1512 (63.0%) elapsed=2210.5s eta=1300s
+progress 953/1512 (63.0%) elapsed=2217.1s eta=1301s
+progress 954/1512 (63.1%) elapsed=2219.5s eta=1298s
+progress 955/1512 (63.2%) elapsed=2223.4s eta=1297s
+progress 956/1512 (63.2%) elapsed=2223.8s eta=1293s
+progress 957/1512 (63.3%) elapsed=2224.0s eta=1290s
+progress 958/1512 (63.4%) elapsed=2226.5s eta=1288s
+progress 959/1512 (63.4%) elapsed=2229.6s eta=1286s
+progress 960/1512 (63.5%) elapsed=2235.1s eta=1285s
+progress 961/1512 (63.6%) elapsed=2242.6s eta=1286s
+progress 962/1512 (63.6%) elapsed=2242.9s eta=1282s
+progress 963/1512 (63.7%) elapsed=2243.8s eta=1279s
+progress 964/1512 (63.8%) elapsed=2244.1s eta=1276s
+progress 965/1512 (63.8%) elapsed=2249.3s eta=1275s
+progress 966/1512 (63.9%) elapsed=2250.2s eta=1272s
+progress 967/1512 (64.0%) elapsed=2250.4s eta=1268s
+progress 968/1512 (64.0%) elapsed=2250.7s eta=1265s
+progress 969/1512 (64.1%) elapsed=2253.8s eta=1263s
+progress 970/1512 (64.2%) elapsed=2254.3s eta=1260s
+progress 971/1512 (64.2%) elapsed=2255.7s eta=1257s
+progress 972/1512 (64.3%) elapsed=2267.0s eta=1259s
+progress 973/1512 (64.4%) elapsed=2269.2s eta=1257s
+progress 974/1512 (64.4%) elapsed=2270.9s eta=1254s
+progress 975/1512 (64.5%) elapsed=2271.7s eta=1251s
+progress 976/1512 (64.6%) elapsed=2273.3s eta=1248s
+progress 977/1512 (64.6%) elapsed=2273.4s eta=1245s
+progress 978/1512 (64.7%) elapsed=2278.3s eta=1244s
+progress 979/1512 (64.7%) elapsed=2287.7s eta=1246s
+progress 980/1512 (64.8%) elapsed=2290.4s eta=1243s
+progress 981/1512 (64.9%) elapsed=2290.8s eta=1240s
+progress 982/1512 (64.9%) elapsed=2290.8s eta=1236s
+progress 983/1512 (65.0%) elapsed=2297.9s eta=1237s
+progress 984/1512 (65.1%) elapsed=2299.1s eta=1234s
+progress 985/1512 (65.1%) elapsed=2299.1s eta=1230s
+progress 986/1512 (65.2%) elapsed=2302.0s eta=1228s
+progress 987/1512 (65.3%) elapsed=2312.5s eta=1230s
+progress 988/1512 (65.3%) elapsed=2313.4s eta=1227s
+progress 989/1512 (65.4%) elapsed=2316.6s eta=1225s
+progress 990/1512 (65.5%) elapsed=2318.7s eta=1223s
+progress 991/1512 (65.5%) elapsed=2322.6s eta=1221s
+progress 992/1512 (65.6%) elapsed=2322.6s eta=1217s
+progress 993/1512 (65.7%) elapsed=2323.0s eta=1214s
+progress 994/1512 (65.7%) elapsed=2323.0s eta=1211s
+progress 995/1512 (65.8%) elapsed=2330.6s eta=1211s
+progress 996/1512 (65.9%) elapsed=2334.3s eta=1209s
+progress 997/1512 (65.9%) elapsed=2336.2s eta=1207s
+progress 998/1512 (66.0%) elapsed=2336.4s eta=1203s
+progress 999/1512 (66.1%) elapsed=2337.3s eta=1200s
+progress 1000/1512 (66.1%) elapsed=2337.4s eta=1197s
+progress 1001/1512 (66.2%) elapsed=2337.4s eta=1193s
+progress 1002/1512 (66.3%) elapsed=2345.6s eta=1194s
+progress 1003/1512 (66.3%) elapsed=2345.6s eta=1190s
+progress 1004/1512 (66.4%) elapsed=2346.6s eta=1187s
+progress 1005/1512 (66.5%) elapsed=2347.7s eta=1184s
+progress 1006/1512 (66.5%) elapsed=2353.4s eta=1184s
+progress 1007/1512 (66.6%) elapsed=2354.9s eta=1181s
+progress 1008/1512 (66.7%) elapsed=2360.2s eta=1180s
+progress 1009/1512 (66.7%) elapsed=2361.9s eta=1177s
+progress 1010/1512 (66.8%) elapsed=2362.1s eta=1174s
+progress 1011/1512 (66.9%) elapsed=2362.9s eta=1171s
+progress 1012/1512 (66.9%) elapsed=2363.8s eta=1168s
+progress 1013/1512 (67.0%) elapsed=2369.5s eta=1167s
+progress 1014/1512 (67.1%) elapsed=2373.3s eta=1166s
+progress 1015/1512 (67.1%) elapsed=2375.6s eta=1163s
+progress 1016/1512 (67.2%) elapsed=2375.8s eta=1160s
+progress 1017/1512 (67.3%) elapsed=2377.8s eta=1157s
+progress 1018/1512 (67.3%) elapsed=2378.5s eta=1154s
+progress 1019/1512 (67.4%) elapsed=2385.6s eta=1154s
+progress 1020/1512 (67.5%) elapsed=2385.7s eta=1151s
+progress 1021/1512 (67.5%) elapsed=2387.5s eta=1148s
+progress 1022/1512 (67.6%) elapsed=2387.6s eta=1145s
+progress 1023/1512 (67.7%) elapsed=2391.3s eta=1143s
+progress 1024/1512 (67.7%) elapsed=2392.5s eta=1140s
+progress 1025/1512 (67.8%) elapsed=2393.8s eta=1137s
+progress 1026/1512 (67.9%) elapsed=2394.1s eta=1134s
+progress 1027/1512 (67.9%) elapsed=2394.4s eta=1131s
+progress 1028/1512 (68.0%) elapsed=2400.2s eta=1130s
+progress 1029/1512 (68.1%) elapsed=2400.6s eta=1127s
+progress 1030/1512 (68.1%) elapsed=2401.6s eta=1124s
+progress 1031/1512 (68.2%) elapsed=2401.6s eta=1120s
+progress 1032/1512 (68.3%) elapsed=2402.6s eta=1117s
+progress 1033/1512 (68.3%) elapsed=2410.0s eta=1118s
+progress 1034/1512 (68.4%) elapsed=2414.6s eta=1116s
+progress 1035/1512 (68.5%) elapsed=2416.4s eta=1114s
+progress 1036/1512 (68.5%) elapsed=2417.6s eta=1111s
+progress 1037/1512 (68.6%) elapsed=2417.7s eta=1107s
+progress 1038/1512 (68.7%) elapsed=2417.8s eta=1104s
+progress 1039/1512 (68.7%) elapsed=2424.4s eta=1104s
+progress 1040/1512 (68.8%) elapsed=2427.2s eta=1102s
+progress 1041/1512 (68.8%) elapsed=2427.4s eta=1098s
+progress 1042/1512 (68.9%) elapsed=2429.5s eta=1096s
+progress 1043/1512 (69.0%) elapsed=2431.6s eta=1093s
+progress 1044/1512 (69.0%) elapsed=2431.8s eta=1090s
+progress 1045/1512 (69.1%) elapsed=2432.3s eta=1087s
+progress 1046/1512 (69.2%) elapsed=2435.0s eta=1085s
+progress 1047/1512 (69.2%) elapsed=2438.1s eta=1083s
+progress 1048/1512 (69.3%) elapsed=2438.6s eta=1080s
+progress 1049/1512 (69.4%) elapsed=2439.8s eta=1077s
+progress 1050/1512 (69.4%) elapsed=2439.8s eta=1074s
+progress 1051/1512 (69.5%) elapsed=2444.6s eta=1072s
+progress 1052/1512 (69.6%) elapsed=2446.8s eta=1070s
+progress 1053/1512 (69.6%) elapsed=2452.2s eta=1069s
+progress 1054/1512 (69.7%) elapsed=2455.0s eta=1067s
+progress 1055/1512 (69.8%) elapsed=2455.3s eta=1064s
+progress 1056/1512 (69.8%) elapsed=2461.3s eta=1063s
+progress 1057/1512 (69.9%) elapsed=2464.3s eta=1061s
+progress 1058/1512 (70.0%) elapsed=2464.4s eta=1057s
+progress 1059/1512 (70.0%) elapsed=2466.3s eta=1055s
+progress 1060/1512 (70.1%) elapsed=2467.7s eta=1052s
+progress 1061/1512 (70.2%) elapsed=2470.3s eta=1050s
+progress 1062/1512 (70.2%) elapsed=2470.7s eta=1047s
+progress 1063/1512 (70.3%) elapsed=2470.8s eta=1044s
+progress 1064/1512 (70.4%) elapsed=2471.1s eta=1040s
+progress 1065/1512 (70.4%) elapsed=2473.6s eta=1038s
+progress 1066/1512 (70.5%) elapsed=2476.8s eta=1036s
+progress 1067/1512 (70.6%) elapsed=2477.4s eta=1033s
+progress 1068/1512 (70.6%) elapsed=2477.8s eta=1030s
+progress 1069/1512 (70.7%) elapsed=2482.5s eta=1029s
+progress 1070/1512 (70.8%) elapsed=2485.1s eta=1027s
+progress 1071/1512 (70.8%) elapsed=2490.0s eta=1025s
+progress 1072/1512 (70.9%) elapsed=2494.3s eta=1024s
+progress 1073/1512 (71.0%) elapsed=2498.3s eta=1022s
+progress 1074/1512 (71.0%) elapsed=2501.7s eta=1020s
+progress 1075/1512 (71.1%) elapsed=2504.6s eta=1018s
+progress 1076/1512 (71.2%) elapsed=2504.7s eta=1015s
+progress 1077/1512 (71.2%) elapsed=2505.9s eta=1012s
+progress 1078/1512 (71.3%) elapsed=2507.6s eta=1010s
+progress 1079/1512 (71.4%) elapsed=2508.5s eta=1007s
+progress 1080/1512 (71.4%) elapsed=2510.8s eta=1004s
+progress 1081/1512 (71.5%) elapsed=2511.2s eta=1001s
+progress 1082/1512 (71.6%) elapsed=2511.5s eta=998s
+progress 1083/1512 (71.6%) elapsed=2512.3s eta=995s
+progress 1084/1512 (71.7%) elapsed=2519.2s eta=995s
+progress 1085/1512 (71.8%) elapsed=2519.6s eta=992s
+progress 1086/1512 (71.8%) elapsed=2519.6s eta=988s
+progress 1087/1512 (71.9%) elapsed=2534.5s eta=991s
+progress 1088/1512 (72.0%) elapsed=2535.5s eta=988s
+progress 1089/1512 (72.0%) elapsed=2538.2s eta=986s
+progress 1090/1512 (72.1%) elapsed=2542.7s eta=984s
+progress 1091/1512 (72.2%) elapsed=2543.0s eta=981s
+progress 1092/1512 (72.2%) elapsed=2549.0s eta=980s
+progress 1093/1512 (72.3%) elapsed=2554.7s eta=979s
+progress 1094/1512 (72.4%) elapsed=2559.4s eta=978s
+progress 1095/1512 (72.4%) elapsed=2559.8s eta=975s
+progress 1096/1512 (72.5%) elapsed=2560.4s eta=972s
+progress 1097/1512 (72.6%) elapsed=2561.4s eta=969s
+progress 1098/1512 (72.6%) elapsed=2561.4s eta=966s
+progress 1099/1512 (72.7%) elapsed=2562.6s eta=963s
+progress 1100/1512 (72.8%) elapsed=2570.0s eta=963s
+progress 1101/1512 (72.8%) elapsed=2570.0s eta=959s
+progress 1102/1512 (72.9%) elapsed=2570.6s eta=956s
+progress 1103/1512 (72.9%) elapsed=2582.3s eta=958s
+progress 1104/1512 (73.0%) elapsed=2582.9s eta=955s
+progress 1105/1512 (73.1%) elapsed=2584.2s eta=952s
+progress 1106/1512 (73.1%) elapsed=2584.2s eta=949s
+progress 1107/1512 (73.2%) elapsed=2592.7s eta=949s
+progress 1108/1512 (73.3%) elapsed=2594.2s eta=946s
+progress 1109/1512 (73.3%) elapsed=2594.3s eta=943s
+progress 1110/1512 (73.4%) elapsed=2597.2s eta=941s
+progress 1111/1512 (73.5%) elapsed=2599.2s eta=938s
+progress 1112/1512 (73.5%) elapsed=2607.0s eta=938s
+progress 1113/1512 (73.6%) elapsed=2608.0s eta=935s
+progress 1114/1512 (73.7%) elapsed=2609.2s eta=932s
+progress 1115/1512 (73.7%) elapsed=2609.2s eta=929s
+progress 1116/1512 (73.8%) elapsed=2609.3s eta=926s
+progress 1117/1512 (73.9%) elapsed=2610.2s eta=923s
+progress 1118/1512 (73.9%) elapsed=2611.5s eta=920s
+progress 1119/1512 (74.0%) elapsed=2613.9s eta=918s
+progress 1120/1512 (74.1%) elapsed=2614.4s eta=915s
+progress 1121/1512 (74.1%) elapsed=2615.9s eta=912s
+progress 1122/1512 (74.2%) elapsed=2616.4s eta=909s
+progress 1123/1512 (74.3%) elapsed=2616.9s eta=906s
+progress 1124/1512 (74.3%) elapsed=2618.9s eta=904s
+progress 1125/1512 (74.4%) elapsed=2625.0s eta=903s
+progress 1126/1512 (74.5%) elapsed=2627.6s eta=901s
+progress 1127/1512 (74.5%) elapsed=2633.0s eta=899s
+progress 1128/1512 (74.6%) elapsed=2633.0s eta=896s
+progress 1129/1512 (74.7%) elapsed=2636.9s eta=895s
+progress 1130/1512 (74.7%) elapsed=2640.0s eta=892s
+progress 1131/1512 (74.8%) elapsed=2641.4s eta=890s
+progress 1132/1512 (74.9%) elapsed=2646.8s eta=888s
+progress 1133/1512 (74.9%) elapsed=2647.0s eta=885s
+progress 1134/1512 (75.0%) elapsed=2647.0s eta=882s
+progress 1135/1512 (75.1%) elapsed=2647.8s eta=880s
+progress 1136/1512 (75.1%) elapsed=2649.0s eta=877s
+progress 1137/1512 (75.2%) elapsed=2652.2s eta=875s
+progress 1138/1512 (75.3%) elapsed=2652.6s eta=872s
+progress 1139/1512 (75.3%) elapsed=2654.2s eta=869s
+progress 1140/1512 (75.4%) elapsed=2657.2s eta=867s
+progress 1141/1512 (75.5%) elapsed=2657.4s eta=864s
+progress 1142/1512 (75.5%) elapsed=2662.9s eta=863s
+progress 1143/1512 (75.6%) elapsed=2665.0s eta=860s
+progress 1144/1512 (75.7%) elapsed=2665.0s eta=857s
+progress 1145/1512 (75.7%) elapsed=2668.0s eta=855s
+progress 1146/1512 (75.8%) elapsed=2672.9s eta=854s
+progress 1147/1512 (75.9%) elapsed=2674.9s eta=851s
+progress 1148/1512 (75.9%) elapsed=2676.9s eta=849s
+progress 1149/1512 (76.0%) elapsed=2682.0s eta=847s
+progress 1150/1512 (76.1%) elapsed=2684.6s eta=845s
+progress 1151/1512 (76.1%) elapsed=2685.9s eta=842s
+progress 1152/1512 (76.2%) elapsed=2687.9s eta=840s
+progress 1153/1512 (76.3%) elapsed=2691.1s eta=838s
+progress 1154/1512 (76.3%) elapsed=2691.1s eta=835s
+progress 1155/1512 (76.4%) elapsed=2692.0s eta=832s
+progress 1156/1512 (76.5%) elapsed=2696.1s eta=830s
+progress 1157/1512 (76.5%) elapsed=2702.7s eta=829s
+progress 1158/1512 (76.6%) elapsed=2704.1s eta=827s
+progress 1159/1512 (76.7%) elapsed=2707.9s eta=825s
+progress 1160/1512 (76.7%) elapsed=2710.1s eta=822s
+progress 1161/1512 (76.8%) elapsed=2712.6s eta=820s
+progress 1162/1512 (76.9%) elapsed=2713.0s eta=817s
+progress 1163/1512 (76.9%) elapsed=2718.1s eta=816s
+progress 1164/1512 (77.0%) elapsed=2718.4s eta=813s
+progress 1165/1512 (77.1%) elapsed=2718.6s eta=810s
+progress 1166/1512 (77.1%) elapsed=2727.9s eta=809s
+progress 1167/1512 (77.2%) elapsed=2732.0s eta=808s
+progress 1168/1512 (77.2%) elapsed=2733.7s eta=805s
+progress 1169/1512 (77.3%) elapsed=2734.2s eta=802s
+progress 1170/1512 (77.4%) elapsed=2734.8s eta=799s
+progress 1171/1512 (77.4%) elapsed=2735.5s eta=797s
+progress 1172/1512 (77.5%) elapsed=2743.4s eta=796s
+progress 1173/1512 (77.6%) elapsed=2744.1s eta=793s
+progress 1174/1512 (77.6%) elapsed=2745.1s eta=790s
+progress 1175/1512 (77.7%) elapsed=2752.2s eta=789s
+progress 1176/1512 (77.8%) elapsed=2754.8s eta=787s
+progress 1177/1512 (77.8%) elapsed=2755.4s eta=784s
+progress 1178/1512 (77.9%) elapsed=2759.0s eta=782s
+progress 1179/1512 (78.0%) elapsed=2761.2s eta=780s
+progress 1180/1512 (78.0%) elapsed=2763.8s eta=778s
+progress 1181/1512 (78.1%) elapsed=2769.6s eta=776s
+progress 1182/1512 (78.2%) elapsed=2769.6s eta=773s
+progress 1183/1512 (78.2%) elapsed=2769.9s eta=770s
+progress 1184/1512 (78.3%) elapsed=2770.5s eta=768s
+progress 1185/1512 (78.4%) elapsed=2782.5s eta=768s
+progress 1186/1512 (78.4%) elapsed=2782.8s eta=765s
+progress 1187/1512 (78.5%) elapsed=2783.3s eta=762s
+progress 1188/1512 (78.6%) elapsed=2783.6s eta=759s
+progress 1189/1512 (78.6%) elapsed=2788.9s eta=758s
+progress 1190/1512 (78.7%) elapsed=2789.7s eta=755s
+progress 1191/1512 (78.8%) elapsed=2789.9s eta=752s
+progress 1192/1512 (78.8%) elapsed=2794.6s eta=750s
+progress 1193/1512 (78.9%) elapsed=2797.1s eta=748s
+progress 1194/1512 (79.0%) elapsed=2797.6s eta=745s
+progress 1195/1512 (79.0%) elapsed=2801.0s eta=743s
+progress 1196/1512 (79.1%) elapsed=2801.6s eta=740s
+progress 1197/1512 (79.2%) elapsed=2803.9s eta=738s
+progress 1198/1512 (79.2%) elapsed=2805.3s eta=735s
+progress 1199/1512 (79.3%) elapsed=2805.7s eta=732s
+progress 1200/1512 (79.4%) elapsed=2811.6s eta=731s
+progress 1201/1512 (79.4%) elapsed=2812.9s eta=728s
+progress 1202/1512 (79.5%) elapsed=2813.4s eta=726s
+progress 1203/1512 (79.6%) elapsed=2816.5s eta=723s
+progress 1204/1512 (79.6%) elapsed=2817.5s eta=721s
+progress 1205/1512 (79.7%) elapsed=2818.9s eta=718s
+progress 1206/1512 (79.8%) elapsed=2825.8s eta=717s
+progress 1207/1512 (79.8%) elapsed=2826.0s eta=714s
+progress 1208/1512 (79.9%) elapsed=2830.8s eta=712s
+progress 1209/1512 (80.0%) elapsed=2832.5s eta=710s
+progress 1210/1512 (80.0%) elapsed=2833.9s eta=707s
+progress 1211/1512 (80.1%) elapsed=2835.1s eta=705s
+progress 1212/1512 (80.2%) elapsed=2837.2s eta=702s
+progress 1213/1512 (80.2%) elapsed=2837.5s eta=699s
+progress 1214/1512 (80.3%) elapsed=2839.2s eta=697s
+progress 1215/1512 (80.4%) elapsed=2843.6s eta=695s
+progress 1216/1512 (80.4%) elapsed=2843.8s eta=692s
+progress 1217/1512 (80.5%) elapsed=2845.4s eta=690s
+progress 1218/1512 (80.6%) elapsed=2848.9s eta=688s
+progress 1219/1512 (80.6%) elapsed=2849.7s eta=685s
+progress 1220/1512 (80.7%) elapsed=2856.3s eta=684s
+progress 1221/1512 (80.8%) elapsed=2859.3s eta=681s
+progress 1222/1512 (80.8%) elapsed=2862.8s eta=679s
+progress 1223/1512 (80.9%) elapsed=2874.3s eta=679s
+progress 1224/1512 (81.0%) elapsed=2880.7s eta=678s
+progress 1225/1512 (81.0%) elapsed=2883.1s eta=675s
+progress 1226/1512 (81.1%) elapsed=2884.1s eta=673s
+progress 1227/1512 (81.2%) elapsed=2884.7s eta=670s
+progress 1228/1512 (81.2%) elapsed=2886.3s eta=668s
+progress 1229/1512 (81.3%) elapsed=2886.4s eta=665s
+progress 1230/1512 (81.3%) elapsed=2887.1s eta=662s
+progress 1231/1512 (81.4%) elapsed=2889.2s eta=660s
+progress 1232/1512 (81.5%) elapsed=2889.2s eta=657s
+progress 1233/1512 (81.5%) elapsed=2890.7s eta=654s
+progress 1234/1512 (81.6%) elapsed=2891.3s eta=651s
+progress 1235/1512 (81.7%) elapsed=2894.2s eta=649s
+progress 1236/1512 (81.7%) elapsed=2898.5s eta=647s
+progress 1237/1512 (81.8%) elapsed=2906.6s eta=646s
+progress 1238/1512 (81.9%) elapsed=2909.2s eta=644s
+progress 1239/1512 (81.9%) elapsed=2913.3s eta=642s
+progress 1240/1512 (82.0%) elapsed=2914.2s eta=639s
+progress 1241/1512 (82.1%) elapsed=2915.0s eta=637s
+progress 1242/1512 (82.1%) elapsed=2915.8s eta=634s
+progress 1243/1512 (82.2%) elapsed=2925.7s eta=633s
+progress 1244/1512 (82.3%) elapsed=2928.5s eta=631s
+progress 1245/1512 (82.3%) elapsed=2932.6s eta=629s
+progress 1246/1512 (82.4%) elapsed=2933.1s eta=626s
+progress 1247/1512 (82.5%) elapsed=2933.2s eta=623s
+progress 1248/1512 (82.5%) elapsed=2933.6s eta=621s
+progress 1249/1512 (82.6%) elapsed=2934.1s eta=618s
+progress 1250/1512 (82.7%) elapsed=2934.1s eta=615s
+progress 1251/1512 (82.7%) elapsed=2934.2s eta=612s
+progress 1252/1512 (82.8%) elapsed=2934.7s eta=609s
+progress 1253/1512 (82.9%) elapsed=2935.7s eta=607s
+progress 1254/1512 (82.9%) elapsed=2938.2s eta=605s
+progress 1255/1512 (83.0%) elapsed=2952.4s eta=605s
+progress 1256/1512 (83.1%) elapsed=2952.5s eta=602s
+progress 1257/1512 (83.1%) elapsed=2953.4s eta=599s
+progress 1258/1512 (83.2%) elapsed=2954.1s eta=596s
+progress 1259/1512 (83.3%) elapsed=2954.7s eta=594s
+progress 1260/1512 (83.3%) elapsed=2955.9s eta=591s
+progress 1261/1512 (83.4%) elapsed=2967.6s eta=591s
+progress 1262/1512 (83.5%) elapsed=2970.5s eta=588s
+progress 1263/1512 (83.5%) elapsed=2971.1s eta=586s
+progress 1264/1512 (83.6%) elapsed=2972.1s eta=583s
+progress 1265/1512 (83.7%) elapsed=2972.2s eta=580s
+progress 1266/1512 (83.7%) elapsed=2973.0s eta=578s
+progress 1267/1512 (83.8%) elapsed=2973.0s eta=575s
+progress 1268/1512 (83.9%) elapsed=2974.3s eta=572s
+progress 1269/1512 (83.9%) elapsed=2974.9s eta=570s
+progress 1270/1512 (84.0%) elapsed=2974.9s eta=567s
+progress 1271/1512 (84.1%) elapsed=2979.8s eta=565s
+progress 1272/1512 (84.1%) elapsed=2981.8s eta=563s
+progress 1273/1512 (84.2%) elapsed=2982.9s eta=560s
+progress 1274/1512 (84.3%) elapsed=2993.0s eta=559s
+progress 1275/1512 (84.3%) elapsed=2994.0s eta=557s
+progress 1276/1512 (84.4%) elapsed=2995.2s eta=554s
+progress 1277/1512 (84.5%) elapsed=2997.1s eta=552s
+progress 1278/1512 (84.5%) elapsed=3002.1s eta=550s
+progress 1279/1512 (84.6%) elapsed=3009.9s eta=548s
+progress 1280/1512 (84.7%) elapsed=3010.3s eta=546s
+progress 1281/1512 (84.7%) elapsed=3012.0s eta=543s
+progress 1282/1512 (84.8%) elapsed=3012.3s eta=540s
+progress 1283/1512 (84.9%) elapsed=3013.8s eta=538s
+progress 1284/1512 (84.9%) elapsed=3013.8s eta=535s
+progress 1285/1512 (85.0%) elapsed=3014.8s eta=533s
+progress 1286/1512 (85.1%) elapsed=3014.9s eta=530s
+progress 1287/1512 (85.1%) elapsed=3015.4s eta=527s
+progress 1288/1512 (85.2%) elapsed=3016.7s eta=525s
+progress 1289/1512 (85.3%) elapsed=3016.7s eta=522s
+progress 1290/1512 (85.3%) elapsed=3017.3s eta=519s
+progress 1291/1512 (85.4%) elapsed=3023.9s eta=518s
+progress 1292/1512 (85.4%) elapsed=3030.7s eta=516s
+progress 1293/1512 (85.5%) elapsed=3030.8s eta=513s
+progress 1294/1512 (85.6%) elapsed=3032.3s eta=511s
+progress 1295/1512 (85.6%) elapsed=3037.2s eta=509s
+progress 1296/1512 (85.7%) elapsed=3039.7s eta=507s
+progress 1297/1512 (85.8%) elapsed=3050.4s eta=506s
+progress 1298/1512 (85.8%) elapsed=3054.8s eta=504s
+progress 1299/1512 (85.9%) elapsed=3055.3s eta=501s
+progress 1300/1512 (86.0%) elapsed=3057.1s eta=499s
+progress 1301/1512 (86.0%) elapsed=3057.8s eta=496s
+progress 1302/1512 (86.1%) elapsed=3058.6s eta=493s
+progress 1303/1512 (86.2%) elapsed=3059.7s eta=491s
+progress 1304/1512 (86.2%) elapsed=3063.8s eta=489s
+progress 1305/1512 (86.3%) elapsed=3063.8s eta=486s
+progress 1306/1512 (86.4%) elapsed=3064.8s eta=483s
+progress 1307/1512 (86.4%) elapsed=3075.9s eta=482s
+progress 1308/1512 (86.5%) elapsed=3078.9s eta=480s
+progress 1309/1512 (86.6%) elapsed=3078.9s eta=477s
+progress 1310/1512 (86.6%) elapsed=3080.6s eta=475s
+progress 1311/1512 (86.7%) elapsed=3083.9s eta=473s
+progress 1312/1512 (86.8%) elapsed=3085.3s eta=470s
+progress 1313/1512 (86.8%) elapsed=3095.5s eta=469s
+progress 1314/1512 (86.9%) elapsed=3097.2s eta=467s
+progress 1315/1512 (87.0%) elapsed=3101.4s eta=465s
+progress 1316/1512 (87.0%) elapsed=3101.5s eta=462s
+progress 1317/1512 (87.1%) elapsed=3101.9s eta=459s
+progress 1318/1512 (87.2%) elapsed=3103.6s eta=457s
+progress 1319/1512 (87.2%) elapsed=3103.6s eta=454s
+progress 1320/1512 (87.3%) elapsed=3108.2s eta=452s
+progress 1321/1512 (87.4%) elapsed=3108.4s eta=449s
+progress 1322/1512 (87.4%) elapsed=3108.4s eta=447s
+progress 1323/1512 (87.5%) elapsed=3113.2s eta=445s
+progress 1324/1512 (87.6%) elapsed=3118.0s eta=443s
+progress 1325/1512 (87.6%) elapsed=3123.7s eta=441s
+progress 1326/1512 (87.7%) elapsed=3124.0s eta=438s
+progress 1327/1512 (87.8%) elapsed=3124.1s eta=436s
+progress 1328/1512 (87.8%) elapsed=3125.8s eta=433s
+progress 1329/1512 (87.9%) elapsed=3126.3s eta=430s
+progress 1330/1512 (88.0%) elapsed=3127.4s eta=428s
+progress 1331/1512 (88.0%) elapsed=3128.7s eta=425s
+progress 1332/1512 (88.1%) elapsed=3129.1s eta=423s
+progress 1333/1512 (88.2%) elapsed=3140.7s eta=422s
+progress 1334/1512 (88.2%) elapsed=3142.5s eta=419s
+progress 1335/1512 (88.3%) elapsed=3143.7s eta=417s
+progress 1336/1512 (88.4%) elapsed=3144.5s eta=414s
+progress 1337/1512 (88.4%) elapsed=3144.7s eta=412s
+progress 1338/1512 (88.5%) elapsed=3150.2s eta=410s
+progress 1339/1512 (88.6%) elapsed=3151.1s eta=407s
+progress 1340/1512 (88.6%) elapsed=3154.1s eta=405s
+progress 1341/1512 (88.7%) elapsed=3158.6s eta=403s
+progress 1342/1512 (88.8%) elapsed=3164.1s eta=401s
+progress 1343/1512 (88.8%) elapsed=3164.5s eta=398s
+progress 1344/1512 (88.9%) elapsed=3166.3s eta=396s
+progress 1345/1512 (89.0%) elapsed=3166.7s eta=393s
+progress 1346/1512 (89.0%) elapsed=3168.5s eta=391s
+progress 1347/1512 (89.1%) elapsed=3168.6s eta=388s
+progress 1348/1512 (89.2%) elapsed=3169.2s eta=386s
+progress 1349/1512 (89.2%) elapsed=3169.4s eta=383s
+progress 1350/1512 (89.3%) elapsed=3177.4s eta=381s
+progress 1351/1512 (89.4%) elapsed=3180.4s eta=379s
+progress 1352/1512 (89.4%) elapsed=3184.3s eta=377s
+progress 1353/1512 (89.5%) elapsed=3184.5s eta=374s
+progress 1354/1512 (89.6%) elapsed=3185.4s eta=372s
+progress 1355/1512 (89.6%) elapsed=3186.5s eta=369s
+progress 1356/1512 (89.7%) elapsed=3186.5s eta=367s
+progress 1357/1512 (89.7%) elapsed=3191.6s eta=365s
+progress 1358/1512 (89.8%) elapsed=3193.2s eta=362s
+progress 1359/1512 (89.9%) elapsed=3195.8s eta=360s
+progress 1360/1512 (89.9%) elapsed=3198.2s eta=357s
+progress 1361/1512 (90.0%) elapsed=3201.5s eta=355s
+progress 1362/1512 (90.1%) elapsed=3202.9s eta=353s
+progress 1363/1512 (90.1%) elapsed=3207.1s eta=351s
+progress 1364/1512 (90.2%) elapsed=3209.5s eta=348s
+progress 1365/1512 (90.3%) elapsed=3211.5s eta=346s
+progress 1366/1512 (90.3%) elapsed=3211.6s eta=343s
+progress 1367/1512 (90.4%) elapsed=3212.6s eta=341s
+progress 1368/1512 (90.5%) elapsed=3213.8s eta=338s
+progress 1369/1512 (90.5%) elapsed=3216.2s eta=336s
+progress 1370/1512 (90.6%) elapsed=3224.3s eta=334s
+progress 1371/1512 (90.7%) elapsed=3228.0s eta=332s
+progress 1372/1512 (90.7%) elapsed=3229.1s eta=329s
+progress 1373/1512 (90.8%) elapsed=3229.2s eta=327s
+progress 1374/1512 (90.9%) elapsed=3229.2s eta=324s
+progress 1375/1512 (90.9%) elapsed=3232.1s eta=322s
+progress 1376/1512 (91.0%) elapsed=3234.7s eta=320s
+progress 1377/1512 (91.1%) elapsed=3241.3s eta=318s
+progress 1378/1512 (91.1%) elapsed=3242.3s eta=315s
+progress 1379/1512 (91.2%) elapsed=3244.6s eta=313s
+progress 1380/1512 (91.3%) elapsed=3245.5s eta=310s
+progress 1381/1512 (91.3%) elapsed=3247.9s eta=308s
+progress 1382/1512 (91.4%) elapsed=3251.5s eta=306s
+progress 1383/1512 (91.5%) elapsed=3253.5s eta=303s
+progress 1384/1512 (91.5%) elapsed=3253.5s eta=301s
+progress 1385/1512 (91.6%) elapsed=3254.1s eta=298s
+progress 1386/1512 (91.7%) elapsed=3254.4s eta=296s
+progress 1387/1512 (91.7%) elapsed=3256.3s eta=293s
+progress 1388/1512 (91.8%) elapsed=3259.1s eta=291s
+progress 1389/1512 (91.9%) elapsed=3260.0s eta=289s
+progress 1390/1512 (91.9%) elapsed=3265.3s eta=287s
+progress 1391/1512 (92.0%) elapsed=3269.5s eta=284s
+progress 1392/1512 (92.1%) elapsed=3269.5s eta=282s
+progress 1393/1512 (92.1%) elapsed=3272.8s eta=280s
+progress 1394/1512 (92.2%) elapsed=3273.2s eta=277s
+progress 1395/1512 (92.3%) elapsed=3274.7s eta=275s
+progress 1396/1512 (92.3%) elapsed=3280.1s eta=273s
+progress 1397/1512 (92.4%) elapsed=3281.8s eta=270s
+progress 1398/1512 (92.5%) elapsed=3282.2s eta=268s
+progress 1399/1512 (92.5%) elapsed=3284.8s eta=265s
+progress 1400/1512 (92.6%) elapsed=3286.6s eta=263s
+progress 1401/1512 (92.7%) elapsed=3289.3s eta=261s
+progress 1402/1512 (92.7%) elapsed=3290.9s eta=258s
+progress 1403/1512 (92.8%) elapsed=3292.1s eta=256s
+progress 1404/1512 (92.9%) elapsed=3292.8s eta=253s
+progress 1405/1512 (92.9%) elapsed=3293.1s eta=251s
+progress 1406/1512 (93.0%) elapsed=3294.1s eta=248s
+progress 1407/1512 (93.1%) elapsed=3294.5s eta=246s
+progress 1408/1512 (93.1%) elapsed=3299.4s eta=244s
+progress 1409/1512 (93.2%) elapsed=3304.5s eta=242s
+progress 1410/1512 (93.3%) elapsed=3306.3s eta=239s
+progress 1411/1512 (93.3%) elapsed=3310.4s eta=237s
+progress 1412/1512 (93.4%) elapsed=3314.8s eta=235s
+progress 1413/1512 (93.5%) elapsed=3321.8s eta=233s
+progress 1414/1512 (93.5%) elapsed=3323.7s eta=230s
+progress 1415/1512 (93.6%) elapsed=3324.6s eta=228s
+progress 1416/1512 (93.7%) elapsed=3325.2s eta=225s
+progress 1417/1512 (93.7%) elapsed=3327.1s eta=223s
+progress 1418/1512 (93.8%) elapsed=3330.4s eta=221s
+progress 1419/1512 (93.8%) elapsed=3333.2s eta=218s
+progress 1420/1512 (93.9%) elapsed=3335.7s eta=216s
+progress 1421/1512 (94.0%) elapsed=3336.3s eta=214s
+progress 1422/1512 (94.0%) elapsed=3337.8s eta=211s
+progress 1423/1512 (94.1%) elapsed=3338.4s eta=209s
+progress 1424/1512 (94.2%) elapsed=3338.9s eta=206s
+progress 1425/1512 (94.2%) elapsed=3338.9s eta=204s
+progress 1426/1512 (94.3%) elapsed=3343.6s eta=202s
+progress 1427/1512 (94.4%) elapsed=3352.1s eta=200s
+progress 1428/1512 (94.4%) elapsed=3354.6s eta=197s
+progress 1429/1512 (94.5%) elapsed=3357.8s eta=195s
+progress 1430/1512 (94.6%) elapsed=3360.9s eta=193s
+progress 1431/1512 (94.6%) elapsed=3366.8s eta=191s
+progress 1432/1512 (94.7%) elapsed=3368.1s eta=188s
+progress 1433/1512 (94.8%) elapsed=3370.2s eta=186s
+progress 1434/1512 (94.8%) elapsed=3370.3s eta=183s
+progress 1435/1512 (94.9%) elapsed=3371.7s eta=181s
+progress 1436/1512 (95.0%) elapsed=3378.1s eta=179s
+progress 1437/1512 (95.0%) elapsed=3378.3s eta=176s
+progress 1438/1512 (95.1%) elapsed=3379.4s eta=174s
+progress 1439/1512 (95.2%) elapsed=3381.7s eta=172s
+progress 1440/1512 (95.2%) elapsed=3381.7s eta=169s
+progress 1441/1512 (95.3%) elapsed=3382.0s eta=167s
+progress 1442/1512 (95.4%) elapsed=3384.0s eta=164s
+progress 1443/1512 (95.4%) elapsed=3391.1s eta=162s
+progress 1444/1512 (95.5%) elapsed=3391.6s eta=160s
+progress 1445/1512 (95.6%) elapsed=3395.5s eta=157s
+progress 1446/1512 (95.6%) elapsed=3398.8s eta=155s
+progress 1447/1512 (95.7%) elapsed=3404.9s eta=153s
+progress 1448/1512 (95.8%) elapsed=3406.0s eta=151s
+progress 1449/1512 (95.8%) elapsed=3407.9s eta=148s
+progress 1450/1512 (95.9%) elapsed=3408.2s eta=146s
+progress 1451/1512 (96.0%) elapsed=3408.3s eta=143s
+progress 1452/1512 (96.0%) elapsed=3411.3s eta=141s
+progress 1453/1512 (96.1%) elapsed=3413.9s eta=139s
+progress 1454/1512 (96.2%) elapsed=3414.2s eta=136s
+progress 1455/1512 (96.2%) elapsed=3415.2s eta=134s
+progress 1456/1512 (96.3%) elapsed=3417.2s eta=131s
+progress 1457/1512 (96.4%) elapsed=3418.2s eta=129s
+progress 1458/1512 (96.4%) elapsed=3418.5s eta=127s
+progress 1459/1512 (96.5%) elapsed=3419.4s eta=124s
+progress 1460/1512 (96.6%) elapsed=3426.2s eta=122s
+progress 1461/1512 (96.6%) elapsed=3426.7s eta=120s
+progress 1462/1512 (96.7%) elapsed=3434.7s eta=117s
+progress 1463/1512 (96.8%) elapsed=3437.9s eta=115s
+progress 1464/1512 (96.8%) elapsed=3439.9s eta=113s
+progress 1465/1512 (96.9%) elapsed=3441.3s eta=110s
+progress 1466/1512 (97.0%) elapsed=3443.7s eta=108s
+progress 1467/1512 (97.0%) elapsed=3444.9s eta=106s
+progress 1468/1512 (97.1%) elapsed=3446.3s eta=103s
+progress 1469/1512 (97.2%) elapsed=3447.2s eta=101s
+progress 1470/1512 (97.2%) elapsed=3449.5s eta=99s
+progress 1471/1512 (97.3%) elapsed=3451.5s eta=96s
+progress 1472/1512 (97.4%) elapsed=3452.2s eta=94s
+progress 1473/1512 (97.4%) elapsed=3452.7s eta=91s
+progress 1474/1512 (97.5%) elapsed=3455.7s eta=89s
+progress 1475/1512 (97.6%) elapsed=3457.0s eta=87s
+progress 1476/1512 (97.6%) elapsed=3458.4s eta=84s
+progress 1477/1512 (97.7%) elapsed=3466.3s eta=82s
+progress 1478/1512 (97.8%) elapsed=3467.8s eta=80s
+progress 1479/1512 (97.8%) elapsed=3476.1s eta=78s
+progress 1480/1512 (97.9%) elapsed=3479.5s eta=75s
+progress 1481/1512 (97.9%) elapsed=3482.8s eta=73s
+progress 1482/1512 (98.0%) elapsed=3484.7s eta=71s
+progress 1483/1512 (98.1%) elapsed=3485.8s eta=68s
+progress 1484/1512 (98.1%) elapsed=3487.6s eta=66s
+progress 1485/1512 (98.2%) elapsed=3490.3s eta=63s
+progress 1486/1512 (98.3%) elapsed=3490.4s eta=61s
+progress 1487/1512 (98.3%) elapsed=3493.7s eta=59s
+progress 1488/1512 (98.4%) elapsed=3496.0s eta=56s
+progress 1489/1512 (98.5%) elapsed=3496.9s eta=54s
+progress 1490/1512 (98.5%) elapsed=3498.2s eta=52s
+progress 1491/1512 (98.6%) elapsed=3499.8s eta=49s
+progress 1492/1512 (98.7%) elapsed=3500.9s eta=47s
+progress 1493/1512 (98.7%) elapsed=3503.5s eta=45s
+progress 1494/1512 (98.8%) elapsed=3513.2s eta=42s
+progress 1495/1512 (98.9%) elapsed=3524.3s eta=40s
+progress 1496/1512 (98.9%) elapsed=3525.3s eta=38s
+progress 1497/1512 (99.0%) elapsed=3527.8s eta=35s
+progress 1498/1512 (99.1%) elapsed=3528.8s eta=33s
+progress 1499/1512 (99.1%) elapsed=3529.8s eta=31s
+progress 1500/1512 (99.2%) elapsed=3533.1s eta=28s
+progress 1501/1512 (99.3%) elapsed=3533.1s eta=26s
+progress 1502/1512 (99.3%) elapsed=3535.4s eta=24s
+progress 1503/1512 (99.4%) elapsed=3536.3s eta=21s
+progress 1504/1512 (99.5%) elapsed=3537.5s eta=19s
+progress 1505/1512 (99.5%) elapsed=3537.6s eta=16s
+progress 1506/1512 (99.6%) elapsed=3538.7s eta=14s
+progress 1507/1512 (99.7%) elapsed=3539.3s eta=12s
+progress 1508/1512 (99.7%) elapsed=3544.9s eta=9s
+progress 1509/1512 (99.8%) elapsed=3546.0s eta=7s
+progress 1510/1512 (99.9%) elapsed=3548.5s eta=5s
+progress 1511/1512 (99.9%) elapsed=3553.3s eta=2s
+progress 1512/1512 (100.0%) elapsed=3562.7s eta=0s
+{
+  "overall": {
+    "total": 1512,
+    "correct": 512,
+    "accuracy": 0.3386
+  },
+  "by_split": {
+    "eval_A": {
+      "total": 1512,
+      "correct": 512,
+      "accuracy": 0.3386
+    }
+  },
+  "slices": {
+    "alpha_bucket": {
+      "high": {
+        "total": 504,
+        "correct": 141,
+        "accuracy": 0.2798
+      },
+      "mid": {
+        "total": 504,
+        "correct": 166,
+        "accuracy": 0.3294
+      },
+      "low": {
+        "total": 504,
+        "correct": 205,
+        "accuracy": 0.4067
+      }
+    },
+    "cell_id": {
+      "alpha_high__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      },
+      "alpha_mid__disp_high__skew_high": {
+        "total": 56,
+        "correct": 17,
+        "accuracy": 0.3036
+      },
+      "alpha_low__disp_low__skew_low": {
+        "total": 56,
+        "correct": 36,
+        "accuracy": 0.6429
+      },
+      "alpha_mid__disp_low__skew_low": {
+        "total": 56,
+        "correct": 22,
+        "accuracy": 0.3929
+      },
+      "alpha_mid__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 22,
+        "accuracy": 0.3929
+      },
+      "alpha_high__disp_high__skew_high": {
+        "total": 56,
+        "correct": 17,
+        "accuracy": 0.3036
+      },
+      "alpha_high__disp_high__skew_low": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      },
+      "alpha_mid__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 28,
+        "accuracy": 0.5
+      },
+      "alpha_low__disp_high__skew_low": {
+        "total": 56,
+        "correct": 27,
+        "accuracy": 0.4821
+      },
+      "alpha_mid__disp_high__skew_low": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_low__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 24,
+        "accuracy": 0.4286
+      },
+      "alpha_high__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_low__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 19,
+        "accuracy": 0.3393
+      },
+      "alpha_low__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 33,
+        "accuracy": 0.5893
+      },
+      "alpha_low__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 20,
+        "accuracy": 0.3571
+      },
+      "alpha_high__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 12,
+        "accuracy": 0.2143
+      },
+      "alpha_low__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_low__disp_high__skew_high": {
+        "total": 56,
+        "correct": 21,
+        "accuracy": 0.375
+      },
+      "alpha_high__disp_low__skew_high": {
+        "total": 56,
+        "correct": 18,
+        "accuracy": 0.3214
+      },
+      "alpha_low__disp_low__skew_high": {
+        "total": 56,
+        "correct": 10,
+        "accuracy": 0.1786
+      },
+      "alpha_mid__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 13,
+        "accuracy": 0.2321
+      },
+      "alpha_high__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_mid__disp_low__skew_high": {
+        "total": 56,
+        "correct": 17,
+        "accuracy": 0.3036
+      },
+      "alpha_mid__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 13,
+        "accuracy": 0.2321
+      },
+      "alpha_mid__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 19,
+        "accuracy": 0.3393
+      },
+      "alpha_high__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 22,
+        "accuracy": 0.3929
+      },
+      "alpha_high__disp_low__skew_low": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      }
+    },
+    "is_held_out_cell": {
+      "False": {
+        "total": 1176,
+        "correct": 405,
+        "accuracy": 0.3444
+      },
+      "True": {
+        "total": 336,
+        "correct": 107,
+        "accuracy": 0.3185
+      }
+    },
+    "dispersion_bucket": {
+      "low": {
+        "total": 504,
+        "correct": 170,
+        "accuracy": 0.3373
+      },
+      "high": {
+        "total": 504,
+        "correct": 151,
+        "accuracy": 0.2996
+      },
+      "mid": {
+        "total": 504,
+        "correct": 191,
+        "accuracy": 0.379
+      }
+    },
+    "skew_bucket": {
+      "mid": {
+        "total": 504,
+        "correct": 162,
+        "accuracy": 0.3214
+      },
+      "high": {
+        "total": 504,
+        "correct": 161,
+        "accuracy": 0.3194
+      },
+      "low": {
+        "total": 504,
+        "correct": 189,
+        "accuracy": 0.375
+      }
+    },
+    "domain_key": {
+      "domain1_positional_consumption": {
+        "total": 864,
+        "correct": 300,
+        "accuracy": 0.3472
+      },
+      "domain3_effort_and_human_capital": {
+        "total": 648,
+        "correct": 212,
+        "accuracy": 0.3272
+      }
+    },
+    "scene_id": {
+      "d1_gift_03": {
+        "total": 108,
+        "correct": 45,
+        "accuracy": 0.4167
+      },
+      "d1_travel_02": {
+        "total": 108,
+        "correct": 37,
+        "accuracy": 0.3426
+      },
+      "d3_phd_03": {
+        "total": 108,
+        "correct": 34,
+        "accuracy": 0.3148
+      },
+      "d3_fellow_02": {
+        "total": 108,
+        "correct": 37,
+        "accuracy": 0.3426
+      },
+      "d3_recruit_02": {
+        "total": 108,
+        "correct": 37,
+        "accuracy": 0.3426
+      },
+      "d1_dining_03": {
+        "total": 108,
+        "correct": 33,
+        "accuracy": 0.3056
+      },
+      "d1_home_02": {
+        "total": 108,
+        "correct": 41,
+        "accuracy": 0.3796
+      },
+      "d3_leet_02": {
+        "total": 108,
+        "correct": 39,
+        "accuracy": 0.3611
+      },
+      "d1_cele_02": {
+        "total": 108,
+        "correct": 33,
+        "accuracy": 0.3056
+      },
+      "d1_wheels_03": {
+        "total": 108,
+        "correct": 33,
+        "accuracy": 0.3056
+      },
+      "d3_lang_02": {
+        "total": 108,
+        "correct": 34,
+        "accuracy": 0.3148
+      },
+      "d1_kids_02": {
+        "total": 108,
+        "correct": 42,
+        "accuracy": 0.3889
+      },
+      "d1_wearable_03": {
+        "total": 108,
+        "correct": 36,
+        "accuracy": 0.3333
+      },
+      "d3_testprep_03": {
+        "total": 108,
+        "correct": 31,
+        "accuracy": 0.287
+      }
+    },
+    "gold_rule_id": {
+      "A_peer_weighted": {
+        "total": 1512,
+        "correct": 512,
+        "accuracy": 0.3386
+      }
+    }
+  },
+  "confusion_gold_to_parsed_rule": {
+    "A_peer_weighted": {
+      "E_closest_mimicry": 146,
+      "A_peer_weighted": 512,
+      "H_equal_mix": 155,
+      "C_uniform_avg": 205,
+      "D_pure_private": 103,
+      "F_median_anchor": 174,
+      "B_top_anchor": 176,
+      "G_counter_conformist": 34
+    }
+  }
+}
+
+---- split=eval_B ----
+input=data/structured/eval_B.json
+output=evaluation/outputs/Qwen/eval_B_predictions.jsonl
+{"input_file": "data/structured/eval_B.json", "output_file": "evaluation/outputs/Qwen/eval_B_predictions.jsonl", "total_tasks": 280, "already_done": 0, "pending": 280, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16}
+progress 1/280 (0.4%) elapsed=13.2s eta=3687s
+progress 2/280 (0.7%) elapsed=15.7s eta=2176s
+progress 3/280 (1.1%) elapsed=16.0s eta=1474s
+progress 4/280 (1.4%) elapsed=16.2s eta=1119s
+progress 5/280 (1.8%) elapsed=16.9s eta=929s
+progress 6/280 (2.1%) elapsed=17.6s eta=803s
+progress 7/280 (2.5%) elapsed=18.0s eta=704s
+progress 8/280 (2.9%) elapsed=18.6s eta=631s
+progress 9/280 (3.2%) elapsed=23.9s eta=719s
+progress 10/280 (3.6%) elapsed=25.9s eta=699s
+progress 11/280 (3.9%) elapsed=29.0s eta=709s
+progress 12/280 (4.3%) elapsed=33.7s eta=753s
+progress 13/280 (4.6%) elapsed=34.2s eta=702s
+progress 14/280 (5.0%) elapsed=37.6s eta=715s
+progress 15/280 (5.4%) elapsed=39.2s eta=692s
+progress 16/280 (5.7%) elapsed=42.2s eta=697s
+progress 17/280 (6.1%) elapsed=42.2s eta=653s
+progress 18/280 (6.4%) elapsed=43.4s eta=631s
+progress 19/280 (6.8%) elapsed=43.4s eta=596s
+progress 20/280 (7.1%) elapsed=45.7s eta=594s
+progress 21/280 (7.5%) elapsed=49.2s eta=607s
+progress 22/280 (7.9%) elapsed=53.1s eta=623s
+progress 23/280 (8.2%) elapsed=60.0s eta=671s
+progress 24/280 (8.6%) elapsed=60.8s eta=648s
+progress 25/280 (8.9%) elapsed=61.9s eta=632s
+progress 26/280 (9.3%) elapsed=62.6s eta=611s
+progress 27/280 (9.6%) elapsed=63.6s eta=596s
+progress 28/280 (10.0%) elapsed=66.4s eta=598s
+progress 29/280 (10.4%) elapsed=70.7s eta=612s
+progress 30/280 (10.7%) elapsed=74.3s eta=619s
+progress 31/280 (11.1%) elapsed=75.1s eta=603s
+progress 32/280 (11.4%) elapsed=75.9s eta=588s
+progress 33/280 (11.8%) elapsed=78.9s eta=591s
+progress 34/280 (12.1%) elapsed=79.8s eta=577s
+progress 35/280 (12.5%) elapsed=87.4s eta=612s
+progress 36/280 (12.9%) elapsed=89.6s eta=607s
+progress 37/280 (13.2%) elapsed=90.0s eta=591s
+progress 38/280 (13.6%) elapsed=90.6s eta=577s
+progress 39/280 (13.9%) elapsed=93.8s eta=579s
+progress 40/280 (14.3%) elapsed=97.2s eta=583s
+progress 41/280 (14.6%) elapsed=98.8s eta=576s
+progress 42/280 (15.0%) elapsed=101.4s eta=575s
+progress 43/280 (15.4%) elapsed=101.5s eta=560s
+progress 44/280 (15.7%) elapsed=101.8s eta=546s
+progress 45/280 (16.1%) elapsed=104.0s eta=543s
+progress 46/280 (16.4%) elapsed=107.6s eta=547s
+progress 47/280 (16.8%) elapsed=109.1s eta=541s
+progress 48/280 (17.1%) elapsed=111.3s eta=538s
+progress 49/280 (17.5%) elapsed=111.4s eta=525s
+progress 50/280 (17.9%) elapsed=116.0s eta=534s
+progress 51/280 (18.2%) elapsed=122.5s eta=550s
+progress 52/280 (18.6%) elapsed=124.8s eta=547s
+progress 53/280 (18.9%) elapsed=131.8s eta=565s
+progress 54/280 (19.3%) elapsed=133.2s eta=558s
+progress 55/280 (19.6%) elapsed=135.1s eta=553s
+progress 56/280 (20.0%) elapsed=135.4s eta=541s
+progress 57/280 (20.4%) elapsed=138.2s eta=541s
+progress 58/280 (20.7%) elapsed=138.4s eta=530s
+progress 59/280 (21.1%) elapsed=139.2s eta=521s
+progress 60/280 (21.4%) elapsed=143.9s eta=528s
+progress 61/280 (21.8%) elapsed=148.8s eta=534s
+progress 62/280 (22.1%) elapsed=149.2s eta=525s
+progress 63/280 (22.5%) elapsed=149.2s eta=514s
+progress 64/280 (22.9%) elapsed=155.5s eta=525s
+progress 65/280 (23.2%) elapsed=156.9s eta=519s
+progress 66/280 (23.6%) elapsed=158.3s eta=513s
+progress 67/280 (23.9%) elapsed=159.1s eta=506s
+progress 68/280 (24.3%) elapsed=159.4s eta=497s
+progress 69/280 (24.6%) elapsed=161.2s eta=493s
+progress 70/280 (25.0%) elapsed=162.7s eta=488s
+progress 71/280 (25.4%) elapsed=166.7s eta=491s
+progress 72/280 (25.7%) elapsed=167.8s eta=485s
+progress 73/280 (26.1%) elapsed=168.0s eta=476s
+progress 74/280 (26.4%) elapsed=170.1s eta=473s
+progress 75/280 (26.8%) elapsed=171.3s eta=468s
+progress 76/280 (27.1%) elapsed=172.6s eta=463s
+progress 77/280 (27.5%) elapsed=177.9s eta=469s
+progress 78/280 (27.9%) elapsed=179.4s eta=465s
+progress 79/280 (28.2%) elapsed=181.2s eta=461s
+progress 80/280 (28.6%) elapsed=184.9s eta=462s
+progress 81/280 (28.9%) elapsed=186.2s eta=457s
+progress 82/280 (29.3%) elapsed=186.6s eta=451s
+progress 83/280 (29.6%) elapsed=187.8s eta=446s
+progress 84/280 (30.0%) elapsed=188.8s eta=441s
+progress 85/280 (30.4%) elapsed=189.8s eta=435s
+progress 86/280 (30.7%) elapsed=190.1s eta=429s
+progress 87/280 (31.1%) elapsed=196.5s eta=436s
+progress 88/280 (31.4%) elapsed=197.1s eta=430s
+progress 89/280 (31.8%) elapsed=198.5s eta=426s
+progress 90/280 (32.1%) elapsed=200.8s eta=424s
+progress 91/280 (32.5%) elapsed=201.6s eta=419s
+progress 92/280 (32.9%) elapsed=201.9s eta=413s
+progress 93/280 (33.2%) elapsed=203.1s eta=408s
+progress 94/280 (33.6%) elapsed=203.8s eta=403s
+progress 95/280 (33.9%) elapsed=205.8s eta=401s
+progress 96/280 (34.3%) elapsed=206.6s eta=396s
+progress 97/280 (34.6%) elapsed=209.8s eta=396s
+progress 98/280 (35.0%) elapsed=210.4s eta=391s
+progress 99/280 (35.4%) elapsed=211.3s eta=386s
+progress 100/280 (35.7%) elapsed=214.6s eta=386s
+progress 101/280 (36.1%) elapsed=215.8s eta=382s
+progress 102/280 (36.4%) elapsed=216.2s eta=377s
+progress 103/280 (36.8%) elapsed=220.2s eta=378s
+progress 104/280 (37.1%) elapsed=222.5s eta=377s
+progress 105/280 (37.5%) elapsed=222.8s eta=371s
+progress 106/280 (37.9%) elapsed=224.7s eta=369s
+progress 107/280 (38.2%) elapsed=229.0s eta=370s
+progress 108/280 (38.6%) elapsed=231.9s eta=369s
+progress 109/280 (38.9%) elapsed=232.6s eta=365s
+progress 110/280 (39.3%) elapsed=232.7s eta=360s
+progress 111/280 (39.6%) elapsed=233.7s eta=356s
+progress 112/280 (40.0%) elapsed=234.0s eta=351s
+progress 113/280 (40.4%) elapsed=234.1s eta=346s
+progress 114/280 (40.7%) elapsed=234.9s eta=342s
+progress 115/280 (41.1%) elapsed=235.2s eta=338s
+progress 116/280 (41.4%) elapsed=238.0s eta=336s
+progress 117/280 (41.8%) elapsed=238.5s eta=332s
+progress 118/280 (42.1%) elapsed=238.7s eta=328s
+progress 119/280 (42.5%) elapsed=246.2s eta=333s
+progress 120/280 (42.9%) elapsed=246.4s eta=328s
+progress 121/280 (43.2%) elapsed=248.9s eta=327s
+progress 122/280 (43.6%) elapsed=249.8s eta=324s
+progress 123/280 (43.9%) elapsed=254.8s eta=325s
+progress 124/280 (44.3%) elapsed=255.0s eta=321s
+progress 125/280 (44.6%) elapsed=258.2s eta=320s
+progress 126/280 (45.0%) elapsed=259.7s eta=317s
+progress 127/280 (45.4%) elapsed=260.9s eta=314s
+progress 128/280 (45.7%) elapsed=262.3s eta=311s
+progress 129/280 (46.1%) elapsed=268.0s eta=314s
+progress 130/280 (46.4%) elapsed=269.9s eta=311s
+progress 131/280 (46.8%) elapsed=272.0s eta=309s
+progress 132/280 (47.1%) elapsed=272.1s eta=305s
+progress 133/280 (47.5%) elapsed=272.6s eta=301s
+progress 134/280 (47.9%) elapsed=273.3s eta=298s
+progress 135/280 (48.2%) elapsed=274.0s eta=294s
+progress 136/280 (48.6%) elapsed=275.6s eta=292s
+progress 137/280 (48.9%) elapsed=279.3s eta=292s
+progress 138/280 (49.3%) elapsed=286.3s eta=295s
+progress 139/280 (49.6%) elapsed=286.7s eta=291s
+progress 140/280 (50.0%) elapsed=287.4s eta=287s
+progress 141/280 (50.4%) elapsed=289.0s eta=285s
+progress 142/280 (50.7%) elapsed=289.3s eta=281s
+progress 143/280 (51.1%) elapsed=293.7s eta=281s
+progress 144/280 (51.4%) elapsed=294.0s eta=278s
+progress 145/280 (51.8%) elapsed=296.5s eta=276s
+progress 146/280 (52.1%) elapsed=297.7s eta=273s
+progress 147/280 (52.5%) elapsed=301.1s eta=272s
+progress 148/280 (52.9%) elapsed=306.4s eta=273s
+progress 149/280 (53.2%) elapsed=307.8s eta=271s
+progress 150/280 (53.6%) elapsed=310.1s eta=269s
+progress 151/280 (53.9%) elapsed=311.0s eta=266s
+progress 152/280 (54.3%) elapsed=311.4s eta=262s
+progress 153/280 (54.6%) elapsed=311.7s eta=259s
+progress 154/280 (55.0%) elapsed=317.3s eta=260s
+progress 155/280 (55.4%) elapsed=317.4s eta=256s
+progress 156/280 (55.7%) elapsed=318.0s eta=253s
+progress 157/280 (56.1%) elapsed=321.3s eta=252s
+progress 158/280 (56.4%) elapsed=325.2s eta=251s
+progress 159/280 (56.8%) elapsed=325.6s eta=248s
+progress 160/280 (57.1%) elapsed=325.8s eta=244s
+progress 161/280 (57.5%) elapsed=326.5s eta=241s
+progress 162/280 (57.9%) elapsed=327.4s eta=238s
+progress 163/280 (58.2%) elapsed=331.7s eta=238s
+progress 164/280 (58.6%) elapsed=332.9s eta=235s
+progress 165/280 (58.9%) elapsed=334.1s eta=233s
+progress 166/280 (59.3%) elapsed=334.2s eta=230s
+progress 167/280 (59.6%) elapsed=341.4s eta=231s
+progress 168/280 (60.0%) elapsed=343.5s eta=229s
+progress 169/280 (60.4%) elapsed=343.6s eta=226s
+progress 170/280 (60.7%) elapsed=344.9s eta=223s
+progress 171/280 (61.1%) elapsed=345.5s eta=220s
+progress 172/280 (61.4%) elapsed=347.4s eta=218s
+progress 173/280 (61.8%) elapsed=349.1s eta=216s
+progress 174/280 (62.1%) elapsed=350.5s eta=214s
+progress 175/280 (62.5%) elapsed=352.3s eta=211s
+progress 176/280 (62.9%) elapsed=352.6s eta=208s
+progress 177/280 (63.2%) elapsed=354.3s eta=206s
+progress 178/280 (63.6%) elapsed=359.5s eta=206s
+progress 179/280 (63.9%) elapsed=361.8s eta=204s
+progress 180/280 (64.3%) elapsed=362.9s eta=202s
+progress 181/280 (64.6%) elapsed=364.2s eta=199s
+progress 182/280 (65.0%) elapsed=366.1s eta=197s
+progress 183/280 (65.4%) elapsed=367.1s eta=195s
+progress 184/280 (65.7%) elapsed=369.4s eta=193s
+progress 185/280 (66.1%) elapsed=370.6s eta=190s
+progress 186/280 (66.4%) elapsed=373.8s eta=189s
+progress 187/280 (66.8%) elapsed=373.8s eta=186s
+progress 188/280 (67.1%) elapsed=382.2s eta=187s
+progress 189/280 (67.5%) elapsed=383.8s eta=185s
+progress 190/280 (67.9%) elapsed=385.6s eta=183s
+progress 191/280 (68.2%) elapsed=388.2s eta=181s
+progress 192/280 (68.6%) elapsed=389.1s eta=178s
+progress 193/280 (68.9%) elapsed=389.4s eta=176s
+progress 194/280 (69.3%) elapsed=390.8s eta=173s
+progress 195/280 (69.6%) elapsed=394.0s eta=172s
+progress 196/280 (70.0%) elapsed=394.6s eta=169s
+progress 197/280 (70.4%) elapsed=399.4s eta=168s
+progress 198/280 (70.7%) elapsed=407.9s eta=169s
+progress 199/280 (71.1%) elapsed=409.9s eta=167s
+progress 200/280 (71.4%) elapsed=411.1s eta=164s
+progress 201/280 (71.8%) elapsed=413.2s eta=162s
+progress 202/280 (72.1%) elapsed=414.2s eta=160s
+progress 203/280 (72.5%) elapsed=414.7s eta=157s
+progress 204/280 (72.9%) elapsed=417.6s eta=156s
+progress 205/280 (73.2%) elapsed=419.0s eta=153s
+progress 206/280 (73.6%) elapsed=419.1s eta=151s
+progress 207/280 (73.9%) elapsed=420.1s eta=148s
+progress 208/280 (74.3%) elapsed=421.1s eta=146s
+progress 209/280 (74.6%) elapsed=429.2s eta=146s
+progress 210/280 (75.0%) elapsed=434.8s eta=145s
+progress 211/280 (75.4%) elapsed=435.0s eta=142s
+progress 212/280 (75.7%) elapsed=437.0s eta=140s
+progress 213/280 (76.1%) elapsed=440.0s eta=138s
+progress 214/280 (76.4%) elapsed=440.5s eta=136s
+progress 215/280 (76.8%) elapsed=444.7s eta=134s
+progress 216/280 (77.1%) elapsed=444.8s eta=132s
+progress 217/280 (77.5%) elapsed=446.1s eta=130s
+progress 218/280 (77.9%) elapsed=449.5s eta=128s
+progress 219/280 (78.2%) elapsed=451.6s eta=126s
+progress 220/280 (78.6%) elapsed=453.5s eta=124s
+progress 221/280 (78.9%) elapsed=456.4s eta=122s
+progress 222/280 (79.3%) elapsed=461.8s eta=121s
+progress 223/280 (79.6%) elapsed=463.6s eta=118s
+progress 224/280 (80.0%) elapsed=465.3s eta=116s
+progress 225/280 (80.4%) elapsed=466.2s eta=114s
+progress 226/280 (80.7%) elapsed=466.6s eta=112s
+progress 227/280 (81.1%) elapsed=469.4s eta=110s
+progress 228/280 (81.4%) elapsed=473.3s eta=108s
+progress 229/280 (81.8%) elapsed=475.0s eta=106s
+progress 230/280 (82.1%) elapsed=477.5s eta=104s
+progress 231/280 (82.5%) elapsed=480.3s eta=102s
+progress 232/280 (82.9%) elapsed=481.4s eta=100s
+progress 233/280 (83.2%) elapsed=483.3s eta=97s
+progress 234/280 (83.6%) elapsed=483.8s eta=95s
+progress 235/280 (83.9%) elapsed=484.3s eta=93s
+progress 236/280 (84.3%) elapsed=486.0s eta=91s
+progress 237/280 (84.6%) elapsed=486.6s eta=88s
+progress 238/280 (85.0%) elapsed=488.8s eta=86s
+progress 239/280 (85.4%) elapsed=490.9s eta=84s
+progress 240/280 (85.7%) elapsed=493.5s eta=82s
+progress 241/280 (86.1%) elapsed=494.7s eta=80s
+progress 242/280 (86.4%) elapsed=495.9s eta=78s
+progress 243/280 (86.8%) elapsed=496.1s eta=76s
+progress 244/280 (87.1%) elapsed=497.9s eta=73s
+progress 245/280 (87.5%) elapsed=500.9s eta=72s
+progress 246/280 (87.9%) elapsed=501.9s eta=69s
+progress 247/280 (88.2%) elapsed=502.4s eta=67s
+progress 248/280 (88.6%) elapsed=502.7s eta=65s
+progress 249/280 (88.9%) elapsed=504.0s eta=63s
+progress 250/280 (89.3%) elapsed=506.0s eta=61s
+progress 251/280 (89.6%) elapsed=506.8s eta=59s
+progress 252/280 (90.0%) elapsed=506.9s eta=56s
+progress 253/280 (90.4%) elapsed=512.2s eta=55s
+progress 254/280 (90.7%) elapsed=518.7s eta=53s
+progress 255/280 (91.1%) elapsed=521.9s eta=51s
+progress 256/280 (91.4%) elapsed=524.2s eta=49s
+progress 257/280 (91.8%) elapsed=524.5s eta=47s
+progress 258/280 (92.1%) elapsed=530.8s eta=45s
+progress 259/280 (92.5%) elapsed=531.0s eta=43s
+progress 260/280 (92.9%) elapsed=531.7s eta=41s
+progress 261/280 (93.2%) elapsed=535.2s eta=39s
+progress 262/280 (93.6%) elapsed=536.3s eta=37s
+progress 263/280 (93.9%) elapsed=537.6s eta=35s
+progress 264/280 (94.3%) elapsed=540.0s eta=33s
+progress 265/280 (94.6%) elapsed=544.6s eta=31s
+progress 266/280 (95.0%) elapsed=544.8s eta=29s
+progress 267/280 (95.4%) elapsed=544.9s eta=27s
+progress 268/280 (95.7%) elapsed=545.7s eta=24s
+progress 269/280 (96.1%) elapsed=547.2s eta=22s
+progress 270/280 (96.4%) elapsed=548.8s eta=20s
+progress 271/280 (96.8%) elapsed=549.1s eta=18s
+progress 272/280 (97.1%) elapsed=552.7s eta=16s
+progress 273/280 (97.5%) elapsed=554.5s eta=14s
+progress 274/280 (97.9%) elapsed=557.0s eta=12s
+progress 275/280 (98.2%) elapsed=562.5s eta=10s
+progress 276/280 (98.6%) elapsed=566.3s eta=8s
+progress 277/280 (98.9%) elapsed=568.7s eta=6s
+progress 278/280 (99.3%) elapsed=573.6s eta=4s
+progress 279/280 (99.6%) elapsed=579.8s eta=2s
+progress 280/280 (100.0%) elapsed=580.6s eta=0s
+{
+  "overall": {
+    "total": 280,
+    "correct": 196,
+    "accuracy": 0.7
+  },
+  "by_split": {
+    "eval_B": {
+      "total": 280,
+      "correct": 196,
+      "accuracy": 0.7
+    }
+  },
+  "slices": {
+    "perturbation": {
+      "ref_sum_up": {
+        "total": 56,
+        "correct": 52,
+        "accuracy": 0.9286
+      },
+      "alpha_i_up": {
+        "total": 56,
+        "correct": 32,
+        "accuracy": 0.5714
+      },
+      "peer_action_up": {
+        "total": 56,
+        "correct": 51,
+        "accuracy": 0.9107
+      },
+      "F_up": {
+        "total": 56,
+        "correct": 30,
+        "accuracy": 0.5357
+      },
+      "top_weight_up": {
+        "total": 56,
+        "correct": 31,
+        "accuracy": 0.5536
+      }
+    },
+    "domain_key": {
+      "domain3_effort_and_human_capital": {
+        "total": 120,
+        "correct": 80,
+        "accuracy": 0.6667
+      },
+      "domain1_positional_consumption": {
+        "total": 160,
+        "correct": 116,
+        "accuracy": 0.725
+      }
+    },
+    "scene_id": {
+      "d3_testprep_03": {
+        "total": 20,
+        "correct": 12,
+        "accuracy": 0.6
+      },
+      "d3_recruit_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_wheels_03": {
+        "total": 20,
+        "correct": 15,
+        "accuracy": 0.75
+      },
+      "d3_leet_02": {
+        "total": 20,
+        "correct": 16,
+        "accuracy": 0.8
+      },
+      "d1_travel_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d3_phd_03": {
+        "total": 20,
+        "correct": 12,
+        "accuracy": 0.6
+      },
+      "d1_gift_03": {
+        "total": 20,
+        "correct": 14,
+        "accuracy": 0.7
+      },
+      "d1_home_02": {
+        "total": 20,
+        "correct": 18,
+        "accuracy": 0.9
+      },
+      "d3_lang_02": {
+        "total": 20,
+        "correct": 14,
+        "accuracy": 0.7
+      },
+      "d1_wearable_03": {
+        "total": 20,
+        "correct": 15,
+        "accuracy": 0.75
+      },
+      "d1_kids_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_dining_03": {
+        "total": 20,
+        "correct": 15,
+        "accuracy": 0.75
+      },
+      "d3_fellow_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_cele_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      }
+    }
+  }
+}
+
+---- split=placebo_test ----
+input=data/structured/placebo_test.json
+output=evaluation/outputs/Qwen/placebo_test_predictions.jsonl
+{"input_file": "data/structured/placebo_test.json", "output_file": "evaluation/outputs/Qwen/placebo_test_predictions.jsonl", "total_tasks": 504, "already_done": 0, "pending": 504, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16}
+progress 1/504 (0.2%) elapsed=17.0s eta=8541s
+progress 2/504 (0.4%) elapsed=21.4s eta=5375s
+progress 3/504 (0.6%) elapsed=27.0s eta=4506s
+progress 4/504 (0.8%) elapsed=27.1s eta=3391s
+progress 5/504 (1.0%) elapsed=27.2s eta=2715s
+progress 6/504 (1.2%) elapsed=33.7s eta=2794s
+progress 7/504 (1.4%) elapsed=41.3s eta=2935s
+progress 8/504 (1.6%) elapsed=46.1s eta=2861s
+progress 9/504 (1.8%) elapsed=46.3s eta=2544s
+progress 10/504 (2.0%) elapsed=46.5s eta=2297s
+progress 11/504 (2.2%) elapsed=47.3s eta=2121s
+progress 12/504 (2.4%) elapsed=47.4s eta=1942s
+progress 13/504 (2.6%) elapsed=47.4s eta=1790s
+progress 14/504 (2.8%) elapsed=47.7s eta=1668s
+progress 15/504 (3.0%) elapsed=48.4s eta=1577s
+progress 16/504 (3.2%) elapsed=48.4s eta=1476s
+progress 17/504 (3.4%) elapsed=49.4s eta=1414s
+progress 18/504 (3.6%) elapsed=50.6s eta=1367s
+progress 19/504 (3.8%) elapsed=56.8s eta=1450s
+progress 20/504 (4.0%) elapsed=59.1s eta=1430s
+progress 21/504 (4.2%) elapsed=59.7s eta=1374s
+progress 22/504 (4.4%) elapsed=60.9s eta=1333s
+progress 23/504 (4.6%) elapsed=63.3s eta=1324s
+progress 24/504 (4.8%) elapsed=63.6s eta=1271s
+progress 25/504 (5.0%) elapsed=66.3s eta=1270s
+progress 26/504 (5.2%) elapsed=70.4s eta=1294s
+progress 27/504 (5.4%) elapsed=70.4s eta=1244s
+progress 28/504 (5.6%) elapsed=71.9s eta=1222s
+progress 29/504 (5.8%) elapsed=71.9s eta=1178s
+progress 30/504 (6.0%) elapsed=75.3s eta=1189s
+progress 31/504 (6.2%) elapsed=75.7s eta=1154s
+progress 32/504 (6.3%) elapsed=76.9s eta=1134s
+progress 33/504 (6.5%) elapsed=84.1s eta=1201s
+progress 34/504 (6.7%) elapsed=86.5s eta=1195s
+progress 35/504 (6.9%) elapsed=88.5s eta=1186s
+progress 36/504 (7.1%) elapsed=88.7s eta=1153s
+progress 37/504 (7.3%) elapsed=89.4s eta=1128s
+progress 38/504 (7.5%) elapsed=91.0s eta=1117s
+progress 39/504 (7.7%) elapsed=92.5s eta=1103s
+progress 40/504 (7.9%) elapsed=93.5s eta=1085s
+progress 41/504 (8.1%) elapsed=93.5s eta=1056s
+progress 42/504 (8.3%) elapsed=93.6s eta=1030s
+progress 43/504 (8.5%) elapsed=98.6s eta=1058s
+progress 44/504 (8.7%) elapsed=99.6s eta=1042s
+progress 45/504 (8.9%) elapsed=101.5s eta=1035s
+progress 46/504 (9.1%) elapsed=103.7s eta=1032s
+progress 47/504 (9.3%) elapsed=109.3s eta=1063s
+progress 48/504 (9.5%) elapsed=110.1s eta=1046s
+progress 49/504 (9.7%) elapsed=113.0s eta=1049s
+progress 50/504 (9.9%) elapsed=114.8s eta=1042s
+progress 51/504 (10.1%) elapsed=118.7s eta=1054s
+progress 52/504 (10.3%) elapsed=119.2s eta=1036s
+progress 53/504 (10.5%) elapsed=121.0s eta=1030s
+progress 54/504 (10.7%) elapsed=121.9s eta=1016s
+progress 55/504 (10.9%) elapsed=126.4s eta=1032s
+progress 56/504 (11.1%) elapsed=126.5s eta=1012s
+progress 57/504 (11.3%) elapsed=127.6s eta=1001s
+progress 58/504 (11.5%) elapsed=127.8s eta=983s
+progress 59/504 (11.7%) elapsed=131.2s eta=990s
+progress 60/504 (11.9%) elapsed=131.7s eta=975s
+progress 61/504 (12.1%) elapsed=132.8s eta=964s
+progress 62/504 (12.3%) elapsed=132.9s eta=947s
+progress 63/504 (12.5%) elapsed=142.1s eta=994s
+progress 64/504 (12.7%) elapsed=143.3s eta=985s
+progress 65/504 (12.9%) elapsed=144.3s eta=974s
+progress 66/504 (13.1%) elapsed=149.4s eta=991s
+progress 67/504 (13.3%) elapsed=150.9s eta=984s
+progress 68/504 (13.5%) elapsed=152.1s eta=975s
+progress 69/504 (13.7%) elapsed=153.4s eta=967s
+progress 70/504 (13.9%) elapsed=154.6s eta=959s
+progress 71/504 (14.1%) elapsed=155.1s eta=946s
+progress 72/504 (14.3%) elapsed=156.9s eta=941s
+progress 73/504 (14.5%) elapsed=161.1s eta=951s
+progress 74/504 (14.7%) elapsed=163.7s eta=951s
+progress 75/504 (14.9%) elapsed=167.2s eta=956s
+progress 76/504 (15.1%) elapsed=169.8s eta=957s
+progress 77/504 (15.3%) elapsed=170.3s eta=944s
+progress 78/504 (15.5%) elapsed=173.0s eta=945s
+progress 79/504 (15.7%) elapsed=175.7s eta=945s
+progress 80/504 (15.9%) elapsed=176.1s eta=933s
+progress 81/504 (16.1%) elapsed=179.2s eta=936s
+progress 82/504 (16.3%) elapsed=184.2s eta=948s
+progress 83/504 (16.5%) elapsed=185.0s eta=938s
+progress 84/504 (16.7%) elapsed=190.3s eta=951s
+progress 85/504 (16.9%) elapsed=191.1s eta=942s
+progress 86/504 (17.1%) elapsed=193.0s eta=938s
+progress 87/504 (17.3%) elapsed=193.1s eta=926s
+progress 88/504 (17.5%) elapsed=199.2s eta=942s
+progress 89/504 (17.7%) elapsed=202.7s eta=945s
+progress 90/504 (17.9%) elapsed=204.5s eta=941s
+progress 91/504 (18.1%) elapsed=207.2s eta=940s
+progress 92/504 (18.3%) elapsed=209.2s eta=937s
+progress 93/504 (18.5%) elapsed=209.8s eta=927s
+progress 94/504 (18.7%) elapsed=214.8s eta=937s
+progress 95/504 (18.8%) elapsed=215.1s eta=926s
+progress 96/504 (19.0%) elapsed=220.1s eta=936s
+progress 97/504 (19.2%) elapsed=221.7s eta=930s
+progress 98/504 (19.4%) elapsed=226.1s eta=937s
+progress 99/504 (19.6%) elapsed=226.2s eta=925s
+progress 100/504 (19.8%) elapsed=228.7s eta=924s
+progress 101/504 (20.0%) elapsed=231.7s eta=924s
+progress 102/504 (20.2%) elapsed=232.3s eta=916s
+progress 103/504 (20.4%) elapsed=234.6s eta=913s
+progress 104/504 (20.6%) elapsed=234.9s eta=904s
+progress 105/504 (20.8%) elapsed=236.0s eta=897s
+progress 106/504 (21.0%) elapsed=236.0s eta=886s
+progress 107/504 (21.2%) elapsed=236.2s eta=876s
+progress 108/504 (21.4%) elapsed=238.8s eta=875s
+progress 109/504 (21.6%) elapsed=244.4s eta=886s
+progress 110/504 (21.8%) elapsed=245.0s eta=877s
+progress 111/504 (22.0%) elapsed=245.0s eta=867s
+progress 112/504 (22.2%) elapsed=247.8s eta=867s
+progress 113/504 (22.4%) elapsed=248.8s eta=861s
+progress 114/504 (22.6%) elapsed=251.3s eta=860s
+progress 115/504 (22.8%) elapsed=252.1s eta=853s
+progress 116/504 (23.0%) elapsed=253.9s eta=849s
+progress 117/504 (23.2%) elapsed=253.9s eta=840s
+progress 118/504 (23.4%) elapsed=255.9s eta=837s
+progress 119/504 (23.6%) elapsed=258.9s eta=838s
+progress 120/504 (23.8%) elapsed=259.7s eta=831s
+progress 121/504 (24.0%) elapsed=263.7s eta=835s
+progress 122/504 (24.2%) elapsed=264.8s eta=829s
+progress 123/504 (24.4%) elapsed=265.0s eta=821s
+progress 124/504 (24.6%) elapsed=267.3s eta=819s
+progress 125/504 (24.8%) elapsed=270.9s eta=821s
+progress 126/504 (25.0%) elapsed=272.3s eta=817s
+progress 127/504 (25.2%) elapsed=273.2s eta=811s
+progress 128/504 (25.4%) elapsed=274.6s eta=807s
+progress 129/504 (25.6%) elapsed=274.9s eta=799s
+progress 130/504 (25.8%) elapsed=278.7s eta=802s
+progress 131/504 (26.0%) elapsed=279.1s eta=795s
+progress 132/504 (26.2%) elapsed=279.9s eta=789s
+progress 133/504 (26.4%) elapsed=280.9s eta=783s
+progress 134/504 (26.6%) elapsed=282.0s eta=779s
+progress 135/504 (26.8%) elapsed=287.0s eta=784s
+progress 136/504 (27.0%) elapsed=287.8s eta=779s
+progress 137/504 (27.2%) elapsed=290.8s eta=779s
+progress 138/504 (27.4%) elapsed=291.6s eta=773s
+progress 139/504 (27.6%) elapsed=293.1s eta=770s
+progress 140/504 (27.8%) elapsed=293.9s eta=764s
+progress 141/504 (28.0%) elapsed=295.3s eta=760s
+progress 142/504 (28.2%) elapsed=300.6s eta=766s
+progress 143/504 (28.4%) elapsed=301.3s eta=761s
+progress 144/504 (28.6%) elapsed=308.4s eta=771s
+progress 145/504 (28.8%) elapsed=310.5s eta=769s
+progress 146/504 (29.0%) elapsed=312.7s eta=767s
+progress 147/504 (29.2%) elapsed=313.1s eta=760s
+progress 148/504 (29.4%) elapsed=315.2s eta=758s
+progress 149/504 (29.6%) elapsed=319.3s eta=761s
+progress 150/504 (29.8%) elapsed=320.5s eta=756s
+progress 151/504 (30.0%) elapsed=322.3s eta=754s
+progress 152/504 (30.2%) elapsed=323.0s eta=748s
+progress 153/504 (30.4%) elapsed=324.2s eta=744s
+progress 154/504 (30.6%) elapsed=327.9s eta=745s
+progress 155/504 (30.8%) elapsed=328.5s eta=740s
+progress 156/504 (31.0%) elapsed=331.5s eta=739s
+progress 157/504 (31.2%) elapsed=332.4s eta=735s
+progress 158/504 (31.3%) elapsed=334.6s eta=733s
+progress 159/504 (31.5%) elapsed=335.2s eta=727s
+progress 160/504 (31.7%) elapsed=336.9s eta=724s
+progress 161/504 (31.9%) elapsed=337.6s eta=719s
+progress 162/504 (32.1%) elapsed=339.8s eta=717s
+progress 163/504 (32.3%) elapsed=341.8s eta=715s
+progress 164/504 (32.5%) elapsed=343.4s eta=712s
+progress 165/504 (32.7%) elapsed=346.1s eta=711s
+progress 166/504 (32.9%) elapsed=348.3s eta=709s
+progress 167/504 (33.1%) elapsed=350.2s eta=707s
+progress 168/504 (33.3%) elapsed=352.6s eta=705s
+progress 169/504 (33.5%) elapsed=354.4s eta=703s
+progress 170/504 (33.7%) elapsed=357.3s eta=702s
+progress 171/504 (33.9%) elapsed=358.1s eta=697s
+progress 172/504 (34.1%) elapsed=361.7s eta=698s
+progress 173/504 (34.3%) elapsed=363.1s eta=695s
+progress 174/504 (34.5%) elapsed=366.2s eta=695s
+progress 175/504 (34.7%) elapsed=370.5s eta=697s
+progress 176/504 (34.9%) elapsed=376.3s eta=701s
+progress 177/504 (35.1%) elapsed=378.6s eta=699s
+progress 178/504 (35.3%) elapsed=379.2s eta=694s
+progress 179/504 (35.5%) elapsed=379.2s eta=688s
+progress 180/504 (35.7%) elapsed=379.7s eta=683s
+progress 181/504 (35.9%) elapsed=380.9s eta=680s
+progress 182/504 (36.1%) elapsed=383.3s eta=678s
+progress 183/504 (36.3%) elapsed=383.6s eta=673s
+progress 184/504 (36.5%) elapsed=385.8s eta=671s
+progress 185/504 (36.7%) elapsed=389.4s eta=671s
+progress 186/504 (36.9%) elapsed=390.7s eta=668s
+progress 187/504 (37.1%) elapsed=391.6s eta=664s
+progress 188/504 (37.3%) elapsed=393.0s eta=661s
+progress 189/504 (37.5%) elapsed=394.2s eta=657s
+progress 190/504 (37.7%) elapsed=394.8s eta=652s
+progress 191/504 (37.9%) elapsed=395.1s eta=647s
+progress 192/504 (38.1%) elapsed=396.6s eta=644s
+progress 193/504 (38.3%) elapsed=399.4s eta=644s
+progress 194/504 (38.5%) elapsed=400.0s eta=639s
+progress 195/504 (38.7%) elapsed=400.9s eta=635s
+progress 196/504 (38.9%) elapsed=402.1s eta=632s
+progress 197/504 (39.1%) elapsed=404.2s eta=630s
+progress 198/504 (39.3%) elapsed=406.6s eta=628s
+progress 199/504 (39.5%) elapsed=407.6s eta=625s
+progress 200/504 (39.7%) elapsed=408.6s eta=621s
+progress 201/504 (39.9%) elapsed=409.2s eta=617s
+progress 202/504 (40.1%) elapsed=410.5s eta=614s
+progress 203/504 (40.3%) elapsed=415.5s eta=616s
+progress 204/504 (40.5%) elapsed=417.8s eta=614s
+progress 205/504 (40.7%) elapsed=419.8s eta=612s
+progress 206/504 (40.9%) elapsed=420.2s eta=608s
+progress 207/504 (41.1%) elapsed=421.4s eta=605s
+progress 208/504 (41.3%) elapsed=421.5s eta=600s
+progress 209/504 (41.5%) elapsed=424.5s eta=599s
+progress 210/504 (41.7%) elapsed=428.5s eta=600s
+progress 211/504 (41.9%) elapsed=431.2s eta=599s
+progress 212/504 (42.1%) elapsed=432.9s eta=596s
+progress 213/504 (42.3%) elapsed=433.3s eta=592s
+progress 214/504 (42.5%) elapsed=435.5s eta=590s
+progress 215/504 (42.7%) elapsed=437.8s eta=588s
+progress 216/504 (42.9%) elapsed=443.0s eta=591s
+progress 217/504 (43.1%) elapsed=443.7s eta=587s
+progress 218/504 (43.3%) elapsed=443.7s eta=582s
+progress 219/504 (43.5%) elapsed=444.8s eta=579s
+progress 220/504 (43.7%) elapsed=447.3s eta=577s
+progress 221/504 (43.8%) elapsed=449.3s eta=575s
+progress 222/504 (44.0%) elapsed=449.9s eta=572s
+progress 223/504 (44.2%) elapsed=451.5s eta=569s
+progress 224/504 (44.4%) elapsed=453.1s eta=566s
+progress 225/504 (44.6%) elapsed=453.7s eta=563s
+progress 226/504 (44.8%) elapsed=455.4s eta=560s
+progress 227/504 (45.0%) elapsed=457.2s eta=558s
+progress 228/504 (45.2%) elapsed=460.9s eta=558s
+progress 229/504 (45.4%) elapsed=464.0s eta=557s
+progress 230/504 (45.6%) elapsed=468.4s eta=558s
+progress 231/504 (45.8%) elapsed=469.0s eta=554s
+progress 232/504 (46.0%) elapsed=469.1s eta=550s
+progress 233/504 (46.2%) elapsed=470.7s eta=547s
+progress 234/504 (46.4%) elapsed=471.1s eta=544s
+progress 235/504 (46.6%) elapsed=471.3s eta=539s
+progress 236/504 (46.8%) elapsed=472.7s eta=537s
+progress 237/504 (47.0%) elapsed=474.6s eta=535s
+progress 238/504 (47.2%) elapsed=478.0s eta=534s
+progress 239/504 (47.4%) elapsed=478.9s eta=531s
+progress 240/504 (47.6%) elapsed=481.5s eta=530s
+progress 241/504 (47.8%) elapsed=483.6s eta=528s
+progress 242/504 (48.0%) elapsed=485.4s eta=526s
+progress 243/504 (48.2%) elapsed=485.4s eta=521s
+progress 244/504 (48.4%) elapsed=488.8s eta=521s
+progress 245/504 (48.6%) elapsed=489.9s eta=518s
+progress 246/504 (48.8%) elapsed=489.9s eta=514s
+progress 247/504 (49.0%) elapsed=492.0s eta=512s
+progress 248/504 (49.2%) elapsed=492.6s eta=509s
+progress 249/504 (49.4%) elapsed=493.3s eta=505s
+progress 250/504 (49.6%) elapsed=497.0s eta=505s
+progress 251/504 (49.8%) elapsed=500.4s eta=504s
+progress 252/504 (50.0%) elapsed=502.6s eta=503s
+progress 253/504 (50.2%) elapsed=503.2s eta=499s
+progress 254/504 (50.4%) elapsed=504.9s eta=497s
+progress 255/504 (50.6%) elapsed=507.7s eta=496s
+progress 256/504 (50.8%) elapsed=509.4s eta=494s
+progress 257/504 (51.0%) elapsed=513.9s eta=494s
+progress 258/504 (51.2%) elapsed=514.3s eta=490s
+progress 259/504 (51.4%) elapsed=515.7s eta=488s
+progress 260/504 (51.6%) elapsed=516.5s eta=485s
+progress 261/504 (51.8%) elapsed=518.2s eta=482s
+progress 262/504 (52.0%) elapsed=518.9s eta=479s
+progress 263/504 (52.2%) elapsed=522.8s eta=479s
+progress 264/504 (52.4%) elapsed=522.8s eta=475s
+progress 265/504 (52.6%) elapsed=522.9s eta=472s
+progress 266/504 (52.8%) elapsed=526.6s eta=471s
+progress 267/504 (53.0%) elapsed=527.6s eta=468s
+progress 268/504 (53.2%) elapsed=529.9s eta=467s
+progress 269/504 (53.4%) elapsed=533.4s eta=466s
+progress 270/504 (53.6%) elapsed=534.6s eta=463s
+progress 271/504 (53.8%) elapsed=537.7s eta=462s
+progress 272/504 (54.0%) elapsed=540.0s eta=461s
+progress 273/504 (54.2%) elapsed=542.7s eta=459s
+progress 274/504 (54.4%) elapsed=543.0s eta=456s
+progress 275/504 (54.6%) elapsed=543.2s eta=452s
+progress 276/504 (54.8%) elapsed=543.7s eta=449s
+progress 277/504 (55.0%) elapsed=545.6s eta=447s
+progress 278/504 (55.2%) elapsed=545.8s eta=444s
+progress 279/504 (55.4%) elapsed=549.7s eta=443s
+progress 280/504 (55.6%) elapsed=552.3s eta=442s
+progress 281/504 (55.8%) elapsed=555.1s eta=441s
+progress 282/504 (56.0%) elapsed=556.2s eta=438s
+progress 283/504 (56.2%) elapsed=558.8s eta=436s
+progress 284/504 (56.3%) elapsed=560.4s eta=434s
+progress 285/504 (56.5%) elapsed=561.2s eta=431s
+progress 286/504 (56.7%) elapsed=561.8s eta=428s
+progress 287/504 (56.9%) elapsed=561.8s eta=425s
+progress 288/504 (57.1%) elapsed=563.1s eta=422s
+progress 289/504 (57.3%) elapsed=566.6s eta=422s
+progress 290/504 (57.5%) elapsed=567.8s eta=419s
+progress 291/504 (57.7%) elapsed=571.7s eta=418s
+progress 292/504 (57.9%) elapsed=574.2s eta=417s
+progress 293/504 (58.1%) elapsed=575.0s eta=414s
+progress 294/504 (58.3%) elapsed=576.0s eta=411s
+progress 295/504 (58.5%) elapsed=581.3s eta=412s
+progress 296/504 (58.7%) elapsed=582.4s eta=409s
+progress 297/504 (58.9%) elapsed=582.9s eta=406s
+progress 298/504 (59.1%) elapsed=583.4s eta=403s
+progress 299/504 (59.3%) elapsed=585.3s eta=401s
+progress 300/504 (59.5%) elapsed=590.0s eta=401s
+progress 301/504 (59.7%) elapsed=594.2s eta=401s
+progress 302/504 (59.9%) elapsed=597.5s eta=400s
+progress 303/504 (60.1%) elapsed=599.2s eta=397s
+progress 304/504 (60.3%) elapsed=600.3s eta=395s
+progress 305/504 (60.5%) elapsed=600.8s eta=392s
+progress 306/504 (60.7%) elapsed=601.6s eta=389s
+progress 307/504 (60.9%) elapsed=603.3s eta=387s
+progress 308/504 (61.1%) elapsed=603.7s eta=384s
+progress 309/504 (61.3%) elapsed=610.7s eta=385s
+progress 310/504 (61.5%) elapsed=611.1s eta=382s
+progress 311/504 (61.7%) elapsed=612.3s eta=380s
+progress 312/504 (61.9%) elapsed=617.7s eta=380s
+progress 313/504 (62.1%) elapsed=619.7s eta=378s
+progress 314/504 (62.3%) elapsed=621.0s eta=376s
+progress 315/504 (62.5%) elapsed=622.8s eta=374s
+progress 316/504 (62.7%) elapsed=624.9s eta=372s
+progress 317/504 (62.9%) elapsed=628.7s eta=371s
+progress 318/504 (63.1%) elapsed=637.2s eta=373s
+progress 319/504 (63.3%) elapsed=639.0s eta=371s
+progress 320/504 (63.5%) elapsed=639.1s eta=367s
+progress 321/504 (63.7%) elapsed=641.2s eta=366s
+progress 322/504 (63.9%) elapsed=641.5s eta=363s
+progress 323/504 (64.1%) elapsed=642.0s eta=360s
+progress 324/504 (64.3%) elapsed=643.6s eta=358s
+progress 325/504 (64.5%) elapsed=643.7s eta=355s
+progress 326/504 (64.7%) elapsed=644.0s eta=352s
+progress 327/504 (64.9%) elapsed=649.5s eta=352s
+progress 328/504 (65.1%) elapsed=651.5s eta=350s
+progress 329/504 (65.3%) elapsed=652.2s eta=347s
+progress 330/504 (65.5%) elapsed=654.6s eta=345s
+progress 331/504 (65.7%) elapsed=655.3s eta=343s
+progress 332/504 (65.9%) elapsed=658.6s eta=341s
+progress 333/504 (66.1%) elapsed=659.6s eta=339s
+progress 334/504 (66.3%) elapsed=659.8s eta=336s
+progress 335/504 (66.5%) elapsed=664.5s eta=335s
+progress 336/504 (66.7%) elapsed=666.1s eta=333s
+progress 337/504 (66.9%) elapsed=667.0s eta=331s
+progress 338/504 (67.1%) elapsed=667.1s eta=328s
+progress 339/504 (67.3%) elapsed=667.4s eta=325s
+progress 340/504 (67.5%) elapsed=669.2s eta=323s
+progress 341/504 (67.7%) elapsed=669.3s eta=320s
+progress 342/504 (67.9%) elapsed=669.7s eta=317s
+progress 343/504 (68.1%) elapsed=671.0s eta=315s
+progress 344/504 (68.3%) elapsed=677.5s eta=315s
+progress 345/504 (68.5%) elapsed=680.8s eta=314s
+progress 346/504 (68.7%) elapsed=681.8s eta=311s
+progress 347/504 (68.8%) elapsed=686.4s eta=311s
+progress 348/504 (69.0%) elapsed=689.7s eta=309s
+progress 349/504 (69.2%) elapsed=690.5s eta=307s
+progress 350/504 (69.4%) elapsed=693.0s eta=305s
+progress 351/504 (69.6%) elapsed=697.7s eta=304s
+progress 352/504 (69.8%) elapsed=698.1s eta=301s
+progress 353/504 (70.0%) elapsed=702.7s eta=301s
+progress 354/504 (70.2%) elapsed=705.4s eta=299s
+progress 355/504 (70.4%) elapsed=706.0s eta=296s
+progress 356/504 (70.6%) elapsed=706.4s eta=294s
+progress 357/504 (70.8%) elapsed=707.1s eta=291s
+progress 358/504 (71.0%) elapsed=708.0s eta=289s
+progress 359/504 (71.2%) elapsed=708.2s eta=286s
+progress 360/504 (71.4%) elapsed=709.0s eta=284s
+progress 361/504 (71.6%) elapsed=710.1s eta=281s
+progress 362/504 (71.8%) elapsed=715.2s eta=281s
+progress 363/504 (72.0%) elapsed=717.7s eta=279s
+progress 364/504 (72.2%) elapsed=720.4s eta=277s
+progress 365/504 (72.4%) elapsed=720.4s eta=274s
+progress 366/504 (72.6%) elapsed=721.2s eta=272s
+progress 367/504 (72.8%) elapsed=721.5s eta=269s
+progress 368/504 (73.0%) elapsed=721.6s eta=267s
+progress 369/504 (73.2%) elapsed=722.1s eta=264s
+progress 370/504 (73.4%) elapsed=722.7s eta=262s
+progress 371/504 (73.6%) elapsed=732.2s eta=262s
+progress 372/504 (73.8%) elapsed=734.5s eta=261s
+progress 373/504 (74.0%) elapsed=742.1s eta=261s
+progress 374/504 (74.2%) elapsed=742.4s eta=258s
+progress 375/504 (74.4%) elapsed=742.8s eta=256s
+progress 376/504 (74.6%) elapsed=748.8s eta=255s
+progress 377/504 (74.8%) elapsed=749.4s eta=252s
+progress 378/504 (75.0%) elapsed=750.9s eta=250s
+progress 379/504 (75.2%) elapsed=751.6s eta=248s
+progress 380/504 (75.4%) elapsed=753.2s eta=246s
+progress 381/504 (75.6%) elapsed=760.4s eta=245s
+progress 382/504 (75.8%) elapsed=760.8s eta=243s
+progress 383/504 (76.0%) elapsed=764.1s eta=241s
+progress 384/504 (76.2%) elapsed=765.6s eta=239s
+progress 385/504 (76.4%) elapsed=766.0s eta=237s
+progress 386/504 (76.6%) elapsed=767.5s eta=235s
+progress 387/504 (76.8%) elapsed=768.6s eta=232s
+progress 388/504 (77.0%) elapsed=770.4s eta=230s
+progress 389/504 (77.2%) elapsed=771.5s eta=228s
+progress 390/504 (77.4%) elapsed=771.5s eta=226s
+progress 391/504 (77.6%) elapsed=778.1s eta=225s
+progress 392/504 (77.8%) elapsed=779.2s eta=223s
+progress 393/504 (78.0%) elapsed=780.4s eta=220s
+progress 394/504 (78.2%) elapsed=780.4s eta=218s
+progress 395/504 (78.4%) elapsed=782.0s eta=216s
+progress 396/504 (78.6%) elapsed=783.5s eta=214s
+progress 397/504 (78.8%) elapsed=787.6s eta=212s
+progress 398/504 (79.0%) elapsed=788.3s eta=210s
+progress 399/504 (79.2%) elapsed=788.3s eta=207s
+progress 400/504 (79.4%) elapsed=789.6s eta=205s
+progress 401/504 (79.6%) elapsed=792.1s eta=203s
+progress 402/504 (79.8%) elapsed=793.5s eta=201s
+progress 403/504 (80.0%) elapsed=795.5s eta=199s
+progress 404/504 (80.2%) elapsed=796.0s eta=197s
+progress 405/504 (80.4%) elapsed=796.8s eta=195s
+progress 406/504 (80.6%) elapsed=797.8s eta=193s
+progress 407/504 (80.8%) elapsed=800.2s eta=191s
+progress 408/504 (81.0%) elapsed=800.5s eta=188s
+progress 409/504 (81.2%) elapsed=805.2s eta=187s
+progress 410/504 (81.3%) elapsed=807.3s eta=185s
+progress 411/504 (81.5%) elapsed=809.2s eta=183s
+progress 412/504 (81.7%) elapsed=810.0s eta=181s
+progress 413/504 (81.9%) elapsed=813.4s eta=179s
+progress 414/504 (82.1%) elapsed=816.3s eta=177s
+progress 415/504 (82.3%) elapsed=820.7s eta=176s
+progress 416/504 (82.5%) elapsed=821.7s eta=174s
+progress 417/504 (82.7%) elapsed=822.6s eta=172s
+progress 418/504 (82.9%) elapsed=824.4s eta=170s
+progress 419/504 (83.1%) elapsed=826.6s eta=168s
+progress 420/504 (83.3%) elapsed=831.5s eta=166s
+progress 421/504 (83.5%) elapsed=834.2s eta=164s
+progress 422/504 (83.7%) elapsed=836.3s eta=163s
+progress 423/504 (83.9%) elapsed=836.6s eta=160s
+progress 424/504 (84.1%) elapsed=839.7s eta=158s
+progress 425/504 (84.3%) elapsed=842.8s eta=157s
+progress 426/504 (84.5%) elapsed=844.6s eta=155s
+progress 427/504 (84.7%) elapsed=846.2s eta=153s
+progress 428/504 (84.9%) elapsed=846.9s eta=150s
+progress 429/504 (85.1%) elapsed=847.8s eta=148s
+progress 430/504 (85.3%) elapsed=852.5s eta=147s
+progress 431/504 (85.5%) elapsed=852.7s eta=144s
+progress 432/504 (85.7%) elapsed=854.1s eta=142s
+progress 433/504 (85.9%) elapsed=861.0s eta=141s
+progress 434/504 (86.1%) elapsed=861.1s eta=139s
+progress 435/504 (86.3%) elapsed=861.8s eta=137s
+progress 436/504 (86.5%) elapsed=862.6s eta=135s
+progress 437/504 (86.7%) elapsed=864.1s eta=132s
+progress 438/504 (86.9%) elapsed=865.6s eta=130s
+progress 439/504 (87.1%) elapsed=865.8s eta=128s
+progress 440/504 (87.3%) elapsed=871.0s eta=127s
+progress 441/504 (87.5%) elapsed=873.3s eta=125s
+progress 442/504 (87.7%) elapsed=875.9s eta=123s
+progress 443/504 (87.9%) elapsed=877.2s eta=121s
+progress 444/504 (88.1%) elapsed=879.0s eta=119s
+progress 445/504 (88.3%) elapsed=879.5s eta=117s
+progress 446/504 (88.5%) elapsed=881.6s eta=115s
+progress 447/504 (88.7%) elapsed=881.8s eta=112s
+progress 448/504 (88.9%) elapsed=882.4s eta=110s
+progress 449/504 (89.1%) elapsed=884.4s eta=108s
+progress 450/504 (89.3%) elapsed=884.7s eta=106s
+progress 451/504 (89.5%) elapsed=888.4s eta=104s
+progress 452/504 (89.7%) elapsed=896.0s eta=103s
+progress 453/504 (89.9%) elapsed=896.1s eta=101s
+progress 454/504 (90.1%) elapsed=900.4s eta=99s
+progress 455/504 (90.3%) elapsed=901.4s eta=97s
+progress 456/504 (90.5%) elapsed=903.7s eta=95s
+progress 457/504 (90.7%) elapsed=904.5s eta=93s
+progress 458/504 (90.9%) elapsed=906.7s eta=91s
+progress 459/504 (91.1%) elapsed=908.2s eta=89s
+progress 460/504 (91.3%) elapsed=914.8s eta=88s
+progress 461/504 (91.5%) elapsed=916.7s eta=86s
+progress 462/504 (91.7%) elapsed=917.0s eta=83s
+progress 463/504 (91.9%) elapsed=919.6s eta=81s
+progress 464/504 (92.1%) elapsed=921.2s eta=79s
+progress 465/504 (92.3%) elapsed=921.5s eta=77s
+progress 466/504 (92.5%) elapsed=923.5s eta=75s
+progress 467/504 (92.7%) elapsed=924.0s eta=73s
+progress 468/504 (92.9%) elapsed=926.1s eta=71s
+progress 469/504 (93.1%) elapsed=926.1s eta=69s
+progress 470/504 (93.3%) elapsed=927.2s eta=67s
+progress 471/504 (93.5%) elapsed=929.2s eta=65s
+progress 472/504 (93.7%) elapsed=945.2s eta=64s
+progress 473/504 (93.8%) elapsed=946.7s eta=62s
+progress 474/504 (94.0%) elapsed=948.9s eta=60s
+progress 475/504 (94.2%) elapsed=950.4s eta=58s
+progress 476/504 (94.4%) elapsed=951.1s eta=56s
+progress 477/504 (94.6%) elapsed=955.3s eta=54s
+progress 478/504 (94.8%) elapsed=955.6s eta=52s
+progress 479/504 (95.0%) elapsed=957.6s eta=50s
+progress 480/504 (95.2%) elapsed=957.7s eta=48s
+progress 481/504 (95.4%) elapsed=960.8s eta=46s
+progress 482/504 (95.6%) elapsed=962.8s eta=44s
+progress 483/504 (95.8%) elapsed=965.4s eta=42s
+progress 484/504 (96.0%) elapsed=967.0s eta=40s
+progress 485/504 (96.2%) elapsed=968.3s eta=38s
+progress 486/504 (96.4%) elapsed=969.1s eta=36s
+progress 487/504 (96.6%) elapsed=970.2s eta=34s
+progress 488/504 (96.8%) elapsed=971.0s eta=32s
+progress 489/504 (97.0%) elapsed=972.4s eta=30s
+progress 490/504 (97.2%) elapsed=973.4s eta=28s
+progress 491/504 (97.4%) elapsed=976.8s eta=26s
+progress 492/504 (97.6%) elapsed=981.1s eta=24s
+progress 493/504 (97.8%) elapsed=985.8s eta=22s
+progress 494/504 (98.0%) elapsed=990.1s eta=20s
+progress 495/504 (98.2%) elapsed=991.7s eta=18s
+progress 496/504 (98.4%) elapsed=993.5s eta=16s
+progress 497/504 (98.6%) elapsed=994.2s eta=14s
+progress 498/504 (98.8%) elapsed=996.8s eta=12s
+progress 499/504 (99.0%) elapsed=998.2s eta=10s
+progress 500/504 (99.2%) elapsed=998.4s eta=8s
+progress 501/504 (99.4%) elapsed=999.8s eta=6s
+progress 502/504 (99.6%) elapsed=1002.5s eta=4s
+progress 503/504 (99.8%) elapsed=1007.4s eta=2s
+progress 504/504 (100.0%) elapsed=1007.5s eta=0s
+{
+  "overall": {
+    "total": 504,
+    "correct": 301,
+    "accuracy": 0.5972
+  },
+  "by_split": {
+    "placebo_test": {
+      "total": 504,
+      "correct": 301,
+      "accuracy": 0.5972
+    }
+  },
+  "slices": {
+    "domain_key": {
+      "domain2_non_positional_investment": {
+        "total": 504,
+        "correct": 301,
+        "accuracy": 0.5972
+      }
+    },
+    "scene_id": {
+      "d2_health_03": {
+        "total": 84,
+        "correct": 61,
+        "accuracy": 0.7262
+      },
+      "d2_admin_02": {
+        "total": 84,
+        "correct": 44,
+        "accuracy": 0.5238
+      },
+      "d2_save_02": {
+        "total": 84,
+        "correct": 51,
+        "accuracy": 0.6071
+      },
+      "d2_health_02": {
+        "total": 84,
+        "correct": 45,
+        "accuracy": 0.5357
+      },
+      "d2_hobby_02": {
+        "total": 84,
+        "correct": 46,
+        "accuracy": 0.5476
+      },
+      "d2_home_02": {
+        "total": 84,
+        "correct": 54,
+        "accuracy": 0.6429
+      }
+    },
+    "gold_rule_id": {
+      "D_pure_private": {
+        "total": 504,
+        "correct": 301,
+        "accuracy": 0.5972
+      }
+    }
+  },
+  "confusion_gold_to_parsed_rule": {
+    "D_pure_private": {
+      "D_pure_private": 301,
+      "H_equal_mix": 26,
+      "A_peer_weighted": 27,
+      "G_counter_conformist": 9,
+      "F_median_anchor": 53,
+      "C_uniform_avg": 32,
+      "B_top_anchor": 39,
+      "E_closest_mimicry": 14
+    }
+  }
+}
+
+---- split=ood_social ----
+input=data/structured/ood_social.json
+output=evaluation/outputs/Qwen/ood_social_predictions.jsonl
+{"input_file": "data/structured/ood_social.json", "output_file": "evaluation/outputs/Qwen/ood_social_predictions.jsonl", "total_tasks": 576, "already_done": 0, "pending": 576, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16}
+progress 1/576 (0.2%) elapsed=8.1s eta=4662s
+progress 2/576 (0.3%) elapsed=9.1s eta=2615s
+progress 3/576 (0.5%) elapsed=9.7s eta=1849s
+progress 4/576 (0.7%) elapsed=10.4s eta=1490s
+progress 5/576 (0.9%) elapsed=10.9s eta=1242s
+progress 6/576 (1.0%) elapsed=11.1s eta=1057s
+progress 7/576 (1.2%) elapsed=11.4s eta=923s
+progress 8/576 (1.4%) elapsed=11.8s eta=840s
+progress 9/576 (1.6%) elapsed=13.0s eta=822s
+progress 10/576 (1.7%) elapsed=13.3s eta=752s
+progress 11/576 (1.9%) elapsed=13.3s eta=684s
+progress 12/576 (2.1%) elapsed=13.6s eta=638s
+progress 13/576 (2.3%) elapsed=13.6s eta=590s
+progress 14/576 (2.4%) elapsed=14.9s eta=596s
+progress 15/576 (2.6%) elapsed=15.4s eta=575s
+progress 16/576 (2.8%) elapsed=20.4s eta=713s
+progress 17/576 (3.0%) elapsed=22.4s eta=737s
+progress 18/576 (3.1%) elapsed=23.3s eta=721s
+progress 19/576 (3.3%) elapsed=23.4s eta=687s
+progress 20/576 (3.5%) elapsed=23.5s eta=653s
+progress 21/576 (3.6%) elapsed=23.9s eta=631s
+progress 22/576 (3.8%) elapsed=25.2s eta=636s
+progress 23/576 (4.0%) elapsed=25.5s eta=613s
+progress 24/576 (4.2%) elapsed=27.0s eta=621s
+progress 25/576 (4.3%) elapsed=27.1s eta=597s
+progress 26/576 (4.5%) elapsed=27.2s eta=575s
+progress 27/576 (4.7%) elapsed=27.6s eta=562s
+progress 28/576 (4.9%) elapsed=29.7s eta=581s
+progress 29/576 (5.0%) elapsed=30.6s eta=577s
+progress 30/576 (5.2%) elapsed=32.6s eta=592s
+progress 31/576 (5.4%) elapsed=34.5s eta=606s
+progress 32/576 (5.6%) elapsed=35.7s eta=607s
+progress 33/576 (5.7%) elapsed=36.0s eta=592s
+progress 34/576 (5.9%) elapsed=36.5s eta=581s
+progress 35/576 (6.1%) elapsed=37.1s eta=574s
+progress 36/576 (6.2%) elapsed=39.3s eta=590s
+progress 37/576 (6.4%) elapsed=39.6s eta=576s
+progress 38/576 (6.6%) elapsed=41.5s eta=587s
+progress 39/576 (6.8%) elapsed=41.5s eta=571s
+progress 40/576 (6.9%) elapsed=41.7s eta=559s
+progress 41/576 (7.1%) elapsed=42.0s eta=548s
+progress 42/576 (7.3%) elapsed=43.1s eta=548s
+progress 43/576 (7.5%) elapsed=43.4s eta=538s
+progress 44/576 (7.6%) elapsed=44.1s eta=534s
+progress 45/576 (7.8%) elapsed=44.8s eta=529s
+progress 46/576 (8.0%) elapsed=49.0s eta=565s
+progress 47/576 (8.2%) elapsed=49.5s eta=557s
+progress 48/576 (8.3%) elapsed=49.6s eta=545s
+progress 49/576 (8.5%) elapsed=49.8s eta=536s
+progress 50/576 (8.7%) elapsed=49.9s eta=525s
+progress 51/576 (8.9%) elapsed=51.3s eta=528s
+progress 52/576 (9.0%) elapsed=54.4s eta=549s
+progress 53/576 (9.2%) elapsed=54.6s eta=539s
+progress 54/576 (9.4%) elapsed=55.3s eta=535s
+progress 55/576 (9.5%) elapsed=55.8s eta=528s
+progress 56/576 (9.7%) elapsed=58.3s eta=541s
+progress 57/576 (9.9%) elapsed=58.3s eta=531s
+progress 58/576 (10.1%) elapsed=58.7s eta=525s
+progress 59/576 (10.2%) elapsed=59.4s eta=520s
+progress 60/576 (10.4%) elapsed=60.2s eta=518s
+progress 61/576 (10.6%) elapsed=60.9s eta=514s
+progress 62/576 (10.8%) elapsed=61.4s eta=509s
+progress 63/576 (10.9%) elapsed=61.8s eta=503s
+progress 64/576 (11.1%) elapsed=62.9s eta=503s
+progress 65/576 (11.3%) elapsed=63.3s eta=497s
+progress 66/576 (11.5%) elapsed=65.8s eta=509s
+progress 67/576 (11.6%) elapsed=67.1s eta=510s
+progress 68/576 (11.8%) elapsed=68.9s eta=515s
+progress 69/576 (12.0%) elapsed=69.9s eta=514s
+progress 70/576 (12.2%) elapsed=70.2s eta=508s
+progress 71/576 (12.3%) elapsed=70.3s eta=500s
+progress 72/576 (12.5%) elapsed=71.1s eta=498s
+progress 73/576 (12.7%) elapsed=71.3s eta=491s
+progress 74/576 (12.8%) elapsed=71.5s eta=485s
+progress 75/576 (13.0%) elapsed=71.6s eta=479s
+progress 76/576 (13.2%) elapsed=73.0s eta=480s
+progress 77/576 (13.4%) elapsed=73.1s eta=474s
+progress 78/576 (13.5%) elapsed=73.2s eta=467s
+progress 79/576 (13.7%) elapsed=73.7s eta=464s
+progress 80/576 (13.9%) elapsed=76.5s eta=474s
+progress 81/576 (14.1%) elapsed=77.1s eta=471s
+progress 82/576 (14.2%) elapsed=77.6s eta=468s
+progress 83/576 (14.4%) elapsed=80.2s eta=476s
+progress 84/576 (14.6%) elapsed=81.3s eta=476s
+progress 85/576 (14.8%) elapsed=81.9s eta=473s
+progress 86/576 (14.9%) elapsed=82.0s eta=467s
+progress 87/576 (15.1%) elapsed=82.0s eta=461s
+progress 88/576 (15.3%) elapsed=83.7s eta=464s
+progress 89/576 (15.5%) elapsed=83.7s eta=458s
+progress 90/576 (15.6%) elapsed=83.8s eta=452s
+progress 91/576 (15.8%) elapsed=86.4s eta=460s
+progress 92/576 (16.0%) elapsed=88.7s eta=467s
+progress 93/576 (16.1%) elapsed=90.1s eta=468s
+progress 94/576 (16.3%) elapsed=90.3s eta=463s
+progress 95/576 (16.5%) elapsed=91.1s eta=461s
+progress 96/576 (16.7%) elapsed=91.3s eta=457s
+progress 97/576 (16.8%) elapsed=93.1s eta=460s
+progress 98/576 (17.0%) elapsed=94.1s eta=459s
+progress 99/576 (17.2%) elapsed=94.5s eta=456s
+progress 100/576 (17.4%) elapsed=95.2s eta=453s
+progress 101/576 (17.5%) elapsed=97.0s eta=456s
+progress 102/576 (17.7%) elapsed=97.5s eta=453s
+progress 103/576 (17.9%) elapsed=98.9s eta=454s
+progress 104/576 (18.1%) elapsed=99.4s eta=451s
+progress 105/576 (18.2%) elapsed=102.1s eta=458s
+progress 106/576 (18.4%) elapsed=103.5s eta=459s
+progress 107/576 (18.6%) elapsed=103.8s eta=455s
+progress 108/576 (18.8%) elapsed=104.8s eta=454s
+progress 109/576 (18.9%) elapsed=105.1s eta=450s
+progress 110/576 (19.1%) elapsed=106.2s eta=450s
+progress 111/576 (19.3%) elapsed=106.2s eta=445s
+progress 112/576 (19.4%) elapsed=106.5s eta=441s
+progress 113/576 (19.6%) elapsed=107.3s eta=440s
+progress 114/576 (19.8%) elapsed=107.6s eta=436s
+progress 115/576 (20.0%) elapsed=110.8s eta=444s
+progress 116/576 (20.1%) elapsed=111.0s eta=440s
+progress 117/576 (20.3%) elapsed=111.6s eta=438s
+progress 118/576 (20.5%) elapsed=112.0s eta=435s
+progress 119/576 (20.7%) elapsed=112.4s eta=432s
+progress 120/576 (20.8%) elapsed=112.9s eta=429s
+progress 121/576 (21.0%) elapsed=114.9s eta=432s
+progress 122/576 (21.2%) elapsed=115.3s eta=429s
+progress 123/576 (21.4%) elapsed=115.8s eta=427s
+progress 124/576 (21.5%) elapsed=116.1s eta=423s
+progress 125/576 (21.7%) elapsed=116.9s eta=422s
+progress 126/576 (21.9%) elapsed=118.8s eta=424s
+progress 127/576 (22.0%) elapsed=118.9s eta=420s
+progress 128/576 (22.2%) elapsed=120.8s eta=423s
+progress 129/576 (22.4%) elapsed=121.9s eta=423s
+progress 130/576 (22.6%) elapsed=122.2s eta=419s
+progress 131/576 (22.7%) elapsed=122.7s eta=417s
+progress 132/576 (22.9%) elapsed=123.3s eta=415s
+progress 133/576 (23.1%) elapsed=124.2s eta=414s
+progress 134/576 (23.3%) elapsed=125.5s eta=414s
+progress 135/576 (23.4%) elapsed=125.7s eta=411s
+progress 136/576 (23.6%) elapsed=127.0s eta=411s
+progress 137/576 (23.8%) elapsed=127.2s eta=408s
+progress 138/576 (24.0%) elapsed=127.8s eta=406s
+progress 139/576 (24.1%) elapsed=128.1s eta=403s
+progress 140/576 (24.3%) elapsed=128.3s eta=399s
+progress 141/576 (24.5%) elapsed=128.8s eta=397s
+progress 142/576 (24.7%) elapsed=129.9s eta=397s
+progress 143/576 (24.8%) elapsed=132.9s eta=403s
+progress 144/576 (25.0%) elapsed=133.7s eta=401s
+progress 145/576 (25.2%) elapsed=134.1s eta=399s
+progress 146/576 (25.3%) elapsed=134.8s eta=397s
+progress 147/576 (25.5%) elapsed=135.3s eta=395s
+progress 148/576 (25.7%) elapsed=136.7s eta=395s
+progress 149/576 (25.9%) elapsed=136.8s eta=392s
+progress 150/576 (26.0%) elapsed=137.5s eta=390s
+progress 151/576 (26.2%) elapsed=138.2s eta=389s
+progress 152/576 (26.4%) elapsed=138.4s eta=386s
+progress 153/576 (26.6%) elapsed=138.6s eta=383s
+progress 154/576 (26.7%) elapsed=138.9s eta=381s
+progress 155/576 (26.9%) elapsed=139.7s eta=379s
+progress 156/576 (27.1%) elapsed=140.5s eta=378s
+progress 157/576 (27.3%) elapsed=141.6s eta=378s
+progress 158/576 (27.4%) elapsed=143.3s eta=379s
+progress 159/576 (27.6%) elapsed=144.0s eta=378s
+progress 160/576 (27.8%) elapsed=145.6s eta=378s
+progress 161/576 (28.0%) elapsed=145.6s eta=375s
+progress 162/576 (28.1%) elapsed=146.1s eta=373s
+progress 163/576 (28.3%) elapsed=146.1s eta=370s
+progress 164/576 (28.5%) elapsed=146.9s eta=369s
+progress 165/576 (28.6%) elapsed=147.0s eta=366s
+progress 166/576 (28.8%) elapsed=148.1s eta=366s
+progress 167/576 (29.0%) elapsed=149.5s eta=366s
+progress 168/576 (29.2%) elapsed=150.8s eta=366s
+progress 169/576 (29.3%) elapsed=151.1s eta=364s
+progress 170/576 (29.5%) elapsed=151.9s eta=363s
+progress 171/576 (29.7%) elapsed=152.6s eta=362s
+progress 172/576 (29.9%) elapsed=154.9s eta=364s
+progress 173/576 (30.0%) elapsed=155.0s eta=361s
+progress 174/576 (30.2%) elapsed=155.0s eta=358s
+progress 175/576 (30.4%) elapsed=155.7s eta=357s
+progress 176/576 (30.6%) elapsed=155.9s eta=354s
+progress 177/576 (30.7%) elapsed=156.0s eta=352s
+progress 178/576 (30.9%) elapsed=157.3s eta=352s
+progress 179/576 (31.1%) elapsed=157.9s eta=350s
+progress 180/576 (31.2%) elapsed=158.2s eta=348s
+progress 181/576 (31.4%) elapsed=160.9s eta=351s
+progress 182/576 (31.6%) elapsed=162.0s eta=351s
+progress 183/576 (31.8%) elapsed=164.0s eta=352s
+progress 184/576 (31.9%) elapsed=164.1s eta=350s
+progress 185/576 (32.1%) elapsed=165.5s eta=350s
+progress 186/576 (32.3%) elapsed=166.0s eta=348s
+progress 187/576 (32.5%) elapsed=166.1s eta=345s
+progress 188/576 (32.6%) elapsed=166.1s eta=343s
+progress 189/576 (32.8%) elapsed=166.8s eta=342s
+progress 190/576 (33.0%) elapsed=167.7s eta=341s
+progress 191/576 (33.2%) elapsed=168.3s eta=339s
+progress 192/576 (33.3%) elapsed=169.8s eta=340s
+progress 193/576 (33.5%) elapsed=170.3s eta=338s
+progress 194/576 (33.7%) elapsed=170.7s eta=336s
+progress 195/576 (33.9%) elapsed=171.5s eta=335s
+progress 196/576 (34.0%) elapsed=172.7s eta=335s
+progress 197/576 (34.2%) elapsed=174.5s eta=336s
+progress 198/576 (34.4%) elapsed=174.6s eta=333s
+progress 199/576 (34.5%) elapsed=177.4s eta=336s
+progress 200/576 (34.7%) elapsed=177.8s eta=334s
+progress 201/576 (34.9%) elapsed=177.8s eta=332s
+progress 202/576 (35.1%) elapsed=178.3s eta=330s
+progress 203/576 (35.2%) elapsed=178.5s eta=328s
+progress 204/576 (35.4%) elapsed=178.9s eta=326s
+progress 205/576 (35.6%) elapsed=180.8s eta=327s
+progress 206/576 (35.8%) elapsed=181.4s eta=326s
+progress 207/576 (35.9%) elapsed=181.5s eta=323s
+progress 208/576 (36.1%) elapsed=182.6s eta=323s
+progress 209/576 (36.3%) elapsed=183.5s eta=322s
+progress 210/576 (36.5%) elapsed=186.6s eta=325s
+progress 211/576 (36.6%) elapsed=186.8s eta=323s
+progress 212/576 (36.8%) elapsed=189.3s eta=325s
+progress 213/576 (37.0%) elapsed=190.3s eta=324s
+progress 214/576 (37.2%) elapsed=190.4s eta=322s
+progress 215/576 (37.3%) elapsed=190.7s eta=320s
+progress 216/576 (37.5%) elapsed=192.0s eta=320s
+progress 217/576 (37.7%) elapsed=192.9s eta=319s
+progress 218/576 (37.8%) elapsed=193.0s eta=317s
+progress 219/576 (38.0%) elapsed=193.6s eta=316s
+progress 220/576 (38.2%) elapsed=194.0s eta=314s
+progress 221/576 (38.4%) elapsed=195.0s eta=313s
+progress 222/576 (38.5%) elapsed=196.7s eta=314s
+progress 223/576 (38.7%) elapsed=197.0s eta=312s
+progress 224/576 (38.9%) elapsed=197.8s eta=311s
+progress 225/576 (39.1%) elapsed=198.9s eta=310s
+progress 226/576 (39.2%) elapsed=201.4s eta=312s
+progress 227/576 (39.4%) elapsed=201.9s eta=310s
+progress 228/576 (39.6%) elapsed=203.4s eta=310s
+progress 229/576 (39.8%) elapsed=204.3s eta=310s
+progress 230/576 (39.9%) elapsed=205.8s eta=310s
+progress 231/576 (40.1%) elapsed=206.0s eta=308s
+progress 232/576 (40.3%) elapsed=206.3s eta=306s
+progress 233/576 (40.5%) elapsed=206.9s eta=305s
+progress 234/576 (40.6%) elapsed=207.1s eta=303s
+progress 235/576 (40.8%) elapsed=209.5s eta=304s
+progress 236/576 (41.0%) elapsed=211.7s eta=305s
+progress 237/576 (41.1%) elapsed=212.9s eta=305s
+progress 238/576 (41.3%) elapsed=213.1s eta=303s
+progress 239/576 (41.5%) elapsed=216.0s eta=305s
+progress 240/576 (41.7%) elapsed=216.4s eta=303s
+progress 241/576 (41.8%) elapsed=216.8s eta=301s
+progress 242/576 (42.0%) elapsed=216.9s eta=299s
+progress 243/576 (42.2%) elapsed=217.1s eta=298s
+progress 244/576 (42.4%) elapsed=219.0s eta=298s
+progress 245/576 (42.5%) elapsed=219.6s eta=297s
+progress 246/576 (42.7%) elapsed=219.6s eta=295s
+progress 247/576 (42.9%) elapsed=224.0s eta=298s
+progress 248/576 (43.1%) elapsed=225.4s eta=298s
+progress 249/576 (43.2%) elapsed=225.6s eta=296s
+progress 250/576 (43.4%) elapsed=226.2s eta=295s
+progress 251/576 (43.6%) elapsed=226.4s eta=293s
+progress 252/576 (43.8%) elapsed=228.2s eta=293s
+progress 253/576 (43.9%) elapsed=229.6s eta=293s
+progress 254/576 (44.1%) elapsed=229.7s eta=291s
+progress 255/576 (44.3%) elapsed=231.1s eta=291s
+progress 256/576 (44.4%) elapsed=231.5s eta=289s
+progress 257/576 (44.6%) elapsed=232.1s eta=288s
+progress 258/576 (44.8%) elapsed=232.2s eta=286s
+progress 259/576 (45.0%) elapsed=234.5s eta=287s
+progress 260/576 (45.1%) elapsed=236.1s eta=287s
+progress 261/576 (45.3%) elapsed=237.0s eta=286s
+progress 262/576 (45.5%) elapsed=237.6s eta=285s
+progress 263/576 (45.7%) elapsed=238.3s eta=284s
+progress 264/576 (45.8%) elapsed=240.1s eta=284s
+progress 265/576 (46.0%) elapsed=240.3s eta=282s
+progress 266/576 (46.2%) elapsed=240.5s eta=280s
+progress 267/576 (46.4%) elapsed=241.4s eta=279s
+progress 268/576 (46.5%) elapsed=243.2s eta=279s
+progress 269/576 (46.7%) elapsed=243.3s eta=278s
+progress 270/576 (46.9%) elapsed=244.5s eta=277s
+progress 271/576 (47.0%) elapsed=244.8s eta=276s
+progress 272/576 (47.2%) elapsed=245.9s eta=275s
+progress 273/576 (47.4%) elapsed=249.1s eta=276s
+progress 274/576 (47.6%) elapsed=249.2s eta=275s
+progress 275/576 (47.7%) elapsed=249.3s eta=273s
+progress 276/576 (47.9%) elapsed=250.5s eta=272s
+progress 277/576 (48.1%) elapsed=251.2s eta=271s
+progress 278/576 (48.3%) elapsed=252.7s eta=271s
+progress 279/576 (48.4%) elapsed=252.8s eta=269s
+progress 280/576 (48.6%) elapsed=253.9s eta=268s
+progress 281/576 (48.8%) elapsed=255.3s eta=268s
+progress 282/576 (49.0%) elapsed=255.4s eta=266s
+progress 283/576 (49.1%) elapsed=255.8s eta=265s
+progress 284/576 (49.3%) elapsed=256.7s eta=264s
+progress 285/576 (49.5%) elapsed=257.2s eta=263s
+progress 286/576 (49.7%) elapsed=258.0s eta=262s
+progress 287/576 (49.8%) elapsed=258.4s eta=260s
+progress 288/576 (50.0%) elapsed=258.7s eta=259s
+progress 289/576 (50.2%) elapsed=260.3s eta=258s
+progress 290/576 (50.3%) elapsed=261.1s eta=258s
+progress 291/576 (50.5%) elapsed=262.7s eta=257s
+progress 292/576 (50.7%) elapsed=263.9s eta=257s
+progress 293/576 (50.9%) elapsed=264.5s eta=256s
+progress 294/576 (51.0%) elapsed=265.4s eta=255s
+progress 295/576 (51.2%) elapsed=265.8s eta=253s
+progress 296/576 (51.4%) elapsed=267.5s eta=253s
+progress 297/576 (51.6%) elapsed=268.2s eta=252s
+progress 298/576 (51.7%) elapsed=268.7s eta=251s
+progress 299/576 (51.9%) elapsed=268.8s eta=249s
+progress 300/576 (52.1%) elapsed=269.5s eta=248s
+progress 301/576 (52.3%) elapsed=269.9s eta=247s
+progress 302/576 (52.4%) elapsed=271.9s eta=247s
+progress 303/576 (52.6%) elapsed=274.3s eta=247s
+progress 304/576 (52.8%) elapsed=275.0s eta=246s
+progress 305/576 (53.0%) elapsed=275.2s eta=245s
+progress 306/576 (53.1%) elapsed=275.7s eta=243s
+progress 307/576 (53.3%) elapsed=276.2s eta=242s
+progress 308/576 (53.5%) elapsed=277.1s eta=241s
+progress 309/576 (53.6%) elapsed=277.8s eta=240s
+progress 310/576 (53.8%) elapsed=278.0s eta=239s
+progress 311/576 (54.0%) elapsed=278.6s eta=237s
+progress 312/576 (54.2%) elapsed=278.7s eta=236s
+progress 313/576 (54.3%) elapsed=280.5s eta=236s
+progress 314/576 (54.5%) elapsed=281.7s eta=235s
+progress 315/576 (54.7%) elapsed=281.8s eta=233s
+progress 316/576 (54.9%) elapsed=283.7s eta=233s
+progress 317/576 (55.0%) elapsed=284.1s eta=232s
+progress 318/576 (55.2%) elapsed=284.2s eta=231s
+progress 319/576 (55.4%) elapsed=284.4s eta=229s
+progress 320/576 (55.6%) elapsed=286.3s eta=229s
+progress 321/576 (55.7%) elapsed=286.5s eta=228s
+progress 322/576 (55.9%) elapsed=286.9s eta=226s
+progress 323/576 (56.1%) elapsed=287.0s eta=225s
+progress 324/576 (56.2%) elapsed=287.9s eta=224s
+progress 325/576 (56.4%) elapsed=289.5s eta=224s
+progress 326/576 (56.6%) elapsed=290.0s eta=222s
+progress 327/576 (56.8%) elapsed=290.6s eta=221s
+progress 328/576 (56.9%) elapsed=290.7s eta=220s
+progress 329/576 (57.1%) elapsed=291.4s eta=219s
+progress 330/576 (57.3%) elapsed=291.9s eta=218s
+progress 331/576 (57.5%) elapsed=292.3s eta=216s
+progress 332/576 (57.6%) elapsed=293.9s eta=216s
+progress 333/576 (57.8%) elapsed=295.6s eta=216s
+progress 334/576 (58.0%) elapsed=296.6s eta=215s
+progress 335/576 (58.2%) elapsed=296.8s eta=213s
+progress 336/576 (58.3%) elapsed=297.0s eta=212s
+progress 337/576 (58.5%) elapsed=298.0s eta=211s
+progress 338/576 (58.7%) elapsed=298.2s eta=210s
+progress 339/576 (58.9%) elapsed=298.8s eta=209s
+progress 340/576 (59.0%) elapsed=299.3s eta=208s
+progress 341/576 (59.2%) elapsed=301.1s eta=208s
+progress 342/576 (59.4%) elapsed=301.9s eta=207s
+progress 343/576 (59.5%) elapsed=302.4s eta=205s
+progress 344/576 (59.7%) elapsed=303.8s eta=205s
+progress 345/576 (59.9%) elapsed=304.1s eta=204s
+progress 346/576 (60.1%) elapsed=304.6s eta=202s
+progress 347/576 (60.2%) elapsed=305.6s eta=202s
+progress 348/576 (60.4%) elapsed=306.9s eta=201s
+progress 349/576 (60.6%) elapsed=309.2s eta=201s
+progress 350/576 (60.8%) elapsed=309.3s eta=200s
+progress 351/576 (60.9%) elapsed=309.6s eta=198s
+progress 352/576 (61.1%) elapsed=311.4s eta=198s
+progress 353/576 (61.3%) elapsed=311.8s eta=197s
+progress 354/576 (61.5%) elapsed=311.8s eta=196s
+progress 355/576 (61.6%) elapsed=311.9s eta=194s
+progress 356/576 (61.8%) elapsed=312.8s eta=193s
+progress 357/576 (62.0%) elapsed=313.1s eta=192s
+progress 358/576 (62.2%) elapsed=313.4s eta=191s
+progress 359/576 (62.3%) elapsed=316.1s eta=191s
+progress 360/576 (62.5%) elapsed=316.4s eta=190s
+progress 361/576 (62.7%) elapsed=317.5s eta=189s
+progress 362/576 (62.8%) elapsed=318.1s eta=188s
+progress 363/576 (63.0%) elapsed=318.8s eta=187s
+progress 364/576 (63.2%) elapsed=320.3s eta=187s
+progress 365/576 (63.4%) elapsed=320.8s eta=185s
+progress 366/576 (63.5%) elapsed=322.0s eta=185s
+progress 367/576 (63.7%) elapsed=322.2s eta=183s
+progress 368/576 (63.9%) elapsed=323.0s eta=183s
+progress 369/576 (64.1%) elapsed=323.2s eta=181s
+progress 370/576 (64.2%) elapsed=326.0s eta=182s
+progress 371/576 (64.4%) elapsed=326.4s eta=180s
+progress 372/576 (64.6%) elapsed=326.5s eta=179s
+progress 373/576 (64.8%) elapsed=327.2s eta=178s
+progress 374/576 (64.9%) elapsed=327.6s eta=177s
+progress 375/576 (65.1%) elapsed=327.9s eta=176s
+progress 376/576 (65.3%) elapsed=329.3s eta=175s
+progress 377/576 (65.5%) elapsed=331.2s eta=175s
+progress 378/576 (65.6%) elapsed=331.2s eta=173s
+progress 379/576 (65.8%) elapsed=331.5s eta=172s
+progress 380/576 (66.0%) elapsed=332.6s eta=172s
+progress 381/576 (66.1%) elapsed=333.7s eta=171s
+progress 382/576 (66.3%) elapsed=333.7s eta=169s
+progress 383/576 (66.5%) elapsed=333.8s eta=168s
+progress 384/576 (66.7%) elapsed=334.3s eta=167s
+progress 385/576 (66.8%) elapsed=335.7s eta=167s
+progress 386/576 (67.0%) elapsed=336.1s eta=165s
+progress 387/576 (67.2%) elapsed=336.2s eta=164s
+progress 388/576 (67.4%) elapsed=338.9s eta=164s
+progress 389/576 (67.5%) elapsed=340.3s eta=164s
+progress 390/576 (67.7%) elapsed=340.7s eta=163s
+progress 391/576 (67.9%) elapsed=343.1s eta=162s
+progress 392/576 (68.1%) elapsed=343.8s eta=161s
+progress 393/576 (68.2%) elapsed=344.5s eta=160s
+progress 394/576 (68.4%) elapsed=344.8s eta=159s
+progress 395/576 (68.6%) elapsed=345.7s eta=158s
+progress 396/576 (68.8%) elapsed=345.8s eta=157s
+progress 397/576 (68.9%) elapsed=346.3s eta=156s
+progress 398/576 (69.1%) elapsed=346.5s eta=155s
+progress 399/576 (69.3%) elapsed=347.2s eta=154s
+progress 400/576 (69.4%) elapsed=347.9s eta=153s
+progress 401/576 (69.6%) elapsed=349.9s eta=153s
+progress 402/576 (69.8%) elapsed=351.0s eta=152s
+progress 403/576 (70.0%) elapsed=351.2s eta=151s
+progress 404/576 (70.1%) elapsed=354.3s eta=151s
+progress 405/576 (70.3%) elapsed=354.6s eta=150s
+progress 406/576 (70.5%) elapsed=354.8s eta=149s
+progress 407/576 (70.7%) elapsed=355.4s eta=148s
+progress 408/576 (70.8%) elapsed=355.9s eta=147s
+progress 409/576 (71.0%) elapsed=356.5s eta=146s
+progress 410/576 (71.2%) elapsed=357.0s eta=145s
+progress 411/576 (71.4%) elapsed=358.1s eta=144s
+progress 412/576 (71.5%) elapsed=358.5s eta=143s
+progress 413/576 (71.7%) elapsed=359.4s eta=142s
+progress 414/576 (71.9%) elapsed=360.1s eta=141s
+progress 415/576 (72.0%) elapsed=362.9s eta=141s
+progress 416/576 (72.2%) elapsed=364.4s eta=140s
+progress 417/576 (72.4%) elapsed=364.8s eta=139s
+progress 418/576 (72.6%) elapsed=365.1s eta=138s
+progress 419/576 (72.7%) elapsed=365.9s eta=137s
+progress 420/576 (72.9%) elapsed=366.2s eta=136s
+progress 421/576 (73.1%) elapsed=366.2s eta=135s
+progress 422/576 (73.3%) elapsed=368.4s eta=134s
+progress 423/576 (73.4%) elapsed=369.8s eta=134s
+progress 424/576 (73.6%) elapsed=370.6s eta=133s
+progress 425/576 (73.8%) elapsed=372.1s eta=132s
+progress 426/576 (74.0%) elapsed=373.1s eta=131s
+progress 427/576 (74.1%) elapsed=374.0s eta=131s
+progress 428/576 (74.3%) elapsed=374.1s eta=129s
+progress 429/576 (74.5%) elapsed=374.4s eta=128s
+progress 430/576 (74.7%) elapsed=374.7s eta=127s
+progress 431/576 (74.8%) elapsed=377.4s eta=127s
+progress 432/576 (75.0%) elapsed=379.0s eta=126s
+progress 433/576 (75.2%) elapsed=379.1s eta=125s
+progress 434/576 (75.3%) elapsed=380.0s eta=124s
+progress 435/576 (75.5%) elapsed=380.0s eta=123s
+progress 436/576 (75.7%) elapsed=381.5s eta=122s
+progress 437/576 (75.9%) elapsed=386.4s eta=123s
+progress 438/576 (76.0%) elapsed=388.1s eta=122s
+progress 439/576 (76.2%) elapsed=388.6s eta=121s
+progress 440/576 (76.4%) elapsed=388.8s eta=120s
+progress 441/576 (76.6%) elapsed=389.6s eta=119s
+progress 442/576 (76.7%) elapsed=391.4s eta=119s
+progress 443/576 (76.9%) elapsed=392.3s eta=118s
+progress 444/576 (77.1%) elapsed=392.5s eta=117s
+progress 445/576 (77.3%) elapsed=393.2s eta=116s
+progress 446/576 (77.4%) elapsed=394.6s eta=115s
+progress 447/576 (77.6%) elapsed=395.2s eta=114s
+progress 448/576 (77.8%) elapsed=395.4s eta=113s
+progress 449/576 (78.0%) elapsed=395.4s eta=112s
+progress 450/576 (78.1%) elapsed=396.3s eta=111s
+progress 451/576 (78.3%) elapsed=396.6s eta=110s
+progress 452/576 (78.5%) elapsed=402.9s eta=111s
+progress 453/576 (78.6%) elapsed=404.4s eta=110s
+progress 454/576 (78.8%) elapsed=407.2s eta=109s
+progress 455/576 (79.0%) elapsed=407.6s eta=108s
+progress 456/576 (79.2%) elapsed=408.6s eta=108s
+progress 457/576 (79.3%) elapsed=409.5s eta=107s
+progress 458/576 (79.5%) elapsed=411.3s eta=106s
+progress 459/576 (79.7%) elapsed=412.2s eta=105s
+progress 460/576 (79.9%) elapsed=412.4s eta=104s
+progress 461/576 (80.0%) elapsed=413.7s eta=103s
+progress 462/576 (80.2%) elapsed=414.7s eta=102s
+progress 463/576 (80.4%) elapsed=414.9s eta=101s
+progress 464/576 (80.6%) elapsed=415.1s eta=100s
+progress 465/576 (80.7%) elapsed=415.4s eta=99s
+progress 466/576 (80.9%) elapsed=416.5s eta=98s
+progress 467/576 (81.1%) elapsed=416.7s eta=97s
+progress 468/576 (81.2%) elapsed=417.3s eta=96s
+progress 469/576 (81.4%) elapsed=421.9s eta=96s
+progress 470/576 (81.6%) elapsed=421.9s eta=95s
+progress 471/576 (81.8%) elapsed=422.4s eta=94s
+progress 472/576 (81.9%) elapsed=423.0s eta=93s
+progress 473/576 (82.1%) elapsed=424.2s eta=92s
+progress 474/576 (82.3%) elapsed=430.0s eta=93s
+progress 475/576 (82.5%) elapsed=431.8s eta=92s
+progress 476/576 (82.6%) elapsed=432.1s eta=91s
+progress 477/576 (82.8%) elapsed=432.6s eta=90s
+progress 478/576 (83.0%) elapsed=432.7s eta=89s
+progress 479/576 (83.2%) elapsed=434.1s eta=88s
+progress 480/576 (83.3%) elapsed=435.6s eta=87s
+progress 481/576 (83.5%) elapsed=436.5s eta=86s
+progress 482/576 (83.7%) elapsed=437.4s eta=85s
+progress 483/576 (83.9%) elapsed=438.4s eta=84s
+progress 484/576 (84.0%) elapsed=438.7s eta=83s
+progress 485/576 (84.2%) elapsed=439.4s eta=82s
+progress 486/576 (84.4%) elapsed=441.5s eta=82s
+progress 487/576 (84.5%) elapsed=442.7s eta=81s
+progress 488/576 (84.7%) elapsed=443.3s eta=80s
+progress 489/576 (84.9%) elapsed=443.9s eta=79s
+progress 490/576 (85.1%) elapsed=445.8s eta=78s
+progress 491/576 (85.2%) elapsed=445.9s eta=77s
+progress 492/576 (85.4%) elapsed=446.9s eta=76s
+progress 493/576 (85.6%) elapsed=447.5s eta=75s
+progress 494/576 (85.8%) elapsed=447.6s eta=74s
+progress 495/576 (85.9%) elapsed=447.9s eta=73s
+progress 496/576 (86.1%) elapsed=448.1s eta=72s
+progress 497/576 (86.3%) elapsed=450.7s eta=72s
+progress 498/576 (86.5%) elapsed=451.5s eta=71s
+progress 499/576 (86.6%) elapsed=451.7s eta=70s
+progress 500/576 (86.8%) elapsed=451.9s eta=69s
+progress 501/576 (87.0%) elapsed=453.3s eta=68s
+progress 502/576 (87.2%) elapsed=453.9s eta=67s
+progress 503/576 (87.3%) elapsed=454.0s eta=66s
+progress 504/576 (87.5%) elapsed=455.1s eta=65s
+progress 505/576 (87.7%) elapsed=456.4s eta=64s
+progress 506/576 (87.8%) elapsed=457.1s eta=63s
+progress 507/576 (88.0%) elapsed=457.6s eta=62s
+progress 508/576 (88.2%) elapsed=459.3s eta=61s
+progress 509/576 (88.4%) elapsed=460.2s eta=61s
+progress 510/576 (88.5%) elapsed=460.6s eta=60s
+progress 511/576 (88.7%) elapsed=461.6s eta=59s
+progress 512/576 (88.9%) elapsed=461.8s eta=58s
+progress 513/576 (89.1%) elapsed=461.9s eta=57s
+progress 514/576 (89.2%) elapsed=462.3s eta=56s
+progress 515/576 (89.4%) elapsed=464.1s eta=55s
+progress 516/576 (89.6%) elapsed=464.4s eta=54s
+progress 517/576 (89.8%) elapsed=466.0s eta=53s
+progress 518/576 (89.9%) elapsed=468.8s eta=52s
+progress 519/576 (90.1%) elapsed=469.8s eta=52s
+progress 520/576 (90.3%) elapsed=470.5s eta=51s
+progress 521/576 (90.5%) elapsed=471.1s eta=50s
+progress 522/576 (90.6%) elapsed=471.4s eta=49s
+progress 523/576 (90.8%) elapsed=471.7s eta=48s
+progress 524/576 (91.0%) elapsed=474.5s eta=47s
+progress 525/576 (91.1%) elapsed=474.6s eta=46s
+progress 526/576 (91.3%) elapsed=474.6s eta=45s
+progress 527/576 (91.5%) elapsed=475.1s eta=44s
+progress 528/576 (91.7%) elapsed=475.3s eta=43s
+progress 529/576 (91.8%) elapsed=476.2s eta=42s
+progress 530/576 (92.0%) elapsed=478.0s eta=41s
+progress 531/576 (92.2%) elapsed=478.4s eta=41s
+progress 532/576 (92.4%) elapsed=479.0s eta=40s
+progress 533/576 (92.5%) elapsed=481.8s eta=39s
+progress 534/576 (92.7%) elapsed=482.2s eta=38s
+progress 535/576 (92.9%) elapsed=482.3s eta=37s
+progress 536/576 (93.1%) elapsed=483.2s eta=36s
+progress 537/576 (93.2%) elapsed=483.4s eta=35s
+progress 538/576 (93.4%) elapsed=485.4s eta=34s
+progress 539/576 (93.6%) elapsed=485.4s eta=33s
+progress 540/576 (93.8%) elapsed=485.8s eta=32s
+progress 541/576 (93.9%) elapsed=486.2s eta=31s
+progress 542/576 (94.1%) elapsed=487.2s eta=31s
+progress 543/576 (94.3%) elapsed=487.7s eta=30s
+progress 544/576 (94.4%) elapsed=489.3s eta=29s
+progress 545/576 (94.6%) elapsed=492.7s eta=28s
+progress 546/576 (94.8%) elapsed=492.8s eta=27s
+progress 547/576 (95.0%) elapsed=493.0s eta=26s
+progress 548/576 (95.1%) elapsed=494.1s eta=25s
+progress 549/576 (95.3%) elapsed=494.5s eta=24s
+progress 550/576 (95.5%) elapsed=495.2s eta=23s
+progress 551/576 (95.7%) elapsed=495.3s eta=22s
+progress 552/576 (95.8%) elapsed=495.3s eta=22s
+progress 553/576 (96.0%) elapsed=495.6s eta=21s
+progress 554/576 (96.2%) elapsed=496.1s eta=20s
+progress 555/576 (96.4%) elapsed=497.2s eta=19s
+progress 556/576 (96.5%) elapsed=499.5s eta=18s
+progress 557/576 (96.7%) elapsed=501.3s eta=17s
+progress 558/576 (96.9%) elapsed=502.5s eta=16s
+progress 559/576 (97.0%) elapsed=503.7s eta=15s
+progress 560/576 (97.2%) elapsed=506.7s eta=14s
+progress 561/576 (97.4%) elapsed=507.0s eta=14s
+progress 562/576 (97.6%) elapsed=507.2s eta=13s
+progress 563/576 (97.7%) elapsed=507.9s eta=12s
+progress 564/576 (97.9%) elapsed=508.4s eta=11s
+progress 565/576 (98.1%) elapsed=508.5s eta=10s
+progress 566/576 (98.3%) elapsed=508.7s eta=9s
+progress 567/576 (98.4%) elapsed=508.7s eta=8s
+progress 568/576 (98.6%) elapsed=510.2s eta=7s
+progress 569/576 (98.8%) elapsed=511.3s eta=6s
+progress 570/576 (99.0%) elapsed=511.4s eta=5s
+progress 571/576 (99.1%) elapsed=512.5s eta=4s
+progress 572/576 (99.3%) elapsed=515.0s eta=4s
+progress 573/576 (99.5%) elapsed=516.5s eta=3s
+progress 574/576 (99.7%) elapsed=517.0s eta=2s
+progress 575/576 (99.8%) elapsed=522.4s eta=1s
+progress 576/576 (100.0%) elapsed=531.5s eta=0s
+{
+  "overall": {
+    "total": 576,
+    "correct": 575,
+    "accuracy": 0.9983
+  },
+  "by_split": {
+    "ood_social": {
+      "total": 576,
+      "correct": 575,
+      "accuracy": 0.9983
+    }
+  },
+  "slices": {
+    "match_distance_bucket": {
+      "mid": {
+        "total": 192,
+        "correct": 192,
+        "accuracy": 1.0
+      },
+      "close": {
+        "total": 192,
+        "correct": 191,
+        "accuracy": 0.9948
+      },
+      "far": {
+        "total": 192,
+        "correct": 192,
+        "accuracy": 1.0
+      }
+    },
+    "domain_key": {
+      "domain4_social_network_formation": {
+        "total": 576,
+        "correct": 575,
+        "accuracy": 0.9983
+      }
+    },
+    "scene_id": {
+      "d4_parent_group_01": {
+        "total": 72,
+        "correct": 72,
+        "accuracy": 1.0
+      },
+      "d4_hobby_01": {
+        "total": 72,
+        "correct": 72,
+        "accuracy": 1.0
+      },
+      "d4_founder_01": {
+        "total": 72,
+        "correct": 72,
+        "accuracy": 1.0
+      },
+      "d4_church_01": {
+        "total": 72,
+        "correct": 72,
+        "accuracy": 1.0
+      },
+      "d4_grad_cohort_01": {
+        "total": 72,
+        "correct": 72,
+        "accuracy": 1.0
+      },
+      "d4_runclub_01": {
+        "total": 72,
+        "correct": 72,
+        "accuracy": 1.0
+      },
+      "d4_new_city_01": {
+        "total": 72,
+        "correct": 72,
+        "accuracy": 1.0
+      },
+      "d4_diaspora_01": {
+        "total": 72,
+        "correct": 71,
+        "accuracy": 0.9861
+      }
+    }
+  }
+}
+
+---- split=ood_career ----
+input=data/structured/ood_career.json
+output=evaluation/outputs/Qwen/ood_career_predictions.jsonl
+{"input_file": "data/structured/ood_career.json", "output_file": "evaluation/outputs/Qwen/ood_career_predictions.jsonl", "total_tasks": 576, "already_done": 0, "pending": 576, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16}
+progress 1/576 (0.2%) elapsed=13.2s eta=7570s
+progress 2/576 (0.3%) elapsed=14.0s eta=4024s
+progress 3/576 (0.5%) elapsed=15.2s eta=2907s
+progress 4/576 (0.7%) elapsed=15.4s eta=2205s
+progress 5/576 (0.9%) elapsed=16.1s eta=1839s
+progress 6/576 (1.0%) elapsed=16.8s eta=1593s
+progress 7/576 (1.2%) elapsed=16.8s eta=1364s
+progress 8/576 (1.4%) elapsed=17.7s eta=1254s
+progress 9/576 (1.6%) elapsed=18.6s eta=1175s
+progress 10/576 (1.7%) elapsed=19.2s eta=1089s
+progress 11/576 (1.9%) elapsed=19.9s eta=1023s
+progress 12/576 (2.1%) elapsed=22.0s eta=1035s
+progress 13/576 (2.3%) elapsed=22.1s eta=957s
+progress 14/576 (2.4%) elapsed=25.1s eta=1008s
+progress 15/576 (2.6%) elapsed=26.7s eta=998s
+progress 16/576 (2.8%) elapsed=32.8s eta=1147s
+progress 17/576 (3.0%) elapsed=33.5s eta=1102s
+progress 18/576 (3.1%) elapsed=34.0s eta=1054s
+progress 19/576 (3.3%) elapsed=34.5s eta=1011s
+progress 20/576 (3.5%) elapsed=34.7s eta=965s
+progress 21/576 (3.6%) elapsed=37.3s eta=987s
+progress 22/576 (3.8%) elapsed=37.5s eta=945s
+progress 23/576 (4.0%) elapsed=39.6s eta=951s
+progress 24/576 (4.2%) elapsed=41.6s eta=956s
+progress 25/576 (4.3%) elapsed=43.0s eta=949s
+progress 26/576 (4.5%) elapsed=44.0s eta=930s
+progress 27/576 (4.7%) elapsed=46.3s eta=941s
+progress 28/576 (4.9%) elapsed=46.6s eta=912s
+progress 29/576 (5.0%) elapsed=46.8s eta=882s
+progress 30/576 (5.2%) elapsed=47.1s eta=858s
+progress 31/576 (5.4%) elapsed=48.4s eta=851s
+progress 32/576 (5.6%) elapsed=49.0s eta=832s
+progress 33/576 (5.7%) elapsed=49.0s eta=806s
+progress 34/576 (5.9%) elapsed=50.2s eta=800s
+progress 35/576 (6.1%) elapsed=53.1s eta=820s
+progress 36/576 (6.2%) elapsed=53.6s eta=805s
+progress 37/576 (6.4%) elapsed=55.0s eta=801s
+progress 38/576 (6.6%) elapsed=57.6s eta=816s
+progress 39/576 (6.8%) elapsed=60.1s eta=828s
+progress 40/576 (6.9%) elapsed=62.1s eta=833s
+progress 41/576 (7.1%) elapsed=62.7s eta=819s
+progress 42/576 (7.3%) elapsed=63.5s eta=807s
+progress 43/576 (7.5%) elapsed=64.8s eta=804s
+progress 44/576 (7.6%) elapsed=66.7s eta=806s
+progress 45/576 (7.8%) elapsed=68.7s eta=811s
+progress 46/576 (8.0%) elapsed=69.4s eta=799s
+progress 47/576 (8.2%) elapsed=70.0s eta=788s
+progress 48/576 (8.3%) elapsed=70.4s eta=774s
+progress 49/576 (8.5%) elapsed=73.9s eta=795s
+progress 50/576 (8.7%) elapsed=80.0s eta=841s
+progress 51/576 (8.9%) elapsed=80.6s eta=830s
+progress 52/576 (9.0%) elapsed=80.9s eta=815s
+progress 53/576 (9.2%) elapsed=84.8s eta=836s
+progress 54/576 (9.4%) elapsed=86.2s eta=833s
+progress 55/576 (9.5%) elapsed=86.5s eta=819s
+progress 56/576 (9.7%) elapsed=87.7s eta=814s
+progress 57/576 (9.9%) elapsed=89.6s eta=816s
+progress 58/576 (10.1%) elapsed=89.8s eta=802s
+progress 59/576 (10.2%) elapsed=94.6s eta=829s
+progress 60/576 (10.4%) elapsed=96.0s eta=826s
+progress 61/576 (10.6%) elapsed=98.6s eta=832s
+progress 62/576 (10.8%) elapsed=100.3s eta=831s
+progress 63/576 (10.9%) elapsed=101.8s eta=829s
+progress 64/576 (11.1%) elapsed=102.5s eta=820s
+progress 65/576 (11.3%) elapsed=102.8s eta=808s
+progress 66/576 (11.5%) elapsed=104.8s eta=810s
+progress 67/576 (11.6%) elapsed=105.4s eta=801s
+progress 68/576 (11.8%) elapsed=110.2s eta=823s
+progress 69/576 (12.0%) elapsed=111.5s eta=819s
+progress 70/576 (12.2%) elapsed=111.7s eta=808s
+progress 71/576 (12.3%) elapsed=112.8s eta=802s
+progress 72/576 (12.5%) elapsed=113.1s eta=791s
+progress 73/576 (12.7%) elapsed=113.9s eta=785s
+progress 74/576 (12.8%) elapsed=114.2s eta=775s
+progress 75/576 (13.0%) elapsed=114.3s eta=764s
+progress 76/576 (13.2%) elapsed=117.4s eta=773s
+progress 77/576 (13.4%) elapsed=118.2s eta=766s
+progress 78/576 (13.5%) elapsed=118.3s eta=755s
+progress 79/576 (13.7%) elapsed=118.7s eta=747s
+progress 80/576 (13.9%) elapsed=119.2s eta=739s
+progress 81/576 (14.1%) elapsed=125.2s eta=765s
+progress 82/576 (14.2%) elapsed=125.6s eta=757s
+progress 83/576 (14.4%) elapsed=125.9s eta=748s
+progress 84/576 (14.6%) elapsed=127.4s eta=746s
+progress 85/576 (14.8%) elapsed=129.3s eta=747s
+progress 86/576 (14.9%) elapsed=129.8s eta=740s
+progress 87/576 (15.1%) elapsed=129.9s eta=730s
+progress 88/576 (15.3%) elapsed=131.5s eta=729s
+progress 89/576 (15.5%) elapsed=131.5s eta=720s
+progress 90/576 (15.6%) elapsed=133.4s eta=720s
+progress 91/576 (15.8%) elapsed=135.0s eta=720s
+progress 92/576 (16.0%) elapsed=136.7s eta=719s
+progress 93/576 (16.1%) elapsed=138.5s eta=719s
+progress 94/576 (16.3%) elapsed=141.3s eta=725s
+progress 95/576 (16.5%) elapsed=143.2s eta=725s
+progress 96/576 (16.7%) elapsed=143.6s eta=718s
+progress 97/576 (16.8%) elapsed=144.4s eta=713s
+progress 98/576 (17.0%) elapsed=144.8s eta=706s
+progress 99/576 (17.2%) elapsed=145.6s eta=702s
+progress 100/576 (17.4%) elapsed=147.8s eta=703s
+progress 101/576 (17.5%) elapsed=148.6s eta=699s
+progress 102/576 (17.7%) elapsed=149.3s eta=694s
+progress 103/576 (17.9%) elapsed=150.1s eta=689s
+progress 104/576 (18.1%) elapsed=151.5s eta=688s
+progress 105/576 (18.2%) elapsed=153.1s eta=687s
+progress 106/576 (18.4%) elapsed=153.8s eta=682s
+progress 107/576 (18.6%) elapsed=155.9s eta=683s
+progress 108/576 (18.8%) elapsed=160.2s eta=694s
+progress 109/576 (18.9%) elapsed=160.7s eta=688s
+progress 110/576 (19.1%) elapsed=162.9s eta=690s
+progress 111/576 (19.3%) elapsed=163.7s eta=686s
+progress 112/576 (19.4%) elapsed=164.3s eta=681s
+progress 113/576 (19.6%) elapsed=164.5s eta=674s
+progress 114/576 (19.8%) elapsed=164.7s eta=667s
+progress 115/576 (20.0%) elapsed=168.7s eta=676s
+progress 116/576 (20.1%) elapsed=169.7s eta=673s
+progress 117/576 (20.3%) elapsed=169.8s eta=666s
+progress 118/576 (20.5%) elapsed=171.6s eta=666s
+progress 119/576 (20.7%) elapsed=173.5s eta=666s
+progress 120/576 (20.8%) elapsed=174.2s eta=662s
+progress 121/576 (21.0%) elapsed=175.1s eta=659s
+progress 122/576 (21.2%) elapsed=177.7s eta=661s
+progress 123/576 (21.4%) elapsed=179.2s eta=660s
+progress 124/576 (21.5%) elapsed=180.5s eta=658s
+progress 125/576 (21.7%) elapsed=181.3s eta=654s
+progress 126/576 (21.9%) elapsed=181.5s eta=648s
+progress 127/576 (22.0%) elapsed=183.4s eta=649s
+progress 128/576 (22.2%) elapsed=185.6s eta=650s
+progress 129/576 (22.4%) elapsed=186.5s eta=646s
+progress 130/576 (22.6%) elapsed=186.5s eta=640s
+progress 131/576 (22.7%) elapsed=186.9s eta=635s
+progress 132/576 (22.9%) elapsed=190.5s eta=641s
+progress 133/576 (23.1%) elapsed=190.8s eta=636s
+progress 134/576 (23.3%) elapsed=194.8s eta=643s
+progress 135/576 (23.4%) elapsed=196.1s eta=641s
+progress 136/576 (23.6%) elapsed=196.6s eta=636s
+progress 137/576 (23.8%) elapsed=197.2s eta=632s
+progress 138/576 (24.0%) elapsed=198.0s eta=629s
+progress 139/576 (24.1%) elapsed=198.8s eta=625s
+progress 140/576 (24.3%) elapsed=199.6s eta=621s
+progress 141/576 (24.5%) elapsed=200.6s eta=619s
+progress 142/576 (24.7%) elapsed=202.3s eta=618s
+progress 143/576 (24.8%) elapsed=202.3s eta=613s
+progress 144/576 (25.0%) elapsed=204.5s eta=613s
+progress 145/576 (25.2%) elapsed=208.1s eta=619s
+progress 146/576 (25.3%) elapsed=208.6s eta=614s
+progress 147/576 (25.5%) elapsed=208.8s eta=609s
+progress 148/576 (25.7%) elapsed=210.0s eta=607s
+progress 149/576 (25.9%) elapsed=211.2s eta=605s
+progress 150/576 (26.0%) elapsed=211.3s eta=600s
+progress 151/576 (26.2%) elapsed=213.7s eta=602s
+progress 152/576 (26.4%) elapsed=216.5s eta=604s
+progress 153/576 (26.6%) elapsed=218.1s eta=603s
+progress 154/576 (26.7%) elapsed=218.8s eta=600s
+progress 155/576 (26.9%) elapsed=221.2s eta=601s
+progress 156/576 (27.1%) elapsed=221.6s eta=597s
+progress 157/576 (27.3%) elapsed=223.7s eta=597s
+progress 158/576 (27.4%) elapsed=224.3s eta=594s
+progress 159/576 (27.6%) elapsed=224.7s eta=589s
+progress 160/576 (27.8%) elapsed=224.8s eta=584s
+progress 161/576 (28.0%) elapsed=225.2s eta=580s
+progress 162/576 (28.1%) elapsed=225.5s eta=576s
+progress 163/576 (28.3%) elapsed=227.3s eta=576s
+progress 164/576 (28.5%) elapsed=227.6s eta=572s
+progress 165/576 (28.6%) elapsed=230.1s eta=573s
+progress 166/576 (28.8%) elapsed=230.7s eta=570s
+progress 167/576 (29.0%) elapsed=232.4s eta=569s
+progress 168/576 (29.2%) elapsed=237.8s eta=577s
+progress 169/576 (29.3%) elapsed=238.3s eta=574s
+progress 170/576 (29.5%) elapsed=238.7s eta=570s
+progress 171/576 (29.7%) elapsed=239.2s eta=567s
+progress 172/576 (29.9%) elapsed=239.8s eta=563s
+progress 173/576 (30.0%) elapsed=239.9s eta=559s
+progress 174/576 (30.2%) elapsed=240.3s eta=555s
+progress 175/576 (30.4%) elapsed=240.7s eta=552s
+progress 176/576 (30.6%) elapsed=240.7s eta=547s
+progress 177/576 (30.7%) elapsed=241.0s eta=543s
+progress 178/576 (30.9%) elapsed=241.6s eta=540s
+progress 179/576 (31.1%) elapsed=243.7s eta=540s
+progress 180/576 (31.2%) elapsed=244.1s eta=537s
+progress 181/576 (31.4%) elapsed=244.3s eta=533s
+progress 182/576 (31.6%) elapsed=245.4s eta=531s
+progress 183/576 (31.8%) elapsed=248.4s eta=533s
+progress 184/576 (31.9%) elapsed=250.6s eta=534s
+progress 185/576 (32.1%) elapsed=251.3s eta=531s
+progress 186/576 (32.3%) elapsed=252.8s eta=530s
+progress 187/576 (32.5%) elapsed=253.0s eta=526s
+progress 188/576 (32.6%) elapsed=254.0s eta=524s
+progress 189/576 (32.8%) elapsed=255.0s eta=522s
+progress 190/576 (33.0%) elapsed=257.3s eta=523s
+progress 191/576 (33.2%) elapsed=259.3s eta=523s
+progress 192/576 (33.3%) elapsed=259.3s eta=519s
+progress 193/576 (33.5%) elapsed=260.1s eta=516s
+progress 194/576 (33.7%) elapsed=260.7s eta=513s
+progress 195/576 (33.9%) elapsed=261.4s eta=511s
+progress 196/576 (34.0%) elapsed=265.5s eta=515s
+progress 197/576 (34.2%) elapsed=268.1s eta=516s
+progress 198/576 (34.4%) elapsed=268.6s eta=513s
+progress 199/576 (34.5%) elapsed=270.8s eta=513s
+progress 200/576 (34.7%) elapsed=271.2s eta=510s
+progress 201/576 (34.9%) elapsed=272.5s eta=508s
+progress 202/576 (35.1%) elapsed=272.9s eta=505s
+progress 203/576 (35.2%) elapsed=275.3s eta=506s
+progress 204/576 (35.4%) elapsed=275.5s eta=502s
+progress 205/576 (35.6%) elapsed=276.1s eta=500s
+progress 206/576 (35.8%) elapsed=278.0s eta=499s
+progress 207/576 (35.9%) elapsed=278.4s eta=496s
+progress 208/576 (36.1%) elapsed=280.5s eta=496s
+progress 209/576 (36.3%) elapsed=281.7s eta=495s
+progress 210/576 (36.5%) elapsed=285.2s eta=497s
+progress 211/576 (36.6%) elapsed=286.0s eta=495s
+progress 212/576 (36.8%) elapsed=286.8s eta=492s
+progress 213/576 (37.0%) elapsed=287.2s eta=489s
+progress 214/576 (37.2%) elapsed=287.4s eta=486s
+progress 215/576 (37.3%) elapsed=288.5s eta=484s
+progress 216/576 (37.5%) elapsed=289.6s eta=483s
+progress 217/576 (37.7%) elapsed=292.5s eta=484s
+progress 218/576 (37.8%) elapsed=293.0s eta=481s
+progress 219/576 (38.0%) elapsed=293.8s eta=479s
+progress 220/576 (38.2%) elapsed=294.7s eta=477s
+progress 221/576 (38.4%) elapsed=295.1s eta=474s
+progress 222/576 (38.5%) elapsed=295.5s eta=471s
+progress 223/576 (38.7%) elapsed=295.6s eta=468s
+progress 224/576 (38.9%) elapsed=295.8s eta=465s
+progress 225/576 (39.1%) elapsed=297.9s eta=465s
+progress 226/576 (39.2%) elapsed=298.2s eta=462s
+progress 227/576 (39.4%) elapsed=299.5s eta=460s
+progress 228/576 (39.6%) elapsed=300.3s eta=458s
+progress 229/576 (39.8%) elapsed=300.6s eta=456s
+progress 230/576 (39.9%) elapsed=301.8s eta=454s
+progress 231/576 (40.1%) elapsed=309.4s eta=462s
+progress 232/576 (40.3%) elapsed=310.8s eta=461s
+progress 233/576 (40.5%) elapsed=311.4s eta=458s
+progress 234/576 (40.6%) elapsed=311.6s eta=455s
+progress 235/576 (40.8%) elapsed=313.7s eta=455s
+progress 236/576 (41.0%) elapsed=315.7s eta=455s
+progress 237/576 (41.1%) elapsed=316.6s eta=453s
+progress 238/576 (41.3%) elapsed=317.8s eta=451s
+progress 239/576 (41.5%) elapsed=318.1s eta=449s
+progress 240/576 (41.7%) elapsed=318.8s eta=446s
+progress 241/576 (41.8%) elapsed=319.1s eta=443s
+progress 242/576 (42.0%) elapsed=319.3s eta=441s
+progress 243/576 (42.2%) elapsed=320.8s eta=440s
+progress 244/576 (42.4%) elapsed=321.4s eta=437s
+progress 245/576 (42.5%) elapsed=323.2s eta=437s
+progress 246/576 (42.7%) elapsed=325.9s eta=437s
+progress 247/576 (42.9%) elapsed=331.4s eta=441s
+progress 248/576 (43.1%) elapsed=334.0s eta=442s
+progress 249/576 (43.2%) elapsed=339.3s eta=446s
+progress 250/576 (43.4%) elapsed=339.6s eta=443s
+progress 251/576 (43.6%) elapsed=340.7s eta=441s
+progress 252/576 (43.8%) elapsed=341.0s eta=438s
+progress 253/576 (43.9%) elapsed=341.6s eta=436s
+progress 254/576 (44.1%) elapsed=341.8s eta=433s
+progress 255/576 (44.3%) elapsed=342.2s eta=431s
+progress 256/576 (44.4%) elapsed=342.8s eta=428s
+progress 257/576 (44.6%) elapsed=344.6s eta=428s
+progress 258/576 (44.8%) elapsed=344.6s eta=425s
+progress 259/576 (45.0%) elapsed=346.0s eta=423s
+progress 260/576 (45.1%) elapsed=347.4s eta=422s
+progress 261/576 (45.3%) elapsed=349.7s eta=422s
+progress 262/576 (45.5%) elapsed=352.9s eta=423s
+progress 263/576 (45.7%) elapsed=353.7s eta=421s
+progress 264/576 (45.8%) elapsed=353.9s eta=418s
+progress 265/576 (46.0%) elapsed=354.1s eta=416s
+progress 266/576 (46.2%) elapsed=354.9s eta=414s
+progress 267/576 (46.4%) elapsed=356.4s eta=412s
+progress 268/576 (46.5%) elapsed=359.6s eta=413s
+progress 269/576 (46.7%) elapsed=359.9s eta=411s
+progress 270/576 (46.9%) elapsed=360.3s eta=408s
+progress 271/576 (47.0%) elapsed=360.4s eta=406s
+progress 272/576 (47.2%) elapsed=360.7s eta=403s
+progress 273/576 (47.4%) elapsed=361.2s eta=401s
+progress 274/576 (47.6%) elapsed=363.3s eta=400s
+progress 275/576 (47.7%) elapsed=363.4s eta=398s
+progress 276/576 (47.9%) elapsed=365.2s eta=397s
+progress 277/576 (48.1%) elapsed=365.5s eta=395s
+progress 278/576 (48.3%) elapsed=366.7s eta=393s
+progress 279/576 (48.4%) elapsed=367.2s eta=391s
+progress 280/576 (48.6%) elapsed=369.4s eta=391s
+progress 281/576 (48.8%) elapsed=369.9s eta=388s
+progress 282/576 (49.0%) elapsed=370.6s eta=386s
+progress 283/576 (49.1%) elapsed=373.7s eta=387s
+progress 284/576 (49.3%) elapsed=375.0s eta=386s
+progress 285/576 (49.5%) elapsed=377.6s eta=385s
+progress 286/576 (49.7%) elapsed=377.7s eta=383s
+progress 287/576 (49.8%) elapsed=379.5s eta=382s
+progress 288/576 (50.0%) elapsed=379.8s eta=380s
+progress 289/576 (50.2%) elapsed=380.3s eta=378s
+progress 290/576 (50.3%) elapsed=381.3s eta=376s
+progress 291/576 (50.5%) elapsed=381.9s eta=374s
+progress 292/576 (50.7%) elapsed=383.1s eta=373s
+progress 293/576 (50.9%) elapsed=383.6s eta=371s
+progress 294/576 (51.0%) elapsed=386.2s eta=370s
+progress 295/576 (51.2%) elapsed=389.0s eta=371s
+progress 296/576 (51.4%) elapsed=389.2s eta=368s
+progress 297/576 (51.6%) elapsed=390.2s eta=367s
+progress 298/576 (51.7%) elapsed=391.5s eta=365s
+progress 299/576 (51.9%) elapsed=391.7s eta=363s
+progress 300/576 (52.1%) elapsed=392.9s eta=361s
+progress 301/576 (52.3%) elapsed=393.1s eta=359s
+progress 302/576 (52.4%) elapsed=393.1s eta=357s
+progress 303/576 (52.6%) elapsed=394.5s eta=355s
+progress 304/576 (52.8%) elapsed=394.9s eta=353s
+progress 305/576 (53.0%) elapsed=395.4s eta=351s
+progress 306/576 (53.1%) elapsed=396.0s eta=349s
+progress 307/576 (53.3%) elapsed=397.9s eta=349s
+progress 308/576 (53.5%) elapsed=398.6s eta=347s
+progress 309/576 (53.6%) elapsed=401.0s eta=346s
+progress 310/576 (53.8%) elapsed=402.2s eta=345s
+progress 311/576 (54.0%) elapsed=404.7s eta=345s
+progress 312/576 (54.2%) elapsed=405.2s eta=343s
+progress 313/576 (54.3%) elapsed=406.0s eta=341s
+progress 314/576 (54.5%) elapsed=406.7s eta=339s
+progress 315/576 (54.7%) elapsed=408.5s eta=339s
+progress 316/576 (54.9%) elapsed=410.1s eta=337s
+progress 317/576 (55.0%) elapsed=411.6s eta=336s
+progress 318/576 (55.2%) elapsed=411.8s eta=334s
+progress 319/576 (55.4%) elapsed=413.8s eta=333s
+progress 320/576 (55.6%) elapsed=414.0s eta=331s
+progress 321/576 (55.7%) elapsed=414.6s eta=329s
+progress 322/576 (55.9%) elapsed=417.6s eta=329s
+progress 323/576 (56.1%) elapsed=420.7s eta=330s
+progress 324/576 (56.2%) elapsed=420.8s eta=327s
+progress 325/576 (56.4%) elapsed=422.5s eta=326s
+progress 326/576 (56.6%) elapsed=423.5s eta=325s
+progress 327/576 (56.8%) elapsed=424.2s eta=323s
+progress 328/576 (56.9%) elapsed=427.2s eta=323s
+progress 329/576 (57.1%) elapsed=427.4s eta=321s
+progress 330/576 (57.3%) elapsed=428.0s eta=319s
+progress 331/576 (57.5%) elapsed=428.5s eta=317s
+progress 332/576 (57.6%) elapsed=429.2s eta=315s
+progress 333/576 (57.8%) elapsed=429.9s eta=314s
+progress 334/576 (58.0%) elapsed=433.1s eta=314s
+progress 335/576 (58.2%) elapsed=433.8s eta=312s
+progress 336/576 (58.3%) elapsed=434.5s eta=310s
+progress 337/576 (58.5%) elapsed=435.6s eta=309s
+progress 338/576 (58.7%) elapsed=435.9s eta=307s
+progress 339/576 (58.9%) elapsed=437.4s eta=306s
+progress 340/576 (59.0%) elapsed=439.3s eta=305s
+progress 341/576 (59.2%) elapsed=440.5s eta=304s
+progress 342/576 (59.4%) elapsed=440.8s eta=302s
+progress 343/576 (59.5%) elapsed=441.6s eta=300s
+progress 344/576 (59.7%) elapsed=441.6s eta=298s
+progress 345/576 (59.9%) elapsed=442.1s eta=296s
+progress 346/576 (60.1%) elapsed=448.3s eta=298s
+progress 347/576 (60.2%) elapsed=450.1s eta=297s
+progress 348/576 (60.4%) elapsed=451.1s eta=296s
+progress 349/576 (60.6%) elapsed=452.1s eta=294s
+progress 350/576 (60.8%) elapsed=454.6s eta=294s
+progress 351/576 (60.9%) elapsed=455.8s eta=292s
+progress 352/576 (61.1%) elapsed=456.0s eta=290s
+progress 353/576 (61.3%) elapsed=457.2s eta=289s
+progress 354/576 (61.5%) elapsed=457.7s eta=287s
+progress 355/576 (61.6%) elapsed=458.1s eta=285s
+progress 356/576 (61.8%) elapsed=458.3s eta=283s
+progress 357/576 (62.0%) elapsed=459.3s eta=282s
+progress 358/576 (62.2%) elapsed=459.4s eta=280s
+progress 359/576 (62.3%) elapsed=459.6s eta=278s
+progress 360/576 (62.5%) elapsed=465.4s eta=279s
+progress 361/576 (62.7%) elapsed=469.7s eta=280s
+progress 362/576 (62.8%) elapsed=469.9s eta=278s
+progress 363/576 (63.0%) elapsed=470.9s eta=276s
+progress 364/576 (63.2%) elapsed=472.6s eta=275s
+progress 365/576 (63.4%) elapsed=474.4s eta=274s
+progress 366/576 (63.5%) elapsed=475.2s eta=273s
+progress 367/576 (63.7%) elapsed=475.4s eta=271s
+progress 368/576 (63.9%) elapsed=476.5s eta=269s
+progress 369/576 (64.1%) elapsed=478.7s eta=269s
+progress 370/576 (64.2%) elapsed=478.9s eta=267s
+progress 371/576 (64.4%) elapsed=479.4s eta=265s
+progress 372/576 (64.6%) elapsed=483.5s eta=265s
+progress 373/576 (64.8%) elapsed=483.9s eta=263s
+progress 374/576 (64.9%) elapsed=484.5s eta=262s
+progress 375/576 (65.1%) elapsed=487.7s eta=261s
+progress 376/576 (65.3%) elapsed=493.4s eta=262s
+progress 377/576 (65.5%) elapsed=493.4s eta=260s
+progress 378/576 (65.6%) elapsed=494.1s eta=259s
+progress 379/576 (65.8%) elapsed=494.8s eta=257s
+progress 380/576 (66.0%) elapsed=495.0s eta=255s
+progress 381/576 (66.1%) elapsed=495.4s eta=254s
+progress 382/576 (66.3%) elapsed=497.8s eta=253s
+progress 383/576 (66.5%) elapsed=499.3s eta=252s
+progress 384/576 (66.7%) elapsed=499.7s eta=250s
+progress 385/576 (66.8%) elapsed=502.4s eta=249s
+progress 386/576 (67.0%) elapsed=503.2s eta=248s
+progress 387/576 (67.2%) elapsed=503.8s eta=246s
+progress 388/576 (67.4%) elapsed=505.6s eta=245s
+progress 389/576 (67.5%) elapsed=505.8s eta=243s
+progress 390/576 (67.7%) elapsed=509.1s eta=243s
+progress 391/576 (67.9%) elapsed=509.2s eta=241s
+progress 392/576 (68.1%) elapsed=511.6s eta=240s
+progress 393/576 (68.2%) elapsed=511.8s eta=238s
+progress 394/576 (68.4%) elapsed=513.2s eta=237s
+progress 395/576 (68.6%) elapsed=514.9s eta=236s
+progress 396/576 (68.8%) elapsed=515.4s eta=234s
+progress 397/576 (68.9%) elapsed=515.9s eta=233s
+progress 398/576 (69.1%) elapsed=516.7s eta=231s
+progress 399/576 (69.3%) elapsed=518.1s eta=230s
+progress 400/576 (69.4%) elapsed=518.3s eta=228s
+progress 401/576 (69.6%) elapsed=521.2s eta=227s
+progress 402/576 (69.8%) elapsed=523.3s eta=227s
+progress 403/576 (70.0%) elapsed=524.5s eta=225s
+progress 404/576 (70.1%) elapsed=525.2s eta=224s
+progress 405/576 (70.3%) elapsed=527.3s eta=223s
+progress 406/576 (70.5%) elapsed=528.1s eta=221s
+progress 407/576 (70.7%) elapsed=528.5s eta=219s
+progress 408/576 (70.8%) elapsed=529.5s eta=218s
+progress 409/576 (71.0%) elapsed=530.5s eta=217s
+progress 410/576 (71.2%) elapsed=530.8s eta=215s
+progress 411/576 (71.4%) elapsed=532.1s eta=214s
+progress 412/576 (71.5%) elapsed=533.1s eta=212s
+progress 413/576 (71.7%) elapsed=533.2s eta=210s
+progress 414/576 (71.9%) elapsed=536.3s eta=210s
+progress 415/576 (72.0%) elapsed=537.3s eta=208s
+progress 416/576 (72.2%) elapsed=539.0s eta=207s
+progress 417/576 (72.4%) elapsed=541.7s eta=207s
+progress 418/576 (72.6%) elapsed=542.1s eta=205s
+progress 419/576 (72.7%) elapsed=543.6s eta=204s
+progress 420/576 (72.9%) elapsed=544.8s eta=202s
+progress 421/576 (73.1%) elapsed=545.8s eta=201s
+progress 422/576 (73.3%) elapsed=546.0s eta=199s
+progress 423/576 (73.4%) elapsed=546.6s eta=198s
+progress 424/576 (73.6%) elapsed=547.9s eta=196s
+progress 425/576 (73.8%) elapsed=548.0s eta=195s
+progress 426/576 (74.0%) elapsed=548.0s eta=193s
+progress 427/576 (74.1%) elapsed=549.0s eta=192s
+progress 428/576 (74.3%) elapsed=549.7s eta=190s
+progress 429/576 (74.5%) elapsed=549.7s eta=188s
+progress 430/576 (74.7%) elapsed=552.7s eta=188s
+progress 431/576 (74.8%) elapsed=557.7s eta=188s
+progress 432/576 (75.0%) elapsed=558.3s eta=186s
+progress 433/576 (75.2%) elapsed=560.5s eta=185s
+progress 434/576 (75.3%) elapsed=561.6s eta=184s
+progress 435/576 (75.5%) elapsed=561.9s eta=182s
+progress 436/576 (75.7%) elapsed=562.9s eta=181s
+progress 437/576 (75.9%) elapsed=563.4s eta=179s
+progress 438/576 (76.0%) elapsed=565.5s eta=178s
+progress 439/576 (76.2%) elapsed=566.2s eta=177s
+progress 440/576 (76.4%) elapsed=568.8s eta=176s
+progress 441/576 (76.6%) elapsed=572.1s eta=175s
+progress 442/576 (76.7%) elapsed=573.0s eta=174s
+progress 443/576 (76.9%) elapsed=574.6s eta=172s
+progress 444/576 (77.1%) elapsed=575.0s eta=171s
+progress 445/576 (77.3%) elapsed=575.7s eta=169s
+progress 446/576 (77.4%) elapsed=575.9s eta=168s
+progress 447/576 (77.6%) elapsed=576.8s eta=166s
+progress 448/576 (77.8%) elapsed=578.4s eta=165s
+progress 449/576 (78.0%) elapsed=578.8s eta=164s
+progress 450/576 (78.1%) elapsed=580.9s eta=163s
+progress 451/576 (78.3%) elapsed=583.5s eta=162s
+progress 452/576 (78.5%) elapsed=584.1s eta=160s
+progress 453/576 (78.6%) elapsed=585.4s eta=159s
+progress 454/576 (78.8%) elapsed=585.6s eta=157s
+progress 455/576 (79.0%) elapsed=586.6s eta=156s
+progress 456/576 (79.2%) elapsed=586.7s eta=154s
+progress 457/576 (79.3%) elapsed=591.5s eta=154s
+progress 458/576 (79.5%) elapsed=591.5s eta=152s
+progress 459/576 (79.7%) elapsed=591.9s eta=151s
+progress 460/576 (79.9%) elapsed=593.0s eta=150s
+progress 461/576 (80.0%) elapsed=594.8s eta=148s
+progress 462/576 (80.2%) elapsed=595.5s eta=147s
+progress 463/576 (80.4%) elapsed=596.0s eta=145s
+progress 464/576 (80.6%) elapsed=598.3s eta=144s
+progress 465/576 (80.7%) elapsed=600.7s eta=143s
+progress 466/576 (80.9%) elapsed=600.9s eta=142s
+progress 467/576 (81.1%) elapsed=600.9s eta=140s
+progress 468/576 (81.2%) elapsed=602.6s eta=139s
+progress 469/576 (81.4%) elapsed=605.4s eta=138s
+progress 470/576 (81.6%) elapsed=607.8s eta=137s
+progress 471/576 (81.8%) elapsed=609.5s eta=136s
+progress 472/576 (81.9%) elapsed=612.6s eta=135s
+progress 473/576 (82.1%) elapsed=614.0s eta=134s
+progress 474/576 (82.3%) elapsed=615.8s eta=133s
+progress 475/576 (82.5%) elapsed=616.0s eta=131s
+progress 476/576 (82.6%) elapsed=619.3s eta=130s
+progress 477/576 (82.8%) elapsed=620.3s eta=129s
+progress 478/576 (83.0%) elapsed=622.7s eta=128s
+progress 479/576 (83.2%) elapsed=623.3s eta=126s
+progress 480/576 (83.3%) elapsed=624.4s eta=125s
+progress 481/576 (83.5%) elapsed=626.9s eta=124s
+progress 482/576 (83.7%) elapsed=627.7s eta=122s
+progress 483/576 (83.9%) elapsed=628.2s eta=121s
+progress 484/576 (84.0%) elapsed=628.7s eta=120s
+progress 485/576 (84.2%) elapsed=630.1s eta=118s
+progress 486/576 (84.4%) elapsed=630.9s eta=117s
+progress 487/576 (84.5%) elapsed=632.9s eta=116s
+progress 488/576 (84.7%) elapsed=635.8s eta=115s
+progress 489/576 (84.9%) elapsed=636.7s eta=113s
+progress 490/576 (85.1%) elapsed=637.3s eta=112s
+progress 491/576 (85.2%) elapsed=640.0s eta=111s
+progress 492/576 (85.4%) elapsed=641.3s eta=109s
+progress 493/576 (85.6%) elapsed=641.8s eta=108s
+progress 494/576 (85.8%) elapsed=642.9s eta=107s
+progress 495/576 (85.9%) elapsed=646.0s eta=106s
+progress 496/576 (86.1%) elapsed=646.4s eta=104s
+progress 497/576 (86.3%) elapsed=647.9s eta=103s
+progress 498/576 (86.5%) elapsed=649.8s eta=102s
+progress 499/576 (86.6%) elapsed=652.2s eta=101s
+progress 500/576 (86.8%) elapsed=654.1s eta=99s
+progress 501/576 (87.0%) elapsed=655.0s eta=98s
+progress 502/576 (87.2%) elapsed=655.1s eta=97s
+progress 503/576 (87.3%) elapsed=655.1s eta=95s
+progress 504/576 (87.5%) elapsed=657.1s eta=94s
+progress 505/576 (87.7%) elapsed=658.1s eta=93s
+progress 506/576 (87.8%) elapsed=658.7s eta=91s
+progress 507/576 (88.0%) elapsed=661.7s eta=90s
+progress 508/576 (88.2%) elapsed=663.1s eta=89s
+progress 509/576 (88.4%) elapsed=666.1s eta=88s
+progress 510/576 (88.5%) elapsed=667.6s eta=86s
+progress 511/576 (88.7%) elapsed=671.0s eta=85s
+progress 512/576 (88.9%) elapsed=671.6s eta=84s
+progress 513/576 (89.1%) elapsed=672.9s eta=83s
+progress 514/576 (89.2%) elapsed=673.3s eta=81s
+progress 515/576 (89.4%) elapsed=673.3s eta=80s
+progress 516/576 (89.6%) elapsed=673.3s eta=78s
+progress 517/576 (89.8%) elapsed=674.8s eta=77s
+progress 518/576 (89.9%) elapsed=675.0s eta=76s
+progress 519/576 (90.1%) elapsed=676.5s eta=74s
+progress 520/576 (90.3%) elapsed=676.5s eta=73s
+progress 521/576 (90.5%) elapsed=677.2s eta=71s
+progress 522/576 (90.6%) elapsed=682.3s eta=71s
+progress 523/576 (90.8%) elapsed=685.0s eta=69s
+progress 524/576 (91.0%) elapsed=685.1s eta=68s
+progress 525/576 (91.1%) elapsed=685.1s eta=67s
+progress 526/576 (91.3%) elapsed=685.5s eta=65s
+progress 527/576 (91.5%) elapsed=685.9s eta=64s
+progress 528/576 (91.7%) elapsed=689.7s eta=63s
+progress 529/576 (91.8%) elapsed=689.8s eta=61s
+progress 530/576 (92.0%) elapsed=690.8s eta=60s
+progress 531/576 (92.2%) elapsed=691.6s eta=59s
+progress 532/576 (92.4%) elapsed=697.0s eta=58s
+progress 533/576 (92.5%) elapsed=697.4s eta=56s
+progress 534/576 (92.7%) elapsed=699.5s eta=55s
+progress 535/576 (92.9%) elapsed=700.2s eta=54s
+progress 536/576 (93.1%) elapsed=702.3s eta=52s
+progress 537/576 (93.2%) elapsed=703.1s eta=51s
+progress 538/576 (93.4%) elapsed=703.4s eta=50s
+progress 539/576 (93.6%) elapsed=705.8s eta=48s
+progress 540/576 (93.8%) elapsed=706.0s eta=47s
+progress 541/576 (93.9%) elapsed=706.0s eta=46s
+progress 542/576 (94.1%) elapsed=708.1s eta=44s
+progress 543/576 (94.3%) elapsed=710.0s eta=43s
+progress 544/576 (94.4%) elapsed=710.6s eta=42s
+progress 545/576 (94.6%) elapsed=711.4s eta=40s
+progress 546/576 (94.8%) elapsed=712.4s eta=39s
+progress 547/576 (95.0%) elapsed=713.1s eta=38s
+progress 548/576 (95.1%) elapsed=717.3s eta=37s
+progress 549/576 (95.3%) elapsed=719.6s eta=35s
+progress 550/576 (95.5%) elapsed=719.8s eta=34s
+progress 551/576 (95.7%) elapsed=720.9s eta=33s
+progress 552/576 (95.8%) elapsed=723.9s eta=31s
+progress 553/576 (96.0%) elapsed=725.1s eta=30s
+progress 554/576 (96.2%) elapsed=725.1s eta=29s
+progress 555/576 (96.4%) elapsed=725.3s eta=27s
+progress 556/576 (96.5%) elapsed=725.7s eta=26s
+progress 557/576 (96.7%) elapsed=727.1s eta=25s
+progress 558/576 (96.9%) elapsed=728.7s eta=24s
+progress 559/576 (97.0%) elapsed=729.4s eta=22s
+progress 560/576 (97.2%) elapsed=729.4s eta=21s
+progress 561/576 (97.4%) elapsed=729.9s eta=20s
+progress 562/576 (97.6%) elapsed=731.9s eta=18s
+progress 563/576 (97.7%) elapsed=734.8s eta=17s
+progress 564/576 (97.9%) elapsed=734.8s eta=16s
+progress 565/576 (98.1%) elapsed=736.1s eta=14s
+progress 566/576 (98.3%) elapsed=738.6s eta=13s
+progress 567/576 (98.4%) elapsed=741.7s eta=12s
+progress 568/576 (98.6%) elapsed=741.9s eta=10s
+progress 569/576 (98.8%) elapsed=743.6s eta=9s
+progress 570/576 (99.0%) elapsed=744.4s eta=8s
+progress 571/576 (99.1%) elapsed=746.1s eta=7s
+progress 572/576 (99.3%) elapsed=746.4s eta=5s
+progress 573/576 (99.5%) elapsed=748.6s eta=4s
+progress 574/576 (99.7%) elapsed=752.5s eta=3s
+progress 575/576 (99.8%) elapsed=760.4s eta=1s
+progress 576/576 (100.0%) elapsed=761.0s eta=0s
+{
+  "overall": {
+    "total": 576,
+    "correct": 285,
+    "accuracy": 0.4948
+  },
+  "by_split": {
+    "ood_career": {
+      "total": 576,
+      "correct": 285,
+      "accuracy": 0.4948
+    }
+  },
+  "slices": {
+    "alpha_2i_bucket": {
+      "mid": {
+        "total": 192,
+        "correct": 95,
+        "accuracy": 0.4948
+      },
+      "low": {
+        "total": 192,
+        "correct": 91,
+        "accuracy": 0.474
+      },
+      "high": {
+        "total": 192,
+        "correct": 99,
+        "accuracy": 0.5156
+      }
+    },
+    "domain_key": {
+      "domain5_career_sorting": {
+        "total": 576,
+        "correct": 285,
+        "accuracy": 0.4948
+      }
+    },
+    "scene_id": {
+      "d5_tech_01": {
+        "total": 72,
+        "correct": 36,
+        "accuracy": 0.5
+      },
+      "d5_edtech_01": {
+        "total": 72,
+        "correct": 38,
+        "accuracy": 0.5278
+      },
+      "d5_medicine_01": {
+        "total": 72,
+        "correct": 35,
+        "accuracy": 0.4861
+      },
+      "d5_design_01": {
+        "total": 72,
+        "correct": 36,
+        "accuracy": 0.5
+      },
+      "d5_phd_01": {
+        "total": 72,
+        "correct": 36,
+        "accuracy": 0.5
+      },
+      "d5_consulting_01": {
+        "total": 72,
+        "correct": 34,
+        "accuracy": 0.4722
+      },
+      "d5_finance_01": {
+        "total": 72,
+        "correct": 35,
+        "accuracy": 0.4861
+      },
+      "d5_law_01": {
+        "total": 72,
+        "correct": 35,
+        "accuracy": 0.4861
+      }
+    }
+  }
+}
+
+End: Sat 25 Apr 2026 12:30:16 AM CST

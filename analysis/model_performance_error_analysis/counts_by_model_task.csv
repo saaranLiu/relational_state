@@ -1,0 +1,7 @@
+model_dir,eval_A,eval_B,placebo_test,ood_social,ood_career
+DeepSeek-R1-671B,1512,280,504,576,576
+Qwen,1512,280,504,576,576
+gpt4,1512,280,504,576,576
+ollama-llama3-1-latest,1512,280,504,576,576
+ollama-llama3-8b,1512,280,504,576,576
+ollama-qwen2-7b,1512,280,504,576,576

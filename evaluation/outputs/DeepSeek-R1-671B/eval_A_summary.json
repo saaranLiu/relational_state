@@ -1,0 +1,319 @@
+{
+  "overall": {
+    "total": 1512,
+    "correct": 354,
+    "accuracy": 0.2341
+  },
+  "by_split": {
+    "eval_A": {
+      "total": 1512,
+      "correct": 354,
+      "accuracy": 0.2341
+    }
+  },
+  "slices": {
+    "alpha_bucket": {
+      "high": {
+        "total": 504,
+        "correct": 97,
+        "accuracy": 0.1925
+      },
+      "mid": {
+        "total": 504,
+        "correct": 118,
+        "accuracy": 0.2341
+      },
+      "low": {
+        "total": 504,
+        "correct": 139,
+        "accuracy": 0.2758
+      }
+    },
+    "cell_id": {
+      "alpha_high__disp_high__skew_low": {
+        "total": 56,
+        "correct": 12,
+        "accuracy": 0.2143
+      },
+      "alpha_mid__disp_high__skew_high": {
+        "total": 56,
+        "correct": 10,
+        "accuracy": 0.1786
+      },
+      "alpha_low__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 12,
+        "accuracy": 0.2143
+      },
+      "alpha_high__disp_high__skew_high": {
+        "total": 56,
+        "correct": 8,
+        "accuracy": 0.1429
+      },
+      "alpha_high__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 16,
+        "accuracy": 0.2857
+      },
+      "alpha_high__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 6,
+        "accuracy": 0.1071
+      },
+      "alpha_low__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      },
+      "alpha_mid__disp_high__skew_low": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_mid__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 11,
+        "accuracy": 0.1964
+      },
+      "alpha_low__disp_high__skew_low": {
+        "total": 56,
+        "correct": 20,
+        "accuracy": 0.3571
+      },
+      "alpha_low__disp_low__skew_low": {
+        "total": 56,
+        "correct": 22,
+        "accuracy": 0.3929
+      },
+      "alpha_mid__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      },
+      "alpha_mid__disp_low__skew_low": {
+        "total": 56,
+        "correct": 19,
+        "accuracy": 0.3393
+      },
+      "alpha_low__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 20,
+        "accuracy": 0.3571
+      },
+      "alpha_high__disp_low__skew_high": {
+        "total": 56,
+        "correct": 10,
+        "accuracy": 0.1786
+      },
+      "alpha_low__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_low__disp_high__skew_high": {
+        "total": 56,
+        "correct": 11,
+        "accuracy": 0.1964
+      },
+      "alpha_high__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 9,
+        "accuracy": 0.1607
+      },
+      "alpha_low__disp_low__skew_high": {
+        "total": 56,
+        "correct": 12,
+        "accuracy": 0.2143
+      },
+      "alpha_mid__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 8,
+        "accuracy": 0.1429
+      },
+      "alpha_high__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 12,
+        "accuracy": 0.2143
+      },
+      "alpha_mid__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_mid__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 17,
+        "accuracy": 0.3036
+      },
+      "alpha_low__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 13,
+        "accuracy": 0.2321
+      },
+      "alpha_mid__disp_low__skew_high": {
+        "total": 56,
+        "correct": 9,
+        "accuracy": 0.1607
+      },
+      "alpha_high__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_high__disp_low__skew_low": {
+        "total": 56,
+        "correct": 9,
+        "accuracy": 0.1607
+      }
+    },
+    "is_held_out_cell": {
+      "True": {
+        "total": 336,
+        "correct": 64,
+        "accuracy": 0.1905
+      },
+      "False": {
+        "total": 1176,
+        "correct": 290,
+        "accuracy": 0.2466
+      }
+    },
+    "dispersion_bucket": {
+      "high": {
+        "total": 504,
+        "correct": 113,
+        "accuracy": 0.2242
+      },
+      "mid": {
+        "total": 504,
+        "correct": 122,
+        "accuracy": 0.2421
+      },
+      "low": {
+        "total": 504,
+        "correct": 119,
+        "accuracy": 0.2361
+      }
+    },
+    "skew_bucket": {
+      "low": {
+        "total": 504,
+        "correct": 141,
+        "accuracy": 0.2798
+      },
+      "high": {
+        "total": 504,
+        "correct": 97,
+        "accuracy": 0.1925
+      },
+      "mid": {
+        "total": 504,
+        "correct": 116,
+        "accuracy": 0.2302
+      }
+    },
+    "domain_key": {
+      "domain3_effort_and_human_capital": {
+        "total": 648,
+        "correct": 147,
+        "accuracy": 0.2269
+      },
+      "domain1_positional_consumption": {
+        "total": 864,
+        "correct": 207,
+        "accuracy": 0.2396
+      }
+    },
+    "scene_id": {
+      "d3_phd_03": {
+        "total": 108,
+        "correct": 29,
+        "accuracy": 0.2685
+      },
+      "d3_fellow_02": {
+        "total": 108,
+        "correct": 24,
+        "accuracy": 0.2222
+      },
+      "d1_travel_02": {
+        "total": 108,
+        "correct": 29,
+        "accuracy": 0.2685
+      },
+      "d3_leet_02": {
+        "total": 108,
+        "correct": 22,
+        "accuracy": 0.2037
+      },
+      "d3_recruit_02": {
+        "total": 108,
+        "correct": 28,
+        "accuracy": 0.2593
+      },
+      "d1_home_02": {
+        "total": 108,
+        "correct": 22,
+        "accuracy": 0.2037
+      },
+      "d1_dining_03": {
+        "total": 108,
+        "correct": 29,
+        "accuracy": 0.2685
+      },
+      "d1_gift_03": {
+        "total": 108,
+        "correct": 20,
+        "accuracy": 0.1852
+      },
+      "d1_cele_02": {
+        "total": 108,
+        "correct": 25,
+        "accuracy": 0.2315
+      },
+      "d1_wheels_03": {
+        "total": 108,
+        "correct": 31,
+        "accuracy": 0.287
+      },
+      "d3_lang_02": {
+        "total": 108,
+        "correct": 15,
+        "accuracy": 0.1389
+      },
+      "d1_wearable_03": {
+        "total": 108,
+        "correct": 24,
+        "accuracy": 0.2222
+      },
+      "d3_testprep_03": {
+        "total": 108,
+        "correct": 29,
+        "accuracy": 0.2685
+      },
+      "d1_kids_02": {
+        "total": 108,
+        "correct": 27,
+        "accuracy": 0.25
+      }
+    },
+    "gold_rule_id": {
+      "A_peer_weighted": {
+        "total": 1512,
+        "correct": 354,
+        "accuracy": 0.2341
+      }
+    }
+  },
+  "confusion_gold_to_parsed_rule": {
+    "A_peer_weighted": {
+      "C_uniform_avg": 245,
+      "F_median_anchor": 213,
+      "A_peer_weighted": 354,
+      "D_pure_private": 95,
+      "E_closest_mimicry": 125,
+      "B_top_anchor": 184,
+      "H_equal_mix": 198,
+      "G_counter_conformist": 96
+    }
+  }
+}

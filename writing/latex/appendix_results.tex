@@ -1,0 +1,171 @@
+\section{Additional Diagnostic Results}
+\label{app:additional_results}
+
+This appendix provides supporting diagnostics for the main results in
+Table~\ref{tab:main_results}. We keep the discussion brief: the purpose is to
+make the reported evaluation auditable without shifting the paper's focus away
+from the evaluate--adapt--simulate workflow.
+
+\subsection{Evaluation Sizes}
+
+Table~\ref{tab:dataset_sizes} reports the number of evaluated units per split.
+Eval-B is counted in paired comparisons rather than individual scenarios,
+because each prediction compares two matched records.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Split} & \textbf{Evaluation units} \\
+\midrule
+Eval-A rule identification & 1,512 \\
+Eval-B comparative statics & 280 pairs \\
+Placebo & 504 \\
+Social OOD & 576 \\
+Career OOD & 576 \\
+\bottomrule
+\end{tabular}
+\caption{Evaluation sizes for the diagnostic stage.}
+\label{tab:dataset_sizes}
+\end{table}
+
+\subsection{Parse Rates}
+
+Table~\ref{tab:parse_rates} checks whether low accuracy could be explained by
+formatting failures. With the exception of GPT-4 on Eval-B, parse rates are
+near ceiling. The main conclusions are therefore about decision errors rather
+than output-format noncompliance.
+
+\begin{table*}[h]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Model} & \textbf{Eval-A} & \textbf{Eval-B} & \textbf{Placebo} & \textbf{Social OOD} & \textbf{Career OOD} \\
+\midrule
+DeepSeek-R1-671B & 99.9 & 99.3 & 98.4 & 99.8 & 97.0 \\
+Qwen & 99.5 & 100.0 & 99.4 & 99.8 & 99.7 \\
+GPT-4 & 100.0 & 88.6 & 100.0 & 100.0 & 100.0 \\
+Llama-3.1 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
+Llama-3 8B & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
+Qwen2 7B & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
+\bottomrule
+\end{tabular}
+\caption{Answer parse rates (\%). Unparsed responses are counted as incorrect in accuracy.}
+\label{tab:parse_rates}
+\end{table*}
+
+\subsection{Eval-B by Perturbation Type}
+
+Table~\ref{tab:evalb_perturbations} decomposes the comparative-static task by
+which latent factor changes. Models are strongest when the peer action level or
+weighted reference aggregate increases, but weaker when the perturbation depends
+on comparison intensity or the redistribution of closeness weights. This
+supports the interpretation that models have partial directional sensitivity but
+do not fully internalize the structural rule.
+
+\begin{table*}[h]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Model} & \textbf{$F$ up} & \textbf{$\alpha_i$ up} & \textbf{Peer action up} & \textbf{$R_i$ up} & \textbf{Top weight up} \\
+\midrule
+DeepSeek-R1-671B & 51.8 & 51.8 & 73.2 & 75.0 & 46.4 \\
+Qwen & 53.6 & 57.1 & 91.1 & 92.9 & 55.4 \\
+GPT-4 & 51.8 & 44.6 & 75.0 & 89.3 & 51.8 \\
+Llama-3.1 & 64.3 & 42.9 & 73.2 & 76.8 & 51.8 \\
+Llama-3 8B & 53.6 & 55.4 & 67.9 & 66.1 & 48.2 \\
+Qwen2 7B & 44.6 & 64.3 & 66.1 & 60.7 & 46.4 \\
+\bottomrule
+\end{tabular}
+\caption{Eval-B accuracy (\%) by comparative-static perturbation.}
+\label{tab:evalb_perturbations}
+\end{table*}
+
+\subsection{Social OOD by Match Distance}
+
+Table~\ref{tab:social_distance} reports the social OOD split. The task does not
+expose the numeric $b/c$ ratio and instead uses semantic benefit/cost tiers. The
+mid bucket is consistently hardest, suggesting that models rely on coarse
+ordering of semantic cues and struggle when the benefit-cost match is less
+separable.
+
+\begin{table*}[h]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Model} & \textbf{Close} & \textbf{Mid} & \textbf{Far} \\
+\midrule
+DeepSeek-R1-671B & 58.3 & 50.9 & 63.9 \\
+Qwen & 67.6 & 60.2 & 72.2 \\
+GPT-4 & 74.1 & 60.6 & 75.7 \\
+Llama-3.1 & 64.8 & 52.3 & 72.2 \\
+Llama-3 8B & 59.7 & 52.8 & 70.1 \\
+Qwen2 7B & 60.2 & 51.9 & 68.8 \\
+\bottomrule
+\end{tabular}
+\caption{Social OOD accuracy (\%) by semantic benefit/cost match-distance bucket.}
+\label{tab:social_distance}
+\end{table*}
+
+\subsection{Eval-A Rule Confusions}
+
+Table~\ref{tab:evala_rule_confusions} expands the Eval-A error analysis. The
+dominant mistakes are not random: models repeatedly replace the closeness-
+weighted rule with single-peer anchoring, uniform aggregation, pure private
+choice, or equal mixing. These categories define the main negative examples for
+the targeted fine-tuning stage.
+
+\begin{table*}[h]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+\textbf{Model} & \textbf{Top/closest} & \textbf{Uniform} & \textbf{Private} & \textbf{Median} & \textbf{Counter} & \textbf{Mix} \\
+\midrule
+DeepSeek-R1-671B & 26.7 & 21.2 & 8.2 & 18.4 & 8.3 & 17.1 \\
+Qwen & 32.2 & 20.5 & 10.3 & 17.4 & 3.4 & 15.5 \\
+GPT-4 & 48.5 & 3.6 & 18.4 & 6.7 & 0.5 & 22.3 \\
+Llama-3.1 & 33.4 & 7.6 & 27.1 & 11.2 & 7.8 & 12.8 \\
+Llama-3 8B & 32.5 & 6.4 & 27.9 & 13.1 & 6.1 & 14.0 \\
+Qwen2 7B & 34.0 & 9.5 & 25.7 & 15.2 & 1.6 & 14.0 \\
+\bottomrule
+\end{tabular}
+\caption{Eval-A wrong-answer distribution (\% of each model's Eval-A errors).}
+\label{tab:evala_rule_confusions}
+\end{table*}
+
+\subsection{Career OOD by Status Sensitivity Bucket}
+
+Table~\ref{tab:career_alpha2} stratifies career sorting by relative-status
+sensitivity. Accuracy remains near chance across low, mid, and high buckets,
+including for GPT-4. This suggests that the failure is not isolated to one
+status-sensitivity regime; models generally struggle with the threshold tradeoff
+between absolute salary and relative rank.
+
+\begin{table*}[h]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Model} & \textbf{Low $\alpha_{2i}$} & \textbf{Mid $\alpha_{2i}$} & \textbf{High $\alpha_{2i}$} \\
+\midrule
+DeepSeek-R1-671B & 43.8 & 45.8 & 47.9 \\
+Qwen & 47.4 & 49.5 & 51.6 \\
+GPT-4 & 50.0 & 50.0 & 50.0 \\
+Llama-3.1 & 47.9 & 52.1 & 51.0 \\
+Llama-3 8B & 50.5 & 51.6 & 53.1 \\
+Qwen2 7B & 47.4 & 46.4 & 49.0 \\
+\bottomrule
+\end{tabular}
+\caption{Career OOD accuracy (\%) by relative-status sensitivity bucket. Accuracy remains close to chance across buckets.}
+\label{tab:career_alpha2}
+\end{table*}

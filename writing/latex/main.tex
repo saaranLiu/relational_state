@@ -1,0 +1,258 @@
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+
+\title{Do Language Models Internalize Reference-Dependent Social Choice?}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  \texttt{email@domain} \\}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large language models (LLMs) are increasingly used as social and economic agents, but it is unclear whether they internalize the structural rules that govern socially dependent choices.
+We study this question through the lens of Langtry's model of reference-dependent choice with social comparisons.
+The model yields a precise decision rule: an agent combines a private baseline with a closeness-weighted peer reference, while related out-of-domain tasks require matching benefit-cost ratios or resolving relative-status tradeoffs.
+We turn these rules into natural-language diagnostic tasks and evaluate six LLMs.
+Even the strongest model reaches only 51.6\% on core rule identification; comparative statics are easier but incomplete, social matching remains imperfect, and career sorting is near chance.
+Error analysis shows systematic shortcuts, including flat averaging, closest-peer imitation, median anchoring, pure-private responses, and over-socialization in placebo cases.
+These diagnostics define the contrastive data needed for targeted fine-tuning before deploying LLMs in simulations of networked social dynamics such as positional asset bubbles.
+\end{abstract}
+
+\section{Introduction}
+
+Social comparison is a basic force in economic behavior.
+People do not only choose how much to spend, study, work, or invest in isolation; they also respond to what socially salient peers do.
+Formal models make this dependence precise by introducing reference points, peer weights, and strategic complementarity into individual utility \cite{clark2008relative, hopkins2004running, langtry2023keeping}.
+At the same time, LLMs are increasingly used as simulated social and economic agents \cite{horton2023large, zhou2024real, manning2026general}.
+This raises a methodological question for NLP: when an LLM gives a plausible explanation of social pressure, has it learned the structural rule, or merely a surface narrative?
+
+We address this question using Langtry's model of reference-dependent choice with social comparisons \cite{langtry2023keeping}.
+The model is attractive as a testbed because it distinguishes several mechanisms that are easy to conflate in text.
+The gold decision rule is not simply ``follow the crowd''.
+An agent begins from a private baseline and adjusts by a comparison intensity times a closeness-weighted peer reference.
+This differs from uniform averaging, nearest-peer imitation, median anchoring, equal mixing, and pure private choice.
+
+We construct a theory-grounded set of natural-language diagnostic tasks.
+Each item is generated from latent economic parameters and then rendered as a realistic scenario.
+Models are evaluated on rule identification, pairwise comparative statics, placebo controls, social matching, and career sorting.
+The same records are designed to support a broader research program: diagnose structural failures, fine-tune models against targeted shortcut contrasts, and then use adapted agents in simulations of social contagion.
+This paper reports the diagnostic stage and specifies how the same data support targeted adaptation and simulation.
+
+Our results show that off-the-shelf LLMs are not reliable structural simulators of reference-dependent social choice.
+Across six models, Eval-A rule identification ranges from 23.4\% to 51.6\%.
+Models perform better on local comparative statics, but still fail on many perturbations involving comparison intensity and peer-weight redistribution.
+They also over-socialize placebo decisions and remain near chance on career-status tradeoffs.
+The error categories are interpretable, giving concrete targets for subsequent fine-tuning.
+
+\section{Background and Related Work}
+
+\subsection{Decision Making with Social Comparison}
+Social comparison has long been used to explain deviations from independent-preference choice.
+Classic work on ``keeping up with the Joneses'' and habit formation shows how peer consumption can affect utility and equilibrium outcomes \cite{abel1990asset, gali1994keeping, campbell1999force}.
+Status models further connect relative position to risk attitudes, portfolio choices, and visible consumption \cite{robson1992status, bakshi1996spirit, demarzo2004diversification, demarzo2008relative, roussanov2010diversification}.
+Empirical and behavioral work documents that relative income, positional goods, and peer effort shape welfare and action choices \cite{clark2008relative, frank1985demand, cohn2014social}.
+Langtry's network model is especially useful for our setting because it specifies how peer actions are weighted and yields a compact best-response rule \cite{langtry2023keeping}.
+
+\subsection{LLM-based Social and Market Simulation}
+LLMs have recently been studied as simulated economic agents, survey respondents, and participants in social interaction \cite{horton2023large, zhou2024real, manning2026general}.
+Related work builds agents for macroeconomic activity, trust behavior, financial decision making, and investor-style tasks \cite{jia2024can, li2024econagent, li2025investorbench}.
+These studies show that LLMs can produce behavior that is often plausible at the aggregate level.
+Our work asks a complementary question: whether the same models recover the latent rule that generated a decision setting.
+This matters because simulation fidelity depends not only on plausible prose, but also on whether micro-level decisions obey the intended behavioral mechanism.
+
+\section{Theory-Guided Task Construction}
+\label{sec:tasks}
+
+\subsection{Reference-Dependent Choice}
+For individual $i$, let $x_i$ be the action, $\alpha_i$ the comparison intensity, $x_j$ the action of peer $j$, and $g_{ij}$ the normalized closeness weight from $i$ to $j$.
+Following Langtry, a baseline utility can be written as
+\begin{equation}
+u_i =
+f\!\left(x_i-\alpha_i\sum_j g_{ij}x_j\right)
+-cx_i+b_i\alpha_i\sum_j g_{ij},
+\label{eq:utility}
+\end{equation}
+where $c$ is the marginal cost and $b_i$ captures the value of social connections.
+Let
+\begin{equation}
+R_i=\sum_j g_{ij}x_j
+\end{equation}
+be the social reference and $F=f'^{-1}(c)$ be the private no-comparison baseline.
+The main best response is
+\begin{equation}
+x_i^*=F+\alpha_iR_i.
+\label{eq:main_rule}
+\end{equation}
+Placebo cases clamp $\alpha_i$ near zero so that $x_i^*\approx F$.
+
+We also include two transfer tasks.
+For social-network formation, Langtry's model implies that a person's preferred relationship intensity is governed by their benefit-cost ratio.
+We write the social-choice utility as
+\begin{equation}
+u_i =
+f\!\left(x_i-\alpha_i\sum_j g_{ij}x_j\right)
+-c_ix_i+b_i\alpha_i\sum_j g_{ij},
+\label{eq:social_utility}
+\end{equation}
+where $b_i$ is the value from social ties and $c_i$ is the marginal cost of the action.
+The resulting preferred intensity is
+\begin{equation}
+x_i^*=\frac{b_i}{c_i}.
+\label{eq:social_ratio}
+\end{equation}
+Pairwise stability therefore requires matched benefit-cost ratios, $b_i/c_i \approx b_j/c_j$.
+The social matching task asks which candidate has the closest ratio to the protagonist, using only semantic tiers of benefit and financial constraint in the public prompt.
+The career sorting task follows Langtry's firm-choice condition:
+\begin{equation}
+x_{S,H}-x_{S,L}\geq \alpha_{2i}(\bar{x}_H-\bar{x}_L),
+\label{eq:career_threshold}
+\end{equation}
+where $x_{S,m}$ is the worker's own salary at firm $m$ and $\bar{x}_m$ is the firm average.
+
+\subsection{Natural-Language Tasks}
+We sample latent records from the theory and realize them as natural-language scenarios with a teacher model.
+The main positional domains cover visible consumption and human-capital effort.
+Latents vary along a $3\times3\times3$ grid: comparison intensity $\alpha_i$, closeness-weight dispersion, and peer-action skew.
+The teacher uses the structured values to write a realistic scenario, while student-facing prompts hide research notation and require models to infer the rule from the narrative.
+
+We evaluate five splits.
+Eval-A asks models to identify which rule best explains a scenario.
+Eval-B asks which of two matched scenarios produces a higher action under a single latent perturbation.
+The placebo split presents non-positional decisions where peer information is visible but should not affect the answer.
+Social OOD asks models to match semantic benefit/cost tiers under Eq.~\ref{eq:social_ratio}.
+Career OOD asks models to apply Eq.~\ref{eq:career_threshold} when absolute salary and relative rank conflict.
+
+\section{Experimental Setup}
+\label{sec:setup}
+
+\paragraph{Models.}
+We evaluate DeepSeek-R1-671B, Qwen, GPT-4, Llama-3.1, Llama-3 8B, and Qwen2 7B.
+All models receive the same task prompts and answer-format instructions.
+
+\paragraph{Metric.}
+All tasks are multiple-choice and scored by exact parsed answer accuracy.
+Unparsed answers are counted as incorrect; parse rates are reported in Appendix~\ref{app:additional_results}.
+
+\paragraph{Evaluation scope.}
+This evaluation isolates the diagnostic stage of the broader workflow.
+The generated records also support targeted fine-tuning: chosen responses commit to the gold rule, while rejected responses commit to common shortcuts.
+After adaptation, we will deploy agents in network simulations of positional asset contagion, where socially visible purchases by central nodes may trigger cascades.
+
+\section{Results}
+\label{sec:results}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+\textbf{Model} & \textbf{Eval-A} & \textbf{Eval-B} & \textbf{Placebo} & \textbf{Social OOD} & \textbf{Career OOD} & \textbf{Mean} \\
+\midrule
+DeepSeek-R1-671B & 23.4 & 59.6 & 30.0 & 56.9 & 45.8 & 43.2 \\
+Qwen & 33.9 & \textbf{70.0} & 59.7 & 66.0 & 49.5 & 55.8 \\
+GPT-4 & \textbf{51.6} & 62.5 & \textbf{96.0} & \textbf{69.4} & 50.0 & \textbf{65.9} \\
+Llama-3.1 & 41.7 & 61.8 & 75.2 & 62.0 & 50.3 & 58.2 \\
+Llama-3 8B & 40.3 & 58.2 & 79.4 & 59.7 & \textbf{51.7} & 57.9 \\
+Qwen2 7B & 46.6 & 56.4 & 91.7 & 59.2 & 47.6 & 60.3 \\
+\bottomrule
+\end{tabular}
+\caption{Diagnostic accuracy (\%). }
+\label{tab:main_results}
+\end{table*}
+
+\paragraph{Rule identification remains weak.}
+Eval-A is the central test of Eq.~\ref{eq:main_rule}.
+Even GPT-4 reaches only 51.6\%, and the other models are below 47\%.
+This shows that models can read social scenarios without reliably identifying the closeness-weighted rule.
+
+\paragraph{Comparative statics are easier but incomplete.}
+Eval-B is consistently higher than Eval-A for most models, with Qwen reaching 70.0\%.
+Models are better at judging local directional changes than selecting the full rule.
+This partial success is useful for simulation, but insufficient: a simulator must produce the correct action under many network configurations, not only rank two vignettes.
+
+\paragraph{Placebo and transfer expose different failures.}
+Placebo accuracy ranges from 30.0\% to 96.0\%, revealing large variation in whether models suppress social comparison when the domain is non-positional.
+Social OOD accuracy ranges from 56.9\% to 69.4\%, indicating that semantic benefit-cost matching is nontrivial for current models.
+Career OOD remains near chance for all models, suggesting that relative-status tradeoffs are especially brittle when absolute salary and rank conflict.
+
+\section{Error Analysis}
+\label{sec:error_analysis}
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Model} & \textbf{Uniform} & \textbf{Private} & \textbf{Closest/top} & \textbf{Mix} \\
+\midrule
+DeepSeek-R1 & 21.2 & 8.2 & 26.7 & 17.1 \\
+Qwen & 20.5 & 10.3 & 32.2 & 15.5 \\
+GPT-4 & 3.6 & 18.4 & 48.5 & 22.3 \\
+Llama-3.1 & 7.6 & 27.1 & 33.4 & 12.8 \\
+Llama-3 8B & 6.4 & 27.9 & 32.5 & 14.0 \\
+Qwen2 7B & 9.5 & 25.7 & 34.0 & 14.0 \\
+\bottomrule
+\end{tabular}
+\caption{Selected Eval-A error categories as a percentage of each model's wrong answers.}
+\label{tab:evala_errors}
+\end{table}
+
+Errors are structured enough to guide adaptation.
+DeepSeek-R1-671B and Qwen often use the wrong aggregator, especially uniform averaging.
+GPT-4 and the local models more often collapse the rule to closest-peer or top-peer anchoring; the local models also frequently choose the private baseline in positional settings.
+These patterns suggest different fine-tuning contrasts for different models.
+For example, uniform-average mistakes require examples where equal averages conflict with closeness weights, while placebo mistakes require examples where peer information is visible but normatively irrelevant.
+
+\section{Toward Adaptation and Simulation}
+
+The diagnostic results determine the next phase of the project.
+We will fine-tune selected models with contrast pairs that target the observed shortcut families, then test whether the adapted policy improves both in-distribution rule recovery and transfer to social and career OOD settings.
+
+The final evaluation is a simulation study of positional asset bubbles.
+Agents will be placed on a social network and asked whether to buy a socially visible asset, such as a prestige property, limited-edition digital collectible, or meme asset.
+We will compare untuned and tuned agents under the same fundamentals and seeded adoption shocks.
+Key metrics include adoption rate, cascade depth, sensitivity to central-node seeding, peak willingness-to-pay proxy, and divergence from a no-social-reference baseline.
+This setup asks whether micro-level structural adaptation changes macro-level social contagion.
+
+\section{Conclusion}
+
+We introduced a theory-grounded diagnostic suite for reference-dependent social choice and evaluated six LLMs.
+The results show a consistent gap between plausible social reasoning and structural rule recovery.
+Because the errors are systematic, they provide a principled basis for targeted fine-tuning and for subsequent simulations of positional asset contagion.
+
+\section*{Limitations}
+
+The present version reports only the diagnostic evaluation stage.
+Fine-tuning and simulation results remain planned work, so claims about adapted agents are currently methodological rather than empirical.
+The data are synthetic and depend on teacher-generated narratives; future versions should include human validation of scenario naturalness and ambiguity.
+
+\bibliography{custom}
+
+\appendix
+% Appendix-only float numbering: Table S1, Figure S1, ...
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\input{appendix_results}
+
+\end{document}

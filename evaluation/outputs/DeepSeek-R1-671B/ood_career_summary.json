@@ -1,0 +1,82 @@
+{
+  "overall": {
+    "total": 576,
+    "correct": 264,
+    "accuracy": 0.4583
+  },
+  "by_split": {
+    "ood_career": {
+      "total": 576,
+      "correct": 264,
+      "accuracy": 0.4583
+    }
+  },
+  "slices": {
+    "alpha_2i_bucket": {
+      "mid": {
+        "total": 192,
+        "correct": 88,
+        "accuracy": 0.4583
+      },
+      "low": {
+        "total": 192,
+        "correct": 84,
+        "accuracy": 0.4375
+      },
+      "high": {
+        "total": 192,
+        "correct": 92,
+        "accuracy": 0.4792
+      }
+    },
+    "domain_key": {
+      "domain5_career_sorting": {
+        "total": 576,
+        "correct": 264,
+        "accuracy": 0.4583
+      }
+    },
+    "scene_id": {
+      "d5_medicine_01": {
+        "total": 72,
+        "correct": 34,
+        "accuracy": 0.4722
+      },
+      "d5_tech_01": {
+        "total": 72,
+        "correct": 31,
+        "accuracy": 0.4306
+      },
+      "d5_design_01": {
+        "total": 72,
+        "correct": 29,
+        "accuracy": 0.4028
+      },
+      "d5_edtech_01": {
+        "total": 72,
+        "correct": 36,
+        "accuracy": 0.5
+      },
+      "d5_consulting_01": {
+        "total": 72,
+        "correct": 37,
+        "accuracy": 0.5139
+      },
+      "d5_phd_01": {
+        "total": 72,
+        "correct": 32,
+        "accuracy": 0.4444
+      },
+      "d5_finance_01": {
+        "total": 72,
+        "correct": 32,
+        "accuracy": 0.4444
+      },
+      "d5_law_01": {
+        "total": 72,
+        "correct": 33,
+        "accuracy": 0.4583
+      }
+    }
+  }
+}

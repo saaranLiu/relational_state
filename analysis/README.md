@@ -3,13 +3,15 @@
 本文件汇总当前仓库中最新评测输出（`evaluation/outputs/*`）对应的主要结果，用于论文写作与后续微调设计参考。
 
 
-## 理论基础公式（Langtry）
+## 理论基础公式
+
+Keeping up with "The Joneses": reference dependent choice with social comparisons (Langtry, 2023)
 
 主任务的核心决策函数为：
 
 `x_i^* = F + alpha_i * R_i`, 其中 `R_i = Σ_j g_ij x_j`。
 
-等价写法：`x_i^* = F + alpha_i * Σ_j g_ij x_j`。
+`x_i^* = F + alpha_i * Σ_j g_ij x_j`。
 
 含义是：个体先有私有基线 `F`，再按 closeness 权重 `g_ij` 聚合他人行动形成社会参照，并由社会敏感度 `alpha_i` 放大或缩小该参照影响。
 

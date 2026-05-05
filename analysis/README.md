@@ -1,4 +1,4 @@
-# Relational-State 评测结果总览
+# Relational-State 评测结果
 
 本文件汇总当前仓库中最新评测输出（`evaluation/outputs/*`）对应的主要结果，用于论文写作与后续微调设计参考。
 
@@ -23,7 +23,7 @@ Keeping up with "The Joneses": reference dependent choice with social comparison
 - `ood_social`: OOD 社交匹配任务（基于 `b/c` 匹配稳定性）
 - `ood_career`: OOD 职业排序任务（绝对薪资 vs 相对地位阈值权衡）
 
-### 1.0) 各任务样本数（每个模型一致）
+### 1.0) 各任务样本数
 
 | Split | Evaluation units |
 |---|---:|
@@ -97,7 +97,7 @@ gold 规则说明：
   `x_S_H - x_S_L >= alpha_2i * (x̄_H - x̄_L)` 时选 `H`，否则选 `L`
 - 说明：这里的 OOD 不仅是场景语义变化，也包含决策函数形式变化，从主任务规则切换为阈值比较函数。
 
-### E) 采样规则（简版）
+### E) 采样规则
 
 - **场景采样**：按 domain/family 划分 train/test，避免同一场景词面泄漏。  
 - **潜变量采样**：主任务按 `alpha × dispersion × skew` 三维网格采样；包含 held-out cells 测泛化。  

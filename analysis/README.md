@@ -43,7 +43,7 @@ Keeping up with "The Joneses": reference dependent choice with social comparison
 - 目标：不是考算术计算，而是考模型是否选择了**正确行为机制**
 - 采样说明：**先固定 ground truth 选项，再从其余规则中均匀抽取 3 个 distractor**（并做可辨识性过滤）
 
-规则池（A-H）语义如下：
+规则池（A-H）语义如下 （说明一下样本采样不重合）：
 
 - `A_peer_weighted`：`x = F + alpha * Σ(g_ij * x_j)`  
   含义：Langtry 主规则，按亲近权重聚合同伴影响（主任务 gold）

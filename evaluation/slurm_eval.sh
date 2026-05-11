@@ -18,13 +18,18 @@
 # Supported: eval_A eval_B placebo_test ood_social ood_career
 # Default: all of them.
 #
-# MODEL_PRESET picks the model name only for HKUST-GZ presets; ds671b / Qwen /
-# gpt-4-turbo / gpt-4 share one OpenAI-compatible gateway by default.
+# MODEL_PRESET picks the model id and gateway:
+#   HKUST-GZ (https://gpt-api.hkust-gz.edu.cn/v1): DeepSeek-V4-Flash / V4-Pro,
+#       Qwen, gpt-4-turbo, gpt-4 (one OpenAI-compatible campus gateway).
+#   GWANG (https://api.gwang.site/v1): gpt-5.5 — SDK posts to .../v1/chat/completions.
+#   local_vllm: http://127.0.0.1:8000/v1
 #
-#   HKUST_OPENAI_API_BASE  default base URL (default: gpt-api.hkust-gz)
-#   API_KEY, OPENAI_API_KEY, DEEPSEEK_API_KEY, AIGC_API_KEY
-#       any one may hold the same campus key (first non-empty wins)
-#   API_BASE               overrides the default base for all cloud presets
+#   HKUST_OPENAI_API_BASE  HKUST default base URL
+#   GWANG_OPENAI_API_BASE  GWANG default base URL (must end in /v1, not .../chat/completions)
+#   GWANG_API_KEY, API_KEY, OPENAI_API_KEY, DEEPSEEK_API_KEY, AIGC_API_KEY
+#       campus: first non-empty of API_KEY / OPENAI / DEEPSEEK / AIGC.
+#       gwang: API_KEY or GWANG_API_KEY or OPENAI_API_KEY.
+#   API_BASE               overrides the default base for the chosen preset
 #   MODEL                  overrides the default model id per preset
 #   MAX_RETRIES, REQUEST_TIMEOUT  passed through to eval_runner
 #   RELSTATE_EVAL_TEMPERATURE  LLM sampling temperature (default 0.8).
@@ -77,12 +82,16 @@ MAX_WORKERS="${MAX_WORKERS:-16}"
 STRUCTURED_DIR="${STRUCTURED_DIR:-data/structured}"
 SPLITS="${SPLITS:-eval_A eval_B placebo_test ood_social ood_career}"
 
-# One gateway + one key for all campus OpenAI-compatible presets (override with API_BASE / API_KEY).
 HKUST_OPENAI_API_BASE="${HKUST_OPENAI_API_BASE:-https://gpt-api.hkust-gz.edu.cn/v1}"
+# OpenAI Python client uses base .../v1 and appends /chat/completions (same as POST https://api.gwang.site/v1/chat/completions).
+GWANG_OPENAI_API_BASE="${GWANG_OPENAI_API_BASE:-https://api.gwang.site/v1}"
 
 case "${MODEL_PRESET}" in
-  ds671b|deepseek_671)
-    MODEL="${MODEL:-DeepSeek-R1-671B}"
+  ds671b|deepseek_671|deepseek_v4_flash|dsv4flash)
+    MODEL="${MODEL:-DeepSeek-V4-Flash}"
+    ;;
+  deepseek_v4_pro|dsv4pro|hkust_deepseek_v4_pro)
+    MODEL="${MODEL:-DeepSeek-V4-Pro}"
     ;;
   hkust_qwen|qwen)
     MODEL="${MODEL:-Qwen}"
@@ -93,19 +102,26 @@ case "${MODEL_PRESET}" in
   hkust_gpt4|gpt4|gpt-4)
     MODEL="${MODEL:-gpt-4}"
     ;;
+  gwang_gpt55|gpt55)
+    MODEL="${MODEL:-gpt-5.5}"
+    ;;
   local_vllm)
     MODEL="${MODEL:-qwen-sft}"
-    API_BASE="${API_BASE:-http://127.0.0.1:8000/v1}"
-    API_KEY="${API_KEY:-EMPTY}"
     ;;
   *)
     echo "Unsupported MODEL_PRESET: ${MODEL_PRESET}" >&2
-    echo "Use one of: ds671b, qwen, gpt4_turbo, gpt4, local_vllm" >&2
+    echo "Use one of: ds671b, deepseek_v4_flash, deepseek_v4_pro, qwen, gpt4_turbo, gpt4, gwang_gpt55, local_vllm" >&2
     exit 1
     ;;
 esac
 
-if [[ "${MODEL_PRESET}" != "local_vllm" ]]; then
+if [[ "${MODEL_PRESET}" == "local_vllm" ]]; then
+  API_BASE="${API_BASE:-http://127.0.0.1:8000/v1}"
+  API_KEY="${API_KEY:-EMPTY}"
+elif [[ "${MODEL_PRESET}" == "gwang_gpt55" || "${MODEL_PRESET}" == "gpt55" ]]; then
+  API_BASE="${API_BASE:-${GWANG_OPENAI_API_BASE}}"
+  API_KEY="${API_KEY:-${GWANG_API_KEY:-${OPENAI_API_KEY:-}}}"
+else
   API_BASE="${API_BASE:-${HKUST_OPENAI_API_BASE}}"
   API_KEY="${API_KEY:-${OPENAI_API_KEY:-${DEEPSEEK_API_KEY:-${AIGC_API_KEY:-}}}}"
 fi
@@ -118,10 +134,12 @@ fi
 MODEL_SUBDIR="${MODEL_SUBDIR:-}"
 if [[ -z "${MODEL_SUBDIR}" ]]; then
   case "${MODEL_PRESET}" in
-    ds671b|deepseek_671)      MODEL_SUBDIR="DeepSeek-R1-671B" ;;
+    ds671b|deepseek_671|deepseek_v4_flash|dsv4flash) MODEL_SUBDIR="DeepSeek-V4-Flash" ;;
+    deepseek_v4_pro|dsv4pro|hkust_deepseek_v4_pro) MODEL_SUBDIR="DeepSeek-V4-Pro" ;;
     hkust_qwen|qwen)          MODEL_SUBDIR="Qwen" ;;
     hkust_gpt4_turbo|gpt4_turbo) MODEL_SUBDIR="gpt-4-turbo" ;;
     hkust_gpt4|gpt4|gpt-4)      MODEL_SUBDIR="gpt-4" ;;
+    gwang_gpt55|gpt55)        MODEL_SUBDIR="gpt-5.5" ;;
     local_vllm)               MODEL_SUBDIR="local-vllm" ;;
     *)                         MODEL_SUBDIR="model" ;;
   esac

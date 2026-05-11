@@ -1,0 +1,6 @@
+dataset_split,n_tasks,n_models,universal_wrong_count,universal_wrong_rate
+eval_A,1512,6,176,0.1164021164021164
+eval_B,280,6,6,0.02142857142857143
+ood_career,576,6,222,0.3854166666666667
+ood_social,576,6,49,0.08506944444444445
+placebo_test,504,6,3,0.005952380952380952

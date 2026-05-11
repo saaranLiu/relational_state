@@ -3,9 +3,7 @@
 本文件汇总当前仓库中最新评测输出（`evaluation/outputs/*`）对应的主要结果，用于论文写作与后续微调设计参考。
 
 
-## 理论基础公式
-
-Keeping up with "The Joneses": reference dependent choice with social comparisons (Langtry, 2023)
+## 理论基础公式（Langtry）
 
 主任务的核心决策函数为：
 
@@ -165,6 +163,88 @@ gold 规则说明：
 | DeepSeek-R1-671B | 23.41 | 59.64 | 29.96 | 56.94 | 45.83 |
 
 图例：🏆 表示该任务下最高准确率。
+
+### 2.1) 跨模型共同错题与推理（Reasoning）侧写
+
+**定义（共同错题）**：对同一 `task_id`，若当前仓库中全部 **6** 个模型目录下的预测均为错误（`is_correct` 为 `False` 或解析失败视为错），则记为该 split 的一条「六模型全错」样本。模型集合与 `evaluation/outputs/` 下子目录一致：`DeepSeek-R1-671B`、`Qwen`、`gpt4`、`ollama-llama3-1-latest`、`ollama-llama3-8b`、`ollama-qwen2-7b`。
+
+**各 split 六模型全错占比**（可复现脚本：`scripts/analyze_common_wrong_cross_model.py`）：
+
+| dataset_split | n_tasks | 六模型全错条数 | 比例 |
+|---|---:|---:|---:|
+| eval_A | 1,512 | 176 | 11.64% |
+| eval_B | 280 | 6 | 2.14% |
+| placebo_test | 504 | 3 | 0.60% |
+| ood_social | 576 | 49 | 8.51% |
+| ood_career | 576 | 222 | 38.54% |
+
+导出：`analysis/model_performance_error_analysis/common_wrong_by_split.csv`；`eval_A` 上每条全错任务的逐题明细（含各模型截断推理片段）见 `common_wrong_eval_A_universal.csv`。
+
+**推理文本来源**：评测写入的 `raw_response`（`eval_runner.py` 将模型完整输出存于此字段；部分 API 的 `reasoning_content` 若被合并进最终 `content`，也会出现在同一字符串中）。脚本优先截取 `Reasoning:` 至 `Choice:` 之间的段落；若无该标记则取全文前缀用于关键词统计（长链式推理模型适用）。
+
+**在 176 条 `eval_A` 六模型全错题目上，错选规则（`parsed_rule_id`）在 1,056 次模型回答中的占比**（与上表「错题主要替换成哪些规则」一致）：`D_pure_private` 约 22%；`B_top_anchor` 与 `H_equal_mix` 各约 20%；`E_closest_mimicry` 约 17%；其余为 `F_median_anchor`、`C_uniform_avg`、`G_counter_conformist` 等。说明共同失败仍是 **加权同伴聚合（gold `A_peer_weighted`）被多种启发式规则系统性替换**，而非随机字母噪声。
+
+**对推理文本的轻量关键词覆盖**（每条模型回答可对多个关键词各计 1 次，故总命中次数可大于 1,056；原始计数见 `common_wrong_eval_A_reasoning_keywords.csv`）：
+
+| 关键词主题 | 命中次数（跨 176×6 条推理） |
+|---|---:|
+| 社会参照 / 同伴压力叙事（peer、crowd、visible、norm 等） | 767 |
+| 私人基线 / 独处叙事（private、baseline、alone 等） | 576 |
+| 权重 / 亲密度 / 关系强度措辞（weight、closeness、bond 等） | 407 |
+| 最近 / 最亲 / 单一锚点叙事（closest、mentor、roommate 等） | 382 |
+| 匹配 / 模仿 / 对齐叙事（match、mirror、copy 等） | 370 |
+| 平均 / 典型 / 中位叙事（average、mean、median、typical 等） | 297 |
+
+**解读（与错因表对照）**：叙事里大量出现「同伴可见度、社会规范」与「私人基线」两类线索，与模型在规则层把 `A_peer_weighted` 错成 `B_top_anchor`、`E_closest_mimicry`、`D_pure_private`、`H_equal_mix`、`C_uniform_avg` 等现象一致——即推理往往在讲 **社会比较故事或关系亲疏故事**，但最终选到的 **离散规则标签** 仍落在更粗的捷径规则上，而不是正确的 closeness 加权聚合。该侧写可用于微调：对六模型全错子集做 hard negative（显式对比「加权聚合 vs 单锚 / 均匀 / 纯私域」的 CoT 偏好）。
+
+#### 2.1.1 Reasoning 深度特征（结构/语言线索，可复现）
+
+脚本：`scripts/analyze_reasoning_deep_eval_a.py`。在每条 `eval_A` 预测的 `Reasoning:` 文本上计算：长度与句数；若干 **布尔线索**（是否出现「单最近同伴 / 模仿」类措辞、`each parent / weighted aggregate` 等多主体加权类措辞、是否出现美元与算术推敲、「折中/ torn between」类措辞、是否出现「坚持私域/无视同伴」类措辞等）；以及 **尾部自述选项字母** 与 `Choice:` 行字母是否一致（启发式，对极长链式模型覆盖率低，见 `reasoning_deep_eval_a_tail_letter_mismatch.csv`）。
+
+**各模型在「答错」子集上的线索命中率（Eval-A 全量，1512 题/模型）** 摘要：
+
+- **DeepSeek-R1-671B / Qwen**：错题推理 **极长**，且 **数值推敲**（`p_numeric_when_wrong`）分别约 **0.84 / 0.80**；同时 DeepSeek 在错题里仍常出现 **多主体加权话术**（`p_multi_when_wrong` 约 **0.67**，Qwen 约 **0.49**）。这说明 **失败往往不是「没提到加权或多同伴」**，而是 **长推演仍不能把叙事正确收束到 gold 规则**（映射/判别错误）。
+- **gpt-4**：错题推理 **短**（约 **318** 字符量级），**单锚/模仿** 与 **多主体加权** 两类触发率都 **低**（错题里约 **0.22 / 0.02**），更像 **直接跳到结论式捷径**，而非展开演算。
+- **三台 Ollama 小参**：错题推理 **短**（约 **200–300** 字符），**多主体加权话术几乎不出现**（`p_multi_when_wrong` 约 **0.004–0.014**），**单锚类** 亦较低；**「折中」叙事** 在 llama3-8b 错题里相对突出（约 **0.33**）。整体更接近 **浅层模板句**，与 API 模型的错误 **形态不同**。
+
+**在 176 道六模型全错题上（每档 528 条 = 176×3）**：`large_api` 三模型错题推理平均长度约 **2381** 字符，`small_ollama` 约 **252**；大档在仍全错时 **多主体加权话术** 约 **34%**、**数值推敲** 约 **53%**，小档在同一题集上 **多主体加权话术约 0%**、数值约 **9%**。即 **最难题上：大模型「像在认真做机制题」仍集体错；小模型则几乎不做同类显式结构展开**——二者都应针对 **规则绑定** 训练，但数据形态应 **分档设计**（长错链 vs 短模板）。
+
+**按错选规则条件概率（Eval-A 全部错题汇总，`reasoning_deep_eval_a_flags_by_top_wrong_rule.csv`）**：错成 **`H_equal_mix`** 时 **「折中/ torn」** 类措辞约 **51%**；错成 **`C_uniform_avg`** 时 **数值推敲** 约 **66%**；错成 **`E_closest_mimicry` / `B_top_anchor`** 时 **单最近同伴/模仿** 类措辞约 **37%–40%**。可将这些模式当作 **自动分层标签**，用于构造对比式训练样本（例如：同一题干下强制区分「算术平均」与「亲疏加权平均」的收尾句）。
+
+### 2.2) Llama / Qwen 三小参（Ollama）共同错题，及与「大三档」对比
+
+**小参三模型**（本仓库中的本地 Llama 与 Qwen 小权重运行，与六模型全集对照）：`ollama-llama3-1-latest`、`ollama-llama3-8b`、`ollama-qwen2-7b`。  
+**大三档三模型**（API / 大权重一档，脚本中仅用于对照统计）：`gpt4`、`Qwen`、`DeepSeek-R1-671B`。二者各含 3 个检查点，便于在 **同一题集** 上做并列对照（注意：大三档内部能力差异极大，**三模型算术均值**不能等同于「大模型」单一概念，见下表后说明）。
+
+**各 split「三小参全错」题数与比例**（定义与 §2.1 相同，只是把「6 个全错」换成「上述 3 个 Ollama 全错」）：
+
+| dataset_split | n_tasks | 三小参全错条数 | 比例 |
+|---|---:|---:|---:|
+| eval_A | 1,512 | 423 | 27.98% |
+| eval_B | 280 | 29 | 10.36% |
+| placebo_test | 504 | 15 | 2.98% |
+| ood_social | 576 | 115 | 19.97% |
+| ood_career | 576 | 245 | 42.53% |
+
+导出：`common_wrong_small3_by_split.csv`。
+
+**与六模型全错的包含关系（`eval_A`）**：`176` 道六模型全错题 **全部** 落在「三小参全错」集合之内；另有 **`247`** 道题（`1512` 中的 **16.34%**）满足 **三小参全错但至少有一个大三档模型答对**。换言之，**最难子集里仍存在「本地三小全挂、云端/大档部分捞回」的间隙**。量化上，在大三档的 **逐条预测** 上，落在「三小参全错」题目集合时的平均正确率约为 **27.3%**（见 `common_wrong_eval_A_small3_overlap.csv` 中 `large_tier_mean_accuracy_on_eval_A_tasks_where_small3_all_wrong`）；而在 **六模型全错** 题目上，大三档平均正确率必为 **0**（定义使然）。
+
+**三小参全错时的错选规则倾向（仅 `eval_A`，共 1,269 次错误回答 = 423×3）**：错选分布中 **`D_pure_private` 约占 31.4%**，高于六模型全错汇总里该规则约 **22%** 的占比，说明 **小参本地模型更常把题解成「纯私域基线」**；其次为 **`E_closest_mimicry`、`B_top_anchor`、`H_equal_mix`** 等锚点 / 均匀类捷径（详见 `common_wrong_eval_A_small_vs_large_rules.csv` 中 `three_small_on_small3_wrong_tasks`）。
+
+**同一批「三小参全错」题上，大三档仅在错误回答内的规则分布**（剔除答对的 `A_peer_weighted`，共 923 次大三档错题）：首位为 **`H_equal_mix`（约 22.1%）**，其次 **`B_top_anchor`（约 18.4%）**、`E`、`D` 等，**`D_pure_private` 约占 15.6%**，明显低于三小参侧的 **31.4%**。在 **六模型全错** 子集上，大三档错题分布与六模型汇总一致（因大三档亦全错），见同一 CSV 中 `three_large_wrong_only_on_six_wrong_tasks` 与 `three_small_on_six_wrong_tasks` 两行块对照：小参侧 **`D_pure_private` 仍略更重**（约 **28.8%** 对 **15.5%**），大参侧错题更向 **`H_equal_mix`、`B_top_anchor`** 倾斜。
+
+**小参 vs 大参「还有什么区别」**（结合 `small_vs_large_mean_accuracy_by_split.csv` 的三模型均值）：
+
+| dataset_split | 三小参均值准确率 | 大三档均值准确率 |
+|---|---:|---:|
+| eval_A | 42.90% | 36.29% |
+| eval_B | 58.81% | 64.05% |
+| placebo_test | 82.08% | 61.90% |
+| ood_social | 60.30% | 64.12% |
+| ood_career | 49.88% | 48.44% |
+
+解读要点：**`eval_A` 上大三档均值低于三小参，主要来自 `DeepSeek-R1-671B` 在该任务极低分（23.41）对均值的拖累，并不代表 gpt4 弱于 8B Llama。** 相反，在 **三小参全错** 的题上，大三档仍约有 **四分之一** 的预测能答对，说明 **规模/推理预算更大的端点仍对部分结构难题有可恢复性**。**`placebo_test`** 上三小参均值显著更高，同样与大三档中 **DeepSeek 在安慰剂上崩溃式失败** 有关，不宜概括为「小模型更会关社会比较」。错选谱上，**小参更偏向 `D_pure_private`，大参在仍会错时更偏向 `H_equal_mix` / `B_top_anchor`**，可作为分档微调与蒸馏时不同的负样本权重参考。
 
 ## 3) 任务级 best/worst 与区分度（spread）
 
@@ -326,6 +406,9 @@ Eval-A 的 27 cells 来自三维参数网格：`alpha × dispersion × skew`，�
   - `rule_confusions.csv`
   - `cross_model_item_disagreement.csv`
   - `response_marker_summary.csv`
+  - `common_wrong_by_split.csv`、`common_wrong_eval_A_universal.csv`、`common_wrong_eval_A_reasoning_keywords.csv`（六模型全错 + 推理关键词）
+  - `common_wrong_small3_by_split.csv`、`common_wrong_eval_A_small3_overlap.csv`、`common_wrong_eval_A_small_vs_large_rules.csv`、`small_vs_large_accuracy_by_model_split.csv`、`small_vs_large_mean_accuracy_by_split.csv`（三小参 Ollama 全错 + 与大三档对照；同上脚本生成）
+  - `reasoning_deep_eval_a_per_row.csv`、`reasoning_deep_eval_a_by_model.csv`、`reasoning_deep_eval_a_by_parsed_rule_wrong.csv`、`reasoning_deep_eval_a_small_vs_large_six_wrong.csv`、`reasoning_deep_eval_a_flags_by_top_wrong_rule.csv`、`reasoning_deep_eval_a_tail_letter_mismatch.csv`（Eval-A Reasoning 深度特征；`scripts/analyze_reasoning_deep_eval_a.py`）
 
 ---
 
@@ -338,3 +421,5 @@ Eval-A 的 27 cells 来自三维参数网格：`alpha × dispersion × skew`，�
 OOD 结果进一步表明，分布外挑战不仅来自场景语义变化，还来自决策函数形式变化。`ood_social` 最优 `69.44`、最差 `56.94`，仍有稳定误差；`ood_career` 最优 `51.74`、最差 `45.83`，整体接近机会水平，说明在绝对收益与相对地位冲突下的阈值权衡仍不稳健。
 
 分层分析支持上述判断：在 Eval-A 的 27-cell 网格中，共性难点集中在高或中 `alpha` 且 `skew_low` 的区域，其中 `alpha_high__disp_low__skew_low` 被 `6/6` 模型投票为共性 hard cell。结合错因分布，失败并非噪声，而是可重复的规则替代现象，例如将 gold 规则替换为 top-anchor、uniform-average 或 private-baseline。该结构化误差谱可直接转化为后续微调中的 hard mining 与对比偏好构造。
+
+在题目层面，**11.64%** 的 `eval_A` 题（176 / 1,512）出现六模型全错；对这些题的 `Reasoning:` 文本进行关键词侧写可见，叙述仍大量围绕同伴与亲疏，但离散选项却系统性落在单锚、均匀、纯私域等捷径规则上，进一步支持「叙事社会性 ≠ 选对决策函数」这一微调切入点。

@@ -1,7 +1,7 @@
 metric,count,rate_of_1512
-eval_A_tasks_three_small_all_wrong,423.0,0.27976
-eval_A_tasks_six_all_wrong,176.0,0.1164
-eval_A_tasks_three_small_wrong_but_not_six_all_wrong,247.0,0.16336
+eval_A_tasks_three_small_all_wrong,365.0,0.2414
+eval_A_tasks_six_all_wrong,126.0,0.08333
+eval_A_tasks_three_small_wrong_but_not_six_all_wrong,239.0,0.15807
 six_all_wrong_is_subset_of_three_small_all_wrong,1.0,
-large_tier_mean_accuracy_on_eval_A_tasks_where_small3_all_wrong,,0.27266
+large_tier_mean_accuracy_on_eval_A_tasks_where_small3_all_wrong,,0.3032
 large_tier_mean_accuracy_on_eval_A_tasks_where_six_all_wrong,,0.0

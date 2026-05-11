@@ -1,81 +1,81 @@
 {
   "overall": {
     "total": 576,
-    "correct": 274,
-    "accuracy": 0.4757
+    "correct": 292,
+    "accuracy": 0.5069
   },
   "by_split": {
     "ood_career": {
       "total": 576,
-      "correct": 274,
-      "accuracy": 0.4757
+      "correct": 292,
+      "accuracy": 0.5069
     }
   },
   "slices": {
     "alpha_2i_bucket": {
       "low": {
         "total": 192,
-        "correct": 91,
-        "accuracy": 0.474
-      },
-      "mid": {
-        "total": 192,
-        "correct": 89,
-        "accuracy": 0.4635
+        "correct": 93,
+        "accuracy": 0.4844
       },
       "high": {
         "total": 192,
-        "correct": 94,
-        "accuracy": 0.4896
+        "correct": 107,
+        "accuracy": 0.5573
+      },
+      "mid": {
+        "total": 192,
+        "correct": 92,
+        "accuracy": 0.4792
       }
     },
     "domain_key": {
       "domain5_career_sorting": {
         "total": 576,
-        "correct": 274,
-        "accuracy": 0.4757
+        "correct": 292,
+        "accuracy": 0.5069
       }
     },
     "scene_id": {
-      "d5_tech_01": {
-        "total": 72,
-        "correct": 38,
-        "accuracy": 0.5278
-      },
       "d5_edtech_01": {
         "total": 72,
         "correct": 37,
         "accuracy": 0.5139
       },
-      "d5_phd_01": {
+      "d5_finance_01": {
         "total": 72,
         "correct": 31,
         "accuracy": 0.4306
-      },
-      "d5_medicine_01": {
-        "total": 72,
-        "correct": 34,
-        "accuracy": 0.4722
       },
       "d5_consulting_01": {
         "total": 72,
-        "correct": 31,
-        "accuracy": 0.4306
+        "correct": 39,
+        "accuracy": 0.5417
       },
-      "d5_finance_01": {
+      "d5_medicine_01": {
+        "total": 72,
+        "correct": 35,
+        "accuracy": 0.4861
+      },
+      "d5_tech_01": {
+        "total": 72,
+        "correct": 41,
+        "accuracy": 0.5694
+      },
+      "d5_phd_01": {
         "total": 72,
         "correct": 33,
         "accuracy": 0.4583
       },
       "d5_design_01": {
         "total": 72,
-        "correct": 34,
-        "accuracy": 0.4722
+        "correct": 36,
+        "accuracy": 0.5
       },
       "d5_law_01": {
         "total": 72,
-        "correct": 36,
-        "accuracy": 0.5
+        "correct": 40,
+        "accuracy": 0.5556
       }
     }
   }

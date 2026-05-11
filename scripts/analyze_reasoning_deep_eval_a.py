@@ -27,8 +27,10 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = ROOT / "evaluation" / "outputs"
 EXPORT_DIR = ROOT / "analysis" / "model_performance_error_analysis"
 
+SKIP_OUTPUT_PARENTS = frozenset({"gpt-5.5", "temp"})
+
 SMALL3 = frozenset({"ollama-llama3-1-latest", "ollama-llama3-8b", "ollama-qwen2-7b"})
-LARGE3 = frozenset({"gpt4", "Qwen", "DeepSeek-R1-671B"})
+LARGE3 = frozenset({"gpt4", "Qwen", "DeepSeek-V4-Flash"})
 
 
 def read_jsonl(path: Path) -> List[dict]:
@@ -42,25 +44,32 @@ def read_jsonl(path: Path) -> List[dict]:
 
 
 def extract_reasoning(raw: str) -> str:
+    """Legacy `Reasoning:` block, else text before the final `Choice:` (3-line eval template)."""
     if not raw:
         return ""
+    text = raw.strip()
     m = re.search(
         r"Reasoning:\s*(.*?)(?=\n\s*Choice:|\nChoice:|\Z)",
-        raw,
+        text,
         flags=re.IGNORECASE | re.DOTALL,
     )
     if m:
         return m.group(1).strip()
-    return raw.strip()
+    last_start: Optional[int] = None
+    for m2 in re.finditer(r"(?i)\bChoice\s*:\s*[A-E]\b", text):
+        last_start = m2.start()
+    if last_start is not None:
+        return text[:last_start].strip()
+    return text
 
 
 def extract_choice_letter(raw: str) -> Optional[str]:
     if not raw:
         return None
-    m = re.search(r"Choice:\s*([A-E])\b", raw, flags=re.IGNORECASE)
-    if m:
-        return m.group(1).upper()
-    return None
+    matches = list(re.finditer(r"(?i)\bChoice\s*:\s*([A-E])\b", raw))
+    if not matches:
+        return None
+    return matches[-1].group(1).upper()
 
 
 def last_reasoning_stated_letter(text: str) -> Optional[str]:
@@ -149,6 +158,8 @@ def featurize_reasoning(text: str) -> Dict[str, Any]:
 def load_eval_a_frame() -> pd.DataFrame:
     rows: List[Dict[str, Any]] = []
     for path in sorted(OUTPUT_ROOT.glob("*/*_predictions.jsonl")):
+        if path.parent.name in SKIP_OUTPUT_PARENTS:
+            continue
         split = path.stem.replace("_predictions", "")
         if split != "eval_A":
             continue

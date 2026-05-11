@@ -1,0 +1,74 @@
+{
+  "overall": {
+    "total": 504,
+    "correct": 379,
+    "accuracy": 0.752
+  },
+  "by_split": {
+    "placebo_test": {
+      "total": 504,
+      "correct": 379,
+      "accuracy": 0.752
+    }
+  },
+  "slices": {
+    "domain_key": {
+      "domain2_non_positional_investment": {
+        "total": 504,
+        "correct": 379,
+        "accuracy": 0.752
+      }
+    },
+    "scene_id": {
+      "d2_home_02": {
+        "total": 84,
+        "correct": 62,
+        "accuracy": 0.7381
+      },
+      "d2_health_02": {
+        "total": 84,
+        "correct": 63,
+        "accuracy": 0.75
+      },
+      "d2_health_03": {
+        "total": 84,
+        "correct": 72,
+        "accuracy": 0.8571
+      },
+      "d2_admin_02": {
+        "total": 84,
+        "correct": 58,
+        "accuracy": 0.6905
+      },
+      "d2_save_02": {
+        "total": 84,
+        "correct": 69,
+        "accuracy": 0.8214
+      },
+      "d2_hobby_02": {
+        "total": 84,
+        "correct": 55,
+        "accuracy": 0.6548
+      }
+    },
+    "gold_rule_id": {
+      "D_pure_private": {
+        "total": 504,
+        "correct": 379,
+        "accuracy": 0.752
+      }
+    }
+  },
+  "confusion_gold_to_parsed_rule": {
+    "D_pure_private": {
+      "B_top_anchor": 21,
+      "D_pure_private": 379,
+      "H_equal_mix": 21,
+      "G_counter_conformist": 8,
+      "A_peer_weighted": 36,
+      "C_uniform_avg": 6,
+      "E_closest_mimicry": 12,
+      "F_median_anchor": 21
+    }
+  }
+}

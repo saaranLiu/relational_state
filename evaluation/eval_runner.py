@@ -68,14 +68,17 @@ SYSTEM_PROMPT_EVAL_A = (
     "You are a careful reasoner about everyday relational decisions. "
     "Read the scenario and the four candidate reasoning rules. "
     "Pick the ONE rule that best explains what the protagonist would commit to. "
-    "Reason briefly, then answer with a single letter."
+    "Work in three short steps (situation, psychology, then why that rule), then end with your letter. "
+    "Follow the user's output template exactly (three lines only); "
+    "do not add markdown, prefaces, bullet lists, or arithmetic chains."
 )
 
 SYSTEM_PROMPT_EVAL_B = (
     "You are a careful reasoner about everyday relational decisions. "
     "You will see two scenarios (A and B) that describe the SAME kind of commitment "
     "but differ in some detail (social sensitivity, private baseline, or what peers are doing). "
-    "Judge which side would settle on a HIGHER commitment. Reason briefly, then answer with a letter."
+    "Judge which side would settle on a HIGHER commitment. "
+    "Follow the user's three-line template exactly; no markdown or extra lines."
 )
 
 SYSTEM_PROMPT_OOD_SOCIAL = (
@@ -84,7 +87,7 @@ SYSTEM_PROMPT_OOD_SOCIAL = (
     "have a similar benefit-cost ratio b/c. The prompt describes b as a benefit tier and c as a "
     "financial-constraint cost tier. Pick the partner whose implied ratio most closely matches the "
     "protagonist's. "
-    "Reason briefly, then answer with a letter."
+    "Follow the user's three-line template exactly."
 )
 
 SYSTEM_PROMPT_OOD_CAREER = (
@@ -92,18 +95,33 @@ SYSTEM_PROMPT_OOD_CAREER = (
     "A worker compares two firms that differ in the average coworker wage and the wage they themselves would earn. "
     "They also care about how their wage compares to the coworker average (relative status). "
     "Pick the firm that best fits the worker's status-sensitivity described in the scenario. "
-    "Reason briefly, then answer with a letter."
+    "Follow the user's three-line template exactly."
 )
 
 FORMAT_INSTRUCTION_ABCD = (
-    "Output format (STRICT — do not add extra lines):\n"
-    "Reasoning: <exactly 1 to 3 sentences, no more>\n"
-    "Choice: <one letter: A, B, C, or D>"
+    "Output format (STRICT — graders expect machine-parseable text):\n"
+    "- Emit EXACTLY three lines. No title, no code fences, no blank lines before line 1.\n"
+    "- Line 1: Situation: then one or two short sentences (≤ 45 words) analysing what in the scenario "
+    "matters for the decision (facts, stakes, who is close vs peripheral). "
+    "Do not paste the option texts verbatim; no bullet lists or step-by-step arithmetic.\n"
+    "- Line 2: Psychology: then one or two short sentences (≤ 45 words) on the protagonist's mindset, "
+    "social pressure vs private baseline, and how relationships might weigh.\n"
+    "- Line 3: Choice_reason: one or two short sentences (≤ 45 words) stating why that rule/letter fits; "
+    "then end this SAME line with exactly \" Choice: X\" where X is one character in {A,B,C,D} "
+    "(single space before Choice).\n"
+    "- Do not print anything after line 3."
 )
 FORMAT_INSTRUCTION_AB = (
-    "Output format (STRICT — do not add extra lines):\n"
-    "Reasoning: <exactly 1 to 3 sentences, no more>\n"
-    "Choice: <one letter: A or B>"
+    "Output format (STRICT — graders expect machine-parseable text):\n"
+    "- Emit EXACTLY three lines. No title, no code fences, no blank lines before line 1.\n"
+    "- Line 1: Situation: then one or two short sentences (≤ 45 words) comparing the two scenarios "
+    "on what differs and what drives commitment.\n"
+    "- Line 2: Psychology: then one or two short sentences (≤ 45 words) on how the protagonist would "
+    "react in each side's social setup.\n"
+    "- Line 3: Choice_reason: one or two short sentences (≤ 45 words) stating why A or B has higher "
+    "settled commitment; then end this SAME line with exactly \" Choice: X\" where X is one character "
+    "in {A,B} (single space before Choice).\n"
+    "- Do not print anything after line 3."
 )
 
 
@@ -400,6 +418,31 @@ def _iter_tasks(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 
 # ---------------------------------------------------------------------------
+# Completion length (token cap)
+# ---------------------------------------------------------------------------
+
+def resolve_max_tokens(cli_value: Optional[int], model: str) -> int:
+    """
+    Upper bound on **generated completion** tokens per `chat.completions` call.
+
+    Precedence: CLI `--max-tokens` > env `RELSTATE_EVAL_MAX_TOKENS` > model-tier defaults.
+    Tier defaults bias short, parseable answers; raise via env/CLI if APIs still truncate
+    before a `Choice:` line.
+    """
+    if cli_value is not None:
+        return max(32, int(cli_value))
+    env_raw = (os.getenv("RELSTATE_EVAL_MAX_TOKENS") or "").strip()
+    if env_raw.isdigit():
+        return max(32, int(env_raw))
+    m = (model or "").lower()
+    if "deepseek" in m or "r1" in m:
+        return max(32, int(os.getenv("RELSTATE_EVAL_MAX_TOKENS_DEEPSEEK", "1200")))
+    if "qwen" in m:
+        return max(32, int(os.getenv("RELSTATE_EVAL_MAX_TOKENS_QWEN", "900")))
+    return max(32, int(os.getenv("RELSTATE_EVAL_MAX_TOKENS_DEFAULT", "512")))
+
+
+# ---------------------------------------------------------------------------
 # API client
 # ---------------------------------------------------------------------------
 
@@ -424,13 +467,15 @@ def _normalize_api_base(api_base: str) -> str:
 
 def _call(client: OpenAI, model: str, messages: List[Dict[str, str]],
           retries: int, timeout: int, temperature: float,
-          max_tokens: Optional[int] = None) -> str:
+          max_tokens: int) -> str:
     t: Optional[int] = timeout if timeout > 0 else None
     create_kwargs: Dict[str, Any] = dict(
-        model=model, messages=messages, temperature=temperature, timeout=t,
+        model=model,
+        messages=messages,
+        temperature=temperature,
+        timeout=t,
+        max_tokens=max_tokens,
     )
-    if max_tokens is not None:
-        create_kwargs["max_tokens"] = max_tokens
     for attempt in range(1, retries + 1):
         try:
             resp = client.chat.completions.create(**create_kwargs)
@@ -490,7 +535,7 @@ def _process(
     model: str, api_key: str, api_base: str,
     retries: int, timeout: int, temperature: float,
     output_file: Path,
-    max_tokens: Optional[int] = None,
+    max_tokens: int,
 ) -> None:
     client = _get_client(api_key, api_base)
     raw = _call(client, model, task["messages"], retries, timeout, temperature, max_tokens)
@@ -599,8 +644,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--request-timeout", type=int, default=600)
     p.add_argument("--temperature", type=float, default=0.2)
     p.add_argument("--max-tokens", type=int, default=None,
-                   help="Cap total generated tokens per request (limits thinking length "
-                        "for reasoning models like DeepSeek-R1). Recommended: 512-1024.")
+                   help="Override max **completion** tokens. If omitted: env RELSTATE_EVAL_MAX_TOKENS, "
+                        "else tier defaults (DeepSeek/R1: RELSTATE_EVAL_MAX_TOKENS_DEEPSEEK or 1200, "
+                        "Qwen: RELSTATE_EVAL_MAX_TOKENS_QWEN or 900, else RELSTATE_EVAL_MAX_TOKENS_DEFAULT "
+                        "or 512). Increase if outputs truncate before `Choice:`.")
     return p.parse_args()
 
 
@@ -623,6 +670,7 @@ def main() -> None:
 
     tasks = _iter_tasks(records)
     pending = [t for t in tasks if t["task_id"] not in done]
+    max_tokens = resolve_max_tokens(args.max_tokens, args.model)
     print(json.dumps({
         "input_file": args.input_file,
         "output_file": str(out_path),
@@ -632,6 +680,7 @@ def main() -> None:
         "model": args.model,
         "api_base": api_base,
         "workers": args.max_workers,
+        "max_tokens": max_tokens,
     }, ensure_ascii=False), flush=True)
 
     start = time.time()
@@ -640,7 +689,7 @@ def main() -> None:
             ex.submit(
                 _process, t, args.model, args.api_key, api_base,
                 args.max_retries, args.request_timeout, args.temperature, out_path,
-                args.max_tokens,
+                max_tokens,
             ): t["task_id"] for t in pending
         }
         done_count = 0

@@ -2,16 +2,17 @@
 """
 Cross-model common wrong-answer analysis + lightweight reasoning text mining.
 
-Reads all `evaluation/outputs/*/*_predictions.jsonl`, groups by `task_id` and
-`dataset_split`, and finds items where every model (or k-of-n) answered wrong.
+Reads all `evaluation/outputs/*/*_predictions.jsonl` (skips `gpt-5.5/`, `temp/`),
+groups by `task_id` and `dataset_split`, and finds items where every model (or k-of-n) answered wrong.
 
 Reasoning source: the `raw_response` field. For the standard eval prompt format,
 the script extracts the segment between `Reasoning:` and `Choice:` when present;
-otherwise it uses the full `raw_response` (e.g. long CoT models).
+otherwise text before the final `Choice:` token (three-line Situation/Psychology/Choice_reason
+template); otherwise a prefix of the full `raw_response` (e.g. long CoT models).
 
 Outputs under `analysis/model_performance_error_analysis/`:
   - common_wrong_by_split.csv
-  - common_wrong_eval_A_universal.csv          (all models wrong on eval_A)
+  - common_wrong_eval_A_universal.csv          (all discovered models wrong on eval_A)
   - common_wrong_eval_A_reasoning_keywords.csv  (keyword counts on universal set)
   - common_wrong_small3_by_split.csv           (ollama llama×2 + qwen2-7b all wrong)
   - common_wrong_eval_A_small3_overlap.csv     (eval_A: 3-small vs 6-all; large-tier acc on small-fail tasks)
@@ -32,11 +33,14 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = ROOT / "evaluation" / "outputs"
 EXPORT_DIR = ROOT / "analysis" / "model_performance_error_analysis"
 
+# Experimental / scratch runs under evaluation/outputs (exclude from n-model stats).
+SKIP_OUTPUT_PARENTS = frozenset({"gpt-5.5", "temp"})
+
 # Local Llama + Qwen runs (small-parameter tier in this benchmark).
 SMALL_LLAMA_QWEN = frozenset(
     {"ollama-llama3-1-latest", "ollama-llama3-8b", "ollama-qwen2-7b"}
 )
-LARGE_TIER = frozenset({"gpt4", "DeepSeek-R1-671B", "Qwen"})
+LARGE_TIER = frozenset({"gpt4", "gpt-5.3-chat", "DeepSeek-V4-Flash", "Qwen"})
 
 
 def read_jsonl(path: Path) -> List[dict]:
@@ -52,14 +56,20 @@ def read_jsonl(path: Path) -> List[dict]:
 def extract_reasoning_snippet(raw: str) -> str:
     if not raw:
         return ""
+    text = raw.strip()
     m = re.search(
         r"Reasoning:\s*(.*?)(?=\n\s*Choice:|\nChoice:|\Z)",
-        raw,
+        text,
         flags=re.IGNORECASE | re.DOTALL,
     )
     if m:
         return m.group(1).strip()
-    return raw.strip()[:2000]
+    last_start: Optional[int] = None
+    for m2 in re.finditer(r"(?i)\bChoice\s*:\s*[A-E]\b", text):
+        last_start = m2.start()
+    if last_start is not None:
+        return text[:last_start].strip()
+    return text[:2000]
 
 
 REASONING_KEYWORDS: Tuple[Tuple[str, re.Pattern], ...] = (
@@ -90,6 +100,7 @@ def _task_all_wrong_for_subset(
 def main() -> None:
     EXPORT_DIR.mkdir(parents=True, exist_ok=True)
     prediction_files = sorted(OUTPUT_ROOT.glob("*/*_predictions.jsonl"))
+    prediction_files = [p for p in prediction_files if p.parent.name not in SKIP_OUTPUT_PARENTS]
     if not prediction_files:
         raise FileNotFoundError(f"No predictions under {OUTPUT_ROOT}")
 

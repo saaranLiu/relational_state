@@ -1,0 +1,79 @@
+=== Relational-state eval ===
+Start: Mon May 11 16:47:07 CST 2026
+Host: cpu3-20
+PWD: /hpc2hdd/home/jliu043/relational_state
+MODEL=gpt-5.3-chat
+API_BASE=https://gpt-api.hkust-gz.edu.cn/v1
+STRUCTURED_DIR=data/structured
+OUTPUT_ROOT=evaluation/outputs/gpt-5.3-chat
+SPLITS=eval_A eval_B placebo_test ood_social ood_career
+MAX_WORKERS=16 MAX_RETRIES=5 REQUEST_TIMEOUT=300 TEMPERATURE=0.8 MAX_TOKENS=<eval_runner defaults>
+
+---- split=eval_A ----
+input=data/structured/eval_A.json
+output=evaluation/outputs/gpt-5.3-chat/eval_A_predictions.jsonl
+{"input_file": "data/structured/eval_A.json", "output_file": "evaluation/outputs/gpt-5.3-chat/eval_A_predictions.jsonl", "total_tasks": 1512, "already_done": 0, "pending": 1512, "model": "gpt-5.3-chat", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16, "max_tokens": 512}
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.[warn attempt 1] empty choices list.[warn attempt 1] empty choices list.[warn attempt 1] empty choices list.
+
+
+
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.
+
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.
+[warn attempt 1] empty choices list.
+[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.
+
+[warn attempt 2] empty choices list.[warn attempt 2] empty choices list.
+
+[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.[warn attempt 2] empty choices list.[warn attempt 2] empty choices list.
+
+
+[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.
+[warn attempt 2] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.[warn attempt 3] empty choices list.[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+
+
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.
+[warn attempt 3] empty choices list.[warn attempt 3] empty choices list.
+
+[warn attempt 3] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.[warn attempt 4] empty choices list.
+
+[warn attempt 4] empty choices list.
+[warn attempt 4] empty choices list.

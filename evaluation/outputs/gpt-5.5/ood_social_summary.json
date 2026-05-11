@@ -1,0 +1,82 @@
+{
+  "overall": {
+    "total": 576,
+    "correct": 455,
+    "accuracy": 0.7899
+  },
+  "by_split": {
+    "ood_social": {
+      "total": 576,
+      "correct": 455,
+      "accuracy": 0.7899
+    }
+  },
+  "slices": {
+    "match_distance_bucket": {
+      "close": {
+        "total": 216,
+        "correct": 175,
+        "accuracy": 0.8102
+      },
+      "far": {
+        "total": 144,
+        "correct": 132,
+        "accuracy": 0.9167
+      },
+      "mid": {
+        "total": 216,
+        "correct": 148,
+        "accuracy": 0.6852
+      }
+    },
+    "domain_key": {
+      "domain4_social_network_formation": {
+        "total": 576,
+        "correct": 455,
+        "accuracy": 0.7899
+      }
+    },
+    "scene_id": {
+      "d4_runclub_01": {
+        "total": 72,
+        "correct": 56,
+        "accuracy": 0.7778
+      },
+      "d4_parent_group_01": {
+        "total": 72,
+        "correct": 54,
+        "accuracy": 0.75
+      },
+      "d4_grad_cohort_01": {
+        "total": 72,
+        "correct": 56,
+        "accuracy": 0.7778
+      },
+      "d4_hobby_01": {
+        "total": 72,
+        "correct": 60,
+        "accuracy": 0.8333
+      },
+      "d4_church_01": {
+        "total": 72,
+        "correct": 55,
+        "accuracy": 0.7639
+      },
+      "d4_new_city_01": {
+        "total": 72,
+        "correct": 57,
+        "accuracy": 0.7917
+      },
+      "d4_founder_01": {
+        "total": 72,
+        "correct": 56,
+        "accuracy": 0.7778
+      },
+      "d4_diaspora_01": {
+        "total": 72,
+        "correct": 61,
+        "accuracy": 0.8472
+      }
+    }
+  }
+}

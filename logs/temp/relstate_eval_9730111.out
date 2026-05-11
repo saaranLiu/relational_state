@@ -1,0 +1,721 @@
+=== Relational-state eval ===
+Start: Mon 11 May 2026 11:50:45 AM CST
+Host: cpu3-20
+PWD: /hpc2hdd/home/jliu043/relational_state
+MODEL=Qwen
+API_BASE=https://gpt-api.hkust-gz.edu.cn/v1
+STRUCTURED_DIR=data/structured
+OUTPUT_ROOT=evaluation/outputs/Qwen
+SPLITS=eval_A eval_B placebo_test ood_social ood_career
+MAX_WORKERS=16 MAX_RETRIES=5 REQUEST_TIMEOUT=300 TEMPERATURE=0.8 MAX_TOKENS=<eval_runner defaults>
+
+---- split=eval_A ----
+input=data/structured/eval_A.json
+output=evaluation/outputs/Qwen/eval_A_predictions.jsonl
+{"input_file": "data/structured/eval_A.json", "output_file": "evaluation/outputs/Qwen/eval_A_predictions.jsonl", "total_tasks": 1512, "already_done": 1512, "pending": 0, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16, "max_tokens": 900}
+{
+  "overall": {
+    "total": 1512,
+    "correct": 512,
+    "accuracy": 0.3386
+  },
+  "by_split": {
+    "eval_A": {
+      "total": 1512,
+      "correct": 512,
+      "accuracy": 0.3386
+    }
+  },
+  "slices": {
+    "alpha_bucket": {
+      "high": {
+        "total": 504,
+        "correct": 141,
+        "accuracy": 0.2798
+      },
+      "mid": {
+        "total": 504,
+        "correct": 166,
+        "accuracy": 0.3294
+      },
+      "low": {
+        "total": 504,
+        "correct": 205,
+        "accuracy": 0.4067
+      }
+    },
+    "cell_id": {
+      "alpha_high__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      },
+      "alpha_mid__disp_high__skew_high": {
+        "total": 56,
+        "correct": 17,
+        "accuracy": 0.3036
+      },
+      "alpha_low__disp_low__skew_low": {
+        "total": 56,
+        "correct": 36,
+        "accuracy": 0.6429
+      },
+      "alpha_mid__disp_low__skew_low": {
+        "total": 56,
+        "correct": 22,
+        "accuracy": 0.3929
+      },
+      "alpha_mid__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 22,
+        "accuracy": 0.3929
+      },
+      "alpha_high__disp_high__skew_high": {
+        "total": 56,
+        "correct": 17,
+        "accuracy": 0.3036
+      },
+      "alpha_high__disp_high__skew_low": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      },
+      "alpha_mid__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 28,
+        "accuracy": 0.5
+      },
+      "alpha_low__disp_high__skew_low": {
+        "total": 56,
+        "correct": 27,
+        "accuracy": 0.4821
+      },
+      "alpha_mid__disp_high__skew_low": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_low__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 24,
+        "accuracy": 0.4286
+      },
+      "alpha_high__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_low__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 19,
+        "accuracy": 0.3393
+      },
+      "alpha_low__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 33,
+        "accuracy": 0.5893
+      },
+      "alpha_low__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 20,
+        "accuracy": 0.3571
+      },
+      "alpha_high__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 12,
+        "accuracy": 0.2143
+      },
+      "alpha_low__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_low__disp_high__skew_high": {
+        "total": 56,
+        "correct": 21,
+        "accuracy": 0.375
+      },
+      "alpha_high__disp_low__skew_high": {
+        "total": 56,
+        "correct": 18,
+        "accuracy": 0.3214
+      },
+      "alpha_low__disp_low__skew_high": {
+        "total": 56,
+        "correct": 10,
+        "accuracy": 0.1786
+      },
+      "alpha_mid__disp_mid__skew_low": {
+        "total": 56,
+        "correct": 13,
+        "accuracy": 0.2321
+      },
+      "alpha_high__disp_mid__skew_high": {
+        "total": 56,
+        "correct": 15,
+        "accuracy": 0.2679
+      },
+      "alpha_mid__disp_low__skew_high": {
+        "total": 56,
+        "correct": 17,
+        "accuracy": 0.3036
+      },
+      "alpha_mid__disp_high__skew_mid": {
+        "total": 56,
+        "correct": 13,
+        "accuracy": 0.2321
+      },
+      "alpha_mid__disp_low__skew_mid": {
+        "total": 56,
+        "correct": 19,
+        "accuracy": 0.3393
+      },
+      "alpha_high__disp_mid__skew_mid": {
+        "total": 56,
+        "correct": 22,
+        "accuracy": 0.3929
+      },
+      "alpha_high__disp_low__skew_low": {
+        "total": 56,
+        "correct": 14,
+        "accuracy": 0.25
+      }
+    },
+    "is_held_out_cell": {
+      "False": {
+        "total": 1176,
+        "correct": 405,
+        "accuracy": 0.3444
+      },
+      "True": {
+        "total": 336,
+        "correct": 107,
+        "accuracy": 0.3185
+      }
+    },
+    "dispersion_bucket": {
+      "low": {
+        "total": 504,
+        "correct": 170,
+        "accuracy": 0.3373
+      },
+      "high": {
+        "total": 504,
+        "correct": 151,
+        "accuracy": 0.2996
+      },
+      "mid": {
+        "total": 504,
+        "correct": 191,
+        "accuracy": 0.379
+      }
+    },
+    "skew_bucket": {
+      "mid": {
+        "total": 504,
+        "correct": 162,
+        "accuracy": 0.3214
+      },
+      "high": {
+        "total": 504,
+        "correct": 161,
+        "accuracy": 0.3194
+      },
+      "low": {
+        "total": 504,
+        "correct": 189,
+        "accuracy": 0.375
+      }
+    },
+    "domain_key": {
+      "domain1_positional_consumption": {
+        "total": 864,
+        "correct": 300,
+        "accuracy": 0.3472
+      },
+      "domain3_effort_and_human_capital": {
+        "total": 648,
+        "correct": 212,
+        "accuracy": 0.3272
+      }
+    },
+    "scene_id": {
+      "d1_gift_03": {
+        "total": 108,
+        "correct": 45,
+        "accuracy": 0.4167
+      },
+      "d1_travel_02": {
+        "total": 108,
+        "correct": 37,
+        "accuracy": 0.3426
+      },
+      "d3_phd_03": {
+        "total": 108,
+        "correct": 34,
+        "accuracy": 0.3148
+      },
+      "d3_fellow_02": {
+        "total": 108,
+        "correct": 37,
+        "accuracy": 0.3426
+      },
+      "d3_recruit_02": {
+        "total": 108,
+        "correct": 37,
+        "accuracy": 0.3426
+      },
+      "d1_dining_03": {
+        "total": 108,
+        "correct": 33,
+        "accuracy": 0.3056
+      },
+      "d1_home_02": {
+        "total": 108,
+        "correct": 41,
+        "accuracy": 0.3796
+      },
+      "d3_leet_02": {
+        "total": 108,
+        "correct": 39,
+        "accuracy": 0.3611
+      },
+      "d1_cele_02": {
+        "total": 108,
+        "correct": 33,
+        "accuracy": 0.3056
+      },
+      "d1_wheels_03": {
+        "total": 108,
+        "correct": 33,
+        "accuracy": 0.3056
+      },
+      "d3_lang_02": {
+        "total": 108,
+        "correct": 34,
+        "accuracy": 0.3148
+      },
+      "d1_kids_02": {
+        "total": 108,
+        "correct": 42,
+        "accuracy": 0.3889
+      },
+      "d1_wearable_03": {
+        "total": 108,
+        "correct": 36,
+        "accuracy": 0.3333
+      },
+      "d3_testprep_03": {
+        "total": 108,
+        "correct": 31,
+        "accuracy": 0.287
+      }
+    },
+    "gold_rule_id": {
+      "A_peer_weighted": {
+        "total": 1512,
+        "correct": 512,
+        "accuracy": 0.3386
+      }
+    }
+  },
+  "confusion_gold_to_parsed_rule": {
+    "A_peer_weighted": {
+      "E_closest_mimicry": 146,
+      "A_peer_weighted": 512,
+      "H_equal_mix": 155,
+      "C_uniform_avg": 205,
+      "D_pure_private": 103,
+      "F_median_anchor": 174,
+      "B_top_anchor": 176,
+      "G_counter_conformist": 34
+    }
+  }
+}
+
+---- split=eval_B ----
+input=data/structured/eval_B.json
+output=evaluation/outputs/Qwen/eval_B_predictions.jsonl
+{"input_file": "data/structured/eval_B.json", "output_file": "evaluation/outputs/Qwen/eval_B_predictions.jsonl", "total_tasks": 280, "already_done": 280, "pending": 0, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16, "max_tokens": 900}
+{
+  "overall": {
+    "total": 280,
+    "correct": 196,
+    "accuracy": 0.7
+  },
+  "by_split": {
+    "eval_B": {
+      "total": 280,
+      "correct": 196,
+      "accuracy": 0.7
+    }
+  },
+  "slices": {
+    "perturbation": {
+      "ref_sum_up": {
+        "total": 56,
+        "correct": 52,
+        "accuracy": 0.9286
+      },
+      "alpha_i_up": {
+        "total": 56,
+        "correct": 32,
+        "accuracy": 0.5714
+      },
+      "peer_action_up": {
+        "total": 56,
+        "correct": 51,
+        "accuracy": 0.9107
+      },
+      "F_up": {
+        "total": 56,
+        "correct": 30,
+        "accuracy": 0.5357
+      },
+      "top_weight_up": {
+        "total": 56,
+        "correct": 31,
+        "accuracy": 0.5536
+      }
+    },
+    "domain_key": {
+      "domain3_effort_and_human_capital": {
+        "total": 120,
+        "correct": 80,
+        "accuracy": 0.6667
+      },
+      "domain1_positional_consumption": {
+        "total": 160,
+        "correct": 116,
+        "accuracy": 0.725
+      }
+    },
+    "scene_id": {
+      "d3_testprep_03": {
+        "total": 20,
+        "correct": 12,
+        "accuracy": 0.6
+      },
+      "d3_recruit_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_wheels_03": {
+        "total": 20,
+        "correct": 15,
+        "accuracy": 0.75
+      },
+      "d3_leet_02": {
+        "total": 20,
+        "correct": 16,
+        "accuracy": 0.8
+      },
+      "d1_travel_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d3_phd_03": {
+        "total": 20,
+        "correct": 12,
+        "accuracy": 0.6
+      },
+      "d1_gift_03": {
+        "total": 20,
+        "correct": 14,
+        "accuracy": 0.7
+      },
+      "d1_home_02": {
+        "total": 20,
+        "correct": 18,
+        "accuracy": 0.9
+      },
+      "d3_lang_02": {
+        "total": 20,
+        "correct": 14,
+        "accuracy": 0.7
+      },
+      "d1_wearable_03": {
+        "total": 20,
+        "correct": 15,
+        "accuracy": 0.75
+      },
+      "d1_kids_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_dining_03": {
+        "total": 20,
+        "correct": 15,
+        "accuracy": 0.75
+      },
+      "d3_fellow_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      },
+      "d1_cele_02": {
+        "total": 20,
+        "correct": 13,
+        "accuracy": 0.65
+      }
+    }
+  }
+}
+
+---- split=placebo_test ----
+input=data/structured/placebo_test.json
+output=evaluation/outputs/Qwen/placebo_test_predictions.jsonl
+{"input_file": "data/structured/placebo_test.json", "output_file": "evaluation/outputs/Qwen/placebo_test_predictions.jsonl", "total_tasks": 504, "already_done": 504, "pending": 0, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16, "max_tokens": 900}
+{
+  "overall": {
+    "total": 504,
+    "correct": 301,
+    "accuracy": 0.5972
+  },
+  "by_split": {
+    "placebo_test": {
+      "total": 504,
+      "correct": 301,
+      "accuracy": 0.5972
+    }
+  },
+  "slices": {
+    "domain_key": {
+      "domain2_non_positional_investment": {
+        "total": 504,
+        "correct": 301,
+        "accuracy": 0.5972
+      }
+    },
+    "scene_id": {
+      "d2_health_03": {
+        "total": 84,
+        "correct": 61,
+        "accuracy": 0.7262
+      },
+      "d2_admin_02": {
+        "total": 84,
+        "correct": 44,
+        "accuracy": 0.5238
+      },
+      "d2_save_02": {
+        "total": 84,
+        "correct": 51,
+        "accuracy": 0.6071
+      },
+      "d2_health_02": {
+        "total": 84,
+        "correct": 45,
+        "accuracy": 0.5357
+      },
+      "d2_hobby_02": {
+        "total": 84,
+        "correct": 46,
+        "accuracy": 0.5476
+      },
+      "d2_home_02": {
+        "total": 84,
+        "correct": 54,
+        "accuracy": 0.6429
+      }
+    },
+    "gold_rule_id": {
+      "D_pure_private": {
+        "total": 504,
+        "correct": 301,
+        "accuracy": 0.5972
+      }
+    }
+  },
+  "confusion_gold_to_parsed_rule": {
+    "D_pure_private": {
+      "D_pure_private": 301,
+      "H_equal_mix": 26,
+      "A_peer_weighted": 27,
+      "G_counter_conformist": 9,
+      "F_median_anchor": 53,
+      "C_uniform_avg": 32,
+      "B_top_anchor": 39,
+      "E_closest_mimicry": 14
+    }
+  }
+}
+
+---- split=ood_social ----
+input=data/structured/ood_social.json
+output=evaluation/outputs/Qwen/ood_social_predictions.jsonl
+{"input_file": "data/structured/ood_social.json", "output_file": "evaluation/outputs/Qwen/ood_social_predictions.jsonl", "total_tasks": 576, "already_done": 576, "pending": 0, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16, "max_tokens": 900}
+{
+  "overall": {
+    "total": 576,
+    "correct": 380,
+    "accuracy": 0.6597
+  },
+  "by_split": {
+    "ood_social": {
+      "total": 576,
+      "correct": 380,
+      "accuracy": 0.6597
+    }
+  },
+  "slices": {
+    "match_distance_bucket": {
+      "far": {
+        "total": 144,
+        "correct": 104,
+        "accuracy": 0.7222
+      },
+      "close": {
+        "total": 216,
+        "correct": 146,
+        "accuracy": 0.6759
+      },
+      "mid": {
+        "total": 216,
+        "correct": 130,
+        "accuracy": 0.6019
+      }
+    },
+    "domain_key": {
+      "domain4_social_network_formation": {
+        "total": 576,
+        "correct": 380,
+        "accuracy": 0.6597
+      }
+    },
+    "scene_id": {
+      "d4_parent_group_01": {
+        "total": 72,
+        "correct": 49,
+        "accuracy": 0.6806
+      },
+      "d4_hobby_01": {
+        "total": 72,
+        "correct": 50,
+        "accuracy": 0.6944
+      },
+      "d4_church_01": {
+        "total": 72,
+        "correct": 52,
+        "accuracy": 0.7222
+      },
+      "d4_grad_cohort_01": {
+        "total": 72,
+        "correct": 47,
+        "accuracy": 0.6528
+      },
+      "d4_founder_01": {
+        "total": 72,
+        "correct": 39,
+        "accuracy": 0.5417
+      },
+      "d4_runclub_01": {
+        "total": 72,
+        "correct": 44,
+        "accuracy": 0.6111
+      },
+      "d4_new_city_01": {
+        "total": 72,
+        "correct": 46,
+        "accuracy": 0.6389
+      },
+      "d4_diaspora_01": {
+        "total": 72,
+        "correct": 53,
+        "accuracy": 0.7361
+      }
+    }
+  }
+}
+
+---- split=ood_career ----
+input=data/structured/ood_career.json
+output=evaluation/outputs/Qwen/ood_career_predictions.jsonl
+{"input_file": "data/structured/ood_career.json", "output_file": "evaluation/outputs/Qwen/ood_career_predictions.jsonl", "total_tasks": 576, "already_done": 576, "pending": 0, "model": "Qwen", "api_base": "https://gpt-api.hkust-gz.edu.cn/v1", "workers": 16, "max_tokens": 900}
+{
+  "overall": {
+    "total": 576,
+    "correct": 285,
+    "accuracy": 0.4948
+  },
+  "by_split": {
+    "ood_career": {
+      "total": 576,
+      "correct": 285,
+      "accuracy": 0.4948
+    }
+  },
+  "slices": {
+    "alpha_2i_bucket": {
+      "mid": {
+        "total": 192,
+        "correct": 95,
+        "accuracy": 0.4948
+      },
+      "low": {
+        "total": 192,
+        "correct": 91,
+        "accuracy": 0.474
+      },
+      "high": {
+        "total": 192,
+        "correct": 99,
+        "accuracy": 0.5156
+      }
+    },
+    "domain_key": {
+      "domain5_career_sorting": {
+        "total": 576,
+        "correct": 285,
+        "accuracy": 0.4948
+      }
+    },
+    "scene_id": {
+      "d5_tech_01": {
+        "total": 72,
+        "correct": 36,
+        "accuracy": 0.5
+      },
+      "d5_edtech_01": {
+        "total": 72,
+        "correct": 38,
+        "accuracy": 0.5278
+      },
+      "d5_medicine_01": {
+        "total": 72,
+        "correct": 35,
+        "accuracy": 0.4861
+      },
+      "d5_design_01": {
+        "total": 72,
+        "correct": 36,
+        "accuracy": 0.5
+      },
+      "d5_phd_01": {
+        "total": 72,
+        "correct": 36,
+        "accuracy": 0.5
+      },
+      "d5_consulting_01": {
+        "total": 72,
+        "correct": 34,
+        "accuracy": 0.4722
+      },
+      "d5_finance_01": {
+        "total": 72,
+        "correct": 35,
+        "accuracy": 0.4861
+      },
+      "d5_law_01": {
+        "total": 72,
+        "correct": 35,
+        "accuracy": 0.4861
+      }
+    }
+  }
+}
+
+End: Mon 11 May 2026 11:50:53 AM CST

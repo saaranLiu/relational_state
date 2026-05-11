@@ -1,71 +1,71 @@
 {
   "overall": {
     "total": 576,
-    "correct": 285,
-    "accuracy": 0.4948
+    "correct": 290,
+    "accuracy": 0.5035
   },
   "by_split": {
     "ood_career": {
       "total": 576,
-      "correct": 285,
-      "accuracy": 0.4948
+      "correct": 290,
+      "accuracy": 0.5035
     }
   },
   "slices": {
     "alpha_2i_bucket": {
       "mid": {
         "total": 192,
-        "correct": 95,
-        "accuracy": 0.4948
+        "correct": 99,
+        "accuracy": 0.5156
       },
       "low": {
         "total": 192,
-        "correct": 91,
-        "accuracy": 0.474
+        "correct": 94,
+        "accuracy": 0.4896
       },
       "high": {
         "total": 192,
-        "correct": 99,
-        "accuracy": 0.5156
+        "correct": 97,
+        "accuracy": 0.5052
       }
     },
     "domain_key": {
       "domain5_career_sorting": {
         "total": 576,
-        "correct": 285,
-        "accuracy": 0.4948
+        "correct": 290,
+        "accuracy": 0.5035
       }
     },
     "scene_id": {
-      "d5_tech_01": {
-        "total": 72,
-        "correct": 36,
-        "accuracy": 0.5
-      },
-      "d5_edtech_01": {
+      "d5_consulting_01": {
         "total": 72,
         "correct": 38,
         "accuracy": 0.5278
       },
       "d5_medicine_01": {
         "total": 72,
-        "correct": 35,
-        "accuracy": 0.4861
+        "correct": 36,
+        "accuracy": 0.5
       },
       "d5_design_01": {
         "total": 72,
-        "correct": 36,
-        "accuracy": 0.5
+        "correct": 34,
+        "accuracy": 0.4722
       },
-      "d5_phd_01": {
-        "total": 72,
-        "correct": 36,
-        "accuracy": 0.5
-      },
-      "d5_consulting_01": {
+      "d5_tech_01": {
         "total": 72,
         "correct": 34,
         "accuracy": 0.4722
+      },
+      "d5_edtech_01": {
+        "total": 72,
+        "correct": 41,
+        "accuracy": 0.5694
+      },
+      "d5_phd_01": {
+        "total": 72,
+        "correct": 37,
+        "accuracy": 0.5139
       },
       "d5_finance_01": {
         "total": 72,

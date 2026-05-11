@@ -1,74 +1,74 @@
 {
   "overall": {
     "total": 504,
-    "correct": 301,
-    "accuracy": 0.5972
+    "correct": 339,
+    "accuracy": 0.6726
   },
   "by_split": {
     "placebo_test": {
       "total": 504,
-      "correct": 301,
-      "accuracy": 0.5972
+      "correct": 339,
+      "accuracy": 0.6726
     }
   },
   "slices": {
     "domain_key": {
       "domain2_non_positional_investment": {
         "total": 504,
-        "correct": 301,
-        "accuracy": 0.5972
+        "correct": 339,
+        "accuracy": 0.6726
       }
     },
     "scene_id": {
       "d2_health_03": {
         "total": 84,
-        "correct": 61,
-        "accuracy": 0.7262
+        "correct": 65,
+        "accuracy": 0.7738
       },
       "d2_admin_02": {
-        "total": 84,
-        "correct": 44,
-        "accuracy": 0.5238
-      },
-      "d2_save_02": {
-        "total": 84,
-        "correct": 51,
-        "accuracy": 0.6071
-      },
-      "d2_health_02": {
-        "total": 84,
-        "correct": 45,
-        "accuracy": 0.5357
-      },
-      "d2_hobby_02": {
         "total": 84,
         "correct": 46,
         "accuracy": 0.5476
       },
+      "d2_health_02": {
+        "total": 84,
+        "correct": 59,
+        "accuracy": 0.7024
+      },
+      "d2_save_02": {
+        "total": 84,
+        "correct": 62,
+        "accuracy": 0.7381
+      },
       "d2_home_02": {
         "total": 84,
-        "correct": 54,
-        "accuracy": 0.6429
+        "correct": 57,
+        "accuracy": 0.6786
+      },
+      "d2_hobby_02": {
+        "total": 84,
+        "correct": 50,
+        "accuracy": 0.5952
       }
     },
     "gold_rule_id": {
       "D_pure_private": {
         "total": 504,
-        "correct": 301,
-        "accuracy": 0.5972
+        "correct": 339,
+        "accuracy": 0.6726
       }
     }
   },
   "confusion_gold_to_parsed_rule": {
     "D_pure_private": {
-      "D_pure_private": 301,
-      "H_equal_mix": 26,
-      "A_peer_weighted": 27,
-      "G_counter_conformist": 9,
-      "F_median_anchor": 53,
-      "C_uniform_avg": 32,
-      "B_top_anchor": 39,
-      "E_closest_mimicry": 14
+      "D_pure_private": 339,
+      "A_peer_weighted": 39,
+      "C_uniform_avg": 27,
+      "E_closest_mimicry": 23,
+      "H_equal_mix": 18,
+      "B_top_anchor": 25,
+      "G_counter_conformist": 5,
+      "F_median_anchor": 25
     }
   }
 }

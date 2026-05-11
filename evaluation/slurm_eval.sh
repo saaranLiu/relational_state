@@ -19,12 +19,14 @@
 # Default: all of them.
 #
 # MODEL_PRESET picks the model id and gateway:
-#   HKUST-GZ (https://gpt-api.hkust-gz.edu.cn/v1): DeepSeek-V4-Flash / V4-Pro,
-#       Qwen, gpt-4-turbo, gpt-4 (one OpenAI-compatible campus gateway).
+#   HKUST-GZ OpenAI-compatible bases (same Bearer key style; pick host per service doc):
+#       https://gpt-api.hkust-gz.edu.cn/v1 — DeepSeek / Qwen / gpt-4 等（默认 HKUST_OPENAI_API_BASE）
+#       https://aigc-api.hkust-gz.edu.cn/v1 — 官方「GPT API」示例与 gpt-5.3-chat（默认 HKUST_AIGC_API_BASE）
 #   GWANG (https://api.gwang.site/v1): gpt-5.5 — SDK posts to .../v1/chat/completions.
 #   local_vllm: http://127.0.0.1:8000/v1
 #
-#   HKUST_OPENAI_API_BASE  HKUST default base URL
+#   HKUST_OPENAI_API_BASE  gpt-api host (default below)
+#   HKUST_AIGC_API_BASE    aigc-api host; used by default for gpt53_chat preset
 #   GWANG_OPENAI_API_BASE  GWANG default base URL (must end in /v1, not .../chat/completions)
 #   GWANG_API_KEY, API_KEY, OPENAI_API_KEY, DEEPSEEK_API_KEY, AIGC_API_KEY
 #       campus: first non-empty of API_KEY / OPENAI / DEEPSEEK / AIGC.
@@ -32,6 +34,10 @@
 #   API_BASE               overrides the default base for the chosen preset
 #   MODEL                  overrides the default model id per preset
 #   MAX_RETRIES, REQUEST_TIMEOUT  passed through to eval_runner
+#   MAX_TOKENS  if set, passed as --max-tokens (overrides all). If unset, eval_runner
+#       uses RELSTATE_EVAL_MAX_TOKENS or per-model defaults (see eval_runner --help).
+#   RELSTATE_EVAL_MAX_TOKENS, RELSTATE_EVAL_MAX_TOKENS_DEEPSEEK, RELSTATE_EVAL_MAX_TOKENS_QWEN,
+#       RELSTATE_EVAL_MAX_TOKENS_DEFAULT  optional env caps when MAX_TOKENS is not set.
 #   RELSTATE_EVAL_TEMPERATURE  LLM sampling temperature (default 0.8).
 #       Do not rely on generic TEMPERATURE: many login envs export TEMPERATURE=0.2,
 #       which would override any script default if we used ${TEMPERATURE:-...}.
@@ -68,7 +74,6 @@ fi
 MAX_RETRIES="${MAX_RETRIES:-5}"
 REQUEST_TIMEOUT="${REQUEST_TIMEOUT:-300}"
 RELSTATE_EVAL_TEMPERATURE="${RELSTATE_EVAL_TEMPERATURE:-0.8}"
-MAX_TOKENS="${MAX_TOKENS:-1024}"
 
 cd /hpc2hdd/home/jliu043/relational_state
 
@@ -83,6 +88,7 @@ STRUCTURED_DIR="${STRUCTURED_DIR:-data/structured}"
 SPLITS="${SPLITS:-eval_A eval_B placebo_test ood_social ood_career}"
 
 HKUST_OPENAI_API_BASE="${HKUST_OPENAI_API_BASE:-https://gpt-api.hkust-gz.edu.cn/v1}"
+HKUST_AIGC_API_BASE="${HKUST_AIGC_API_BASE:-https://aigc-api.hkust-gz.edu.cn/v1}"
 # OpenAI Python client uses base .../v1 and appends /chat/completions (same as POST https://api.gwang.site/v1/chat/completions).
 GWANG_OPENAI_API_BASE="${GWANG_OPENAI_API_BASE:-https://api.gwang.site/v1}"
 
@@ -102,6 +108,9 @@ case "${MODEL_PRESET}" in
   hkust_gpt4|gpt4|gpt-4)
     MODEL="${MODEL:-gpt-4}"
     ;;
+  hkust_gpt53_chat|gpt53_chat|gpt_5_3_chat)
+    MODEL="${MODEL:-gpt-5.3-chat}"
+    ;;
   gwang_gpt55|gpt55)
     MODEL="${MODEL:-gpt-5.5}"
     ;;
@@ -110,7 +119,7 @@ case "${MODEL_PRESET}" in
     ;;
   *)
     echo "Unsupported MODEL_PRESET: ${MODEL_PRESET}" >&2
-    echo "Use one of: ds671b, deepseek_v4_flash, deepseek_v4_pro, qwen, gpt4_turbo, gpt4, gwang_gpt55, local_vllm" >&2
+    echo "Use one of: ds671b, deepseek_v4_flash, deepseek_v4_pro, qwen, gpt4_turbo, gpt4, gpt53_chat, gwang_gpt55, local_vllm" >&2
     exit 1
     ;;
 esac
@@ -121,6 +130,10 @@ if [[ "${MODEL_PRESET}" == "local_vllm" ]]; then
 elif [[ "${MODEL_PRESET}" == "gwang_gpt55" || "${MODEL_PRESET}" == "gpt55" ]]; then
   API_BASE="${API_BASE:-${GWANG_OPENAI_API_BASE}}"
   API_KEY="${API_KEY:-${GWANG_API_KEY:-${OPENAI_API_KEY:-}}}"
+elif [[ "${MODEL_PRESET}" == "hkust_gpt53_chat" || "${MODEL_PRESET}" == "gpt53_chat" || "${MODEL_PRESET}" == "gpt_5_3_chat" ]]; then
+  # Campus「GPT API」文档示例使用 aigc-api，与 gpt-api 并存；gpt-5.3-chat 默认走 aigc-api。
+  API_BASE="${API_BASE:-${HKUST_AIGC_API_BASE}}"
+  API_KEY="${API_KEY:-${OPENAI_API_KEY:-${DEEPSEEK_API_KEY:-${AIGC_API_KEY:-}}}}"
 else
   API_BASE="${API_BASE:-${HKUST_OPENAI_API_BASE}}"
   API_KEY="${API_KEY:-${OPENAI_API_KEY:-${DEEPSEEK_API_KEY:-${AIGC_API_KEY:-}}}}"
@@ -139,6 +152,7 @@ if [[ -z "${MODEL_SUBDIR}" ]]; then
     hkust_qwen|qwen)          MODEL_SUBDIR="Qwen" ;;
     hkust_gpt4_turbo|gpt4_turbo) MODEL_SUBDIR="gpt-4-turbo" ;;
     hkust_gpt4|gpt4|gpt-4)      MODEL_SUBDIR="gpt-4" ;;
+    hkust_gpt53_chat|gpt53_chat|gpt_5_3_chat) MODEL_SUBDIR="gpt-5.3-chat" ;;
     gwang_gpt55|gpt55)        MODEL_SUBDIR="gpt-5.5" ;;
     local_vllm)               MODEL_SUBDIR="local-vllm" ;;
     *)                         MODEL_SUBDIR="model" ;;
@@ -155,7 +169,7 @@ echo "API_BASE=${API_BASE}"
 echo "STRUCTURED_DIR=${STRUCTURED_DIR}"
 echo "OUTPUT_ROOT=${OUTPUT_ROOT}"
 echo "SPLITS=${SPLITS}"
-echo "MAX_WORKERS=${MAX_WORKERS} MAX_RETRIES=${MAX_RETRIES} REQUEST_TIMEOUT=${REQUEST_TIMEOUT} TEMPERATURE=${RELSTATE_EVAL_TEMPERATURE} MAX_TOKENS=${MAX_TOKENS}"
+echo "MAX_WORKERS=${MAX_WORKERS} MAX_RETRIES=${MAX_RETRIES} REQUEST_TIMEOUT=${REQUEST_TIMEOUT} TEMPERATURE=${RELSTATE_EVAL_TEMPERATURE} MAX_TOKENS=${MAX_TOKENS:-<eval_runner defaults>}"
 
 for SPLIT in ${SPLITS}; do
   INPUT_FILE="${STRUCTURED_DIR}/${SPLIT}.json"
@@ -172,6 +186,11 @@ for SPLIT in ${SPLITS}; do
   echo "input=${INPUT_FILE}"
   echo "output=${OUTPUT_FILE}"
 
+  EXTRA_MAX_TOKENS=()
+  if [[ -n "${MAX_TOKENS:-}" ]]; then
+    EXTRA_MAX_TOKENS=(--max-tokens "${MAX_TOKENS}")
+  fi
+
   python -u -m evaluation.eval_runner \
     --input-file "${INPUT_FILE}" \
     --output-file "${OUTPUT_FILE}" \
@@ -183,7 +202,7 @@ for SPLIT in ${SPLITS}; do
     --max-retries "${MAX_RETRIES}" \
     --request-timeout "${REQUEST_TIMEOUT}" \
     --temperature "${RELSTATE_EVAL_TEMPERATURE}" \
-    --max-tokens "${MAX_TOKENS}"
+    "${EXTRA_MAX_TOKENS[@]}"
 done
 
 echo ""
